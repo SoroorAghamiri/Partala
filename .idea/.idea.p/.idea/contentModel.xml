@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\alish\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\alish\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_p.-550616493.00" t="ExcludeRecursive" />
+    <e p="C:\Users\alish\Pictures\p" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Script" t="Include">
+          <e p="Colider_GET.cs" t="Include" />
+          <e p="CollideDE.cs" t="Include" />
+          <e p="Drag.cs" t="Include" />
+          <e p="Fuckali.cs" t="Include" />
+          <e p="GameManger.cs" t="Include" />
+          <e p="GameSys.cs" t="Include" />
+          <e p="HintScript.cs" t="Include" />
+          <e p="LeveManger.cs" t="Include" />
+          <e p="PageSwiper.cs" t="Include" />
+          <e p="Shape_Fixer.cs" t="Include" />
+          <e p="TouchRotate.cs" t="Include" />
+          <e p="WinChecker.cs" t="Include" />
+          <e p="WinChecker1Object.cs" t="Include" />
+          <e p="WinChecker2Objects.cs" t="Include" />
+          <e p="WinCheckerMoreThan2Objects.cs" t="Include" />
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="p.sln" t="IncludeFlat" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

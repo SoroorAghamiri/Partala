@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Amir\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Amir\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_PapuzzelV.03.-92196075.00" t="ExcludeRecursive" />
+    <e p="D:\Games\PapuzzelV.03" t="IncludeRecursive">
+      <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Plugins" t="Include">
+          <e p="InputTouches" t="Include">
+            <e p="BasicDetector.cs" t="Include" />
+            <e p="DragDetector.cs" t="Include" />
+            <e p="DualFingerDetector.cs" t="Include" />
+            <e p="GameMessage.cs" t="Include" />
+            <e p="Gesture.cs" t="Include" />
+            <e p="PublicClass.cs" t="Include" />
+            <e p="SwipeDetector.cs" t="Include" />
+            <e p="TapDetector.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Script" t="Include">
+          <e p="Colider_GET.cs" t="Include" />
+          <e p="CollideDE.cs" t="Include" />
+          <e p="Drag.cs" t="Include" />
+          <e p="GameManger.cs" t="Include" />
+          <e p="GameSys.cs" t="Include" />
+          <e p="LeveManger.cs" t="Include" />
+          <e p="Shape_Fixer.cs" t="Include" />
+          <e p="TouchRotate.cs" t="Include" />
+          <e p="WinChecker.cs" t="Include" />
+          <e p="WinChecker1Object.cs" t="Include" />
+          <e p="WinChecker2Objects.cs" t="Include" />
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="PapuzzelV.03.sln" t="IncludeFlat" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
