@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class LeveManger : MonoBehaviour
 {
+    
     [SerializeField] private int episode;
     [SerializeField] private Button[] levelButtons;
 
@@ -18,6 +19,10 @@ public class LeveManger : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        if(DataManager.Instance.buildIndexOfLevelSelectors.Contains(SceneManager.GetActiveScene().buildIndex)==false)
+        {
+            DataManager.Instance.buildIndexOfLevelSelectors.Add(SceneManager.GetActiveScene().buildIndex);
+        }
         audioSource = this.GetComponent<AudioSource>();
 
         for (int i = 0; i < levelButtons.Length; i++)
@@ -25,13 +30,13 @@ public class LeveManger : MonoBehaviour
             levelButtons[i].interactable = false;
 
         }
-        UnlockLevelsTillPlayerProgesss();//unlock the level 
+        UnlockLevelsTillPlayerProgesss();
 
 
     }
 
 
-    //Check for New Unlocked Levels
+
     public void UnlockLevelsTillPlayerProgesss()
     {
         for (int i = 0; i < DataManager.Instance.GetLevel(episode); i++)

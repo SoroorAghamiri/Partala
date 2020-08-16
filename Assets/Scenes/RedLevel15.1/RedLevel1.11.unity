@@ -722,6 +722,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -52.300003
       objectReference: {fileID: 0}
+    - target: {fileID: 4871607761029695119, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: episodeNumber
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6001173071510737144, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_AnchorMin.x

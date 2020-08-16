@@ -63,7 +63,7 @@ public class HintScript : MonoBehaviour
                 DeactivateWrongComponents();
                 firstHint = true;
                // GameSys.Instans.SetFeather(GameSys.Instans.GetFeather() - featherDiscount1);
-                GameManger.Instans.ShowNumberOfFeather();
+                GameManger.Instans.ShowNumberOfFeathers();
            // }
         }
     }
@@ -80,7 +80,7 @@ public class HintScript : MonoBehaviour
                 StartCoroutine(MakeFinalObjectHidden());
                 hintShown = true;
                 //GameSys.Instans.SetFeather(GameSys.Instans.GetFeather() - featherDiscount2);
-                GameManger.Instans.ShowNumberOfFeather();
+                GameManger.Instans.ShowNumberOfFeathers();
                 GameManger.Instans.HintPanelColse();
                 Debug.Log("WORKING");
 

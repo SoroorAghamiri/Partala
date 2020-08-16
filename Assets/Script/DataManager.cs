@@ -10,6 +10,7 @@ public class DataManager : MonoBehaviour
 
     private PlayerData playerData;
 
+    public List<int> buildIndexOfLevelSelectors = new List<int>();
     private string file = "player.txt";
 
     private void Awake()
@@ -117,30 +118,10 @@ public class DataManager : MonoBehaviour
     {
         return playerData.feather;
     }
+    public void SetEpisodeBuildIndex()
+    {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
     //Saves On pausing for mobile Obviously
     private void OnApplicationPause(bool pause)
     {
