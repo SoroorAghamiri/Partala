@@ -8,62 +8,49 @@ using UnityEngine.UI;
 
 public class LeveManger : MonoBehaviour
 {
-    public static LeveManger Instans;//Create Instans for class
-    public Button [] level_button=new Button[15];//Buttons of Levels
-    public Sprite [] SpirteImage= new Sprite[15];//complete picture of  solved puzzle 
-    public Sprite Unlock;
+    [SerializeField] private int episode;
+    [SerializeField] private Button[] levelButtons;
+
+
 
     private AudioSource audioSource;
-    // Start is called before the first frame update
-    private void Awake()
-    {
-      
-        MakeInstans();//
-       
-    }
 
+    // Start is called before the first frame update
     private void Start()
     {
         audioSource = this.GetComponent<AudioSource>();
 
-        for (int i = 0; i < level_button.Length; i++)
+        for (int i = 0; i < levelButtons.Length; i++)
         {
-            level_button[i].interactable = false;//make buttons uninteractable
+            levelButtons[i].interactable = false;
 
         }
-        LevelUnlockCheck();//unlock the level 
+        UnlockLevelsTillPlayerProgesss();//unlock the level 
 
 
     }
-    
-    //Create Instans
-    public void MakeInstans()
-    {
-        if (Instans == null)
-            Instans = this;
-    }
+
 
     //Check for New Unlocked Levels
-    public void LevelUnlockCheck()
+    public void UnlockLevelsTillPlayerProgesss()
     {
-        for (int i = 1; i <= GameSys.Instans.Get_level(); i++) //check for playerprefs 
+        for (int i = 0; i < DataManager.Instance.GetLevel(episode); i++)
         {
-            level_button[i-1].interactable = true; //make buttons interactable
-
+            levelButtons[i].interactable = true;
         }
+
 
     }
 
 
-    public void  levelOnclick(int level )
+    public void levelOnclick(int level)
     {
-        if (GameSys.Instans.Get_level() >= level)
-        {
-            audioSource.Play();
-            SceneManager.LoadScene(level + SceneManager.GetActiveScene().buildIndex);
-        }
+
+        audioSource.Play();
+        SceneManager.LoadScene(level + SceneManager.GetActiveScene().buildIndex);
+
     }
-    
+
     public void Onback(string episode)
     {
         SceneManager.LoadScene(episode);

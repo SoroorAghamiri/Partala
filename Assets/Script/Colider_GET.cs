@@ -8,11 +8,11 @@ using UnityEngine.UIElements;
 
 public class Colider_GET : MonoBehaviour
 {
-    private List<GameObject>current_Collisions = new List <GameObject> ();
+    private List<GameObject> current_Collisions = new List<GameObject>();
     public int countOfCorrectObjects;
     public GameManger gm;
     public bool correct;
- 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,19 +23,21 @@ public class Colider_GET : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      //print("Scripting runing");  
+
     }
-//add  all of collision of game object
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.gameObject.tag);
-        if (other.gameObject.CompareTag("MainComponent") ) { countOfCorrectObjects++; print("THis IS working");}
+        if (other.gameObject.CompareTag("MainComponent"))
+        {
+            countOfCorrectObjects++;
+        }
         correct = true;
-        
+
         current_Collisions.Add(other.gameObject);
         foreach (GameObject game in current_Collisions)
         {
-            if(game.tag == "WrongComponent")
+            if (game.tag == "WrongComponent")
             {
                 correct = false;
                 gm.WrongObjectDetected();
@@ -47,15 +49,15 @@ public class Colider_GET : MonoBehaviour
             gm.NoWrongObjects();
         }
     }
-//remove all of collision of game object
+    //remove all of collision of game object
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "MainComponent") { countOfCorrectObjects--;}
+        if (other.gameObject.tag == "MainComponent") { countOfCorrectObjects--; }
         current_Collisions.Remove(other.gameObject);
         correct = true;
         foreach (GameObject game in current_Collisions)
         {
-            
+
             if (game.tag == "WrongComponent")
             {
                 correct = false;
@@ -64,12 +66,12 @@ public class Colider_GET : MonoBehaviour
 
             }
         }
-        if(correct)
+        if (correct)
         {
             gm.NoWrongObjects();
         }
-        
+
     }
-    public int FetchCorrectObjects() { return countOfCorrectObjects;}
+    public int FetchCorrectObjects() { return countOfCorrectObjects; }
 
 }

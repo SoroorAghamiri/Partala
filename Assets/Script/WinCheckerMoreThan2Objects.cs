@@ -7,7 +7,7 @@ using GameAnalyticsSDK.Setup;
 
 public class WinCheckerMoreThan2Objects : MonoBehaviour
 {
-    private bool flagForDeletingObjects = false;
+
     public bool flagWin;
    
     [SerializeField] bool setup = false;
