@@ -61,6 +61,15 @@ public class DialogManager : MonoBehaviour
         return dialog;
     }
 
+    public SettingView showSettingView()
+    {
+        SettingView prefab = Resources.Load<SettingView>("Views/SettingPanel");
+        SettingView dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
+        initDialog(dialog.gameObject);
+
+        ViewManager.instance.openView(dialog);
+        return dialog;
+    }
 
 
     //When pause dialog added, edit the path
