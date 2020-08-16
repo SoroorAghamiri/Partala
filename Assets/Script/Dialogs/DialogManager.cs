@@ -13,7 +13,7 @@ public class DialogManager : MonoBehaviour
         {
             if (_instance == null)
             {
-                _instance = new GameObject("DIalogManager").AddComponent<DialogManager>();
+                _instance = new GameObject("DialogManager").AddComponent<DialogManager>();
             }
             return _instance;
         }
@@ -24,11 +24,13 @@ public class DialogManager : MonoBehaviour
     {
         if (canvasParent == null)
         {
-            RectTransform prefab = Resources.Load<RectTransform>("Prefabs/Canvas");
-            canvasParent = Instantiate(prefab);
-            Canvas canvas = canvasParent.GetComponent<Canvas>();
-            canvas.worldCamera = Camera.main;
-            canvas.renderMode = RenderMode.ScreenSpaceCamera;
+            // RectTransform prefab = Resources.Load<RectTransform>("Views/Canvas");
+            // canvasParent = Instantiate(prefab);
+            GameObject cc = GameObject.Find("Canvas");
+            canvasParent = cc.GetComponent<RectTransform>();
+            // Canvas canvas = canvasParent.GetComponent<Canvas>();
+            // canvas.worldCamera = Camera.main;
+            // canvas.renderMode = RenderMode.ScreenSpaceCamera;
         }
         return canvasParent;
     }
@@ -64,7 +66,7 @@ public class DialogManager : MonoBehaviour
     //When pause dialog added, edit the path
     public PauseView showPauseView()
     {
-        PauseView prefab = Resources.Load<PauseView>("Prefabs/UI PA\"");
+        PauseView prefab = Resources.Load<PauseView>("Prefabs/Pause Panel");
         PauseView dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
         initDialog(dialog.gameObject);
 

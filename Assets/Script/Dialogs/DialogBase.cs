@@ -29,12 +29,15 @@ public class DialogBase : ViewObject
             });
         }
 
-        foreach (var button in restartButton)
+        if (restartButton.Count > 0)
         {
-            button.onClick.AddListener(() =>
+            foreach (var button in restartButton)
             {
-                restartScene();
-            });
+                button.onClick.AddListener(() =>
+                {
+                    restartScene();
+                });
+            }
         }
 
     }
@@ -74,8 +77,11 @@ public class DialogBase : ViewObject
     public override void restartScene()
     {
         print("Current scene name = " + SceneManager.GetActiveScene().name);
-        ViewManager.instance.closeLastView();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (ViewManager.instance.getLastView() != null)
+        {
+            ViewManager.instance.closeLastView();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
 }

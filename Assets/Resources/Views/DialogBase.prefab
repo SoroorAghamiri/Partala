@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 8330194418514937451}
   - component: {fileID: 3450412258633904128}
   - component: {fileID: 5712239404520169027}
-  - component: {fileID: 528196991673140409}
+  - component: {fileID: 5594375478948399745}
   m_Layer: 5
   m_Name: DialogBase
   m_TagString: Untagged
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &528196991673140409
+--- !u!114 &5594375478948399745
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -398,16 +398,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3115208686508161690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d66ee8a9373dfa54b8df8264c40c8477, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f9d85b8da1a1a24980d77a206b68da3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   viewType: 0
   dialogObject: {fileID: 3115208686508161690}
   closeButtons:
   - {fileID: 7277596276752560790}
-  restartButton:
-  - {fileID: 0}
-  DialogContents: {fileID: 0}
+  restartButton: []
   canClose: 1
 --- !u!1 &4884545273896809763
 GameObject:
