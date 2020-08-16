@@ -171,9 +171,7 @@ MonoBehaviour:
   dialogObject: {fileID: 6013696407259911734}
   closeButtons:
   - {fileID: 2067354057995460154}
-  restartButton:
-  - {fileID: 0}
-  DialogContents: {fileID: 0}
+  restartButton: []
   canClose: 1
 --- !u!1 &7009198002877758054
 GameObject:
@@ -293,7 +291,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7158869559776492052}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9158923695334959125}
+        m_MethodName: cancellExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7788704368179039355
 GameObject:
   m_ObjectHideFlags: 0
