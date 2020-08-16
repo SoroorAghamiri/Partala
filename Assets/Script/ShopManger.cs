@@ -97,7 +97,7 @@ public class ShopManger : MonoBehaviour
 
     public void AddFeather(int numberOfFeather)
     {
-        GameSys.Instans.SetFeather(GameSys.Instans.GetFeather()+numberOfFeather);   
+       // GameSys.Instans.SetFeather(GameSys.Instans.GetFeather()+numberOfFeather);   
     }
     
 }

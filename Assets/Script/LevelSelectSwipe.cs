@@ -6,7 +6,7 @@ public class LevelSelectSwipe : MonoBehaviour
 {
     [SerializeField] private float limitDown = 0.0f;
     [SerializeField] private float limitUp;
-    [SerializeField] private float speedForSwipe=0.021f;
+
     void Update()
     {
         if (transform.position.y >= limitDown)

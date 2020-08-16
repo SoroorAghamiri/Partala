@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameAnalyticsSDK.Setup;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,27 +21,26 @@ public class SliderController : MonoBehaviour
     private void Start()
     {
         if (gameObject.name == "SfxSlider")
-        {Debug.Log(GameSys.Instans.GetSfxLevel());
-            _slider.value = GameSys.Instans.GetSfxLevel();
-            
+        {
+            _slider.value = DataManager.Instance.GetSFXLevel();
         }
         else if (gameObject.name == "MusicSlider")
-        {Debug.Log(GameSys.Instans.GetMusicLevel());
-            _slider.value = GameSys.Instans.GetMusicLevel();
+        {
+            _slider.value = DataManager.Instance.GetMusicLevel();
         }
-        
+
     }
 
     // Start is called before the first frame update
     public void MakeSfxSliderValueZero()
     {
         _slider.value = 0f;
-        GameSys.Instans.SetSfxLeve(0);
+        DataManager.Instance.SetSFXLevel(0);
     }
     public void MakeMusicSliderValueZero()
     {
         _slider.value = 0f;
-        GameSys.Instans.SetMusicLevel(0);
+        DataManager.Instance.SetMusicLevel(0);
     }
-    
+
 }

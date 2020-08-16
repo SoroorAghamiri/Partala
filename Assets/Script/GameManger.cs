@@ -16,9 +16,11 @@ using System;
 
 public class GameManger : MonoBehaviour
 {
+    /// <summary>
+    ///Too much shit happening at the same time
     [SerializeField] private AudioMixerGroup sfx;
     [SerializeField] private AudioMixerGroup Musix;
-    public static GameManger Instans;//Create Instans for GameManger class
+    public static GameManger Instans;//Create Instans for GameManger class///FUCKING WHY?
     [Tooltip("collide point count ")]
     public bool Win;// win condition for game 
     public GameObject[] Colliderpoint;// get collider points 
@@ -45,6 +47,8 @@ public class GameManger : MonoBehaviour
     private bool winFlagChangedByWinChecker;
 
     private GameObject[] mainComponents;
+    ///Too much shit happening at the same time
+    /// </summary>
     public void SingleTOne()
     {
         if (Instans == null)
@@ -59,10 +63,10 @@ public class GameManger : MonoBehaviour
     }
     private void Awake()
     {
-        sfx.audioMixer.SetFloat("sfxvol", GameSys.Instans.GetSfxLevel());
-        Musix.audioMixer.SetFloat("musicvol", GameSys.Instans.GetMusicLevel());
+        sfx.audioMixer.SetFloat("sfxvol", DataManager.Instance.GetSFXLevel());
+        Musix.audioMixer.SetFloat("musicvol", DataManager.Instance.GetMusicLevel());
 
-        SingleTOne();
+        SingleTOne();//WHY?
 
 
     }
@@ -103,7 +107,8 @@ public class GameManger : MonoBehaviour
             int i;
             bool flag = true;//flag for win dection
             for (i = 0; i < Check.Length; i++)
-            {//check if check have false condition
+            {
+                //check if check have false condition
                 if (Check[i] != true)
                 {
                     flag = false;
@@ -114,18 +119,18 @@ public class GameManger : MonoBehaviour
             if (flag == true && winFlagChangedByWinChecker == true)
             {
                 myEggsScript.SetLastEgg();
-                if (wintoggler && GameSys.Instans.Get_level() < 31)
-                {
-                    if (GameSys.Instans.Get_level() == currentScene)
-                    {
-                        GameSys.Instans.WIN[GameSys.Instans.Get_level() - 1] = true;
-                        GameSys.Instans.Set_Level(GameSys.Instans.Get_level() + 1);
-                        GameSys.Instans.Set_Win(GameSys.Instans.Get_Win() + 1);
-                    }
-                    StartCoroutine(DeleteMainComponentObjectsAfterWin());
-                    StartCoroutine(Wait());
-                    wintoggler = false;
-                }
+                //if (wintoggler && GameSys.Instans.Get_level() < 31)
+                //{
+                //    if (GameSys.Instans.Get_level() == currentScene)
+                //    {
+                //        GameSys.Instans.WIN[GameSys.Instans.Get_level() - 1] = true;
+                //        GameSys.Instans.Set_Level(GameSys.Instans.Get_level() + 1);
+                //        GameSys.Instans.Set_Win(GameSys.Instans.Get_Win() + 1);
+                //    }
+                StartCoroutine(DeleteMainComponentObjectsAfterWin());
+                StartCoroutine(Wait());
+                wintoggler = false;
+                //}
 
 
             }
@@ -264,37 +269,36 @@ public class GameManger : MonoBehaviour
     {
         wrongObjects = false;
     }
-    public void SetMusicSfxLevel(float volume)
+    public void SetSFXLevel(float volume)
     {
-        GameSys.Instans.SetSfxLeve(volume);
-        sfx.audioMixer.SetFloat("sfxvol", GameSys.Instans.GetSfxLevel());
+        DataManager.Instance.SetSFXLevel(volume);
+        sfx.audioMixer.SetFloat("sfxvol", DataManager.Instance.GetSFXLevel());
     }
     public void SetMusicLevel(float volume)
     {
-        Debug.Log(volume);
-        GameSys.Instans.SetMusicLevel(volume);
-        Debug.Log(GameSys.Instans.GetMusicLevel());
-        Musix.audioMixer.SetFloat("musicvol", GameSys.Instans.GetMusicLevel());
+        DataManager.Instance.SetMusicLevel(volume);
+        Musix.audioMixer.SetFloat("musicvol", DataManager.Instance.GetMusicLevel());
     }
 
     public void ShowNumberOfFeather()
     {
-        featheText.text = GameSys.Instans.GetFeather().ToString();
+        featheText.text = DataManager.Instance.GetFeather().ToString();
+
     }
 
     public void LevelFactor()//this Function added feather after every episode end  
     {
 
-        int levelFactor = GameSys.Instans.Get_level() / 15;
-        Debug.Log(levelFactor);
-        for (int i = 1; i <= episodeNumber; i++)
-        {
-            if (levelFactor == i)
-            {
-                GameSys.Instans.SetFeather(GameSys.Instans.GetFeather() + episodeFeather[i - 1]);
+        // int levelFactor = GameSys.Instans.Get_level() / 15;
+        //Debug.Log(levelFactor);
+        //for (int i = 1; i <= episodeNumber; i++)
+        //{
+        //    if (levelFactor == i)
+        //    {
+        // //       GameSys.Instans.SetFeather(GameSys.Instans.GetFeather() + episodeFeather[i - 1]);
 
-            }
-        }
+        //    }
+        //}
     }
     public void HintPanelOpen()
     {
