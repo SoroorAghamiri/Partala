@@ -27,7 +27,6 @@ public class GameManger : MonoBehaviour
     public bool[] Check;
     public WinChecker1Object winCheck1;
     public WinCheckerMoreThan2Objects winCheck2;
-    public bool singleObject;
     public string NextLevelname;
     public Button[] buttons = new Button[6];
     public Image Puase_panel;
@@ -37,7 +36,6 @@ public class GameManger : MonoBehaviour
     private bool wintoggler;
     private EggsScript myEggsScript;
     private string LevelSelect;
-    [SerializeField] private int episodeNumber;//number episode that game have
     [SerializeField] private int[] episodeFeather;//earned feather after every episode ending
     public Text featheText;
     public GameObject hintPanel;
@@ -45,7 +43,8 @@ public class GameManger : MonoBehaviour
     private bool panelIsActive = false;
 
     private bool winFlagChangedByWinChecker;
-
+    private int episodeNumber;
+    private int levelNumberInEpisode;
     private GameObject[] mainComponents;
     ///Too much shit happening at the same time
     /// </summary>
@@ -73,24 +72,48 @@ public class GameManger : MonoBehaviour
 
     void Start()
     {
-        ShowNumberOfFeather();
+        ShowNumberOfFeathers();
         LevelFactor();
-        toggel_puase = false;
-        myEggsScript = FindObjectOfType<EggsScript>();
-        Win = false;
-        singleObject = false;
-        winFlagChangedByWinChecker = false;
+        SettingInitialValues();
+        AddingListenersToButtons();
+        FindCorrectEpisodeNumberAndLevel();
+    }
 
+    private void FindCorrectEpisodeNumberAndLevel()
+    {
+
+        var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        for (int i = 0; i < DataManager.Instance.buildIndexOfLevelSelectors.Count; i++)
+        {
+            if (DataManager.Instance.buildIndexOfLevelSelectors[i] > currentSceneIndex)
+            {
+                levelNumberInEpisode = currentSceneIndex - DataManager.Instance.buildIndexOfLevelSelectors[i];
+                episodeNumber = i + 1;
+                break;
+            }
+        }
+
+    }
+
+    private void SettingInitialValues()
+    {
+        toggel_puase = false;//pause panel flag
+        myEggsScript = FindObjectOfType<EggsScript>();
+        Win = false;///////////////////////////So many flags with win confusing AF should be changed
+        winFlagChangedByWinChecker = false;////
+        Check = new bool[Colliderpoint.Length];//////////Another branch of wincheck that shouldn't be here
+        wintoggler = true;
         Colliderpoint = GameObject.FindGameObjectsWithTag("ColliderPoint");
+    }
+
+    private void AddingListenersToButtons()
+    {
         buttons[0].onClick.AddListener(Onpause);/////Fatal
         buttons[1].onClick.AddListener(OnPlay);
         buttons[2].onClick.AddListener(OnHome);
         buttons[3].onClick.AddListener(OnRestart);
         buttons[4].onClick.AddListener(OnMusic);
         buttons[5].onClick.AddListener(OnSound);
-        Check = new bool[Colliderpoint.Length];
-        wintoggler = true;
-
     }
 
     void Update()
@@ -101,7 +124,7 @@ public class GameManger : MonoBehaviour
     //win condition 
     private void win()
     {
-        int currentScene = SceneManager.GetActiveScene().buildIndex - 1;
+        int currentScene = SceneManager.GetActiveScene().buildIndex - episodeNumber;
         if (!wrongObjects)
         {
             int i;
@@ -119,18 +142,16 @@ public class GameManger : MonoBehaviour
             if (flag == true && winFlagChangedByWinChecker == true)
             {
                 myEggsScript.SetLastEgg();
-                //if (wintoggler && GameSys.Instans.Get_level() < 31)
-                //{
-                //    if (GameSys.Instans.Get_level() == currentScene)
-                //    {
-                //        GameSys.Instans.WIN[GameSys.Instans.Get_level() - 1] = true;
-                //        GameSys.Instans.Set_Level(GameSys.Instans.Get_level() + 1);
-                //        GameSys.Instans.Set_Win(GameSys.Instans.Get_Win() + 1);
-                //    }
-                StartCoroutine(DeleteMainComponentObjectsAfterWin());
-                StartCoroutine(Wait());
-                wintoggler = false;
-                //}
+                if (wintoggler)
+                {
+                    if (DataManager.Instance.GetLevel(episodeNumber-1)==levelNumberInEpisode)
+                    {
+                        DataManager.Instance.SetLevel(DataManager.Instance.GetLevel(0) + 1, episodeNumber-1);
+                    }
+                    StartCoroutine(DeleteMainComponentObjectsAfterWin());
+                    StartCoroutine(Wait());
+                    wintoggler = false;
+                }
 
 
             }
@@ -280,7 +301,7 @@ public class GameManger : MonoBehaviour
         Musix.audioMixer.SetFloat("musicvol", DataManager.Instance.GetMusicLevel());
     }
 
-    public void ShowNumberOfFeather()
+    public void ShowNumberOfFeathers()
     {
         featheText.text = DataManager.Instance.GetFeather().ToString();
 

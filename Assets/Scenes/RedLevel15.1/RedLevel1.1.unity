@@ -1257,6 +1257,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -4.7024994
       objectReference: {fileID: 0}
+    - target: {fileID: 2060713307633062360, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2088456874887270163, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_SortingOrder
@@ -1608,6 +1613,11 @@ PrefabInstance:
       propertyPath: sfxSlider
       value: 
       objectReference: {fileID: 297753234}
+    - target: {fileID: 4871607761029695119, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: episodeNumber
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5069681111725796370, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -1622,6 +1632,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -8.799999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5277707792443149976, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5308765691066452524, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
@@ -3526,6 +3541,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

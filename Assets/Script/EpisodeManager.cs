@@ -6,11 +6,15 @@ using UnityEngine.UI;
 
 public class EpisodeManager : MonoBehaviour
 {
+
     [SerializeField] Button[] episodeButtons;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(DataManager.Instance.GetEpisode()==0)
+        {
+            DataManager.Instance.SetEpisode(1);
+        }
     }
 
     // Update is called once per frame
