@@ -8,29 +8,42 @@ using UnityEngine.SceneManagement;
 
 public class GameSys : MonoBehaviour
 {
-    [Header ("Change for the number of Episodes")]
+    [Header("Change for the number of Episodes")]
     [SerializeField] private int totalNumberOfEpisodes;
-    public static GameSys Instance { get; private set; }
-
+    // public static GameSys Instance { get; private set; }
+    private static GameSys _instance;
 
     public AudioMixerGroup music;
     public AudioMixerGroup sfx;
-    
+
     // Start is called before the first frame update
-    private void Awake()
+    // private void Awake()
+    // {
+    //     if (Instance != null)
+    //     {
+    //         Destroy(gameObject);
+
+    //     }
+    //     else
+    //     {
+    //         Instance = this;
+    //         DontDestroyOnLoad(gameObject);
+    //     }
+
+    // }
+
+    public static GameSys Instance
     {
-        if (Instance != null)
+        get
         {
-            Destroy(gameObject);
-
+            if (_instance == null)
+            {
+                _instance = new GameObject("GameSys").AddComponent<GameSys>();
+            }
+            return _instance;
         }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-
     }
+
 
     void Start()
     {

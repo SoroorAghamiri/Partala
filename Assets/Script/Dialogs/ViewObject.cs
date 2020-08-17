@@ -10,7 +10,7 @@ public abstract class ViewObject : MonoBehaviour
     public VIEW_TYPE viewType;
     public abstract void openView();
     public abstract void closeView();
-    public abstract void restartScene();
+    // public abstract void restartScene();
     public abstract void onBackPressed();
 
     public Action openAction;

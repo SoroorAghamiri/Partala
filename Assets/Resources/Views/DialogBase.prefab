@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 8330194418514937451}
   - component: {fileID: 3450412258633904128}
   - component: {fileID: 5712239404520169027}
-  - component: {fileID: 4594366992584365728}
+  - component: {fileID: 1403831991597711576}
   m_Layer: 5
   m_Name: DialogBase
   m_TagString: Untagged
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4594366992584365728
+--- !u!114 &1403831991597711576
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3115208686508161690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d66ee8a9373dfa54b8df8264c40c8477, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f9d85b8da1a1a24980d77a206b68da3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   viewType: 0
@@ -370,7 +370,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4594366992584365728}
+      - m_Target: {fileID: 0}
         m_MethodName: cancellExitGame
         m_Mode: 1
         m_Arguments:
@@ -500,7 +500,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4594366992584365728}
+      - m_Target: {fileID: 0}
         m_MethodName: exitGame
         m_Mode: 1
         m_Arguments:

@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 5651464298227001288}
   - component: {fileID: 5651464298227001289}
   m_Layer: 5
-  m_Name: Puase Panel
+  m_Name: PuasePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

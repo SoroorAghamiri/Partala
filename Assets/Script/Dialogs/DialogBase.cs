@@ -14,7 +14,7 @@ public class DialogBase : ViewObject
     public GameObject dialogObject;
     public List<Button> closeButtons = new List<Button>();
 
-    public List<Button> restartButton = new List<Button>();
+
     //public GameObject DialogContents;
     public bool canClose = true;
 
@@ -29,16 +29,7 @@ public class DialogBase : ViewObject
             });
         }
 
-        if (restartButton.Count > 0)
-        {
-            foreach (var button in restartButton)
-            {
-                button.onClick.AddListener(() =>
-                {
-                    restartScene();
-                });
-            }
-        }
+
 
     }
     public virtual void prepare()
@@ -74,14 +65,6 @@ public class DialogBase : ViewObject
         }
     }
 
-    public override void restartScene()
-    {
-        print("Current scene name = " + SceneManager.GetActiveScene().name);
-        if (ViewManager.instance.getLastView() != null)
-        {
-            ViewManager.instance.closeLastView();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-    }
+
 
 }

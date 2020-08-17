@@ -193,13 +193,24 @@ MonoBehaviour:
   m_FillRect: {fileID: 3108101473684929824}
   m_HandleRect: {fileID: 6360457500030720229}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5456900599304050484}
+        m_MethodName: onSoundChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2474332559876062480
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,7 +664,7 @@ GameObject:
   - component: {fileID: 2022359991049162249}
   - component: {fileID: 4641036009758406754}
   - component: {fileID: 2364360646132045345}
-  - component: {fileID: 2200280679774106885}
+  - component: {fileID: 5456900599304050484}
   m_Layer: 5
   m_Name: SettingPanel
   m_TagString: Untagged
@@ -722,7 +733,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2200280679774106885
+--- !u!114 &5456900599304050484
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -738,8 +749,8 @@ MonoBehaviour:
   dialogObject: {fileID: 4949851581856314104}
   closeButtons:
   - {fileID: 825602678565272308}
-  restartButton: []
   canClose: 1
+  masterAM: {fileID: 24100000, guid: 780baf28a9972db4a8cda9c6e151b472, type: 2}
 --- !u!1 &6559087870595012835
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,8 +787,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -56.44, y: -69.49}
-  m_SizeDelta: {x: 112.87021, y: 64.67967}
+  m_AnchoredPosition: {x: -61.611, y: -71.68}
+  m_SizeDelta: {x: 123.2124, y: 99.82532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6250486043670981999
 CanvasRenderer:
@@ -806,7 +817,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 30418f5b85da3144590e12797499774b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0dfbd1a4d82e09a47b8de6743738eaf3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -858,7 +869,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8431654737307850973}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5456900599304050484}
+        m_MethodName: openExitPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6591395324186308798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +1032,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 
 --- !u!1 &7299257694023709754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,7 +1196,18 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5456900599304050484}
+        m_MethodName: onMusicChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7766250024724540060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,7 +1400,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8402871533128900314}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5456900599304050484}
+        m_MethodName: cancellExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8785367778152065460
 GameObject:
   m_ObjectHideFlags: 0

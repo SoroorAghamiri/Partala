@@ -8,12 +8,20 @@ public class EpisodeSelectView : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            openExitView();
+            openSettingView();
         }
 
     }
 
-    public void openExitView()
+    public void openPauseView()
+    {
+        if (ViewManager.instance.getLastView() == null)
+        {
+            DialogManager.instance.showPauseView();
+        }
+    }
+
+    public void openSettingView()
     {
         if (ViewManager.instance.getLastView() == null)
         {

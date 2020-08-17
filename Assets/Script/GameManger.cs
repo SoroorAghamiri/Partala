@@ -108,7 +108,7 @@ public class GameManger : MonoBehaviour
 
     private void AddingListenersToButtons()
     {
-        buttons[0].onClick.AddListener(Onpause);/////Fatal
+        // buttons[0].onClick.AddListener(Onpause);/////Fatal
         buttons[1].onClick.AddListener(OnPlay);
         buttons[2].onClick.AddListener(OnHome);
         buttons[3].onClick.AddListener(OnRestart);
@@ -144,9 +144,9 @@ public class GameManger : MonoBehaviour
                 myEggsScript.SetLastEgg();
                 if (wintoggler)
                 {
-                    if (DataManager.Instance.GetLevel(episodeNumber-1)==levelNumberInEpisode)
+                    if (DataManager.Instance.GetLevel(episodeNumber - 1) == levelNumberInEpisode)
                     {
-                        DataManager.Instance.SetLevel(DataManager.Instance.GetLevel(0) + 1, episodeNumber-1);
+                        DataManager.Instance.SetLevel(DataManager.Instance.GetLevel(0) + 1, episodeNumber - 1);
                     }
                     StartCoroutine(DeleteMainComponentObjectsAfterWin());
                     StartCoroutine(Wait());

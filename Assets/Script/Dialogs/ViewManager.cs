@@ -40,13 +40,15 @@ public class ViewManager : MonoBehaviour
         if (getLastView() != view)
         {
             viewStackManagement.pushToStack(view);
+
             view.openView();
 
-            if(openAction!= null){
+            if (openAction != null)
+            {
                 openAction();
             }
             view.openAction = openAction;
-            view.closeAction= closeAction;
+            view.closeAction = closeAction;
 
             canclose = false;
             timer.addMiliSecondAction(50, () =>
@@ -62,12 +64,15 @@ public class ViewManager : MonoBehaviour
             ViewObject oldView = viewStackManagement.popFromStack();
             ViewObject view = viewStackManagement.getLastView();
 
-            // print("close view " + oldView.name);
+            // print("Popped from stack" + oldView.name);
 
             if (oldView != null)
                 oldView.closeView();
             if (view != null)
+            {
                 view.openView();
+                // print("lastView " + view.name);
+            }
         }
     }
     public void closeView(ViewObject view)

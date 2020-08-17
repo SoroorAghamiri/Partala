@@ -6,30 +6,46 @@ using GameAnalyticsSDK.Setup;
 
 public class DataManager : MonoBehaviour
 {
-    public static DataManager Instance { get; private set; }
-
+    // public static DataManager Instance { get; private set; }
+    private static DataManager _instance;
     private PlayerData playerData;
 
     public List<int> buildIndexOfLevelSelectors = new List<int>();
     private string file = "player.txt";
 
-    private void Awake()
+    // private void Awake()
+    // {
+    //     if (Instance == null)
+    //     {
+    //         Instance = this;
+    //         DontDestroyOnLoad(gameObject);
+    //     }
+    //     else
+    //     {
+    //         Destroy(gameObject);
+    //     }
+    // }
+
+    public static DataManager Instance
     {
-        if (Instance == null)
+        get
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
+            if (_instance == null)
+            {
+                _instance = new GameObject("DataManager").AddComponent<DataManager>();
+            }
+            return _instance;
         }
     }
+
+
     public void Save()
     {
         string json = JsonUtility.ToJson(playerData);
         WriteToFile(file, json);
     }
+
+
     public void Load()
     {
         playerData = new PlayerData();
@@ -68,7 +84,7 @@ public class DataManager : MonoBehaviour
     {
         return Application.persistentDataPath + "/" + fileName;
     }
-    
+
 
     public float GetMusicLevel()
     {
@@ -113,7 +129,7 @@ public class DataManager : MonoBehaviour
     {
         return playerData.levelinEpisode[episode];
     }
-    
+
     public int GetFeather()
     {
         return playerData.feather;

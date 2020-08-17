@@ -24,13 +24,28 @@ public class DialogManager : MonoBehaviour
     {
         if (canvasParent == null)
         {
-            // RectTransform prefab = Resources.Load<RectTransform>("Views/Canvas");
-            // canvasParent = Instantiate(prefab);
-            GameObject cc = GameObject.Find("Canvas");
-            canvasParent = cc.GetComponent<RectTransform>();
-            // Canvas canvas = canvasParent.GetComponent<Canvas>();
-            // canvas.worldCamera = Camera.main;
-            // canvas.renderMode = RenderMode.ScreenSpaceCamera;
+            GameObject cc;
+            cc = GameObject.Find("Canvas");
+            if (cc != null)
+            {
+                print("Found Canvas");
+                canvasParent = cc.GetComponent<RectTransform>();
+            }
+
+            else
+            {
+                print("Did Not Find Canvas");
+
+                cc = GameObject.Find("GameManger");
+                // print("cc name: " + cc.name);
+                GameObject childOfCC = cc.transform.Find("UI PA").gameObject;
+                // print("child of cc name:" + childOfCC.name);
+                GameObject cOfCOfCC = childOfCC.transform.Find("PauseCanvas").gameObject;
+                // print("child of child of cc name:" + cOfCOfCC.name);
+
+                canvasParent = cOfCOfCC.GetComponent<RectTransform>();
+            }
+
         }
         return canvasParent;
     }
@@ -42,15 +57,11 @@ public class DialogManager : MonoBehaviour
         dialog.transform.localScale = Vector3.one;
 
         RectTransform rectTransform = dialog.GetComponent<RectTransform>();
-        // rectTransform.SetLeft(0f);
-        // rectTransform.SetRight(0f);
-        // rectTransform.SetTop(0f);
-        // rectTransform.SetBottom(0f);
+
 
         Resources.UnloadUnusedAssets();
     }
 
-    //When Exit dialog added, edit the path
     public ExitView showExitView()
     {
         ExitView prefab = Resources.Load<ExitView>("Views/ExitPanel");
@@ -72,10 +83,10 @@ public class DialogManager : MonoBehaviour
     }
 
 
-    //When pause dialog added, edit the path
+
     public PauseView showPauseView()
     {
-        PauseView prefab = Resources.Load<PauseView>("Prefabs/Pause Panel");
+        PauseView prefab = Resources.Load<PauseView>("Views/PuasePanel");
         PauseView dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
         initDialog(dialog.gameObject);
 

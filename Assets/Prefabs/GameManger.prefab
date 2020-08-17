@@ -977,8 +977,6 @@ MonoBehaviour:
   closeButtons:
   - {fileID: 4294485174804236064}
   - {fileID: 4294485174985597358}
-  restartButton: {fileID: 0}
-  DialogContents: {fileID: 0}
   canClose: 1
 --- !u!82 &8780335338866272640
 AudioSource:
@@ -1765,7 +1763,6 @@ MonoBehaviour:
   Check: 
   winCheck1: {fileID: 0}
   winCheck2: {fileID: 0}
-  singleObject: 0
   NextLevelname: 
   buttons:
   - {fileID: 9023492895973428820}
@@ -1779,7 +1776,6 @@ MonoBehaviour:
   Puase_panel: {fileID: 4294485173838014177}
   indx: -1
   wrongObjects: 0
-  episodeNumber: 0
   episodeFeather: 0f000000
   featheText: {fileID: 6427259324673360464}
   hintPanel: {fileID: 7650221967636566129}
@@ -1953,6 +1949,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6809688159599258898}
     m_Modifications:
+    - target: {fileID: 1259346132792822163, guid: 73f7f3637d83d1846acc63cb61f2a5cc,
+        type: 3}
+      propertyPath: masterAM
+      value: 
+      objectReference: {fileID: 24100000, guid: 780baf28a9972db4a8cda9c6e151b472,
+        type: 2}
     - target: {fileID: 1934608056106104480, guid: 73f7f3637d83d1846acc63cb61f2a5cc,
         type: 3}
       propertyPath: m_Type
@@ -2988,7 +2990,12 @@ PrefabInstance:
     - target: {fileID: 8605734375181235999, guid: 73f7f3637d83d1846acc63cb61f2a5cc,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetMusicSfxLevel
+      value: SetSFXLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8605734375181235999, guid: 73f7f3637d83d1846acc63cb61f2a5cc,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73f7f3637d83d1846acc63cb61f2a5cc, type: 3}
