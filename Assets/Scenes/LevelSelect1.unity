@@ -553,6 +553,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7400171776460495113, guid: 1708fa4451778074ba8dfd2f941ad086,
         type: 3}
+      propertyPath: levelButtons.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7400171776460495113, guid: 1708fa4451778074ba8dfd2f941ad086,
+        type: 3}
       propertyPath: level_button.Array.data[0]
       value: 
       objectReference: {fileID: 1241306100}
@@ -631,6 +636,81 @@ PrefabInstance:
       propertyPath: episode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7400171776460495113, guid: 1708fa4451778074ba8dfd2f941ad086,
+        type: 3}
+      propertyPath: levelButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 1241306100}
+    - target: {fileID: 7400171776460495113, guid: 1708fa4451778074ba8dfd2f941ad086,
+        type: 3}
+      propertyPath: levelButtons.Array.data[1]
+      value: 
+      objectReference: {fileID: 1391379859}
+    - target: {fileID: 7400171776460495113, guid: 1708fa4451778074ba8dfd2f941ad086,
+        type: 3}
+      propertyPath: levelButtons.Array.data[2]
+      value: 
+      objectReference: {fileID: 198608208}
+    - target: {fileID: 7400171776460495113, guid: 1708fa4451778074ba8dfd2f941ad086,
+        type: 3}
+      propertyPath: levelButtons.Array.data[3]
+      value: 
+      objectReference: {fileID: 1484882507}
+    - target: {fileID: 7400171776460495113, guid: 1708fa4451778074ba8dfd2f941ad086,
+        type: 3}
+      propertyPath: levelButtons.Array.data[4]
+      value: 
+      objectReference: {fileID: 1499513392}
+    - target: {fileID: 7400171776460495113, guid: 1708fa4451778074ba8dfd2f941ad086,
+        type: 3}
+      propertyPath: levelButtons.Array.data[5]
+      value: 
+      objectReference: {fileID: 1496625414}
+    - target: {fileID: 7400171776460495113, guid: 1708fa4451778074ba8dfd2f941ad086,
+        type: 3}
+      propertyPath: levelButtons.Array.data[6]
+      value: 
+      objectReference: {fileID: 1013109102}
+    - target: {fileID: 7400171776460495113, guid: 1708fa4451778074ba8dfd2f941ad086,
+        type: 3}
+      propertyPath: levelButtons.Array.data[7]
+      value: 
+      objectReference: {fileID: 119232423}
+    - target: {fileID: 7400171776460495113, guid: 1708fa4451778074ba8dfd2f941ad086,
+        type: 3}
+      propertyPath: levelButtons.Array.data[8]
+      value: 
+      objectReference: {fileID: 888660021}
+    - target: {fileID: 7400171776460495113, guid: 1708fa4451778074ba8dfd2f941ad086,
+        type: 3}
+      propertyPath: levelButtons.Array.data[9]
+      value: 
+      objectReference: {fileID: 1498021499}
+    - target: {fileID: 7400171776460495113, guid: 1708fa4451778074ba8dfd2f941ad086,
+        type: 3}
+      propertyPath: levelButtons.Array.data[10]
+      value: 
+      objectReference: {fileID: 1728766679}
+    - target: {fileID: 7400171776460495113, guid: 1708fa4451778074ba8dfd2f941ad086,
+        type: 3}
+      propertyPath: levelButtons.Array.data[11]
+      value: 
+      objectReference: {fileID: 991886484}
+    - target: {fileID: 7400171776460495113, guid: 1708fa4451778074ba8dfd2f941ad086,
+        type: 3}
+      propertyPath: levelButtons.Array.data[12]
+      value: 
+      objectReference: {fileID: 1700253829}
+    - target: {fileID: 7400171776460495113, guid: 1708fa4451778074ba8dfd2f941ad086,
+        type: 3}
+      propertyPath: levelButtons.Array.data[13]
+      value: 
+      objectReference: {fileID: 1083164872}
+    - target: {fileID: 7400171776460495113, guid: 1708fa4451778074ba8dfd2f941ad086,
+        type: 3}
+      propertyPath: levelButtons.Array.data[14]
+      value: 
+      objectReference: {fileID: 608717511}
     - target: {fileID: 7400171776460495118, guid: 1708fa4451778074ba8dfd2f941ad086,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1690,7 +1770,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1758004664}
-        m_MethodName: levelOnclick
+        m_MethodName: LevelOnClick
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

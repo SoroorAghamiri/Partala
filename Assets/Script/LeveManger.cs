@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class LeveManger : MonoBehaviour
 {
     
-    [SerializeField] private int episode;
+    [SerializeField] private int currentEpisode;
     [SerializeField] private Button[] levelButtons;
 
 
@@ -22,6 +22,8 @@ public class LeveManger : MonoBehaviour
         if(DataManager.Instance.buildIndexOfLevelSelectors.Contains(SceneManager.GetActiveScene().buildIndex)==false)
         {
             DataManager.Instance.buildIndexOfLevelSelectors.Add(SceneManager.GetActiveScene().buildIndex);
+            currentEpisode = DataManager.Instance.buildIndexOfLevelSelectors.Count;
+
         }
         audioSource = this.GetComponent<AudioSource>();
 
@@ -39,16 +41,14 @@ public class LeveManger : MonoBehaviour
 
     public void UnlockLevelsTillPlayerProgesss()
     {
-        for (int i = 0; i < DataManager.Instance.GetLevel(episode); i++)
+        for (int i = 0; i < DataManager.Instance.GetLevel(currentEpisode); i++) 
         {
             levelButtons[i].interactable = true;
         }
-
-
     }
 
 
-    public void levelOnclick(int level)
+    public void LevelOnClick(int level)
     {
 
         audioSource.Play();

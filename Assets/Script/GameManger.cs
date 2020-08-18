@@ -124,7 +124,6 @@ public class GameManger : MonoBehaviour
     //win condition 
     private void win()
     {
-        int currentScene = SceneManager.GetActiveScene().buildIndex - episodeNumber;
         if (!wrongObjects)
         {
             int i;
@@ -144,9 +143,9 @@ public class GameManger : MonoBehaviour
                 myEggsScript.SetLastEgg();
                 if (wintoggler)
                 {
-                    if (DataManager.Instance.GetLevel(episodeNumber - 1) == levelNumberInEpisode)
+                    if (DataManager.Instance.GetLevel(episodeNumber) == levelNumberInEpisode)
                     {
-                        DataManager.Instance.SetLevel(DataManager.Instance.GetLevel(0) + 1, episodeNumber - 1);
+                        DataManager.Instance.SetLevel(DataManager.Instance.GetLevel(episodeNumber) + 1, episodeNumber);
                     }
                     StartCoroutine(DeleteMainComponentObjectsAfterWin());
                     StartCoroutine(Wait());

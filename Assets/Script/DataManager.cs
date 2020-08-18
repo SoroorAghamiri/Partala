@@ -6,37 +6,27 @@ using GameAnalyticsSDK.Setup;
 
 public class DataManager : MonoBehaviour
 {
-    // public static DataManager Instance { get; private set; }
-    private static DataManager _instance;
-    private PlayerData playerData;
-
+    public static DataManager Instance { get; private set; }
+    private PlayerData playerData = new PlayerData();
+    public bool debug = false;
     public List<int> buildIndexOfLevelSelectors = new List<int>();
     private string file = "player.txt";
 
-    // private void Awake()
-    // {
-    //     if (Instance == null)
-    //     {
-    //         Instance = this;
-    //         DontDestroyOnLoad(gameObject);
-    //     }
-    //     else
-    //     {
-    //         Destroy(gameObject);
-    //     }
-    // }
-
-    public static DataManager Instance
+    private void Awake()
     {
-        get
+        
+        if (Instance == null)
         {
-            if (_instance == null)
-            {
-                _instance = new GameObject("DataManager").AddComponent<DataManager>();
-            }
-            return _instance;
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
+
+
 
 
     public void Save()
@@ -107,12 +97,12 @@ public class DataManager : MonoBehaviour
     public void SetEpisode(int episode)
     {
         playerData.episode = episode;
-        playerData.levelinEpisode.Add(0);
+        playerData.levelinEpisode.Add(1);
     }
 
     public void SetLevel(int level, int episode)
     {
-        playerData.levelinEpisode[episode] = level;
+        playerData.levelinEpisode[episode-1] = level;
     }
 
     public void SetFeather(int feather)
@@ -127,7 +117,7 @@ public class DataManager : MonoBehaviour
 
     public int GetLevel(int episode)
     {
-        return playerData.levelinEpisode[episode];
+        return playerData.levelinEpisode[episode-1];
     }
 
     public int GetFeather()
