@@ -1761,8 +1761,6 @@ MonoBehaviour:
   Win: 0
   Colliderpoint: []
   Check: 
-  winCheck1: {fileID: 0}
-  winCheck2: {fileID: 0}
   NextLevelname: 
   buttons:
   - {fileID: 9023492895973428820}
@@ -1777,7 +1775,7 @@ MonoBehaviour:
   indx: -1
   wrongObjects: 0
   episodeFeather: 0f000000
-  featheText: {fileID: 6427259324673360464}
+  featherText: {fileID: 6427259324673360464}
   hintPanel: {fileID: 7650221967636566129}
 --- !u!82 &2570232318912139654
 AudioSource:

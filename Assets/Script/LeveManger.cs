@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class LeveManger : MonoBehaviour
 {
     
-    [SerializeField] private int currentEpisode;
+    private int currentEpisode;
     [SerializeField] private Button[] levelButtons;
 
 
@@ -64,10 +64,8 @@ public class LeveManger : MonoBehaviour
 
     public void LevelOnClick(int level)
     {
-
         audioSource.Play();
         SceneManager.LoadScene(level + SceneManager.GetActiveScene().buildIndex);
-
     }
 
     public void Onback(string episode)

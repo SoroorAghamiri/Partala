@@ -25,8 +25,6 @@ public class GameManger : MonoBehaviour
     public bool Win;// win condition for game 
     public GameObject[] Colliderpoint;// get collider points 
     public bool[] Check;
-    public WinChecker1Object winCheck1;
-    public WinCheckerMoreThan2Objects winCheck2;
     public string NextLevelname;
     public Button[] buttons = new Button[6];
     public Image Puase_panel;
@@ -37,7 +35,7 @@ public class GameManger : MonoBehaviour
     private EggsScript myEggsScript;
     private string LevelSelect;
     [SerializeField] private int[] episodeFeather;//earned feather after every episode ending
-    public Text featheText;
+    [SerializeField] private Text featherText;
     public GameObject hintPanel;
     public int[][] featherAndLevelMatrix;
     private bool panelIsActive = false;
@@ -302,7 +300,7 @@ public class GameManger : MonoBehaviour
 
     public void ShowNumberOfFeathers()
     {
-        featheText.text = DataManager.Instance.GetFeather().ToString();
+        featherText.text = DataManager.Instance.GetFeather().ToString();
 
     }
 

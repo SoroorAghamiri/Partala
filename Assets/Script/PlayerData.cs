@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerData
 {
-    public int feather = 0;
+    public int feather = 7;
 
     public int episode = 0;
     public List<int> levelinEpisode = new List<int>();

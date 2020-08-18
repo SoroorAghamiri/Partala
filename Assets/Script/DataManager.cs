@@ -124,10 +124,6 @@ public class DataManager : MonoBehaviour
     {
         return playerData.feather;
     }
-    public void SetEpisodeBuildIndex()
-    {
-
-    }
     //Saves On pausing for mobile Obviously
     private void OnApplicationPause(bool pause)
     {
