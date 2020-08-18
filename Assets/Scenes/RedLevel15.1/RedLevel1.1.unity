@@ -1483,6 +1483,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 3.8600006
       objectReference: {fileID: 0}
+    - target: {fileID: 3846544233787007066, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.5844002
+      objectReference: {fileID: 0}
     - target: {fileID: 4008503910028426027, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1537,6 +1542,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.49999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294485173339872744, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4294485173510766066, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
@@ -1648,6 +1658,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 10.190002
       objectReference: {fileID: 0}
+    - target: {fileID: 4774010519136804245, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -18.999996
+      objectReference: {fileID: 0}
     - target: {fileID: 4871607761029695119, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: sfxSlider
@@ -1657,6 +1672,11 @@ PrefabInstance:
         type: 3}
       propertyPath: episodeNumber
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871607761029695119, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5069681111725796370, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}

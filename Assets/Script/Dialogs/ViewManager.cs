@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class ViewManager : MonoBehaviour
 {
@@ -61,13 +63,19 @@ public class ViewManager : MonoBehaviour
     {
         if (canclose)
         {
+            if (getBlur() != null)
+            {
+                Destroy(getBlur());
+            }
             ViewObject oldView = viewStackManagement.popFromStack();
             ViewObject view = viewStackManagement.getLastView();
 
             // print("Popped from stack" + oldView.name);
 
             if (oldView != null)
+            {
                 oldView.closeView();
+            }
             if (view != null)
             {
                 view.openView();
@@ -80,9 +88,22 @@ public class ViewManager : MonoBehaviour
         if (canclose)
         {
             // print("close view " + view.name);
+            if (getBlur() != null)
+            {
+                Destroy(getBlur());
+            }
             view.closeView();
             viewStackManagement.removeView(view);
         }
+    }
+
+    private GameObject getBlur()
+    {
+        GameObject parent = GameObject.Find("GameManger");
+        GameObject childOfCC = parent.transform.Find("UI PA").gameObject;
+        GameObject cOfCOfCC = childOfCC.transform.Find("PauseCanvas").gameObject;
+        GameObject blurclone = cOfCOfCC.transform.Find("BLUR(Clone)").gameObject;
+        return blurclone;
     }
 
     public void removeLastHistory()

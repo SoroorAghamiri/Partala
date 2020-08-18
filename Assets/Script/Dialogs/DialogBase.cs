@@ -14,7 +14,7 @@ public class DialogBase : ViewObject
     public GameObject dialogObject;
     public List<Button> closeButtons = new List<Button>();
 
-
+    // public Image blurImage;
     //public GameObject DialogContents;
     public bool canClose = true;
 
@@ -45,6 +45,7 @@ public class DialogBase : ViewObject
             openAction();
         }
         dialogObject.SetActive(true);
+        // blurImage.gameObject.SetActive(true);
         //DialogContents.transform.localScale = Vector3.one * 0.8f;
         //        iTween.ScaleTo(DialogContents, Vector3.one, 1);
     }

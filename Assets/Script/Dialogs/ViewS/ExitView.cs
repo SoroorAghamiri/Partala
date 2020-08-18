@@ -20,6 +20,7 @@ public class ExitView : DialogBase
         }
         else
         {
+
             ViewManager.instance.closeView(this);
 
         }

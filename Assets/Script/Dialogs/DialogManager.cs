@@ -37,11 +37,8 @@ public class DialogManager : MonoBehaviour
                 print("Did Not Find Canvas");
 
                 cc = GameObject.Find("GameManger");
-                // print("cc name: " + cc.name);
                 GameObject childOfCC = cc.transform.Find("UI PA").gameObject;
-                // print("child of cc name:" + childOfCC.name);
                 GameObject cOfCOfCC = childOfCC.transform.Find("PauseCanvas").gameObject;
-                // print("child of child of cc name:" + cOfCOfCC.name);
 
                 canvasParent = cOfCOfCC.GetComponent<RectTransform>();
             }
@@ -62,8 +59,22 @@ public class DialogManager : MonoBehaviour
         Resources.UnloadUnusedAssets();
     }
 
+    private Image blurImg;
+
+    public void showBlur()
+    {
+
+        blurImg = Resources.Load<Image>("Views/BLUR");
+        Image prefab = Instantiate(blurImg, Vector3.zero, Camera.main.transform.rotation);
+
+        prefab.gameObject.transform.SetParent(getCanvasParent());
+        print("Parent must be set");
+        prefab.gameObject.transform.localPosition = Vector3.zero;
+
+    }
     public ExitView showExitView()
     {
+        showBlur();
         ExitView prefab = Resources.Load<ExitView>("Views/ExitPanel");
         ExitView dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
         initDialog(dialog.gameObject);
@@ -74,6 +85,7 @@ public class DialogManager : MonoBehaviour
 
     public SettingView showSettingView()
     {
+        showBlur();
         SettingView prefab = Resources.Load<SettingView>("Views/SettingPanel");
         SettingView dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
         initDialog(dialog.gameObject);
@@ -86,6 +98,7 @@ public class DialogManager : MonoBehaviour
 
     public PauseView showPauseView()
     {
+        showBlur();
         PauseView prefab = Resources.Load<PauseView>("Views/PuasePanel");
         PauseView dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
         initDialog(dialog.gameObject);
