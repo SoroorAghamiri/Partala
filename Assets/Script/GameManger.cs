@@ -85,7 +85,7 @@ public class GameManger : MonoBehaviour
         var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         for (int i = 0; i < DataManager.Instance.buildIndexOfLevelSelectors.Count; i++)
         {
-            if (DataManager.Instance.buildIndexOfLevelSelectors[i] > currentSceneIndex)
+            if (DataManager.Instance.buildIndexOfLevelSelectors[i] < currentSceneIndex)
             {
                 levelNumberInEpisode = currentSceneIndex - DataManager.Instance.buildIndexOfLevelSelectors[i];
                 episodeNumber = i + 1;

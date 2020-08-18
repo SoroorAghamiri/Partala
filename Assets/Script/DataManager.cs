@@ -6,7 +6,7 @@ using GameAnalyticsSDK.Setup;
 
 public class DataManager : MonoBehaviour
 {
-    public static DataManager Instance { get; private set; }
+    public static DataManager Instance;
     private PlayerData playerData = new PlayerData();
     public bool debug = false;
     public List<int> buildIndexOfLevelSelectors = new List<int>();
@@ -102,7 +102,7 @@ public class DataManager : MonoBehaviour
 
     public void SetLevel(int level, int episode)
     {
-        playerData.levelinEpisode[episode-1] = level;
+        playerData.levelinEpisode[episode - 1] = level;
     }
 
     public void SetFeather(int feather)
@@ -117,7 +117,7 @@ public class DataManager : MonoBehaviour
 
     public int GetLevel(int episode)
     {
-        return playerData.levelinEpisode[episode-1];
+        return playerData.levelinEpisode[episode - 1];
     }
 
     public int GetFeather()

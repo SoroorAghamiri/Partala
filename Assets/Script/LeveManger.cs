@@ -19,12 +19,7 @@ public class LeveManger : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        if(DataManager.Instance.buildIndexOfLevelSelectors.Contains(SceneManager.GetActiveScene().buildIndex)==false)
-        {
-            DataManager.Instance.buildIndexOfLevelSelectors.Add(SceneManager.GetActiveScene().buildIndex);
-            currentEpisode = DataManager.Instance.buildIndexOfLevelSelectors.Count;
-
-        }
+        FindCurrentEpisode();
         audioSource = this.GetComponent<AudioSource>();
 
         for (int i = 0; i < levelButtons.Length; i++)
@@ -37,11 +32,30 @@ public class LeveManger : MonoBehaviour
 
     }
 
-
+    private void FindCurrentEpisode()
+    {
+        if (DataManager.Instance.buildIndexOfLevelSelectors.Contains(SceneManager.GetActiveScene().buildIndex) == false)
+        {
+            DataManager.Instance.buildIndexOfLevelSelectors.Add(SceneManager.GetActiveScene().buildIndex);
+            currentEpisode = DataManager.Instance.buildIndexOfLevelSelectors.Count;
+        }
+        else
+        {
+            for (int i = 0; i < DataManager.Instance.buildIndexOfLevelSelectors.Count; i++)
+            {
+                if (DataManager.Instance.buildIndexOfLevelSelectors[i] == SceneManager.GetActiveScene().buildIndex)
+                {
+                    currentEpisode = i + 1;
+                    break;
+                }
+            }
+        }
+    }
 
     public void UnlockLevelsTillPlayerProgesss()
     {
-        for (int i = 0; i < DataManager.Instance.GetLevel(currentEpisode); i++) 
+        var levelUnlock = DataManager.Instance.GetLevel(currentEpisode);
+        for (int i = 0; i < levelUnlock; i++) 
         {
             levelButtons[i].interactable = true;
         }
