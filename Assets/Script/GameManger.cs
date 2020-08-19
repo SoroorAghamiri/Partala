@@ -104,6 +104,7 @@ public class GameManger : MonoBehaviour
         Colliderpoint = GameObject.FindGameObjectsWithTag("ColliderPoint");
     }
 
+    //I believe this method is not required. We alreadyn have a code to handle settingPanel.
     private void AddingListenersToButtons()
     {
         // buttons[0].onClick.AddListener(Onpause);/////Fatal
