@@ -99,11 +99,20 @@ public class ViewManager : MonoBehaviour
 
     private GameObject getBlur()
     {
-        GameObject parent = GameObject.Find("GameManger");
-        GameObject childOfCC = parent.transform.Find("UI PA").gameObject;
-        GameObject cOfCOfCC = childOfCC.transform.Find("PauseCanvas").gameObject;
-        GameObject blurclone = cOfCOfCC.transform.Find("BLUR(Clone)").gameObject;
-        return blurclone;
+        GameObject canvas = GameObject.Find("Canvas");
+        if (canvas != null)
+        {
+            GameObject blurclone = canvas.transform.Find("BLUR(Clone)").gameObject;
+            return blurclone;
+        }
+        else
+        {
+            GameObject parent = GameObject.Find("GameManger");
+            GameObject childOfCC = parent.transform.Find("UI PA").gameObject;
+            GameObject cOfCOfCC = childOfCC.transform.Find("PauseCanvas").gameObject;
+            GameObject blurclone = cOfCOfCC.transform.Find("BLUR(Clone)").gameObject;
+            return blurclone;
+        }
     }
 
     public void removeLastHistory()
