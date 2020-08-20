@@ -41,8 +41,39 @@ MonoBehaviour:
   SelectedOrganization: 00000000
   SelectedStudio: 00000000
   SelectedGame: 00000000
-  NewVersion: 
-  Changes: 
+  NewVersion: 6.3.0
+  Changes: '6.3.0
+
+    - updated user identifier flow to prepare for iOS 14 IDFA
+    changes (ios)
+
+
+    6.2.4
+
+    - fixed progression events with scores (android)
+
+
+    6.2.3
+
+    -
+    editor ui error fix
+
+
+    6.2.2
+
+    - tvos compile fix
+
+
+    6.2.1
+
+    - added
+    better error messages for API calls potentially being removed in the future
+
+
+    6.2.0
+
+    -
+    exposed functions to get AB testing id and variant id'
   SignUpOpen: 0
   StudioName: Zimatek.com
   GameName: Papuzzel
@@ -64,7 +95,7 @@ MonoBehaviour:
   ResourceCurrencies: []
   LastCreatedGamePlatform: -1
   Platforms: 0b000000
-  CurrentInspectorState: 1
+  CurrentInspectorState: 3
   ClosedHints: 
   DisplayHints: 0
   DisplayHintsScrollState: {x: 0, y: 0}

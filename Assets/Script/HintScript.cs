@@ -37,7 +37,6 @@ public class HintScript : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (hintShown)
@@ -57,32 +56,31 @@ public class HintScript : MonoBehaviour
     {
         if (!firstHint )
         {
-            //if (GameSys.Instans.GetFeather() >= 0 && (GameSys.Instans.GetFeather()-featherDiscount1) >= 0 )
-               
-          //  {
+            if(DataManager.Instance.GetFeather() - featherDiscount1 >=0)
+            {
                 DeactivateWrongComponents();
                 firstHint = true;
-               // GameSys.Instans.SetFeather(GameSys.Instans.GetFeather() - featherDiscount1);
+                DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() - featherDiscount1);
                 GameManger.Instans.ShowNumberOfFeathers();
-           // }
+            }
         }
     }
 
     public void SecondHintButton()//Button for Second Hint 
-    {Debug.Log("WORKING");
-        if (!hintShown )
+    {
+        if (!hintShown)
         {
-            //if (GameSys.Instans.GetFeather() >= 0 && (GameSys.Instans.GetFeather() - featherDiscount2)>=0)
-            //{
-               // Debug.Log(GameSys.Instans.GetFeather() - featherDiscount2);
+            if (DataManager.Instance.GetFeather() - featherDiscount2 >= 0)
+            {
                 finalObject.SetActive(true);
                 StartCoroutine(ShowFinalObject());
                 StartCoroutine(MakeFinalObjectHidden());
                 hintShown = true;
-                //GameSys.Instans.SetFeather(GameSys.Instans.GetFeather() - featherDiscount2);
+                DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() - featherDiscount2);
                 GameManger.Instans.ShowNumberOfFeathers();
                 GameManger.Instans.HintPanelColse();
-                Debug.Log("WORKING");
+            }
+                
 
         }
     }
