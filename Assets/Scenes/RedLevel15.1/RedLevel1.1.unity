@@ -1463,6 +1463,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3064544077206642516, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 4.0999756
+      objectReference: {fileID: 0}
     - target: {fileID: 3453205149153689723, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_RootOrder
@@ -1944,6 +1949,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -3974799579066595077, guid: 780baf28a9972db4a8cda9c6e151b472,
         type: 2}
+    - target: {fileID: 7497697846247053486, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1011799441}
+    - target: {fileID: 7497697846247053486, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: openCurrencyView
+      objectReference: {fileID: 0}
     - target: {fileID: 7582360495516643705, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2992,6 +3007,18 @@ MonoBehaviour:
   touched: 0
   rotate: 0
   bigPanelCollistuin: 0
+--- !u!114 &1011799441 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3980263966620568159, guid: 1fbcd06c94ede12449b181aec69479c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 555553219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58760f48d283a944a83cbaa2f20290c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1041177801
 GameObject:
   m_ObjectHideFlags: 0

@@ -851,6 +851,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: LevelSelect1
       objectReference: {fileID: 0}
+    - target: {fileID: 4530480591464576120, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4640749404017609069, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_AnchoredPosition.x

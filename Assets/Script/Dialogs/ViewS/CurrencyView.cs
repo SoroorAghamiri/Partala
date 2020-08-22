@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
+using UnityEngine.UI;
 
-public class HintScript : MonoBehaviour
+public class CurrencyView : DialogBase
 {
     // Working Params
+    [Header("Currency Parameters")]
+    public Text numberOfFeathers;
     public bool firstHint;
     public bool hintShown;
     public GameObject[] wrongComponents;
@@ -16,7 +17,7 @@ public class HintScript : MonoBehaviour
     //Config
     [SerializeField] private float speedForScale;
     [SerializeField] private float limit = 1;
-    public static HintScript hintscript;
+    // public static HintScript hintscript;
     /// <summary>
     /// Remove Later
     /// </summary>
@@ -24,18 +25,20 @@ public class HintScript : MonoBehaviour
 
     void Start()
     {
+        DataManager.Instance.Load();
+        initialization();
+    }
+
+    private void initialization()
+    {
         finalObject = GameObject.FindGameObjectWithTag("Final");
         firstHint = false;
         hintShown = false;
         correctObjects = GameObject.FindGameObjectsWithTag("MainComponent");
+        wrongComponents = GameObject.FindGameObjectsWithTag("WrongComponent");
+        numberOfFeathers.text = DataManager.Instance.GetFeather().ToString();
     }
-    private void Awake()
-    {
-        if (hintscript == null)
-        {
-            hintscript = this;
-        }
-    }
+
 
     void Update()
     {
@@ -50,6 +53,11 @@ public class HintScript : MonoBehaviour
         }
     }
 
+
+    public void cancelPanel()
+    {
+        ViewManager.instance.closeView(this);
+    }
 
 
     public void FirstHintButton()//button for First Hint 
@@ -79,6 +87,7 @@ public class HintScript : MonoBehaviour
                 DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() - featherDiscount2);
                 GameManger.Instans.ShowNumberOfFeathers();
                 // GameManger.Instans.HintPanelColse();
+                ViewManager.instance.closeView(this);
             }
 
 
@@ -104,7 +113,6 @@ public class HintScript : MonoBehaviour
 
     private void DeactivateWrongComponents()
     {
-        wrongComponents = GameObject.FindGameObjectsWithTag("WrongComponent");
         for (int i = 0; i < wrongComponents.Length; i++)
         {
             wrongComponents[i].SetActive(false);

@@ -96,11 +96,11 @@ public class DialogManager : MonoBehaviour
 
 
 
-    public PauseView showPauseView()
+    public CurrencyView showCurrencyView()
     {
         showBlur();
-        PauseView prefab = Resources.Load<PauseView>("Views/PuasePanel");
-        PauseView dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
+        CurrencyView prefab = Resources.Load<CurrencyView>("Views/CurrencyPanel");
+        CurrencyView dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
         initDialog(dialog.gameObject);
 
         ViewManager.instance.openView(dialog);
