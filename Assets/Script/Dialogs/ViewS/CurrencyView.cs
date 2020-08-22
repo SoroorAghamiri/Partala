@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class CurrencyView : DialogBase
 {
+    private int[] firstHintDiscountInEpisodes = { 1, 2, 3 };
+    private int[] secondHintDiscountInEpisodes = { 3, 4, 5 };
     // Working Params
     [Header("Currency Parameters")]
     public Text numberOfFeathers;
@@ -22,7 +26,7 @@ public class CurrencyView : DialogBase
     /// Remove Later
     /// </summary>
     private GameObject[] correctObjects;
-
+    private int level;
     void Start()
     {
         DataManager.Instance.Load();
@@ -31,6 +35,11 @@ public class CurrencyView : DialogBase
 
     private void initialization()
     {
+        string temp = SceneManager.GetActiveScene().name;
+        level = System.Convert.ToInt32(temp.Substring(temp.Length - 1));
+        print(level);
+        featherDiscount1 = firstHintDiscountInEpisodes[level - 1];
+        featherDiscount2 = secondHintDiscountInEpisodes[level - 1];
         finalObject = GameObject.FindGameObjectWithTag("Final");
         firstHint = false;
         hintShown = false;
@@ -69,7 +78,8 @@ public class CurrencyView : DialogBase
                 DeactivateWrongComponents();
                 firstHint = true;
                 DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() - featherDiscount1);
-                GameManger.Instans.ShowNumberOfFeathers();
+                // GameManger.Instans.ShowNumberOfFeathers();
+                numberOfFeathers.text = DataManager.Instance.GetFeather().ToString();
             }
         }
     }
@@ -85,9 +95,11 @@ public class CurrencyView : DialogBase
                 StartCoroutine(MakeFinalObjectHidden());
                 hintShown = true;
                 DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() - featherDiscount2);
-                GameManger.Instans.ShowNumberOfFeathers();
+                // GameManger.Instans.ShowNumberOfFeathers();
                 // GameManger.Instans.HintPanelColse();
+                numberOfFeathers.text = DataManager.Instance.GetFeather().ToString();
                 ViewManager.instance.closeView(this);
+
             }
 
 
