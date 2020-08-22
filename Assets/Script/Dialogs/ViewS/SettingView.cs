@@ -19,10 +19,11 @@ public class SettingView : DialogBase
     private void Start()
     {
         // DataManager.Instance.Load();
-        // masterAM.SetFloat("sfxvol", DataManager.Instance.GetSFXLevel());
-        // masterAM.SetFloat("musicvol", DataManager.Instance.GetMusicLevel());
-        //musicCheck.value = DataManager.Instance.GetMusicLevel();
-        //sfxCheck.value= DataManager.Instance.GetSFXLevel();
+        masterAM.SetFloat("sfxvol", DataManager.Instance.GetSFXLevel());
+        masterAM.SetFloat("musicvol", DataManager.Instance.GetMusicLevel());
+
+        musicCheck.value = DataManager.Instance.GetMusicLevel();
+        sfxCheck.value = DataManager.Instance.GetSFXLevel();
     }
 
 
@@ -44,20 +45,19 @@ public class SettingView : DialogBase
     }
 
 
-    //Date manager does not work currently because it can't find the json file
-    //Get date from DateManager Later
+
     public void onSoundChange(float newValue)
     {
 
-        // DataManager.Instance.SetSFXLevel(Mathf.Log10(newValue) * 20);
-        masterAM.SetFloat("sfxvol", Mathf.Log10(newValue) * 20);//DataManager.Instance.GetSFXLevel()
+        DataManager.Instance.SetSFXLevel(newValue);
+        masterAM.SetFloat("sfxvol", DataManager.Instance.GetSFXLevel());
     }
 
     public void onMusicChange(float newValue)
     {
 
-        // DataManager.Instance.SetMusicLevel(newValue);
-        masterAM.SetFloat("musicvol", Mathf.Log10(newValue) * 20);//DataManager.Instance.GetMusicLevel()
+        DataManager.Instance.SetMusicLevel(newValue);
+        masterAM.SetFloat("musicvol", DataManager.Instance.GetMusicLevel());
     }
 
     public void onHomeClicked()
