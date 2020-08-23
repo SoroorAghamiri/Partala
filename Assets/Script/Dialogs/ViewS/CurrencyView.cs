@@ -15,7 +15,6 @@ public class CurrencyView : DialogBase
     public bool firstHint;
     public bool hintShown;
     public GameObject[] wrongComponents;
-    public GameObject finalObject;
     [SerializeField] public int featherDiscount1;
     [SerializeField] public int featherDiscount2;
     //Config
@@ -29,7 +28,6 @@ public class CurrencyView : DialogBase
     private int level;
     void Start()
     {
-        DataManager.Instance.Load();
         initialization();
     }
 
@@ -40,26 +38,16 @@ public class CurrencyView : DialogBase
         print(level);
         featherDiscount1 = firstHintDiscountInEpisodes[level - 1];
         featherDiscount2 = secondHintDiscountInEpisodes[level - 1];
-        finalObject = GameObject.FindGameObjectWithTag("Final");
         firstHint = false;
         hintShown = false;
-        correctObjects = GameObject.FindGameObjectsWithTag("MainComponent");
         wrongComponents = GameObject.FindGameObjectsWithTag("WrongComponent");
         numberOfFeathers.text = DataManager.Instance.GetFeather().ToString();
+        speedForScale = 10.0f;
     }
 
 
     void Update()
     {
-        if (hintShown)
-        {
-            if (Input.touchCount > 0)
-            {
-                finalObject.transform.localScale = new Vector3(0, 0, 0);
-                hintShown = false;
-            }
-
-        }
     }
 
 
@@ -90,37 +78,20 @@ public class CurrencyView : DialogBase
         {
             if (DataManager.Instance.GetFeather() - featherDiscount2 >= 0)
             {
-                finalObject.SetActive(true);
-                StartCoroutine(ShowFinalObject());
-                StartCoroutine(MakeFinalObjectHidden());
+                CreateNewObjectForHandlingHintAfterViewCloses();
                 hintShown = true;
                 DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() - featherDiscount2);
-                // GameManger.Instans.ShowNumberOfFeathers();
-                // GameManger.Instans.HintPanelColse();
                 numberOfFeathers.text = DataManager.Instance.GetFeather().ToString();
                 ViewManager.instance.closeView(this);
-
             }
-
-
         }
     }
 
-    private IEnumerator MakeFinalObjectHidden()
+    private void CreateNewObjectForHandlingHintAfterViewCloses()
     {
-        yield return new WaitForSeconds(2.0f);
-        finalObject.transform.localScale = new Vector3(0, 0, 0);
-        ///
-        ///Remove Later
-        ///
-        for (int i = 0; i < correctObjects.Length; i++)
-        {
-            correctObjects[i].SetActive(true);
-        }
-        for (int i = 0; i < wrongComponents.Length; i++)
-        {
-            wrongComponents[i].SetActive(true);
-        }
+        GameObject finalObjectManager = new GameObject("finalObjectManager");
+        finalObjectManager.AddComponent<FinalObjectManager>();
+        finalObjectManager.GetComponent<FinalObjectManager>().ManageSecondHint(firstHint);
     }
 
     private void DeactivateWrongComponents()
@@ -131,26 +102,4 @@ public class CurrencyView : DialogBase
         }
     }
 
-    public IEnumerator ShowFinalObject()
-    {
-        ///
-        ///Remove Later
-        ///
-        for (int i = 0; i < correctObjects.Length; i++)
-        {
-            correctObjects[i].SetActive(false);
-        }
-        for (int i = 0; i < wrongComponents.Length; i++)
-        {
-            wrongComponents[i].SetActive(false);
-        }
-        while (finalObject.transform.localScale.x < limit)
-        {
-            finalObject.transform.localScale += new Vector3(
-                speedForScale * Time.deltaTime,
-                speedForScale * Time.deltaTime,
-                speedForScale * Time.deltaTime);
-            yield return null;
-        }
-    }
 }

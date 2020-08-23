@@ -174,11 +174,12 @@ public class GameManger : MonoBehaviour
 
         this.gameObject.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(0.3f);
-        StartCoroutine(HintScript.hintscript.ShowFinalObject());
+        GameObject finalObjectManager = new GameObject("finalObjectManager");
+        finalObjectManager.AddComponent<FinalObjectManager>();
+        finalObjectManager.GetComponent<FinalObjectManager>().ShowFinalObjectAfterWin();
         yield return new WaitForSeconds(this.gameObject.GetComponent<AudioSource>().clip.length);
         next_level();
     }
-    /////Fatal
     private void Onpause()
     {
         if (toggel_puase == false && panelIsActive == false)
