@@ -1676,7 +1676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flagWin: 0
-  setup: 1
+  setup: 0
   listofLockerPoints: []
   distancesInFloat:
   - 4.103158

@@ -6,7 +6,6 @@ public class TouchRotate : MonoBehaviour
     private Collider2D collider;
     public bool touched;
     public bool rotate;
-    private Transform obj;
     private Collider2D panel2Collider;
     
     private float offsetAngle;
@@ -16,14 +15,19 @@ public class TouchRotate : MonoBehaviour
     private float speedRot;
     private float speedMove;
 
-
+    private RotateButtonInGame rotateButton;
+    private Collider2D rotateButtonCollider;
+    private Coroutine fadeCoroutine;
+    private Material objectMaterial;
     void Start()
     {
         collider = GetComponent<Collider2D>();
         panel2Collider = GameObject.Find("Panel2").GetComponent<Collider2D>();
         speedRot = 15f;
         speedMove = 15f;
-        obj = transform;
+        rotateButton = GameObject.FindObjectOfType<RotateButtonInGame>();
+        rotateButtonCollider = rotateButton.GetComponent<Collider2D>();
+        objectMaterial = GetComponent<Renderer>().material;
     }
 
     // Update is called once per frame
@@ -32,17 +36,34 @@ public class TouchRotate : MonoBehaviour
         CheckForTouch();
     }
 
+    private IEnumerator FadeInFadeOutWhenTouched()
+    {
+        while (true)
+        {
+            while (objectMaterial.color.a > 0.70f)
+            {
+                objectMaterial.color = new Color(1f, 1f, 1f, objectMaterial.color.a - 0.002f);
+                yield return null;
+            }
+            while (objectMaterial.color.a <= 1)
+            {
+                objectMaterial.color = new Color(1f, 1f, 1f, objectMaterial.color.a + 0.002f);
+                yield return null;
+            }
+        }
+    }
     void CheckForTouch()
     {
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            Vector2 touchPosition = NormalizeTouchPosition();
+            Vector2 touchPosition = NormalizeTouchPosition(Input.GetTouch(0).position);
 
             if (collider == Physics2D.OverlapPoint(touchPosition))
             {
                 touched = true;
                 rotate = false;
-
+                if (fadeCoroutine == null)
+                    fadeCoroutine = StartCoroutine(FadeInFadeOutWhenTouched());
             }
             else if (panel2Collider == Physics2D.OverlapPoint(touchPosition) && touched)
             {
@@ -52,20 +73,31 @@ public class TouchRotate : MonoBehaviour
                 {
                     touched = true;
                     rotate = false;
+                    if (fadeCoroutine == null)
+                        fadeCoroutine = StartCoroutine(FadeInFadeOutWhenTouched());
                 }
                 else
                 {
                     SetRotateandOffsetAngle(touchPosition);
                 }
             }
+            else if(rotateButtonCollider == Physics2D.OverlapPoint(touchPosition))
+            {
+            ///DO NOTHING
+            }
             else
             {
                 touched = false;
                 rotate = false;
+                if (fadeCoroutine != null)
+                {
+                    StopCoroutine(fadeCoroutine);
+                    objectMaterial.color = new Color(1f, 1f, 1f, 1f);
+                }
             }
         }
 
-        if (rotate && touched)
+        if (rotate && touched && rotateButton.RotateButtonIsPressed())
         {
             RotateAndLookAtTheTouch();
 
@@ -76,9 +108,9 @@ public class TouchRotate : MonoBehaviour
         }
     }
 
-    private static Vector2 NormalizeTouchPosition()
+    private static Vector2 NormalizeTouchPosition(Vector2 touch)
     {
-        var wp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+        var wp = Camera.main.ScreenToWorldPoint(touch);
         var touchPosition = new Vector2(wp.x, wp.y);
         return touchPosition;
     }
@@ -98,25 +130,38 @@ public class TouchRotate : MonoBehaviour
     {
         if (Input.touchCount == 0)
             return;
-        Touch touch = Input.GetTouch(0);
-        Vector3 newPos = new Vector3(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position).x, Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position).y, obj.position.z);
-        transform.position = Vector3.Lerp(transform.position, newPos, speedMove * Time.deltaTime);
-        if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+        foreach(Touch touch in Input.touches)
         {
-            transform.position = Vector3.Lerp(transform.position, newPos, speedMove * Time.deltaTime);
+            Vector2 touchPosition = NormalizeTouchPosition(touch.position);
+            if(rotateButtonCollider != Physics2D.OverlapPoint(touchPosition))
+            {
+                Vector3 newPos = new Vector3(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position).x, Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position).y, transform.position.z);
+                transform.position = Vector3.Lerp(transform.position, newPos, speedMove * Time.deltaTime);
+                if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+                {
+                    transform.position = Vector3.Lerp(transform.position, newPos, speedMove * Time.deltaTime);
+                }
+            }
         }
+        
     }
 
     private void RotateAndLookAtTheTouch()
     {
         if (Input.touchCount == 0)
             return;
-        Touch touch = Input.GetTouch(0);
-        Vector2 currentPosition = transform.position;
-        Vector2 moveTowards = Camera.main.ScreenToWorldPoint(touch.position);
-        movement = moveTowards - currentPosition;
-        movement.Normalize();
-        float targetAngle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, targetAngle + offsetAngle), speedRot * Time.deltaTime);
+        foreach(Touch touch in Input.touches)
+        {
+            Vector2 touchPosition = NormalizeTouchPosition(touch.position);
+            if(panel2Collider == Physics2D.OverlapPoint(touchPosition))
+            {
+                Vector2 currentPosition = transform.position;
+                Vector2 moveTowards = Camera.main.ScreenToWorldPoint(touch.position);
+                movement = moveTowards - currentPosition;
+                movement.Normalize();
+                float targetAngle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, targetAngle + offsetAngle), speedRot * Time.deltaTime);
+            }
+        }   
     }
 }
