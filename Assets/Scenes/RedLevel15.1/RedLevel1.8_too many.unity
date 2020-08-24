@@ -2128,7 +2128,7 @@ MonoBehaviour:
   - 1.44
   - 0.94
   - 0.48
-  allowanceForObjects: 0.34
+  allowanceForObjects: 0.44
   allowanceForLockers: 0.1
 --- !u!1 &1295496607
 GameObject:

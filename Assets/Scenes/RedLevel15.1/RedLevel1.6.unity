@@ -918,7 +918,7 @@ GameObject:
   - component: {fileID: 925087559}
   m_Layer: 0
   m_Name: Knitting Rods
-  m_TagString: Untagged
+  m_TagString: MainComponent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1691,7 +1691,7 @@ MonoBehaviour:
   - 1.795269
   - 2.038691
   - 2.482678
-  allowanceForObjects: 0.2
+  allowanceForObjects: 0.27
   allowanceForLockers: 0.1
 --- !u!1 &1381706008
 GameObject:

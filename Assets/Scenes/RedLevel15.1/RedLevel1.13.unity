@@ -1964,7 +1964,7 @@ MonoBehaviour:
   - 0.49
   - 0.53
   - 0.85
-  allowanceForObjects: 0.16
+  allowanceForObjects: 0.25
   allowanceForLockers: 0.1
 --- !u!1001 &1580297625
 PrefabInstance:
