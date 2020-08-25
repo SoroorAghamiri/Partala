@@ -20,8 +20,8 @@ public class InfoView : DialogBase
     //Generalize this view later
     private void explanation()
     {
-
-        info.text = Fa.faConvertLine(infoText["CurrencyView"]);
+        string gorInfot = infoText["CurrencyView"];
+        info.text = Fa.faConvertLine(gorInfot);
     }
 
     public void closePanel()
@@ -31,6 +31,6 @@ public class InfoView : DialogBase
 
     void fillDictionary()
     {
-        infoText.Add("CurrencyView", "راهنمای اول: حذف آبجکت های بی استفاده   راهنمای دوم: نمایش شکل نهایی");
+        infoText.Add("CurrencyView", "راهنمای اول: حذف آبجکت های بی استفاده");
     }
 }

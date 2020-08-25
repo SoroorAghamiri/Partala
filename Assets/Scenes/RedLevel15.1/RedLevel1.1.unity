@@ -1506,7 +1506,7 @@ PrefabInstance:
     - target: {fileID: 3064544077206642516, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3453205149153689723, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
@@ -1911,7 +1911,7 @@ PrefabInstance:
     - target: {fileID: 6776537355949982288, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6809688159599258898, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
@@ -4299,7 +4299,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0

@@ -14,6 +14,7 @@ public class Tutorial : MonoBehaviour
     #region privateVariables
     private List<bool> stepIsDone = new List<bool>(5) { false, false, false, false, false };
     private bool showGuide = true;
+    private bool nextIsClicked = false;
     int i = 0;
     [SerializeField] private GameObject[] correctObjects;
     #endregion
@@ -39,6 +40,11 @@ public class Tutorial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (i == steps.Count)
+        {
+            showGuide = false;
+            dialogBox.SetActive(false);
+        }
         if (showGuide)
         {
             dialogBox.SetActive(true);
@@ -48,22 +54,28 @@ public class Tutorial : MonoBehaviour
                     steps[i].SetActive(true);
                 setTutorialText(i + 1);
                 steps[i].GetComponent<Animator>().Play("Hand1");
-                if (correctObjects[i].GetComponent<TouchRotate>().touched)
+                if (i == 2 || i == 3)
                 {
-                    steps[i].SetActive(false);
-                    stepIsDone[i] = true;
-                    i++;
+                    if (correctObjects[i - 2].GetComponent<TouchRotate>().touched)
+                    {
+                        steps[i].SetActive(false);
+                        stepIsDone[i] = true;
+                        i++;
+                    }
                 }
             }
         }
-        if (i == 2)
-        {
-            showGuide = false;
-            dialogBox.SetActive(false);
-        }
+
     }
 
+    public void next()
+    {
+        print("something");
 
+        stepIsDone[i] = true;
+        steps[i].SetActive(false);
+        i++;
+    }
     private void setTutorialText(int step)
     {
         string value = "";
@@ -79,9 +91,9 @@ public class Tutorial : MonoBehaviour
 
     void addToDictionary()
     {
-        guidLines.Add(1, "این رو بکش اینجا");
-        guidLines.Add(2, "این یکی رو هم بیارش");
-        guidLines.Add(3, "اینجا اسم چیزی رو که باید درست کنی رو ببین");
+        guidLines.Add(2, "این رو بکش اینجا");
+        guidLines.Add(3, "این یکی رو هم بیارش");
+        guidLines.Add(1, "اینجا اسم چیزی رو که باید درست کنی رو ببین");
         guidLines.Add(4, "اینا چراغ  های شهر سوخته هستند. وقتی حرکت درستی انجام بدی روشن میشن");
     }
 }
