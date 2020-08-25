@@ -12,6 +12,8 @@ public class CurrencyView : DialogBase
     // Working Params
     [Header("Currency Parameters")]
     public Text numberOfFeathers;
+    public Text disc1;
+    public Text disc2;
     public bool firstHint;
     public bool hintShown;
     public GameObject[] wrongComponents;
@@ -38,6 +40,8 @@ public class CurrencyView : DialogBase
         print(level);
         featherDiscount1 = firstHintDiscountInEpisodes[level - 1];
         featherDiscount2 = secondHintDiscountInEpisodes[level - 1];
+        disc1.text = featherDiscount1.ToString();
+        disc2.text = featherDiscount1.ToString();
         firstHint = false;
         hintShown = false;
         wrongComponents = GameObject.FindGameObjectsWithTag("WrongComponent");
@@ -45,11 +49,22 @@ public class CurrencyView : DialogBase
         speedForScale = 10.0f;
     }
 
-
-    void Update()
+    public void callShowInfo()
     {
+        showInfo();
     }
 
+    public InfoView showInfo()
+    {
+        InfoView prefab = Resources.Load<InfoView>("Views/InfoPanel");
+        InfoView dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
+        dialog.transform.SetParent(this.GetComponent<RectTransform>());
+        dialog.transform.localPosition = Vector3.zero;
+        dialog.transform.localScale = Vector3.one;
+
+        ViewManager.instance.openView(dialog);
+        return dialog;
+    }
 
     public void cancelPanel()
     {
