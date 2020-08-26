@@ -57,9 +57,9 @@ public class Tutorial : MonoBehaviour
                     steps[i].SetActive(true);
                 setTutorialText(i + 1);
                 steps[i].GetComponent<Animator>().Play("Hand1");
-                if (i == 2 || i == 3)
+                if (i == 1 || i == 2)
                 {
-                    if (correctObjects[i - 2].GetComponent<TouchRotate>().touched)
+                    if (correctObjects[i - 1].GetComponent<TouchRotate>().touched)
                     {
                         steps[i].SetActive(false);
                         stepIsDone[i] = true;

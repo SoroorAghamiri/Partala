@@ -41,7 +41,7 @@ public class CurrencyView : DialogBase
         featherDiscount1 = firstHintDiscountInEpisodes[level - 1];
         featherDiscount2 = secondHintDiscountInEpisodes[level - 1];
         disc1.text = featherDiscount1.ToString();
-        disc2.text = featherDiscount1.ToString();
+        disc2.text = featherDiscount2.ToString();
         firstHint = false;
         hintShown = false;
         wrongComponents = GameObject.FindGameObjectsWithTag("WrongComponent");
