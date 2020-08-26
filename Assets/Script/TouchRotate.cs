@@ -78,12 +78,19 @@ public class TouchRotate : MonoBehaviour
                 }
                 else
                 {
+                    rotate = true;
+                    if (fadeCoroutine == null)
+                        fadeCoroutine = StartCoroutine(FadeInFadeOutWhenTouched());
                     SetRotateandOffsetAngle(touchPosition);
                 }
             }
             else if(rotateButtonCollider == Physics2D.OverlapPoint(touchPosition))
             {
-            ///DO NOTHING
+                if(touched && rotate)
+                {
+                    ///DO NOTHING
+                }
+
             }
             else
             {
@@ -102,7 +109,7 @@ public class TouchRotate : MonoBehaviour
             RotateAndLookAtTheTouch();
 
         }
-        else if (touched && !rotate)
+        else if (touched && !rotate && !rotateButton.RotateButtonIsPressed())
         {
             MoveToTheLocationOfTheTouch();
         }
@@ -117,7 +124,7 @@ public class TouchRotate : MonoBehaviour
 
     private void SetRotateandOffsetAngle(Vector2 touchPosition)
     {
-        rotate = true;
+
         //Now we Have to have the initial angle when the touch happened, to offset it later
         Vector2 pos = transform.position;
         movement = touchPosition - pos;
