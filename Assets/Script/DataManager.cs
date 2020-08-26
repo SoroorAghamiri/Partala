@@ -14,7 +14,7 @@ public class DataManager : MonoBehaviour
 
     private void Awake()
     {
-        
+
         if (Instance == null)
         {
             Instance = this;
@@ -110,6 +110,11 @@ public class DataManager : MonoBehaviour
         playerData.feather = feather;
     }
 
+    public void SetTutorial(bool tutorial)
+    {
+        playerData.tutorial = tutorial;
+    }
+
     public int GetEpisode()
     {
         return playerData.episode;
@@ -120,6 +125,10 @@ public class DataManager : MonoBehaviour
         return playerData.levelinEpisode[episode - 1];
     }
 
+    public bool GetTutorial()
+    {
+        return playerData.tutorial;
+    }
     public int GetFeather()
     {
         return playerData.feather;

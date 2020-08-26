@@ -34,6 +34,8 @@ public class Tutorial : MonoBehaviour
         {
             addToDictionary();
         }
+        if (!DataManager.Instance.GetTutorial())
+            showGuide = false;
 
     }
 
@@ -42,6 +44,7 @@ public class Tutorial : MonoBehaviour
     {
         if (i == steps.Count)
         {
+            DataManager.Instance.SetTutorial(false);
             showGuide = false;
             dialogBox.SetActive(false);
         }

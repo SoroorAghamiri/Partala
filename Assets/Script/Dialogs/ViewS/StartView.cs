@@ -24,9 +24,14 @@ public class StartView : MonoBehaviour
         }
     }
 
+    public void openSettingScene()
+    {
+        SceneManager.LoadScene(SceneNames.Setting);
+    }
+
     public void onStartClicked()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneNames.EpisodeSelect);
 
     }
 }
