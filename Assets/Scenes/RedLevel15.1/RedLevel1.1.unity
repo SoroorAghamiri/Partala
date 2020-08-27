@@ -396,9 +396,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27680fd3c9fa55f45b81488256cc149a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collider: {fileID: 0}
   touched: 0
   rotate: 0
+  rightPanel: {fileID: 0}
+  fingerIDMoving: -1
+  offsetAngle: 0
+  movement: {x: 0, y: 0}
   bigPanelCollistuin: 0
+  speedRot: 0
+  speedMove: 0
+  rotateButton: {fileID: 0}
+  rotateButtonCollider: {fileID: 0}
+  objectMaterial: {fileID: 0}
 --- !u!1 &232819406
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,9 +554,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27680fd3c9fa55f45b81488256cc149a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collider: {fileID: 0}
   touched: 0
   rotate: 0
+  rightPanel: {fileID: 0}
+  fingerIDMoving: -1
+  offsetAngle: 0
+  movement: {x: 0, y: 0}
   bigPanelCollistuin: 0
+  speedRot: 0
+  speedMove: 0
+  rotateButton: {fileID: 0}
+  rotateButtonCollider: {fileID: 0}
+  objectMaterial: {fileID: 0}
 --- !u!1 &264525720
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,9 +741,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27680fd3c9fa55f45b81488256cc149a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collider: {fileID: 0}
   touched: 0
   rotate: 0
+  rightPanel: {fileID: 0}
+  fingerIDMoving: -1
+  offsetAngle: 0
+  movement: {x: 0, y: 0}
   bigPanelCollistuin: 0
+  speedRot: 0
+  speedMove: 0
+  rotateButton: {fileID: 0}
+  rotateButtonCollider: {fileID: 0}
+  objectMaterial: {fileID: 0}
 --- !u!1001 &267644049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1022,9 +1052,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27680fd3c9fa55f45b81488256cc149a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collider: {fileID: 0}
   touched: 0
   rotate: 0
+  rightPanel: {fileID: 0}
+  fingerIDMoving: -1
+  offsetAngle: 0
+  movement: {x: 0, y: 0}
   bigPanelCollistuin: 0
+  speedRot: 0
+  speedMove: 0
+  rotateButton: {fileID: 0}
+  rotateButtonCollider: {fileID: 0}
+  objectMaterial: {fileID: 0}
 --- !u!1 &485680246 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 831211608953181094, guid: a49d1660132726e4397858719cb412d3,
@@ -2671,6 +2711,8 @@ MonoBehaviour:
   - {fileID: 1131916906}
   - {fileID: 232819406}
   - {fileID: 184726658}
+  activeGameObject: {fileID: 0}
+  speedMove: 15
 --- !u!1 &623549301 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 717005332567344481, guid: a49d1660132726e4397858719cb412d3,
@@ -2997,9 +3039,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27680fd3c9fa55f45b81488256cc149a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collider: {fileID: 0}
   touched: 0
   rotate: 0
+  rightPanel: {fileID: 0}
+  fingerIDMoving: -1
+  offsetAngle: 0
+  movement: {x: 0, y: 0}
   bigPanelCollistuin: 0
+  speedRot: 0
+  speedMove: 0
+  rotateButton: {fileID: 0}
+  rotateButtonCollider: {fileID: 0}
+  objectMaterial: {fileID: 0}
 --- !u!114 &1011799441 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3980263966620568159, guid: 1fbcd06c94ede12449b181aec69479c5,
@@ -3137,9 +3189,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27680fd3c9fa55f45b81488256cc149a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collider: {fileID: 0}
   touched: 0
   rotate: 0
+  rightPanel: {fileID: 0}
+  fingerIDMoving: -1
+  offsetAngle: 0
+  movement: {x: 0, y: 0}
   bigPanelCollistuin: 0
+  speedRot: 0
+  speedMove: 0
+  rotateButton: {fileID: 0}
+  rotateButtonCollider: {fileID: 0}
+  objectMaterial: {fileID: 0}
 --- !u!1 &1131916906
 GameObject:
   m_ObjectHideFlags: 0
@@ -3298,9 +3360,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27680fd3c9fa55f45b81488256cc149a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collider: {fileID: 0}
   touched: 0
   rotate: 0
+  rightPanel: {fileID: 0}
+  fingerIDMoving: -1
+  offsetAngle: 0
+  movement: {x: 0, y: 0}
   bigPanelCollistuin: 0
+  speedRot: 0
+  speedMove: 0
+  rotateButton: {fileID: 0}
+  rotateButtonCollider: {fileID: 0}
+  objectMaterial: {fileID: 0}
 --- !u!1 &1165260177
 GameObject:
   m_ObjectHideFlags: 0
@@ -3457,9 +3529,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27680fd3c9fa55f45b81488256cc149a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collider: {fileID: 0}
   touched: 0
   rotate: 0
+  rightPanel: {fileID: 0}
+  fingerIDMoving: -1
+  offsetAngle: 0
+  movement: {x: 0, y: 0}
   bigPanelCollistuin: 0
+  speedRot: 0
+  speedMove: 0
+  rotateButton: {fileID: 0}
+  rotateButtonCollider: {fileID: 0}
+  objectMaterial: {fileID: 0}
 --- !u!1001 &1290885362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3965,9 +4047,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27680fd3c9fa55f45b81488256cc149a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collider: {fileID: 0}
   touched: 0
   rotate: 0
+  rightPanel: {fileID: 0}
+  fingerIDMoving: -1
+  offsetAngle: 0
+  movement: {x: 0, y: 0}
   bigPanelCollistuin: 0
+  speedRot: 0
+  speedMove: 0
+  rotateButton: {fileID: 0}
+  rotateButtonCollider: {fileID: 0}
+  objectMaterial: {fileID: 0}
 --- !u!1 &1825774606
 GameObject:
   m_ObjectHideFlags: 0
@@ -4084,9 +4176,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27680fd3c9fa55f45b81488256cc149a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collider: {fileID: 0}
   touched: 0
   rotate: 0
+  rightPanel: {fileID: 0}
+  fingerIDMoving: -1
+  offsetAngle: 0
+  movement: {x: 0, y: 0}
   bigPanelCollistuin: 0
+  speedRot: 0
+  speedMove: 0
+  rotateButton: {fileID: 0}
+  rotateButtonCollider: {fileID: 0}
+  objectMaterial: {fileID: 0}
 --- !u!1 &1841211844
 GameObject:
   m_ObjectHideFlags: 0
@@ -4659,9 +4761,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27680fd3c9fa55f45b81488256cc149a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collider: {fileID: 0}
   touched: 0
   rotate: 0
+  rightPanel: {fileID: 0}
+  fingerIDMoving: -1
+  offsetAngle: 0
+  movement: {x: 0, y: 0}
   bigPanelCollistuin: 0
+  speedRot: 0
+  speedMove: 0
+  rotateButton: {fileID: 0}
+  rotateButtonCollider: {fileID: 0}
+  objectMaterial: {fileID: 0}
 --- !u!1 &2133092453
 GameObject:
   m_ObjectHideFlags: 0
