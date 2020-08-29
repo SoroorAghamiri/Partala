@@ -5,11 +5,18 @@ using UnityEngine;
 public class TouchManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] objects;
-    private Collider2D[] collider2DObjects ;
+    private Collider2D[] collider2DObjects;
     public GameObject activeGameObject;
-    private int movingFingerID = -1;
+    private int movingFingerID;
+
+    private bool rotate;
+    private Collider2D rightPanelCollider;
+    private Vector2 movement;
+    private float offsetAngle;
+    private RotateButtonInGame rotateButton;
 
     [SerializeField] private float speedMove = 15f;
+    [SerializeField] private float speedRot = 15f;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +26,9 @@ public class TouchManager : MonoBehaviour
             collider2DObjects[i] = objects[i].GetComponent<Collider2D>();
         }
         movingFingerID = -1;
+        rightPanelCollider = GameObject.Find("Panel2").GetComponent<Collider2D>();
+        rotateButton = GameObject.FindObjectOfType<RotateButtonInGame>();
+        rotate = false;
     }
 
     // Update is called once per frame
@@ -26,7 +36,7 @@ public class TouchManager : MonoBehaviour
     {
         foreach (Touch touch in Input.touches)
         {
-            if (movingFingerID != -1)
+            if (movingFingerID != -1 || rotate)
             {
                 break;
             }
@@ -39,10 +49,23 @@ public class TouchManager : MonoBehaviour
                     movingFingerID = touch.fingerId;
                 }
             }
-            
+            if (activeGameObject != null && movingFingerID == -1)
+            {
+                if (rightPanelCollider == Physics2D.OverlapPoint(touchPosition))
+                {
+                    SetRotateandOffsetAngle(touchPosition);
+                    rotate = true;
+
+                }
+            }
+
         }
-        if(movingFingerID!=-1)
+        if (movingFingerID != -1 && !rotateButton.RotateButtonIsPressed())
             MoveToTheLocationOfTheTouch(movingFingerID);
+        else if (rotate && rotateButton.RotateButtonIsPressed())
+        {
+            RotateAndLookAtTheTouch();
+        }
     }
 
     private Vector2 NormalizeTouchPosition(Vector2 touchPositionUnnormal)
@@ -52,7 +75,7 @@ public class TouchManager : MonoBehaviour
         return touchPosition;
     }
     private void MoveToTheLocationOfTheTouch(int indexofTouch)
-    { 
+    {
         Touch touch = Input.GetTouch(indexofTouch);
         Vector3 newPos = new Vector3(Camera.main.ScreenToWorldPoint(Input.GetTouch(indexofTouch).position).x,
                                     Camera.main.ScreenToWorldPoint(Input.GetTouch(indexofTouch).position).y,
@@ -63,5 +86,35 @@ public class TouchManager : MonoBehaviour
             activeGameObject.transform.position = Vector3.Lerp(activeGameObject.transform.position, newPos, speedMove * Time.deltaTime);
             movingFingerID = -1;
         }
+    }
+    private void RotateAndLookAtTheTouch()
+    {
+        foreach (Touch touch in Input.touches)
+        {
+            Vector2 touchPosition = NormalizeTouchPosition(touch.position);
+            if (rightPanelCollider == Physics2D.OverlapPoint(touchPosition))
+            {
+
+                Vector2 currentPosition = activeGameObject.transform.position;
+                Vector2 moveTowards = Camera.main.ScreenToWorldPoint(touch.position);
+                movement = moveTowards - currentPosition;
+                movement.Normalize();
+                float targetAngle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
+                activeGameObject.transform.rotation = Quaternion.Slerp(activeGameObject.transform.rotation, Quaternion.Euler(0, 0, targetAngle + offsetAngle), speedRot * Time.deltaTime);
+                if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+                {
+                    rotate = false;
+                }
+            }
+        }
+    }
+    private void SetRotateandOffsetAngle(Vector2 touchPosition)
+    {
+        //Now we Have to have the initial angle when the touch happened, to offset it later
+        Vector2 pos = activeGameObject.transform.position;
+        movement = touchPosition - pos;
+        movement.Normalize();
+        //Key code 
+        offsetAngle = (Mathf.Atan2(activeGameObject.transform.right.y, activeGameObject.transform.right.x) - Mathf.Atan2(movement.y, movement.x)) * Mathf.Rad2Deg;
     }
 }
