@@ -9,7 +9,7 @@ public class Tutorial : MonoBehaviour
 
     public List<GameObject> steps = new List<GameObject>();
     public GameObject dialogBox;
-    public Text guide;
+    public UPersian.Components.RtlText guide;
 
     #region privateVariables
     private List<bool> stepIsDone = new List<bool>(5) { false, false, false, false, false };
@@ -95,7 +95,7 @@ public class Tutorial : MonoBehaviour
         string value = "";
         if (guidLines.TryGetValue(step, out value))
         {
-            guide.text = Fa.faConvertLine(value);
+            guide.text = value;
         }
         else
         {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 
@@ -11,9 +12,9 @@ public class CurrencyView : DialogBase
     private int[] secondHintDiscountInEpisodes = { 3, 4, 5 };
     // Working Params
     [Header("Currency Parameters")]
-    public Text numberOfFeathers;
-    public Text disc1;
-    public Text disc2;
+    public UPersian.Components.RtlText numberOfFeathers;
+    public UPersian.Components.RtlText disc1;
+    public UPersian.Components.RtlText disc2;
     public bool firstHint;
     public bool hintShown;
     public GameObject[] wrongComponents;
@@ -51,10 +52,11 @@ public class CurrencyView : DialogBase
 
     public void callShowInfo()
     {
-        showInfo();
+        string name = EventSystem.current.currentSelectedGameObject.name;
+        showInfo(name);
     }
 
-    public InfoView showInfo()
+    public InfoView showInfo(string callingHint)
     {
         InfoView prefab = Resources.Load<InfoView>("Views/InfoPanel");
         InfoView dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
@@ -63,6 +65,7 @@ public class CurrencyView : DialogBase
         dialog.transform.localScale = Vector3.one;
 
         ViewManager.instance.openView(dialog);
+        dialog.callingHint = callingHint;
         return dialog;
     }
 
