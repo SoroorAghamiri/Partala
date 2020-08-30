@@ -752,9 +752,9 @@ MonoBehaviour:
   closeButtons:
   - {fileID: 4898301288853195953}
   canClose: 1
-  numberOfFeathers: {fileID: 0}
-  disc1: {fileID: 0}
-  disc2: {fileID: 0}
+  numberOfFeathers: {fileID: 4853562898920520996}
+  disc1: {fileID: 3733890051551292283}
+  disc2: {fileID: 8291028810564040464}
   firstHint: 0
   hintShown: 0
   wrongComponents: []

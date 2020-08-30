@@ -52,11 +52,11 @@ public class CurrencyView : DialogBase
 
     public void callShowInfo()
     {
-        string name = EventSystem.current.currentSelectedGameObject.name;
-        showInfo(name);
+        // string name = EventSystem.current.currentSelectedGameObject.name;
+        showInfo();
     }
 
-    public InfoView showInfo(string callingHint)
+    public InfoView showInfo()
     {
         InfoView prefab = Resources.Load<InfoView>("Views/InfoPanel");
         InfoView dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
@@ -65,7 +65,7 @@ public class CurrencyView : DialogBase
         dialog.transform.localScale = Vector3.one;
 
         ViewManager.instance.openView(dialog);
-        dialog.callingHint = callingHint;
+        // dialog.callingHint = callingHint;
         return dialog;
     }
 
