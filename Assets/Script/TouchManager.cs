@@ -66,6 +66,11 @@ public class TouchManager : MonoBehaviour
         {
             RotateAndLookAtTheTouch();
         }
+        else
+        {
+            rotate = false;
+            movingFingerID = -1;
+        }
     }
 
     private Vector2 NormalizeTouchPosition(Vector2 touchPositionUnnormal)
@@ -76,6 +81,11 @@ public class TouchManager : MonoBehaviour
     }
     private void MoveToTheLocationOfTheTouch(int indexofTouch)
     {
+        if (Input.touches.Length <= indexofTouch)
+        {
+            movingFingerID = -1;
+            return;
+        }
         Touch touch = Input.GetTouch(indexofTouch);
         Vector3 newPos = new Vector3(Camera.main.ScreenToWorldPoint(Input.GetTouch(indexofTouch).position).x,
                                     Camera.main.ScreenToWorldPoint(Input.GetTouch(indexofTouch).position).y,
@@ -93,6 +103,16 @@ public class TouchManager : MonoBehaviour
         foreach (Touch touch in Input.touches)
         {
             Vector2 touchPosition = NormalizeTouchPosition(touch.position);
+            //for (int i = 0; i < collider2DObjects.Length; i++)
+            ////{
+            ////    if (collider2DObjects[i] == Physics2D.OverlapPoint(touchPosition))
+            ////    {
+            ////        activeGameObject = objects[i];
+            ////        movingFingerID = touch.fingerId;
+            ////        rotate = false;
+            ////        return;
+            ////    }
+            ////}
             if (rightPanelCollider == Physics2D.OverlapPoint(touchPosition))
             {
                 touchIsRotating = true;
