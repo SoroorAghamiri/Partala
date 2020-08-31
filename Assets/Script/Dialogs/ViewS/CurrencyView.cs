@@ -84,8 +84,8 @@ public class CurrencyView : DialogBase
                 DeactivateWrongComponents();
                 firstHint = true;
                 DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() - featherDiscount1);
-                // GameManger.Instans.ShowNumberOfFeathers();
                 numberOfFeathers.text = DataManager.Instance.GetFeather().ToString();
+                ViewManager.instance.closeView(this);
             }
         }
     }

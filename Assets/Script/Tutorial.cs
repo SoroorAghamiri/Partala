@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class Tutorial : MonoBehaviour
 {
 
-
+    [Header("Tutorial Components")]
     public List<GameObject> steps = new List<GameObject>();
-    public GameObject dialogBox;
-    public UPersian.Components.RtlText guide;
-
+    public List<GameObject> tutorialPanels = new List<GameObject>();
+    // public UPersian.Components.RtlText guide;
+    public TouchManager touchManager;
     #region privateVariables
     private List<bool> stepIsDone = new List<bool>(5) { false, false, false, false, false };
     private bool showGuide = true;
@@ -30,11 +30,12 @@ public class Tutorial : MonoBehaviour
     void Start()
     {
         correctObjects = GameObject.FindGameObjectsWithTag("MainComponent");
-        if (guidLines.Count == 0)
-        {
-            addToDictionary();
-        }
-        if (!DataManager.Instance.GetTutorial())
+        // if (guidLines.Count == 0)
+        // {
+        //     addToDictionary();
+        // }
+        // print("Get tutoral = " + DataManager.Instance.GetTutorial());
+        if (DataManager.Instance.GetTutorial() == false)
             showGuide = false;
 
     }
@@ -46,37 +47,36 @@ public class Tutorial : MonoBehaviour
         {
             DataManager.Instance.SetTutorial(false);
             showGuide = false;
-            dialogBox.SetActive(false);
+            DataManager.Instance.Save();
+            // print("set tutoral = " + DataManager.Instance.GetTutorial());
+
+            // dialogBox.SetActive(false);
         }
         if (showGuide)
         {
-            dialogBox.SetActive(true);
+            // dialogBox.SetActive(true);
             if (!stepIsDone[i])
             {
                 if (!steps[i].active)
                     steps[i].SetActive(true);
-                setTutorialText(i + 1);
+                if (!tutorialPanels[i].active)
+                    tutorialPanels[i].SetActive(true);
+                // setTutorialText(i + 1);
                 steps[i].GetComponent<Animator>().Play("Hand1");
-                if (i == 2 || i == 3)
-                {
-                    if (correctObjects[i - 2].GetComponent<TouchRotate>().touched)
-                    {
-                        steps[i].SetActive(false);
-                        stepIsDone[i] = true;
-                        i++;
-                    }
-                }
-
                 if (i == 1 || i == 2)
                 {
-                    if (correctObjects[i - 1].GetComponent<TouchRotate>().touched)
+                    if (System.Object.ReferenceEquals(touchManager.activeGameObject, correctObjects[i - 1]))//correctObjects[i - 2].GetComponent<TouchRotate>().touched)
                     {
                         steps[i].SetActive(false);
-                        stepIsDone[i] = true;
-                        i++;
+                        //when movement is over:
+                        if (Input.touchCount == 0)
+                        {
+                            stepIsDone[i] = true;
+                            tutorialPanels[i].SetActive(false);
+                            i++;
+                        }
                     }
                 }
-
             }
         }
 
@@ -84,30 +84,31 @@ public class Tutorial : MonoBehaviour
 
     public void next()
     {
-        print("something");
-
         stepIsDone[i] = true;
         steps[i].SetActive(false);
+        tutorialPanels[i].SetActive(false);
         i++;
     }
-    private void setTutorialText(int step)
-    {
-        string value = "";
-        if (guidLines.TryGetValue(step, out value))
-        {
-            guide.text = value;
-        }
-        else
-        {
-            guide.text = "Guide line not found";
-        }
-    }
 
-    void addToDictionary()
-    {
-        guidLines.Add(2, "این رو بکش اینجا");
-        guidLines.Add(3, "این یکی رو هم بیارش");
-        guidLines.Add(1, "اینجا اسم چیزی رو که باید درست کنی رو ببین");
-        guidLines.Add(4, "اینا چراغ  های شهر سوخته هستند. وقتی حرکت درستی انجام بدی روشن میشن");
-    }
+    //If the texts are given as anythig other than text, the dictionary and methods below are no longer needed
+    // private void setTutorialText(int step)
+    // {
+    //     string value = "";
+    //     if (guidLines.TryGetValue(step, out value))
+    //     {
+    //         guide.text = value;
+    //     }
+    //     else
+    //     {
+    //         guide.text = "Guide line not found";
+    //     }
+    // }
+
+    // void addToDictionary()
+    // {
+    //     guidLines.Add(2, "این رو بکش اینجا");
+    //     guidLines.Add(3, "این یکی رو هم بیارش");
+    //     guidLines.Add(1, "اینجا اسم چیزی رو که باید درست کنی رو ببین");
+    //     guidLines.Add(4, "اینا چراغ  های شهر سوخته هستند. وقتی حرکت درستی انجام بدی روشن میشن");
+    // }
 }
