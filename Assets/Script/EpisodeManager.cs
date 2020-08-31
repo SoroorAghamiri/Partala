@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class EpisodeManager : MonoBehaviour
 {
-
+    private LevelLoader mylevelLoader;
     [SerializeField] Button[] episodeButtons;
     // Start is called before the first frame update
     void Start()
@@ -15,6 +15,7 @@ public class EpisodeManager : MonoBehaviour
         {
             DataManager.Instance.SetEpisode(1);
         }
+        mylevelLoader = FindObjectOfType<LevelLoader>();
     }
 
     // Update is called once per frame
@@ -26,7 +27,7 @@ public class EpisodeManager : MonoBehaviour
     {
        
         this.GetComponent<AudioSource>().Play();
-        SceneManager.LoadScene(episode);
+        mylevelLoader.LoadLevel(episode);
     }
 
     public void SoundActive()

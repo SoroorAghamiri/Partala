@@ -1136,8 +1136,8 @@ MonoBehaviour:
   - {fileID: 485680246}
   - {fileID: 1979869223}
   - {fileID: 634102128}
-  dialogBox: {fileID: 1841211844}
-  guide: {fileID: 1054234936}
+  tutorialPanels: []
+  touchManager: {fileID: 0}
   correctObjects: []
 --- !u!1001 &553071990
 PrefabInstance:
@@ -1306,10 +1306,15 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1985823474990553233, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2060713307633062360, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2088456874887270163, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
@@ -1324,13 +1329,18 @@ PrefabInstance:
     - target: {fileID: 2412498850281587431, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2494589318008891149, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1677279729}
+    - target: {fileID: 2494589318008891149, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2511359560917586047, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1500,7 +1510,12 @@ PrefabInstance:
     - target: {fileID: 3064544077206642516, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3107959647121281204, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3453205149153689723, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
@@ -1611,6 +1626,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -277
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294485173838014178, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4294485173838014179, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
@@ -1745,7 +1765,7 @@ PrefabInstance:
     - target: {fileID: 5331567324381700196, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5537447297954115086, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
@@ -1905,7 +1925,7 @@ PrefabInstance:
     - target: {fileID: 6776537355949982288, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6809688159599258898, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
@@ -3320,7 +3340,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: bc7abb84652ac764a96bb2f874e6bd5b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3774,7 +3794,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1639863637
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3788,7 +3808,7 @@ RectTransform:
   m_Children:
   - {fileID: 1841211845}
   m_Father: {fileID: 555553225}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

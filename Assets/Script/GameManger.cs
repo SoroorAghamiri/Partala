@@ -44,6 +44,8 @@ public class GameManger : MonoBehaviour
     private int episodeNumber;
     private int levelNumberInEpisode;
     private GameObject[] mainComponents;
+
+    private LevelLoader mylevelLoader;
     ///Too much shit happening at the same time
     /// </summary>
     public void SingleTOne()
@@ -102,6 +104,7 @@ public class GameManger : MonoBehaviour
         Check = new bool[Colliderpoint.Length];//////////Another branch of wincheck that shouldn't be here
         wintoggler = true;
         Colliderpoint = GameObject.FindGameObjectsWithTag("ColliderPoint");
+        mylevelLoader = FindObjectOfType<LevelLoader>();
     }
 
     //I believe this method is not required. We alreadyn have a code to handle settingPanel.
@@ -263,12 +266,11 @@ public class GameManger : MonoBehaviour
     {
         if (NextLevelname.Length == 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            mylevelLoader.LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
         }
         else
         {
-            SceneManager.LoadScene(NextLevelname);
-
+            mylevelLoader.LoadLevel(NextLevelname);
         }
 
     }

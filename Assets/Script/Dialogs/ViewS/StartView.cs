@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class StartView : MonoBehaviour
 {
-
+    private LevelLoader mylevelLoader;
+    private void Start()
+    {
+        mylevelLoader = FindObjectOfType<LevelLoader>();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -26,12 +29,14 @@ public class StartView : MonoBehaviour
 
     public void openSettingScene()
     {
-        SceneManager.LoadScene(SceneNames.Setting);
+        mylevelLoader.LoadLevel(SceneNames.Setting);
+        //SceneManager.LoadScene(SceneNames.Setting);
     }
 
     public void onStartClicked()
     {
-        SceneManager.LoadScene(SceneNames.EpisodeSelect);
+        mylevelLoader.LoadLevel(SceneNames.EpisodeSelect);
+        //SceneManager.LoadScene(SceneNames.EpisodeSelect);
 
     }
 }
