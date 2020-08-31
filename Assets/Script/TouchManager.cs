@@ -89,12 +89,13 @@ public class TouchManager : MonoBehaviour
     }
     private void RotateAndLookAtTheTouch()
     {
+        bool touchIsRotating = false;
         foreach (Touch touch in Input.touches)
         {
             Vector2 touchPosition = NormalizeTouchPosition(touch.position);
             if (rightPanelCollider == Physics2D.OverlapPoint(touchPosition))
             {
-
+                touchIsRotating = true;
                 Vector2 currentPosition = activeGameObject.transform.position;
                 Vector2 moveTowards = Camera.main.ScreenToWorldPoint(touch.position);
                 movement = moveTowards - currentPosition;
@@ -107,6 +108,8 @@ public class TouchManager : MonoBehaviour
                 }
             }
         }
+        if (!touchIsRotating)
+            rotate = false;
     }
     private void SetRotateandOffsetAngle(Vector2 touchPosition)
     {

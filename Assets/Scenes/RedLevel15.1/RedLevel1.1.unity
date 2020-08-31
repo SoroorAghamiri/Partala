@@ -1314,7 +1314,7 @@ PrefabInstance:
     - target: {fileID: 2060713307633062360, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2088456874887270163, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
@@ -1336,11 +1336,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1677279729}
-    - target: {fileID: 2494589318008891149, guid: 1fbcd06c94ede12449b181aec69479c5,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 2511359560917586047, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1630,7 +1625,7 @@ PrefabInstance:
     - target: {fileID: 4294485173838014178, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4294485173838014179, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
@@ -1765,7 +1760,7 @@ PrefabInstance:
     - target: {fileID: 5331567324381700196, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5537447297954115086, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
@@ -1925,7 +1920,7 @@ PrefabInstance:
     - target: {fileID: 6776537355949982288, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6809688159599258898, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
@@ -3184,7 +3179,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3757,7 +3751,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3808,7 +3801,7 @@ RectTransform:
   m_Children:
   - {fileID: 1841211845}
   m_Father: {fileID: 555553225}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4111,6 +4104,7 @@ GameObject:
   - component: {fileID: 1825774607}
   - component: {fileID: 1825774609}
   - component: {fileID: 1825774610}
+  - component: {fileID: 1825774611}
   m_Layer: 0
   m_Name: matches3
   m_TagString: WrongComponent
@@ -4216,6 +4210,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   touched: 0
+--- !u!60 &1825774611
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825774606}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.3987638, y: 0.497737}
+    oldSize: {x: 1.82, y: 1.77}
+    newSize: {x: 1.82, y: 1.77}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.06575012, y: -0.5709945}
+      - {x: 0.054249875, y: -0.5209945}
+      - {x: 0.094249874, y: -0.2909945}
+      - {x: 0.39424986, y: -0.31099448}
+      - {x: 0.40424988, y: -0.28099447}
+      - {x: 0.34424987, y: -0.18099448}
+      - {x: 0.45424986, y: -0.14099449}
+      - {x: 0.60424984, y: -0.0009944915}
+      - {x: 0.77424985, y: 0.2890055}
+      - {x: 0.79424983, y: 0.3890055}
+      - {x: 0.76424986, y: 0.4090055}
+      - {x: 0.5642499, y: 0.2890055}
+      - {x: 0.43424988, y: 0.3690055}
+      - {x: 0.15424988, y: 0.3290055}
+      - {x: 0.044249877, y: 0.6090055}
+      - {x: -0.045750123, y: 0.5790055}
+      - {x: -0.18575011, y: 0.4190055}
+      - {x: -0.11575012, y: 0.4990055}
+      - {x: -0.19575012, y: 0.6390055}
+      - {x: -0.34575012, y: 0.6390055}
+      - {x: -0.4257501, y: 0.6190055}
+      - {x: -0.4257501, y: 0.3090055}
+      - {x: -0.37575012, y: -0.07099449}
+      - {x: -0.4257501, y: -0.3309945}
+      - {x: -0.4257501, y: -0.6409945}
+      - {x: -0.40575013, y: -0.7009945}
+      - {x: -0.25575012, y: -0.7009945}
+      - {x: -0.19575012, y: -0.6909945}
+      - {x: -0.14575012, y: -0.6309945}
+      - {x: -0.17575012, y: -0.4809945}
+      - {x: -0.11575012, y: -0.55099446}
 --- !u!1 &1841211844
 GameObject:
   m_ObjectHideFlags: 0
@@ -4311,7 +4361,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4529,7 +4578,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4763,7 +4811,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
