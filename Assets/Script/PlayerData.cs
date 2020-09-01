@@ -11,6 +11,6 @@ public class PlayerData
     public float sfxLevel = 1.0f;
     public float musicLevel = 1f;
     public bool tutorial = true;
-    
-    
+    public bool firstInfoIsShown = false;
+
 }

@@ -35,7 +35,7 @@ public class GameManger : MonoBehaviour
     private EggsScript myEggsScript;
     private string LevelSelect;
     [SerializeField] private int[] episodeFeather;//earned feather after every episode ending
-    [SerializeField] private Text featherText;
+    // [SerializeField] private Text featherText;
     public GameObject hintPanel;
     public int[][] featherAndLevelMatrix;
     private bool panelIsActive = false;
@@ -72,7 +72,7 @@ public class GameManger : MonoBehaviour
 
     void Start()
     {
-        ShowNumberOfFeathers();
+        // ShowNumberOfFeathers();
         LevelFactor();
         SettingInitialValues();
         AddingListenersToButtons();
@@ -302,10 +302,10 @@ public class GameManger : MonoBehaviour
         Musix.audioMixer.SetFloat("musicvol", DataManager.Instance.GetMusicLevel());
     }
 
-    public void ShowNumberOfFeathers()
-    {
-        featherText.text = Fa.faConvertLine(DataManager.Instance.GetFeather().ToString());
-    }
+    // public void ShowNumberOfFeathers()
+    // {
+    //     featherText.text = Fa.faConvertLine(DataManager.Instance.GetFeather().ToString());
+    // }
 
     public void LevelFactor()//this Function added feather after every episode end  
     {

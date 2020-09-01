@@ -133,6 +133,15 @@ public class DataManager : MonoBehaviour
     {
         return playerData.feather;
     }
+
+    public void SetFirstInfo(bool firstInfo)
+    {
+        playerData.firstInfoIsShown = firstInfo;
+    }
+    public bool GetFirstInfo()
+    {
+        return playerData.firstInfoIsShown;
+    }
     //Saves On pausing for mobile Obviously
     private void OnApplicationPause(bool pause)
     {

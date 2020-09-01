@@ -20,6 +20,7 @@ public class CurrencyView : DialogBase
     public GameObject[] wrongComponents;
     [SerializeField] public int featherDiscount1;
     [SerializeField] public int featherDiscount2;
+    public GameObject firstType;
     //Config
     [SerializeField] private float speedForScale;
     [SerializeField] private float limit = 1;
@@ -31,9 +32,23 @@ public class CurrencyView : DialogBase
     private int level;
     void Start()
     {
-        initialization();
+        if (!DataManager.Instance.GetFirstInfo())
+        {
+            firstType.SetActive(true);
+        }
+        else
+        {
+            initialization();
+        }
     }
 
+    private void Update()
+    {
+        if (DataManager.Instance.GetFirstInfo())
+        {
+            firstType.SetActive(false);
+        }
+    }
     private void initialization()
     {
         string temp = SceneManager.GetActiveScene().name;
@@ -52,11 +67,11 @@ public class CurrencyView : DialogBase
 
     public void callShowInfo()
     {
-        // string name = EventSystem.current.currentSelectedGameObject.name;
-        showInfo();
+        string name = EventSystem.current.currentSelectedGameObject.name;
+        showInfo(name);
     }
 
-    public InfoView showInfo()
+    public InfoView showInfo(string callingHint)
     {
         InfoView prefab = Resources.Load<InfoView>("Views/InfoPanel");
         InfoView dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
@@ -65,7 +80,7 @@ public class CurrencyView : DialogBase
         dialog.transform.localScale = Vector3.one;
 
         ViewManager.instance.openView(dialog);
-        // dialog.callingHint = callingHint;
+        dialog.callingHint = callingHint;
         return dialog;
     }
 
