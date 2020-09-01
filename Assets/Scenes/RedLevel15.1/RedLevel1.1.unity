@@ -1548,7 +1548,7 @@ MonoBehaviour:
   - {fileID: 485680246}
   - {fileID: 1979869223}
   - {fileID: 634102128}
-
+<<<<<<< Updated upstream
   tutorialPanels: []
   touchManager: {fileID: 0}
 =======
@@ -1558,7 +1558,7 @@ MonoBehaviour:
   - {fileID: 1909781069}
   - {fileID: 506386497}
   touchManager: {fileID: 608251746}
-
+>>>>>>> Stashed changes
   correctObjects: []
 --- !u!1001 &553071990
 PrefabInstance:
@@ -3644,7 +3644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   touched: 0
-
+<<<<<<< Updated upstream
 --- !u!1 &1054234935
 GameObject:
   m_ObjectHideFlags: 0
