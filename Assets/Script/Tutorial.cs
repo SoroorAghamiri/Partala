@@ -29,6 +29,11 @@ public class Tutorial : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // //*These two lines are only for debuggind. Delete when you're gonna publish it.
+        // if (DataManager.Instance.GetTutorial() == false)
+        //     DataManager.Instance.SetTutorial(true);
+        // //*Up to here
+
         correctObjects = GameObject.FindGameObjectsWithTag("MainComponent");
         // if (guidLines.Count == 0)
         // {
