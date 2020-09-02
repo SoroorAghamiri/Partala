@@ -12,35 +12,31 @@ public class InfoView : DialogBase
     public UPersian.Components.RtlText exp;
     public string callingHint;
     public List<Image> infoPs = new List<Image>();
-    private List<string> infoIsShown;
+    // private List<string> infoIsShown;
     void Start()
     {
         if (infoText.Count == 0)
         {
             fillDictionary();
         }
-        infoIsShown = new List<string>(infoPs.Count);
+        // infoIsShown = new List<string>(infoPs.Count);
         print("calling hint = " + callingHint);
-        explanation(callingHint);
+        if (callingHint != "Info")
+        {
+            explanation(callingHint);
+        }
     }
 
 
     //Generalize this view later
     private void explanation(string cHint)
     {
-        // for (int i = 0; i < hintTexts.Count; i++)
-        // {
-        //     hintTexts[i].text = infoText["CurrencyViewHint" + (i + 1).ToString()];
-        // }
-        if (!DataManager.Instance.GetFirstInfo())
+
+        foreach (Image i in infoPs)
         {
-            foreach (Image i in infoPs)
+            if (i.gameObject.name == callingHint)
             {
-                if (i.gameObject.name == callingHint)
-                {
-                    i.gameObject.SetActive(true);
-                    infoIsShown.Add(i.gameObject.name);
-                }
+                i.gameObject.SetActive(true);
             }
         }
         exp.text = infoText["CurrencyView" + cHint];
@@ -56,20 +52,12 @@ public class InfoView : DialogBase
     {
         if (!DataManager.Instance.GetFirstInfo())
         {
-            int j = 0;
             foreach (Image i in infoPs)
             {
                 if (i.gameObject.active)
                 {
                     i.gameObject.SetActive(false);
                 }
-                if (infoIsShown.Contains(i.gameObject.name))
-                    j++;
-            }
-            if (j == infoIsShown.Count)
-            {
-                DataManager.Instance.SetFirstInfo(true);
-                DataManager.Instance.Save();
             }
         }
         Destroy(this.gameObject);

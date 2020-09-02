@@ -30,6 +30,8 @@ public class CurrencyView : DialogBase
     /// </summary>
     private GameObject[] correctObjects;
     private int level;
+    [SerializeField] private List<string> infoIsShown;
+
     void Start()
     {
 
@@ -42,17 +44,23 @@ public class CurrencyView : DialogBase
         {
             firstType.SetActive(true);
         }
-        else
-        {
-            initialization();
-        }
+
+        initialization();
+
     }
 
     private void Update()
     {
-        if (DataManager.Instance.GetFirstInfo())
+
+        if (!DataManager.Instance.GetFirstInfo())
         {
-            firstType.SetActive(false);
+
+            if (infoIsShown.Count == 2)
+            {
+                DataManager.Instance.SetFirstInfo(true);
+                firstType.SetActive(false);
+                DataManager.Instance.Save();
+            }
         }
     }
     private void initialization()
@@ -74,6 +82,11 @@ public class CurrencyView : DialogBase
     public void callShowInfo()
     {
         string name = EventSystem.current.currentSelectedGameObject.name;
+        if (!infoIsShown.Contains(name))
+        {
+            infoIsShown.Add(name);
+
+        }
         showInfo(name);
     }
 
@@ -113,6 +126,7 @@ public class CurrencyView : DialogBase
 
     public void SecondHintButton()//Button for Second Hint 
     {
+
         if (!hintShown)
         {
             if (DataManager.Instance.GetFeather() - featherDiscount2 >= 0)
