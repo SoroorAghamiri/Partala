@@ -60,6 +60,8 @@ public class SettingScene : MonoBehaviour
     {
 
         DataManager.Instance.SetSFXLevel(newValue);
+        DataManager.Instance.Save();
+
         masterAM.SetFloat("sfxvol", DataManager.Instance.GetSFXLevel());
     }
 
@@ -67,6 +69,8 @@ public class SettingScene : MonoBehaviour
     {
 
         DataManager.Instance.SetMusicLevel(newValue);
+        DataManager.Instance.Save();
+
         masterAM.SetFloat("musicvol", DataManager.Instance.GetMusicLevel());
     }
 
