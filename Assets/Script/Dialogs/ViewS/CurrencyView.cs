@@ -100,6 +100,8 @@ public class CurrencyView : DialogBase
 
         ViewManager.instance.openView(dialog);
         dialog.callingHint = callingHint;
+        dialog.levelDisc1 = featherDiscount1;
+        dialog.levelDisc2 = featherDiscount2;
         return dialog;
     }
 
