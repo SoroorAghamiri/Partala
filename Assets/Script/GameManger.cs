@@ -62,8 +62,8 @@ public class GameManger : MonoBehaviour
     }
     private void Awake()
     {
-        sfx.audioMixer.SetFloat("sfxvol", DataManager.Instance.GetSFXLevel());
-        Musix.audioMixer.SetFloat("musicvol", DataManager.Instance.GetMusicLevel());
+        // sfx.audioMixer.SetFloat("sfxvol", DataManager.Instance.GetSFXLevel());
+        // Musix.audioMixer.SetFloat("musicvol", DataManager.Instance.GetMusicLevel());
 
         SingleTOne();//WHY?
 
@@ -114,8 +114,8 @@ public class GameManger : MonoBehaviour
         buttons[1].onClick.AddListener(OnPlay);
         buttons[2].onClick.AddListener(OnHome);
         buttons[3].onClick.AddListener(OnRestart);
-        buttons[4].onClick.AddListener(OnMusic);
-        buttons[5].onClick.AddListener(OnSound);
+        // buttons[4].onClick.AddListener(OnMusic);
+        // buttons[5].onClick.AddListener(OnSound);
     }
 
     void Update()
@@ -274,15 +274,15 @@ public class GameManger : MonoBehaviour
         }
 
     }
-    private void OnSound()
-    {
-        SliderController.Instans.MakeSfxSliderValueZero();
+    // private void OnSound()
+    // {
+    //     SliderController.Instans.MakeSfxSliderValueZero();
 
-    }
-    private void OnMusic()
-    {
-        SliderController.Instans.MakeMusicSliderValueZero();
-    }
+    // }
+    // private void OnMusic()
+    // {
+    //     SliderController.Instans.MakeMusicSliderValueZero();
+    // }
     public void WrongObjectDetected()
     {
         wrongObjects = true;
@@ -291,16 +291,16 @@ public class GameManger : MonoBehaviour
     {
         wrongObjects = false;
     }
-    public void SetSFXLevel(float volume)
-    {
-        DataManager.Instance.SetSFXLevel(volume);
-        sfx.audioMixer.SetFloat("sfxvol", DataManager.Instance.GetSFXLevel());
-    }
-    public void SetMusicLevel(float volume)
-    {
-        DataManager.Instance.SetMusicLevel(volume);
-        Musix.audioMixer.SetFloat("musicvol", DataManager.Instance.GetMusicLevel());
-    }
+    // public void SetSFXLevel(float volume)
+    // {
+    //     DataManager.Instance.SetSFXLevel(volume);
+    //     sfx.audioMixer.SetFloat("sfxvol", DataManager.Instance.GetSFXLevel());
+    // }
+    // public void SetMusicLevel(float volume)
+    // {
+    //     DataManager.Instance.SetMusicLevel(volume);
+    //     Musix.audioMixer.SetFloat("musicvol", DataManager.Instance.GetMusicLevel());
+    // }
 
     // public void ShowNumberOfFeathers()
     // {

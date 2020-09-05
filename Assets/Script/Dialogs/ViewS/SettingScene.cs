@@ -18,11 +18,14 @@ public class SettingScene : MonoBehaviour
     private LevelLoader mylevelLoader;
     void Start()
     {
-        masterAM.SetFloat("sfxvol", DataManager.Instance.GetSFXLevel());
-        masterAM.SetFloat("musicvol", DataManager.Instance.GetMusicLevel());
+        float firstMusicValue = DataManager.Instance.GetMusicLevel();
+        float firstSfxValue = DataManager.Instance.GetSFXLevel();
 
-        musicCheck.value = DataManager.Instance.GetMusicLevel();
-        sfxCheck.value = DataManager.Instance.GetSFXLevel();
+        masterAM.SetFloat("sfxvol", firstSfxValue);
+        masterAM.SetFloat("musicvol", firstMusicValue);
+
+        musicCheck.value = Mathf.Pow(10, (firstMusicValue / 20));
+        sfxCheck.value = Mathf.Pow(10, (firstSfxValue / 20));
         mylevelLoader = FindObjectOfType<LevelLoader>();
     }
 
@@ -59,7 +62,7 @@ public class SettingScene : MonoBehaviour
     public void onSoundChange(float newValue)
     {
 
-        DataManager.Instance.SetSFXLevel(newValue);
+        DataManager.Instance.SetSFXLevel(Mathf.Log10(newValue) * 20);
         DataManager.Instance.Save();
 
         masterAM.SetFloat("sfxvol", DataManager.Instance.GetSFXLevel());
@@ -68,7 +71,7 @@ public class SettingScene : MonoBehaviour
     public void onMusicChange(float newValue)
     {
 
-        DataManager.Instance.SetMusicLevel(newValue);
+        DataManager.Instance.SetMusicLevel(Mathf.Log10(newValue) * 20);
         DataManager.Instance.Save();
 
         masterAM.SetFloat("musicvol", DataManager.Instance.GetMusicLevel());

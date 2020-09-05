@@ -24,10 +24,7 @@ public class CurrencyView : DialogBase
     //Config
     [SerializeField] private float speedForScale;
     [SerializeField] private float limit = 1;
-    // public static HintScript hintscript;
-    /// <summary>
-    /// Remove Later
-    /// </summary>
+
     private GameObject[] correctObjects;
     private int level;
     [SerializeField] private List<string> infoIsShown;
@@ -35,10 +32,10 @@ public class CurrencyView : DialogBase
     void Start()
     {
 
-        //*These two lines are only for debuggind. Delete when you're gonna publish it.
-        if (DataManager.Instance.GetFirstInfo() == true)
-            DataManager.Instance.SetFirstInfo(false);
-        //*Up to here
+        // //*These two lines are only for debuggind. Delete when you're gonna publish it.
+        // if (DataManager.Instance.GetFirstInfo() == true)
+        //     DataManager.Instance.SetFirstInfo(false);
+        // //*Up to here
 
         if (!DataManager.Instance.GetFirstInfo())
         {
@@ -88,6 +85,7 @@ public class CurrencyView : DialogBase
 
         }
         showInfo(name);
+        GameObject.Find(name).SetActive(false);
     }
 
     public InfoView showInfo(string callingHint)

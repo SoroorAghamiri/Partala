@@ -19,12 +19,14 @@ public class SettingView : DialogBase
 
     private void Start()
     {
-        // DataManager.Instance.Load();
-        masterAM.SetFloat("sfxvol", DataManager.Instance.GetSFXLevel());
-        masterAM.SetFloat("musicvol", DataManager.Instance.GetMusicLevel());
+        float firstMusicValue = DataManager.Instance.GetMusicLevel();
+        float firstSfxValue = DataManager.Instance.GetSFXLevel();
 
-        musicCheck.value = DataManager.Instance.GetMusicLevel();
-        sfxCheck.value = DataManager.Instance.GetSFXLevel();
+        masterAM.SetFloat("sfxvol", firstMusicValue);
+        masterAM.SetFloat("musicvol", firstSfxValue);
+
+        musicCheck.value = Mathf.Pow(10, (firstMusicValue / 20));
+        sfxCheck.value = Mathf.Pow(10, (firstSfxValue / 20));
 
         mylevelLoader = FindObjectOfType<LevelLoader>();
     }
@@ -52,14 +54,17 @@ public class SettingView : DialogBase
     public void onSoundChange(float newValue)
     {
 
-        DataManager.Instance.SetSFXLevel(newValue);
+        DataManager.Instance.SetSFXLevel(Mathf.Log10(newValue) * 20);
+        DataManager.Instance.Save();
         masterAM.SetFloat("sfxvol", DataManager.Instance.GetSFXLevel());
     }
 
     public void onMusicChange(float newValue)
     {
 
-        DataManager.Instance.SetMusicLevel(newValue);
+        DataManager.Instance.SetMusicLevel(Mathf.Log10(newValue) * 20);
+        DataManager.Instance.Save();
+        print("Music value : " + DataManager.Instance.GetMusicLevel());
         masterAM.SetFloat("musicvol", DataManager.Instance.GetMusicLevel());
     }
 
