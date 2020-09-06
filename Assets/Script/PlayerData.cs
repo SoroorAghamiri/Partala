@@ -12,5 +12,5 @@ public class PlayerData
     public float musicLevel = 1f;
     public bool tutorial = true;
     public bool firstInfoIsShown = false;
-
+    public bool enableSecondHint = true;
 }

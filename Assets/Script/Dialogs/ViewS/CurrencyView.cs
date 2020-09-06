@@ -42,6 +42,8 @@ public class CurrencyView : DialogBase
             firstType.SetActive(true);
         }
 
+        if (!DataManager.Instance.GetEnableSecondHint())
+            GameObject.Find("Ekbatan").GetComponent<Button>().interactable = false;
         initialization();
 
     }

@@ -14,6 +14,13 @@ using Image = UnityEngine.UI.Image;
 using UnityEngine.UIElements;
 using System;
 
+
+#region SoroorComments
+/*
+    Check for level number, if it equals the specified numbers in the design document, call showSimorghCard.
+    Add the opening animation here befor calling the method.
+*/
+#endregion
 public class GameManger : MonoBehaviour
 {
     /// <summary>
@@ -334,5 +341,42 @@ public class GameManger : MonoBehaviour
         winFlagChangedByWinChecker = true;
     }
 
+    private SimorghCard showSimorghCard()
+    {
+        SimorghCard prefab = Resources.Load<SimorghCard>("Cards/SimorghCard");
+        SimorghCard dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
+
+
+
+        GameObject cc = GameObject.Find("GameManger");
+        GameObject childOfCC = cc.transform.Find("UI PA").gameObject;
+        GameObject cOfCOfCC = childOfCC.transform.Find("PauseCanvas").gameObject;
+
+        dialog.transform.SetParent(cOfCOfCC.GetComponent<RectTransform>());
+
+
+
+        ViewManager.instance.openView(dialog);
+        return dialog;
+    }
+
+    private WitchCard showWitchCard()
+    {
+        WitchCard prefab = Resources.Load<WitchCard>("Cards/WitchCard");
+        WitchCard dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
+
+
+
+        GameObject cc = GameObject.Find("GameManger");
+        GameObject childOfCC = cc.transform.Find("UI PA").gameObject;
+        GameObject cOfCOfCC = childOfCC.transform.Find("PauseCanvas").gameObject;
+
+        dialog.transform.SetParent(cOfCOfCC.GetComponent<RectTransform>());
+
+
+
+        ViewManager.instance.openView(dialog);
+        return dialog;
+    }
 }
 

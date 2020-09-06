@@ -1140,7 +1140,7 @@ MonoBehaviour:
   tutorialPanels:
   - {fileID: 1418435431}
   - {fileID: 749966287}
-  touchManager: {fileID: 0}
+  touchManager: {fileID: 608251746}
   correctObjects: []
 --- !u!1001 &553071990
 PrefabInstance:

@@ -142,6 +142,16 @@ public class DataManager : MonoBehaviour
     {
         return playerData.firstInfoIsShown;
     }
+
+    public bool GetEnableSecondHint()
+    {
+        return playerData.enableSecondHint;
+    }
+
+    public void SetEnableSecondHint(bool enableSecondHint)
+    {
+        playerData.enableSecondHint = enableSecondHint;
+    }
     //Saves On pausing for mobile Obviously
     private void OnApplicationPause(bool pause)
     {

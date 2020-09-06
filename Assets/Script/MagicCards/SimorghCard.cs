@@ -2,19 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+//Needs a button to add the points
+public class SimorghCard : DialogBase
 {
-    private WinChecker winChecker;
-    private bool levelIsOver;
-    // Start is called before the first frame update
-    void Start()
+    public void addPoints()
     {
-        winChecker = GameObject.Find("WinChecker").GetComponent<WinChecker>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        levelIsOver = winChecker.flagWin;
+        DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() + 1);
+        DataManager.Instance.Save();
+        //Play the animation or anything else that must happen while showing the dialog. Add the code here
     }
 }
