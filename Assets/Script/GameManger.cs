@@ -321,26 +321,7 @@ public class GameManger : MonoBehaviour
         //    }
         //}
     }
-    // public void HintPanelOpen()
-    // {
-    //     if (panelIsActive == false)
-    //     {
-    //         PanelActivation();
-    //         buttons[7].gameObject.GetComponent<AudioSource>().Play();
-    //         hintPanel.gameObject.SetActive(true);
-    //     }
 
-    // }
-
-    // public void HintPanelColse()
-    // {
-    //     if (panelIsActive == true)
-    //     {
-    //         PanelDeactivation();
-    //         hintPanel.gameObject.SetActive(false);
-    //     }
-
-    // }
 
     public void OnShop()
     {

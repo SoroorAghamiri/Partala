@@ -17,19 +17,19 @@ public class CollideDE : MonoBehaviour
 
     private void Start()
     {
-//        Debug.Log("4");
+        //        Debug.Log("4");
         GameObj = GameObject.Find("Panel2");
         GM = FindObjectOfType<GameManger>();
     }
     //برسی برخورد نقطه تماس درست با شی 
     private void OnTriggerEnter2D(Collider2D other)
     {
-//        Debug.Log(other.gameObject.name);
+        //        Debug.Log(other.gameObject.name);
         if (other.gameObject.name == GameObj.name)
         {
             Coll = true;
             Debug.Log(Coll);
-            GameManger.Instans.Check[++GM.indx] = true;
+            // GameManger.Instans.Check[++GM.indx] = true;
 
         }
     }

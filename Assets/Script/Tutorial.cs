@@ -73,8 +73,11 @@ public class Tutorial : MonoBehaviour
                 fixedObjects[i].GetComponent<Animator>().Play("FixObj");
                 // if (i == 1 || i == 2)
                 // {
-                if (System.Object.ReferenceEquals(touchManager.activeGameObject, correctObjects[i - 1]))//correctObjects[i - 2].GetComponent<TouchRotate>().touched)
+                print("Active object in tutorial:" + touchManager.activeGameObject.name);
+
+                if (Object.ReferenceEquals(touchManager.activeGameObject, correctObjects[i]))//correctObjects[i - 2].GetComponent<TouchRotate>().touched)
                 {
+                    print("In if condition");
                     tutorialObjects[i].SetActive(false);
                     fixedObjects[i].GetComponent<Animator>().enabled = false;
                     //when movement is over:
