@@ -31,7 +31,7 @@ public class ShopManager : MonoBehaviour
     //will be called when the purchase is successful
     void purchaseSucceededEvent(BazaarPurchase purchase)
     {
-
+        DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() + products[productIndex].amount);
     }
     //will be called when the purchase failed
     void purchaseFailedEvent(string error)
@@ -46,5 +46,5 @@ public class ShopManager : MonoBehaviour
 public class Products
 {
     public string Id;
-    public int Coin;
+    public int amount;
 }

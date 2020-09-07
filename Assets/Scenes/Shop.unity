@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -250,6 +251,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -358,16 +360,16 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1124632426}
-        m_MethodName: BuyFeatherByCount
+        m_MethodName: Purchase
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!114 &898236539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,6 +385,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -456,6 +459,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -647,6 +651,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -755,16 +760,16 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1124632426}
-        m_MethodName: BuyFeatherByCount
+        m_MethodName: Purchase
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!114 &1451224533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -780,6 +785,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -884,16 +890,16 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1124632426}
-        m_MethodName: BuyFeatherByCount
+        m_MethodName: Purchase
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!114 &1792981539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -909,6 +915,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1013,16 +1020,16 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1124632426}
-        m_MethodName: BuyFeatherByCount
+        m_MethodName: Purchase
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 6
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!114 &1848983555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1038,6 +1045,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1274,6 +1282,51 @@ PrefabInstance:
         type: 3}
       propertyPath: products.Array.size
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8026328933286474945, guid: 414b5885f83c3fc4f8ee99ed9bbef028,
+        type: 3}
+      propertyPath: RSAKey
+      value: MIHNMA0GCSqGSIb3DQEBAQUAA4G7ADCBtwKBrwCseT54hgynRFnpF0rxUHPNr+7YFtTq3iqWmIrRfr/mXh8enFPSERfmaYAv3dN/T4m+AlP2aIFT5v630QIKO2FWKZXAdEYmznZj/fzgcwd9T08yXUM2OaJ+wvO2psoYuyjvNGEOdWeuwpD/i9EtzIB/KX/ZCBhkwH4jk4ZHQeSC4RK8qPlhLq0ZcvTsipVydzZzPeYUQLD1KiHAa8TFuiWW8mi0sbA5jvSPWUfTWUcCAwEAAQ==
+      objectReference: {fileID: 0}
+    - target: {fileID: 8026328933286474945, guid: 414b5885f83c3fc4f8ee99ed9bbef028,
+        type: 3}
+      propertyPath: products.Array.data[0].Id
+      value: onefeather
+      objectReference: {fileID: 0}
+    - target: {fileID: 8026328933286474945, guid: 414b5885f83c3fc4f8ee99ed9bbef028,
+        type: 3}
+      propertyPath: products.Array.data[0].amount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8026328933286474945, guid: 414b5885f83c3fc4f8ee99ed9bbef028,
+        type: 3}
+      propertyPath: products.Array.data[1].Id
+      value: threefeathers
+      objectReference: {fileID: 0}
+    - target: {fileID: 8026328933286474945, guid: 414b5885f83c3fc4f8ee99ed9bbef028,
+        type: 3}
+      propertyPath: products.Array.data[1].amount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8026328933286474945, guid: 414b5885f83c3fc4f8ee99ed9bbef028,
+        type: 3}
+      propertyPath: products.Array.data[2].Id
+      value: sixfeathers
+      objectReference: {fileID: 0}
+    - target: {fileID: 8026328933286474945, guid: 414b5885f83c3fc4f8ee99ed9bbef028,
+        type: 3}
+      propertyPath: products.Array.data[2].amount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8026328933286474945, guid: 414b5885f83c3fc4f8ee99ed9bbef028,
+        type: 3}
+      propertyPath: products.Array.data[3].Id
+      value: tenfeathers
+      objectReference: {fileID: 0}
+    - target: {fileID: 8026328933286474945, guid: 414b5885f83c3fc4f8ee99ed9bbef028,
+        type: 3}
+      propertyPath: products.Array.data[3].amount
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8026328933286474946, guid: 414b5885f83c3fc4f8ee99ed9bbef028,
         type: 3}
