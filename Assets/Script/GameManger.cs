@@ -257,7 +257,8 @@ public class GameManger : MonoBehaviour
 
     public void GoBackToLevelSelect()
     {
-        SceneManager.LoadScene(LevelSelect);
+        //SceneManager.LoadScene(LevelSelect);
+        mylevelLoader.LoadLevel(LevelSelect);
     }
 
 
