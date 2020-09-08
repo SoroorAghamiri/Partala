@@ -18,7 +18,7 @@ using System;
 #region SoroorComments
 /*
     Check for level number, if it equals the specified numbers in the design document, call showSimorghCard.
-    Add the opening animation here befor calling the method.
+    
 */
 #endregion
 public class GameManger : MonoBehaviour
@@ -53,6 +53,8 @@ public class GameManger : MonoBehaviour
     private GameObject[] mainComponents;
 
     private LevelLoader mylevelLoader;
+    private int[] simorghLevels = { 5, 8, 12 };
+    private int[] witchLevels = { 4, 7, 13 };
     ///Too much shit happening at the same time
     /// </summary>
     public void SingleTOne()
@@ -156,6 +158,23 @@ public class GameManger : MonoBehaviour
                     {
                         DataManager.Instance.SetLevel(DataManager.Instance.GetLevel(episodeNumber) + 1, episodeNumber);
                     }
+                    //Calling Cards
+                    print("level number" + levelNumberInEpisode);
+                    foreach (int ii in simorghLevels)
+                    {
+                        if (levelNumberInEpisode == ii)
+                        {
+                            showSimorghCard();
+                            break;
+                        }
+                    }
+                    // foreach (int ii in witchLevels)
+                    // {
+                    //     if (levelNumberInEpisode == ii)
+                    //     {
+                    //         showWitchCard();
+                    //     }
+                    // }
                     StartCoroutine(DeleteMainComponentObjectsAfterWin());
                     StartCoroutine(Wait());
                     wintoggler = false;
@@ -351,7 +370,7 @@ public class GameManger : MonoBehaviour
 
         GameObject cc = GameObject.Find("GameManger");
         GameObject childOfCC = cc.transform.Find("UI PA").gameObject;
-        GameObject cOfCOfCC = childOfCC.transform.Find("PauseCanvas").gameObject;
+        GameObject cOfCOfCC = childOfCC.transform.Find("Canvas").gameObject;
 
         dialog.transform.SetParent(cOfCOfCC.GetComponent<RectTransform>());
 
@@ -370,7 +389,7 @@ public class GameManger : MonoBehaviour
 
         GameObject cc = GameObject.Find("GameManger");
         GameObject childOfCC = cc.transform.Find("UI PA").gameObject;
-        GameObject cOfCOfCC = childOfCC.transform.Find("PauseCanvas").gameObject;
+        GameObject cOfCOfCC = childOfCC.transform.Find("Canvas").gameObject;
 
         dialog.transform.SetParent(cOfCOfCC.GetComponent<RectTransform>());
 

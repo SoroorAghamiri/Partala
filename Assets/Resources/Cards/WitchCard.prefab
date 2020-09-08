@@ -92,6 +92,11 @@ MonoBehaviour:
   dialogObject: {fileID: 5938008993351940604}
   closeButtons: []
   canClose: 1
+  x: 0
+  y: 0
+  z: 0
+  back: {fileID: 0}
+  timer: 0
 --- !u!1 &6982466906861577727
 GameObject:
   m_ObjectHideFlags: 0
