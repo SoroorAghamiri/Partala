@@ -58,6 +58,6 @@ public class SimorghCard : DialogBase
         DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() + 1);
         DataManager.Instance.Save();
         //Play the animation or anything else that must happen while showing the dialog. Add the code here
-
+        GameManger.Instans.next_level();
     }
 }

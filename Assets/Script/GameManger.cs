@@ -207,7 +207,8 @@ public class GameManger : MonoBehaviour
         finalObjectManager.AddComponent<FinalObjectManager>();
         finalObjectManager.GetComponent<FinalObjectManager>().ShowFinalObjectAfterWin();
         yield return new WaitForSeconds(this.gameObject.GetComponent<AudioSource>().clip.length);
-        next_level();
+        if (!Array.Exists(simorghLevels, element => element == levelNumberInEpisode) || !Array.Exists(witchLevels, element => element == levelNumberInEpisode))
+            next_level();
     }
     private void Onpause()
     {
@@ -289,7 +290,7 @@ public class GameManger : MonoBehaviour
         Invoke("GoBackToLevelSelect", buttons[0].gameObject.GetComponent<AudioSource>().clip.length);
 
     }
-    private void next_level()
+    public void next_level()
     {
         if (NextLevelname.Length == 0)
         {

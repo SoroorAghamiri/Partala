@@ -12,6 +12,7 @@ public class Tutorial : MonoBehaviour
     public List<GameObject> tutorialPanels = new List<GameObject>();
     // public UPersian.Components.RtlText guide;
     public TouchManager touchManager;
+    public FocusSwitcher focus;
     #region privateVariables
     private List<bool> stepIsDone = new List<bool>(2) { false, false };
     private bool showGuide = true;
@@ -55,7 +56,7 @@ public class Tutorial : MonoBehaviour
             showGuide = false;
             DataManager.Instance.Save();
             // print("set tutoral = " + DataManager.Instance.GetTutorial());
-
+            // focus.SetFocused(null);
             // dialogBox.SetActive(false);
         }
         if (showGuide)
@@ -67,6 +68,7 @@ public class Tutorial : MonoBehaviour
                     tutorialObjects[i].SetActive(true);
                 if (!tutorialPanels[i].active)
                     tutorialPanels[i].SetActive(true);
+                // focus.SetFocused(tutorialPanels[i]);
                 // setTutorialText(i + 1);
                 fixedObjects[i].GetComponent<Animator>().enabled = true;
                 tutorialObjects[i].GetComponent<Animator>().Play("Hand1");
@@ -77,6 +79,7 @@ public class Tutorial : MonoBehaviour
 
                 if (Object.ReferenceEquals(touchManager.activeGameObject, correctObjects[i]))//correctObjects[i - 2].GetComponent<TouchRotate>().touched)
                 {
+                    // focus.SetFocused(null);
                     print("In if condition");
                     tutorialObjects[i].SetActive(false);
                     fixedObjects[i].GetComponent<Animator>().enabled = false;
