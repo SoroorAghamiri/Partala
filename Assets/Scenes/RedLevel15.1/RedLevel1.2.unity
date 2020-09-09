@@ -722,6 +722,11 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1478864279}
+    - target: {fileID: 987030794059615840, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1735693427144163827, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_IsActive
@@ -786,6 +791,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558032409414669504, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -488388973
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558032409414669504, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690825600594184244, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690825600594184244, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690825600594184244, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690825600594184244, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4081927258961784951, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
@@ -861,6 +896,16 @@ PrefabInstance:
         type: 3}
       propertyPath: episodeNumber
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221259350124081129, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.4000244
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221259350124081129, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.2000732
       objectReference: {fileID: 0}
     - target: {fileID: 5221577025587152031, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}

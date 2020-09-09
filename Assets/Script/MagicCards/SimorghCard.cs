@@ -8,11 +8,11 @@ using UnityEngine.SceneManagement;
 public class SimorghCard : DialogBase
 {
     [Header("Animation Properties")]
-    public float x, y, z;
+    public float y;
     public GameObject back;
     private bool backIsActive = false;
     [SerializeField] private int timer = 0;
-
+    private float x, z;
     private void Start()
     {
         StartCoroutine(CalculateFlip());
