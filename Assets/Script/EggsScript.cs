@@ -10,13 +10,13 @@ public class EggsScript : MonoBehaviour
     private int fullCountOfCorrectObjects;
     private int firstEgg;
     private int secondEgg;
-   private Colider_GET myCollider;
+   private CollisionChecker myCollider;
 
     // Start is called before the first frame update
     void Start()
     {
         
-        myCollider =GameObject.Find("Panel2").GetComponent<Colider_GET>();
+        myCollider =GameObject.Find("Panel2").GetComponent<CollisionChecker>();
         eggs = GameObject.Find("Eggs");
         correctObjects= GameObject.FindGameObjectsWithTag("MainComponent");
         fullCountOfCorrectObjects= correctObjects.Length;

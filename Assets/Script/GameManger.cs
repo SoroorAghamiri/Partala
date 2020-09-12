@@ -31,7 +31,6 @@ public class GameManger : MonoBehaviour
     [Tooltip("collide point count ")]
     public bool Win;// win condition for game 
     public GameObject[] Colliderpoint;// get collider points 
-    public bool[] Check;
     public string NextLevelname;
     public Button[] buttons = new Button[6];
     public Image Puase_panel;
@@ -110,7 +109,6 @@ public class GameManger : MonoBehaviour
         myEggsScript = FindObjectOfType<EggsScript>();
         Win = false;///////////////////////////So many flags with win confusing AF should be changed
         winFlagChangedByWinChecker = false;////
-        Check = new bool[Colliderpoint.Length];//////////Another branch of wincheck that shouldn't be here
         wintoggler = true;
         Colliderpoint = GameObject.FindGameObjectsWithTag("ColliderPoint");
         mylevelLoader = FindObjectOfType<LevelLoader>();
@@ -120,9 +118,9 @@ public class GameManger : MonoBehaviour
     private void AddingListenersToButtons()
     {
         // buttons[0].onClick.AddListener(Onpause);/////Fatal
-        buttons[1].onClick.AddListener(OnPlay);
-        buttons[2].onClick.AddListener(OnHome);
-        buttons[3].onClick.AddListener(OnRestart);
+        //buttons[1].onClick.AddListener(OnPlay);
+        //buttons[2].onClick.AddListener(OnHome);
+        //buttons[3].onClick.AddListener(OnRestart);
         // buttons[4].onClick.AddListener(OnMusic);
         // buttons[5].onClick.AddListener(OnSound);
     }
@@ -137,19 +135,7 @@ public class GameManger : MonoBehaviour
     {
         if (!wrongObjects)
         {
-            int i;
-            bool flag = true;//flag for win dection
-            for (i = 0; i < Check.Length; i++)
-            {
-                //check if check have false condition
-                if (Check[i] != true)
-                {
-                    flag = false;
-                    break;
-                }
-
-            }
-            if (flag == true && winFlagChangedByWinChecker == true)
+            if (winFlagChangedByWinChecker == true)
             {
                 myEggsScript.SetLastEgg();
                 if (wintoggler)

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Colider_GET : MonoBehaviour
+public class CollisionChecker : MonoBehaviour
 {
     private List<GameObject> current_Collisions = new List<GameObject>();
     public int countOfCorrectObjects;
