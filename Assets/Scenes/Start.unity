@@ -262,7 +262,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -338,7 +337,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -508,6 +506,123 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &379155435
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1207962200615816, guid: 70c636dee37d2ac40b082aed5f11d6be, type: 3}
+      propertyPath: m_Name
+      value: Cafebazaar.ir IAB
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264433060275014, guid: 70c636dee37d2ac40b082aed5f11d6be, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264433060275014, guid: 70c636dee37d2ac40b082aed5f11d6be, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264433060275014, guid: 70c636dee37d2ac40b082aed5f11d6be, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264433060275014, guid: 70c636dee37d2ac40b082aed5f11d6be, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264433060275014, guid: 70c636dee37d2ac40b082aed5f11d6be, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264433060275014, guid: 70c636dee37d2ac40b082aed5f11d6be, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264433060275014, guid: 70c636dee37d2ac40b082aed5f11d6be, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264433060275014, guid: 70c636dee37d2ac40b082aed5f11d6be, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264433060275014, guid: 70c636dee37d2ac40b082aed5f11d6be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264433060275014, guid: 70c636dee37d2ac40b082aed5f11d6be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264433060275014, guid: 70c636dee37d2ac40b082aed5f11d6be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: products.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: products.Array.data[0].productId
+      value: onefeather
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: products.Array.data[0].price
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: products.Array.data[1].productId
+      value: threefeathers
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: products.Array.data[1].price
+      value: 25000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: products.Array.data[2].productId
+      value: sixfeathers
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: products.Array.data[2].price
+      value: 45000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: products.Array.data[3].productId
+      value: tenfeathers
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: products.Array.data[3].price
+      value: 80000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: publicKey
+      value: MIHNMA0GCSqGSIb3DQEBAQUAA4G7ADCBtwKBrwCseT54hgynRFnpF0rxUHPNr+7YFtTq3iqWmIrRfr/mXh8enFPSERfmaYAv3dN/T4m+AlP2aIFT5v630QIKO2FWKZXAdEYmznZj/fzgcwd9T08yXUM2OaJ+wvO2psoYuyjvNGEOdWeuwpD/i9EtzIB/KX/ZCBhkwH4jk4ZHQeSC4RK8qPlhLq0ZcvTsipVydzZzPeYUQLD1KiHAa8TFuiWW8mi0sbA5jvSPWUfTWUcCAwEAAQ==
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: validatePurchases
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: editorDummyResponse
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 70c636dee37d2ac40b082aed5f11d6be, type: 3}
 --- !u!1 &382278092
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,7 +784,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -804,7 +918,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1054,7 +1167,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1269,7 +1381,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1343,7 +1454,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1414,7 +1524,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

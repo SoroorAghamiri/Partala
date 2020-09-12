@@ -110,4 +110,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RedLevel15.2/RedLevel2.15.unity
     guid: 025d61c3220bbf84e89b94bda897da59
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 3de7d203733331c428dfbba8c47ece98
   m_configObjects: {}

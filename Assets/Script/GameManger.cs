@@ -350,6 +350,9 @@ public class GameManger : MonoBehaviour
     {
         winFlagChangedByWinChecker = true;
     }
-
+    public void GoToShop(string shopscenename)
+    {
+        SceneManager.LoadScene(shopscenename);
+    }
 }
 
