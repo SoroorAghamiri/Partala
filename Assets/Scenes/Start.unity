@@ -700,7 +700,7 @@ GameObject:
   - component: {fileID: 463674151}
   - component: {fileID: 463674150}
   m_Layer: 0
-  m_Name: GAObject
+  m_Name: Service Initializer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
