@@ -37,6 +37,7 @@ public class Tutorial : MonoBehaviour
         //*Up to here
 
         correctObjects = GameObject.FindGameObjectsWithTag("MainComponent");
+
         foreach (GameObject go in fixedObjects)
         {
             go.GetComponent<Animator>().enabled = false;
@@ -49,7 +50,7 @@ public class Tutorial : MonoBehaviour
 
     // Update is called once per frame
 
-    List<GameObject> setFocused = new List<GameObject>(5);
+    List<GameObject> setFocused = new List<GameObject>();
     void Update()
     {
         if (i == stepIsDone.Count)
