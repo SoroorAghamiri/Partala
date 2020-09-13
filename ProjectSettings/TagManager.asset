@@ -10,6 +10,7 @@ TagManager:
   - WrongComponent
   - Final
   - Locker
+  - MainComponentLight
   layers:
   - Default
   - TransparentFX
