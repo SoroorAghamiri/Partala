@@ -38,7 +38,8 @@ public class SettingScene : MonoBehaviour
     }
     public void onHomeClicked()
     {
-        mylevelLoader.LoadLevel(SceneNames.Start);
+
+        SceneManager.LoadScene(SceneNames.Start);
     }
 
     public void onDefaultSettingClicked()
