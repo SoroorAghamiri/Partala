@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Experimental.Rendering.LWRP;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class Tutorial : MonoBehaviour
 {
@@ -13,7 +15,10 @@ public class Tutorial : MonoBehaviour
     public List<GameObject> tutorialPanels = new List<GameObject>();
     public List<GameObject> fixedObjectLight = new List<GameObject>();
 
+
     [Space(20)]
+
+    public Button uiButtons;
     public UnityEngine.Experimental.Rendering.Universal.Light2D globalLight;
     public TouchManager touchManager;
     public int stepCount;
@@ -28,7 +33,7 @@ public class Tutorial : MonoBehaviour
     private GameObject[] correctObjectsLights;
     #endregion
 
-
+    string levelIndex;
 
 
 
@@ -39,6 +44,12 @@ public class Tutorial : MonoBehaviour
         // if (DataManager.Instance.GetTutorial() == false)
         //     DataManager.Instance.SetTutorial(true);
         // //*Up to here
+        uiButtons.interactable = false;
+
+        levelIndex = SceneManager.GetActiveScene().name;
+        levelIndex = levelIndex.Substring(levelIndex.Length - 1);
+        // print("LevelIndex = " + levelIndex);
+
         stepIsDone = new List<bool>(stepCount);
         for (int j = 0; j < stepIsDone.Capacity; j++)
         {
@@ -60,6 +71,9 @@ public class Tutorial : MonoBehaviour
         if (DataManager.Instance.GetTutorial() == false)
             showGuide = false;
 
+
+
+
     }
 
     // Update is called once per frame
@@ -69,11 +83,15 @@ public class Tutorial : MonoBehaviour
     {
         if (i == stepCount)
         {
+            uiButtons.interactable = true;
             globalLight.intensity = 1f;
-            DataManager.Instance.SetTutorial(false);
             showGuide = false;
-            DataManager.Instance.Save();
+            if (levelIndex == 3.ToString())
+            {
+                DataManager.Instance.SetTutorial(false);
 
+                DataManager.Instance.Save();
+            }
             // focus.SetFocused(setFocused);
         }
         if (showGuide)
