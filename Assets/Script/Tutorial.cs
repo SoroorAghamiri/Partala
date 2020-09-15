@@ -69,10 +69,11 @@ public class Tutorial : MonoBehaviour
     {
         if (i == stepCount)
         {
+            globalLight.intensity = 1f;
             DataManager.Instance.SetTutorial(false);
             showGuide = false;
             DataManager.Instance.Save();
-            globalLight.intensity = 1f;
+
             // focus.SetFocused(setFocused);
         }
         if (showGuide)
@@ -88,13 +89,13 @@ public class Tutorial : MonoBehaviour
 
 
                 correctObjectsLights[i].SetActive(true);
-                if (fixedObjectLight.Count > 0 && fixedObjectLight[i].name == i.ToString())
+                if (fixedObjectLight.Count > 0 && fixedObjectLight[0].name == i.ToString())
                 {
                     // print("Fixed object light name= " + fixedObjectLight[i].name);
-                    fixedObjectLight[i].SetActive(true);
-                    fixedObjectLight[i].GetComponent<Animator>().enabled = true;
+                    fixedObjectLight[0].SetActive(true);
+                    fixedObjectLight[0].GetComponent<Animator>().enabled = true;
                     // tutorialObjects[i].GetComponent<Animator>().Play("Hand1");
-                    fixedObjectLight[i].GetComponent<Animator>().Play("Light");
+                    fixedObjectLight[0].GetComponent<Animator>().Play("Light");
 
                 }
                 // setFocused.Add(tutorialPanels[i]);
@@ -117,18 +118,19 @@ public class Tutorial : MonoBehaviour
 
                     // tutorialObjects[i].SetActive(false);
 
-                    if (fixedObjectLight[i].active)
-                        fixedObjectLight[i].GetComponent<Animator>().enabled = false;
+                    if (correctObjectsLights[i].active)
+                        correctObjectsLights[i].GetComponent<Animator>().enabled = false;
 
                     //when movement is over:
                     if (Input.touchCount == 0)
                     {
                         stepIsDone[i] = true;
                         tutorialPanels[i].SetActive(false);
-                        i++;
+
                         correctObjectsLights[i].SetActive(false);
-                        if (fixedObjectLight.Count > 0)
-                            fixedObjectLight[i].SetActive(false);
+                        if (fixedObjectLight.Count > 0 && fixedObjectLight[0].active)
+                            fixedObjectLight[0].SetActive(false);
+                        i++;
                         // setFocused.RemoveRange(0, setFocused.Count - 1);
                     }
                 }
