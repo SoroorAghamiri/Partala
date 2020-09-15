@@ -82,19 +82,20 @@ public class Tutorial : MonoBehaviour
             {
                 // if (!tutorialObjects[i].active)
                 //     tutorialObjects[i].SetActive(true);
-
-                if (!tutorialPanels[i].active)
+                print("i = " + i.ToString());
+                if (!tutorialPanels[i].active && tutorialPanels.Count > 0 && tutorialPanels[i].name == i.ToString())
                     tutorialPanels[i].SetActive(true);
 
 
                 correctObjectsLights[i].SetActive(true);
-                if (i == stepCount - 1 && fixedObjects.Count > 0)
+                if (fixedObjectLight.Count > 0 && fixedObjectLight[i].name == i.ToString())
                 {
-                    fixedObjects[0].GetComponent<Animator>().enabled = true;
+                    // print("Fixed object light name= " + fixedObjectLight[i].name);
+                    fixedObjectLight[i].SetActive(true);
+                    fixedObjectLight[i].GetComponent<Animator>().enabled = true;
                     // tutorialObjects[i].GetComponent<Animator>().Play("Hand1");
-                    fixedObjects[0].GetComponent<Animator>().Play("FixObj");
-                    if (!fixedObjectLight[0].active)
-                        fixedObjectLight[0].SetActive(true);
+                    fixedObjectLight[i].GetComponent<Animator>().Play("Light");
+
                 }
                 // setFocused.Add(tutorialPanels[i]);
                 // // setFocused.Add(fixedObjects[i]);
@@ -116,8 +117,9 @@ public class Tutorial : MonoBehaviour
 
                     // tutorialObjects[i].SetActive(false);
 
+                    if (fixedObjectLight[i].active)
+                        fixedObjectLight[i].GetComponent<Animator>().enabled = false;
 
-                    fixedObjects[i].GetComponent<Animator>().enabled = false;
                     //when movement is over:
                     if (Input.touchCount == 0)
                     {
@@ -134,15 +136,6 @@ public class Tutorial : MonoBehaviour
         }
 
     }
-
-    // public void next()
-    // {
-    //     stepIsDone[i] = true;
-    //     // tutorialObjects[i].SetActive(false);
-    //     fixedObjects[i].GetComponent<Animator>().enabled = false;
-    //     tutorialPanels[i].SetActive(false);
-    //     i++;
-    // }
 
 
 }
