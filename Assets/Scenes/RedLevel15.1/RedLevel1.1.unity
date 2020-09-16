@@ -1157,7 +1157,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584274336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.37, y: -0.83, z: 0}
+  m_LocalPosition: {x: 1.8, y: -0.099999964, z: 0}
   m_LocalScale: {x: 0.29051062, y: 0.29051062, z: 0.29051062}
   m_Children: []
   m_Father: {fileID: 1547722252}
@@ -1432,7 +1432,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 805213028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.17, y: -1.97, z: 0}
+  m_LocalPosition: {x: 1.97, y: -3.5, z: 0}
   m_LocalScale: {x: 0.31255797, y: 0.31255797, z: 0.31255797}
   m_Children: []
   m_Father: {fileID: 1547722252}
@@ -2492,12 +2492,17 @@ MonoBehaviour:
   - {fileID: 584274336}
   fixedObjectLight:
   - {fileID: 1566714903}
+  correctObjects:
+  - {fileID: 823548598}
+  - {fileID: 755896993}
+  correctObjectsLights:
+  - {fileID: 1554291158}
+  - {fileID: 1286173965}
   uiButtons: {fileID: 555553233}
   rotateLight: {fileID: 0}
   globalLight: {fileID: 1218572909}
   touchManager: {fileID: 1152968572}
   stepCount: 2
-  correctObjectsLights: []
 --- !u!4 &1547722252
 Transform:
   m_ObjectHideFlags: 0

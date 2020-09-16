@@ -1288,12 +1288,17 @@ MonoBehaviour:
   tutorialPanels:
   - {fileID: 1479102149}
   fixedObjectLight: []
+  correctObjects:
+  - {fileID: 264525720}
+  - {fileID: 232819406}
+  correctObjectsLights:
+  - {fileID: 1601160163}
+  - {fileID: 665450826}
   uiButtons: {fileID: 555553230}
   rotateLight: {fileID: 374949736}
   globalLight: {fileID: 54899751}
   touchManager: {fileID: 608251746}
   stepCount: 3
-  correctObjectsLights: []
 --- !u!1 &541197678
 GameObject:
   m_ObjectHideFlags: 0
@@ -1494,6 +1499,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 784775069430935609, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 987030794059615840, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_IsActive
       value: 0

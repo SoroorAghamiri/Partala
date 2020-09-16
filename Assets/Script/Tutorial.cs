@@ -14,8 +14,9 @@ public class Tutorial : MonoBehaviour
     public List<GameObject> fixedObjects = new List<GameObject>();
     public List<GameObject> tutorialPanels = new List<GameObject>();
     public List<GameObject> fixedObjectLight = new List<GameObject>();
+    public GameObject[] correctObjects;
 
-
+    public GameObject[] correctObjectsLights;
     [Space(20)]
 
     public Button uiButtons;
@@ -30,8 +31,8 @@ public class Tutorial : MonoBehaviour
     private bool showGuide = true;
     private bool nextIsClicked = false;
     private int i = 0;
-    private GameObject[] correctObjects;
-    [SerializeField] private GameObject[] correctObjectsLights;
+
+
     private GameObject[] cityLights;
 
     #endregion
@@ -51,7 +52,7 @@ public class Tutorial : MonoBehaviour
 
         levelIndex = SceneManager.GetActiveScene().name;
         levelIndex = levelIndex.Substring(levelIndex.Length - 1);
-        // print("LevelIndex = " + levelIndex);
+
 
         stepIsDone = new List<bool>(stepCount);
         for (int j = 0; j < stepIsDone.Capacity; j++)
@@ -59,9 +60,9 @@ public class Tutorial : MonoBehaviour
             stepIsDone.Add(false);
         }
 
-        correctObjects = GameObject.FindGameObjectsWithTag("MainComponent");
-        if (levelIndex == "1" || levelIndex == "2")
-            correctObjectsLights = GameObject.FindGameObjectsWithTag("MainComponentLight");
+        // correctObjects = GameObject.FindGameObjectsWithTag("MainComponent");
+        // if (levelIndex == "1" || levelIndex == "2")
+        //     correctObjectsLights = GameObject.FindGameObjectsWithTag("MainComponentLight");
         if (levelIndex == "3")
             cityLights = GameObject.FindGameObjectsWithTag("CityLight");
 
@@ -85,7 +86,7 @@ public class Tutorial : MonoBehaviour
 
     // Update is called once per frame
 
-    // List<GameObject> setFocused = new List<GameObject>();
+
     void Update()
     {
         if (i == stepCount)
@@ -99,7 +100,7 @@ public class Tutorial : MonoBehaviour
 
                 DataManager.Instance.Save();
             }
-            // focus.SetFocused(setFocused);
+
         }
         if (showGuide)
         {
@@ -129,33 +130,10 @@ public class Tutorial : MonoBehaviour
                         showCityLights();
                         break;
                 }
-                // // if (!tutorialObjects[i].active)
-                // //     tutorialObjects[i].SetActive(true);
-                // print("i = " + i.ToString());
-                // if (!tutorialPanels[i].active && tutorialPanels.Count > 0 && tutorialPanels[i].name == i.ToString())
-                //     tutorialPanels[i].SetActive(true);
 
-
-                // correctObjectsLights[i].SetActive(true);
-                // if (fixedObjectLight.Count > 0 && fixedObjectLight[0].name == i.ToString())
-                // {
-                //     // print("Fixed object light name= " + fixedObjectLight[i].name);
-                //     fixedObjectLight[0].SetActive(true);
-                //     fixedObjectLight[0].GetComponent<Animator>().enabled = true;
-                //     // tutorialObjects[i].GetComponent<Animator>().Play("Hand1");
-                //     fixedObjectLight[0].GetComponent<Animator>().Play("Light");
-
-                // }
 
                 if (Object.ReferenceEquals(touchManager.activeGameObject, correctObjects[i]))//correctObjects[i - 2].GetComponent<TouchRotate>().touched)
                 {
-                    // for (int i = 0; i < setFocused.Count; i++)
-                    // {
-                    //     setFocused[i] = null;
-                    // }
-                    // focus.SetFocused(setFocused);
-
-                    // tutorialObjects[i].SetActive(false);
 
                     if (correctObjectsLights[i].active)
                         correctObjectsLights[i].GetComponent<Animator>().enabled = false;
@@ -170,12 +148,11 @@ public class Tutorial : MonoBehaviour
                         if (tutorialPanels[i].active)
                             tutorialPanels[i].SetActive(false);
 
-                        if (correctObjectsLights[i].active)
-                            correctObjectsLights[i].SetActive(false);
+                        // if (correctObjectsLights[i].active)
+                        //     correctObjectsLights[i].GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>().falloffIntensity = 0.51f;
                         if (fixedObjectLight.Count > 0 && fixedObjectLight[0].active)
                             fixedObjectLight[0].SetActive(false);
                         i++;
-                        // setFocused.RemoveRange(0, setFocused.Count - 1);
                     }
                 }
             }
@@ -201,10 +178,10 @@ public class Tutorial : MonoBehaviour
     {
         if (fixedObjectLight.Count > 0 && fixedObjectLight[0].name == i.ToString())
         {
-            // print("Fixed object light name= " + fixedObjectLight[i].name);
+
             fixedObjectLight[0].SetActive(true);
             fixedObjectLight[0].GetComponent<Animator>().enabled = true;
-            // tutorialObjects[i].GetComponent<Animator>().Play("Hand1");
+
             fixedObjectLight[0].GetComponent<Animator>().Play("Light");
 
         }
@@ -223,17 +200,5 @@ public class Tutorial : MonoBehaviour
     {
         rotateLight.SetActive(true);
     }
-    void useFocus()
-    {
-        // setFocused.Add(tutorialPanels[i]);
-        // // setFocused.Add(fixedObjects[i]);
-        // setFocused.Add(tutorialObjects[i]);
-        // setFocused.Add(correctObjects[i]);
-        // for (int i = 0; i < setFocused.Count; i++)
-        // {
-        //     print(setFocused[i].name);
-        // }
-        // focus.SetFocused(setFocused);
 
-    }
 }
