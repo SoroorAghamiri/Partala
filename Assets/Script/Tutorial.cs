@@ -53,6 +53,7 @@ public class Tutorial : MonoBehaviour
         levelIndex = SceneManager.GetActiveScene().name;
         levelIndex = levelIndex.Substring(levelIndex.Length - 1);
 
+        Debug.Log("Level index = " + levelIndex);
 
         stepIsDone = new List<bool>(stepCount);
         for (int j = 0; j < stepIsDone.Capacity; j++)

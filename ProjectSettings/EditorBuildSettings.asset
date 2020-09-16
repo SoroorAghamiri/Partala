@@ -18,14 +18,14 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelSelect1.unity
     guid: 32c11faaa9a73bc4a96e00c3e1200673
   - enabled: 1
+    path: Assets/Scenes/RedLevel15.1/RedLevel1.1.unity
+    guid: 941d419c95f7e0d4a8839a2f7babaf62
+  - enabled: 1
     path: Assets/Scenes/RedLevel15.1/RedLevel1.2.unity
     guid: b01ee08d00eba26419e950b0d53f6446
   - enabled: 1
     path: Assets/Scenes/RedLevel15.1/RedLevel1.3.unity
     guid: 857ea57247bd0714594a18df5e7cc967
-  - enabled: 1
-    path: Assets/Scenes/RedLevel15.1/RedLevel1.1.unity
-    guid: 941d419c95f7e0d4a8839a2f7babaf62
   - enabled: 1
     path: Assets/Scenes/RedLevel15.1/RedLevel1.4.unity
     guid: a81a688b96e7c2940969cbd207201847
