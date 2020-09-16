@@ -19,6 +19,7 @@ public class Tutorial : MonoBehaviour
     [Space(20)]
 
     public Button uiButtons;
+    public GameObject rotateLight;
     public UnityEngine.Experimental.Rendering.Universal.Light2D globalLight;
     public TouchManager touchManager;
     public int stepCount;
@@ -30,7 +31,9 @@ public class Tutorial : MonoBehaviour
     private bool nextIsClicked = false;
     private int i = 0;
     private GameObject[] correctObjects;
-    private GameObject[] correctObjectsLights;
+    [SerializeField] private GameObject[] correctObjectsLights;
+    private GameObject[] cityLights;
+
     #endregion
 
     string levelIndex;
@@ -57,7 +60,11 @@ public class Tutorial : MonoBehaviour
         }
 
         correctObjects = GameObject.FindGameObjectsWithTag("MainComponent");
-        correctObjectsLights = GameObject.FindGameObjectsWithTag("MainComponentLight");
+        if (levelIndex == "1" || levelIndex == "2")
+            correctObjectsLights = GameObject.FindGameObjectsWithTag("MainComponentLight");
+        if (levelIndex == "3")
+            cityLights = GameObject.FindGameObjectsWithTag("CityLight");
+
         for (int j = 0; j < correctObjectsLights.Length; j++)
         {
             correctObjectsLights[j].SetActive(false);
@@ -99,32 +106,46 @@ public class Tutorial : MonoBehaviour
 
             if (!stepIsDone[i])
             {
-                // if (!tutorialObjects[i].active)
-                //     tutorialObjects[i].SetActive(true);
-                print("i = " + i.ToString());
-                if (!tutorialPanels[i].active && tutorialPanels.Count > 0 && tutorialPanels[i].name == i.ToString())
-                    tutorialPanels[i].SetActive(true);
 
-
-                correctObjectsLights[i].SetActive(true);
-                if (fixedObjectLight.Count > 0 && fixedObjectLight[0].name == i.ToString())
+                switch (levelIndex)
                 {
-                    // print("Fixed object light name= " + fixedObjectLight[i].name);
-                    fixedObjectLight[0].SetActive(true);
-                    fixedObjectLight[0].GetComponent<Animator>().enabled = true;
-                    // tutorialObjects[i].GetComponent<Animator>().Play("Hand1");
-                    fixedObjectLight[0].GetComponent<Animator>().Play("Light");
+                    case "1":
+                        print("1 Here");
+                        showGuidText(i);
+                        glowObjects(i);
+                        showFixedObject();
+                        break;
+                    case "2":
+                        print("2 Here");
+                        glowObjects(i);
+                        if (i == 2)
+                        {
+                            showGuidText(0);
 
+                        }
+                        break;
+                    case "3":
+                        print("3 Here");
+                        showCityLights();
+                        break;
                 }
-                // setFocused.Add(tutorialPanels[i]);
-                // // setFocused.Add(fixedObjects[i]);
-                // setFocused.Add(tutorialObjects[i]);
-                // setFocused.Add(correctObjects[i]);
-                // for (int i = 0; i < setFocused.Count; i++)
+                // // if (!tutorialObjects[i].active)
+                // //     tutorialObjects[i].SetActive(true);
+                // print("i = " + i.ToString());
+                // if (!tutorialPanels[i].active && tutorialPanels.Count > 0 && tutorialPanels[i].name == i.ToString())
+                //     tutorialPanels[i].SetActive(true);
+
+
+                // correctObjectsLights[i].SetActive(true);
+                // if (fixedObjectLight.Count > 0 && fixedObjectLight[0].name == i.ToString())
                 // {
-                //     print(setFocused[i].name);
+                //     // print("Fixed object light name= " + fixedObjectLight[i].name);
+                //     fixedObjectLight[0].SetActive(true);
+                //     fixedObjectLight[0].GetComponent<Animator>().enabled = true;
+                //     // tutorialObjects[i].GetComponent<Animator>().Play("Hand1");
+                //     fixedObjectLight[0].GetComponent<Animator>().Play("Light");
+
                 // }
-                // focus.SetFocused(setFocused);
 
                 if (Object.ReferenceEquals(touchManager.activeGameObject, correctObjects[i]))//correctObjects[i - 2].GetComponent<TouchRotate>().touched)
                 {
@@ -139,13 +160,18 @@ public class Tutorial : MonoBehaviour
                     if (correctObjectsLights[i].active)
                         correctObjectsLights[i].GetComponent<Animator>().enabled = false;
 
+                    if (rotateLight != null && rotateLight.active)
+                        rotateLight.SetActive(false);
+
                     //when movement is over:
                     if (Input.touchCount == 0)
                     {
                         stepIsDone[i] = true;
-                        tutorialPanels[i].SetActive(false);
+                        if (tutorialPanels[i].active)
+                            tutorialPanels[i].SetActive(false);
 
-                        correctObjectsLights[i].SetActive(false);
+                        if (correctObjectsLights[i].active)
+                            correctObjectsLights[i].SetActive(false);
                         if (fixedObjectLight.Count > 0 && fixedObjectLight[0].active)
                             fixedObjectLight[0].SetActive(false);
                         i++;
@@ -157,5 +183,57 @@ public class Tutorial : MonoBehaviour
 
     }
 
+    void glowObjects(int indx)
+    {
+        correctObjectsLights[indx].SetActive(true);
 
+    }
+
+    void showGuidText(int indx)
+    {
+        if (tutorialPanels.Count > 0 && tutorialPanels[indx].name == i.ToString())
+        {
+            tutorialPanels[indx].SetActive(true);
+        }
+    }
+
+    void showFixedObject()
+    {
+        if (fixedObjectLight.Count > 0 && fixedObjectLight[0].name == i.ToString())
+        {
+            // print("Fixed object light name= " + fixedObjectLight[i].name);
+            fixedObjectLight[0].SetActive(true);
+            fixedObjectLight[0].GetComponent<Animator>().enabled = true;
+            // tutorialObjects[i].GetComponent<Animator>().Play("Hand1");
+            fixedObjectLight[0].GetComponent<Animator>().Play("Light");
+
+        }
+    }
+
+    void showCityLights()
+    {
+        foreach (GameObject go in cityLights)
+        {
+            go.GetComponent<Animator>().enabled = true;
+            go.GetComponent<Animator>().Play("FixObj");
+        }
+    }
+
+    void rotationButton()
+    {
+        rotateLight.SetActive(true);
+    }
+    void useFocus()
+    {
+        // setFocused.Add(tutorialPanels[i]);
+        // // setFocused.Add(fixedObjects[i]);
+        // setFocused.Add(tutorialObjects[i]);
+        // setFocused.Add(correctObjects[i]);
+        // for (int i = 0; i < setFocused.Count; i++)
+        // {
+        //     print(setFocused[i].name);
+        // }
+        // focus.SetFocused(setFocused);
+
+    }
 }

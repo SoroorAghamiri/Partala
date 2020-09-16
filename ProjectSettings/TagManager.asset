@@ -11,6 +11,7 @@ TagManager:
   - Final
   - Locker
   - MainComponentLight
+  - CityLight
   layers:
   - Default
   - TransparentFX

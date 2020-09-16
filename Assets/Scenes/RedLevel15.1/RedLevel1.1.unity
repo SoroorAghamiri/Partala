@@ -1126,7 +1126,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeOpacity: 1
   m_ApplyToSortingLayers: 00000000
-  m_LightCookieSprite: {fileID: 21300000, guid: 396c9d1ccedd4ee4383b7e92701de137,
+  m_LightCookieSprite: {fileID: 21300000, guid: 247e117a8c9797c45b2f0a8e755fe2a8,
     type: 3}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -1157,8 +1157,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584274336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.95, y: -0.2, z: 0}
-  m_LocalScale: {x: 0.6751194, y: 0.6751194, z: 0.6751194}
+  m_LocalPosition: {x: 3.37, y: -0.83, z: 0}
+  m_LocalScale: {x: 0.29051062, y: 0.29051062, z: 0.29051062}
   m_Children: []
   m_Father: {fileID: 1547722252}
   m_RootOrder: 1
@@ -1432,8 +1432,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 805213028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.94, y: -1.65, z: 0}
-  m_LocalScale: {x: 0.6751194, y: 0.6751194, z: 0.6751194}
+  m_LocalPosition: {x: 5.17, y: -1.97, z: 0}
+  m_LocalScale: {x: 0.31255797, y: 0.31255797, z: 0.31255797}
   m_Children: []
   m_Father: {fileID: 1547722252}
   m_RootOrder: 0
@@ -1455,15 +1455,15 @@ MonoBehaviour:
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_LightVolumeOpacity: 1
+  m_LightVolumeOpacity: 0.94
   m_ApplyToSortingLayers: 00000000
-  m_LightCookieSprite: {fileID: 21300000, guid: 5bfeea77d38124b45b5f45d3cd37f25f,
+  m_LightCookieSprite: {fileID: 21300000, guid: f102e596a4319c5468e968c55cc8766b,
     type: 3}
   m_UseNormalMap: 0
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
-  m_ShadowIntensity: 0
-  m_ShadowVolumeIntensity: 0
+  m_ShadowIntensity: 1
+  m_ShadowVolumeIntensity: 1
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -2493,9 +2493,11 @@ MonoBehaviour:
   fixedObjectLight:
   - {fileID: 1566714903}
   uiButtons: {fileID: 555553233}
+  rotateLight: {fileID: 0}
   globalLight: {fileID: 1218572909}
   touchManager: {fileID: 1152968572}
   stepCount: 2
+  correctObjectsLights: []
 --- !u!4 &1547722252
 Transform:
   m_ObjectHideFlags: 0
