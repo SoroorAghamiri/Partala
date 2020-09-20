@@ -94,6 +94,10 @@ public class Tutorial : MonoBehaviour
         {
             uiButtons.interactable = true;
             globalLight.intensity = 1f;
+            for (int j = 0; j < correctObjectsLights.Length; j++)
+            {
+                correctObjectsLights[j].SetActive(false);
+            }
             showGuide = false;
             if (levelIndex == 3.ToString())
             {
@@ -113,16 +117,16 @@ public class Tutorial : MonoBehaviour
                 {
                     case "1":
                         print("1 Here");
-                        showGuidText(i);
+                        showGuidText(i, true);
                         glowObjects(i);
                         showFixedObject();
                         break;
                     case "2":
                         print("2 Here");
                         glowObjects(i);
-                        if (i == 2)
+                        if (i == 0)
                         {
-                            showGuidText(0);
+                            showGuidText(0, true);
 
                         }
                         break;
@@ -146,9 +150,16 @@ public class Tutorial : MonoBehaviour
                     if (Input.touchCount == 0)
                     {
                         stepIsDone[i] = true;
-                        if (tutorialPanels[i].active)
-                            tutorialPanels[i].SetActive(false);
 
+                        switch (levelIndex)
+                        {
+                            case "1":
+                                showGuidText(i, false);
+                                break;
+                            case "2":
+                                showGuidText(0, false);
+                                break;
+                        }
                         // if (correctObjectsLights[i].active)
                         //     correctObjectsLights[i].GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>().falloffIntensity = 0.51f;
                         if (fixedObjectLight.Count > 0 && fixedObjectLight[0].active)
@@ -167,11 +178,19 @@ public class Tutorial : MonoBehaviour
 
     }
 
-    void showGuidText(int indx)
+    void showGuidText(int indx, bool active)
     {
-        if (tutorialPanels.Count > 0 && tutorialPanels[indx].name == i.ToString())
+        if (active)
         {
-            tutorialPanels[indx].SetActive(true);
+            if (tutorialPanels.Count > 0 && tutorialPanels[indx].name == i.ToString())
+            {
+                tutorialPanels[indx].SetActive(true);
+            }
+        }
+        else
+        {
+            if (tutorialPanels[indx].active)
+                tutorialPanels[indx].SetActive(false);
         }
     }
 
