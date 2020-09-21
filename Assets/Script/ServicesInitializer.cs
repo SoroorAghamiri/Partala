@@ -7,23 +7,41 @@ using TapsellSDK;
 
 public class ServicesInitializer : MonoBehaviour
 {
-    [SerializeField] string TAPSELL_KEY;
+    private string TAPSELL_KEY = "ofrjrqbefrrabailpfohcdsstotqtqfncklgnhtocdocscasflhokdacnldpepfqkjbqnk";
     private void Awake()
     {
-        StoreHandler.instance.InitializeBillingService();
-        Tapsell.Initialize(TAPSELL_KEY);
-        GameAnalytics.Initialize();
+
 
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        StoreHandler.instance.InitializeBillingService(OnServiceInitializationFailed, OnServiceInitializedSuccessfully);
+        Tapsell.Initialize(TAPSELL_KEY);
+        GameAnalytics.Initialize();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    private void OnServiceInitializedSuccessfully()
+
+    {
+
+        Debug.Log("cafe bazaar Initialized succesfully");
+
+    }
+
+
+
+    private void OnServiceInitializationFailed(int errorCode, string message)
+
+    {
+        Debug.Log("cafe bazaar Error code :" + errorCode.ToString()) ;
+        Debug.Log(message);
+
+
     }
 }

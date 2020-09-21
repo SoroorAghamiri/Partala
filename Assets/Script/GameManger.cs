@@ -178,6 +178,7 @@ public class GameManger : MonoBehaviour
         finalObjectManager.AddComponent<FinalObjectManager>();
         finalObjectManager.GetComponent<FinalObjectManager>().ShowFinalObjectAfterWin();
         yield return new WaitForSeconds(this.gameObject.GetComponent<AudioSource>().clip.length);
+        AdManager.Instance.AdShow();
         next_level();
     }
     private void Onpause()
@@ -302,7 +303,7 @@ public class GameManger : MonoBehaviour
 
     public void ShowNumberOfFeathers()
     {
-        featherText.text = Fa.faConvertLine(DataManager.Instance.GetFeather().ToString());
+        //featherText.text = Fa.faConvertLine(DataManager.Instance.GetFeather().ToString());
     }
 
     public void LevelFactor()//this Function added feather after every episode end  
