@@ -8,9 +8,11 @@ public class AdManager : MonoBehaviour
 {
     public static AdManager Instance;
 
-    private string ZONE_ID = "5f6730d042f96300018a9aa1";
+    [SerializeField] private string InterstialAdKey;
+    [SerializeField] private string RewardAdKey;
 
-    private TapsellAd tapsellAd;
+    private TapsellAd tapsellAdInterstial;
+    private TapsellAd tapsellAdReward;
 
     [SerializeField] private int betweenLevelsAd;
     private int betweenAdCounter;
@@ -31,19 +33,73 @@ public class AdManager : MonoBehaviour
     private void Start()
     {
         betweenAdCounter = 0;
+        Tapsell.SetRewardListener(
+      (TapsellAdFinishedResult result) =>
+      {
+          Debug.Log(
+            "adId:" + result.adId + ", " +
+            "zoneId:" + result.zoneId + ", " +
+            "completed:" + result.completed + ", " +
+            "rewarded:" + result.rewarded);
+      }
+    );
     }
-
-
-
-    public void Request()
+    public void RequestRewardAd()
     {
 
-        Tapsell.RequestAd(ZONE_ID, true,
+        Tapsell.RequestAd(RewardAdKey, true,
+          (TapsellAd result) => {
+          // onAdAvailable
+          Debug.Log("on Ad Available");
+              tapsellAdReward = result;
+          },
+
+          (string zoneId) => {
+          // onNoAdAvailable
+          Debug.Log("no Ad Available");
+          },
+
+          (TapsellError error) => {
+          // onError
+          Debug.Log(error.message);
+          },
+
+          (string zoneId) => {
+          // onNoNetwork
+          Debug.Log("no Network");
+          },
+
+          (TapsellAd result) => {
+          // onExpiring
+          Debug.Log("expiring");
+          },
+
+          (TapsellAd result) => {
+          // onOpen
+          Debug.Log("open");
+          },
+
+          (TapsellAd result) => {
+          // onClose
+          Debug.Log("close");
+          }
+
+        );
+    }
+    public void ShowRewardAd()
+    {
+        Tapsell.ShowAd(tapsellAdReward, new TapsellShowOptions());
+    }
+
+    public void RequestInterstialAd()
+    {
+
+        Tapsell.RequestAd(InterstialAdKey, true,
           (TapsellAd result) =>
           {
               // onAdAvailable
               Debug.Log("on Ad Available");
-              tapsellAd = result;
+              tapsellAdInterstial = result;
           },
 
           (string zoneId) =>
@@ -128,10 +184,12 @@ public class AdManager : MonoBehaviour
         switch (betweenAdCounter)
         {
             case 1:
-                Request();
+                RequestInterstialAd();
                 break;
             case 2:
-                Tapsell.ShowAd(tapsellAd , new TapsellShowOptions());
+                TapsellShowOptions showOptions = new TapsellShowOptions();
+                //showOptions.backDisabled = true;
+                Tapsell.ShowAd(tapsellAdInterstial, showOptions);
                 betweenAdCounter = 0;
                 break;
         }

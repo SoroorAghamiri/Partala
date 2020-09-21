@@ -7,7 +7,7 @@ using TapsellSDK;
 
 public class ServicesInitializer : MonoBehaviour
 {
-    private string TAPSELL_KEY = "ofrjrqbefrrabailpfohcdsstotqtqfncklgnhtocdocscasflhokdacnldpepfqkjbqnk";
+    [SerializeField] private string TAPSELL_KEY;
     private void Awake()
     {
 
