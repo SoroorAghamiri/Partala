@@ -30,6 +30,7 @@ public class Tutorial : MonoBehaviour
     private List<bool> stepIsDone;
     private bool showGuide = true;
     private bool nextIsClicked = false;
+    private bool rotationDone = false;
     private int i = 0;
 
 
@@ -126,6 +127,7 @@ public class Tutorial : MonoBehaviour
                         glowObjects(i);
                         if (i == 0)
                         {
+                            rotationButton();
                             showGuidText(0, true);
 
                         }
@@ -142,29 +144,58 @@ public class Tutorial : MonoBehaviour
 
                     if (correctObjectsLights[i].active)
                         correctObjectsLights[i].GetComponent<Animator>().enabled = false;
+                    if (levelIndex == "2" && i == 0)
+                    {
+                        if (touchManager.rotate == true)
+                        {
+                            if (rotateLight != null && rotateLight.active)
+                            {
+                                rotateLight.GetComponent<Animator>().enabled = false;
+                                rotateLight.GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>().enabled = false;
 
-                    if (rotateLight != null && rotateLight.active)
-                        rotateLight.SetActive(false);
+                            }
+                            rotationDone = true;
+                        }
+                    }
+
 
                     //when movement is over:
                     if (Input.touchCount == 0)
                     {
-                        stepIsDone[i] = true;
+
+
 
                         switch (levelIndex)
                         {
                             case "1":
                                 showGuidText(i, false);
+                                stepIsDone[i] = true;
+                                // if (correctObjectsLights[i].active)
+                                //     correctObjectsLights[i].GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>().falloffIntensity = 0.51f;
+                                if (fixedObjectLight.Count > 0 && fixedObjectLight[0].active)
+                                    fixedObjectLight[0].SetActive(false);
+                                i++;
                                 break;
                             case "2":
-                                showGuidText(0, false);
+                                if (touchManager.rotate == false && rotationDone == true)
+                                {
+                                    showGuidText(0, false);
+                                    stepIsDone[i] = true;
+                                    // if (correctObjectsLights[i].active)
+                                    //     correctObjectsLights[i].GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>().falloffIntensity = 0.51f;
+                                    if (fixedObjectLight.Count > 0 && fixedObjectLight[0].active)
+                                        fixedObjectLight[0].SetActive(false);
+                                    i++;
+                                }
+
                                 break;
                         }
-                        // if (correctObjectsLights[i].active)
-                        //     correctObjectsLights[i].GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>().falloffIntensity = 0.51f;
-                        if (fixedObjectLight.Count > 0 && fixedObjectLight[0].active)
-                            fixedObjectLight[0].SetActive(false);
-                        i++;
+                        // stepIsDone[i] = true;
+                        // // if (correctObjectsLights[i].active)
+                        // //     correctObjectsLights[i].GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>().falloffIntensity = 0.51f;
+                        // if (fixedObjectLight.Count > 0 && fixedObjectLight[0].active)
+                        //     fixedObjectLight[0].SetActive(false);
+                        // i++;
                     }
                 }
             }
@@ -218,7 +249,8 @@ public class Tutorial : MonoBehaviour
 
     void rotationButton()
     {
-        rotateLight.SetActive(true);
+        if (i == 0)
+            rotateLight.SetActive(true);
     }
 
 }

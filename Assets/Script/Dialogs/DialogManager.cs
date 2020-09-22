@@ -74,7 +74,7 @@ public class DialogManager : MonoBehaviour
     }
     public ExitView showExitView()
     {
-        // showBlur();
+        showBlur();
         ExitView prefab = Resources.Load<ExitView>("Views/ExitPanel");
         ExitView dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
         initDialog(dialog.gameObject);
