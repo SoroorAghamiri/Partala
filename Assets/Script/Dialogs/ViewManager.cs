@@ -63,10 +63,10 @@ public class ViewManager : MonoBehaviour
     {
         if (canclose)
         {
-            // if (getBlur() != null)
-            // {
-            //     Destroy(getBlur());
-            // }
+            if (getBlur() != null)
+            {
+                Destroy(getBlur());
+            }
             ViewObject oldView = viewStackManagement.popFromStack();
             ViewObject view = viewStackManagement.getLastView();
 
@@ -88,10 +88,10 @@ public class ViewManager : MonoBehaviour
         if (canclose)
         {
             // print("close view " + view.name);
-            // if (getBlur() != null)
-            // {
-            //     Destroy(getBlur());
-            // }
+            if (getBlur() != null)
+            {
+                Destroy(getBlur());
+            }
             view.closeView();
             viewStackManagement.removeView(view);
         }

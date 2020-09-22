@@ -85,7 +85,7 @@ public class DialogManager : MonoBehaviour
 
     public SettingView showSettingView()
     {
-        // showBlur();
+        showBlur();
         SettingView prefab = Resources.Load<SettingView>("Views/SettingPanel");
         SettingView dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
         initDialog(dialog.gameObject);
@@ -98,7 +98,7 @@ public class DialogManager : MonoBehaviour
 
     public CurrencyView showCurrencyView()
     {
-        // showBlur();
+        showBlur();
         CurrencyView prefab = Resources.Load<CurrencyView>("Views/CurrencyPanel");
         CurrencyView dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
         initDialog(dialog.gameObject);
