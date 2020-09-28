@@ -56,8 +56,9 @@ public class DialogBase : ViewObject
         {
             closeAction();
         }
-        iTween.ScaleTo(dialogObject, Vector3.zero, 1.5f);
-        StartCoroutine(ExecuteAfterTime(1.5f));
+        iTween.ScaleTo(dialogObject, Vector3.zero, 0.5f);
+        Destroy(this.gameObject);
+        // StartCoroutine(ExecuteAfterTime(0.5f));
     }
 
     IEnumerator ExecuteAfterTime(float time)

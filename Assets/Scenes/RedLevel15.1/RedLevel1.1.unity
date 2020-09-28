@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -561,12 +561,12 @@ PrefabInstance:
     - target: {fileID: 3267488380907849989, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 6.9
+      value: 6.9000244
       objectReference: {fileID: 0}
     - target: {fileID: 3267488380907849989, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -13.2
+      value: -13.200012
       objectReference: {fileID: 0}
     - target: {fileID: 3267488380907849989, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
@@ -2028,6 +2028,7 @@ MonoBehaviour:
   - {fileID: 823548598}
   - {fileID: 292057317}
   activeGameObject: {fileID: 0}
+  rotate: 0
   speedMove: 15
   speedRot: 15
 --- !u!4 &1152968573
@@ -2638,7 +2639,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566714903}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: -1.06, z: 0}
+  m_LocalPosition: {x: -0.03, y: -0.9, z: 0}
   m_LocalScale: {x: 1.4756804, y: 1.1573963, z: 1.1573963}
   m_Children: []
   m_Father: {fileID: 1391176541}
@@ -2690,7 +2691,7 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 128.15
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 1.44
+  m_PointLightInnerRadius: 1.7967212
   m_PointLightOuterRadius: 2.27
   m_PointLightDistance: 3
   m_PointLightQuality: 1

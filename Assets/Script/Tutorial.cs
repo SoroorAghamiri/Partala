@@ -163,7 +163,11 @@ public class Tutorial : MonoBehaviour
                     if (Input.touchCount == 0)
                     {
 
-
+                        if (levelIndex == "2" && i == 0 && tutorialPanels[0].active)
+                        {
+                            showGuidText(0, false);
+                            showGuidText(1, true);
+                        }
 
                         switch (levelIndex)
                         {
@@ -179,7 +183,7 @@ public class Tutorial : MonoBehaviour
                             case "2":
                                 if (touchManager.rotate == false && rotationDone == true)
                                 {
-                                    showGuidText(0, false);
+                                    showGuidText(1, false);
                                     stepIsDone[i] = true;
                                     // if (correctObjectsLights[i].active)
                                     //     correctObjectsLights[i].GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>().falloffIntensity = 0.51f;
