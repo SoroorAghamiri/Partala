@@ -46,15 +46,24 @@ public class DialogBase : ViewObject
         }
         dialogObject.SetActive(true);
         // blurImage.gameObject.SetActive(true);
-        //DialogContents.transform.localScale = Vector3.one * 0.8f;
-        //        iTween.ScaleTo(DialogContents, Vector3.one, 1);
+        dialogObject.transform.localScale = Vector3.zero * 0.8f;
+        iTween.ScaleTo(dialogObject, Vector3.one, 1.5f);
     }
+
     public override void closeView()
     {
         if (closeAction != null)
         {
             closeAction();
         }
+        iTween.ScaleTo(dialogObject, Vector3.zero, 1.5f);
+        StartCoroutine(ExecuteAfterTime(1.5f));
+    }
+
+    IEnumerator ExecuteAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+
         Destroy(this.gameObject);
     }
 
