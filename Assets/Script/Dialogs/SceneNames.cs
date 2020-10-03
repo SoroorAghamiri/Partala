@@ -5,6 +5,6 @@
     public const string LevelSelect2 = "LevelSelect2";
     public const string EpisodeSelect = "EpisodeSelect";
     public const string Setting = "Setting";
-    public const string Shop = "Shop";
+
 
 }
