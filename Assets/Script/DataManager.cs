@@ -152,6 +152,14 @@ public class DataManager : MonoBehaviour
     {
         playerData.enableSecondHint = enableSecondHint;
     }
+    public void SetNoAdActive()
+    {
+        playerData.noAd = true;
+    }
+    public bool GetnoAdflag()
+    {
+        return playerData.noAd;
+    }
     //Saves On pausing for mobile Obviously
     private void OnApplicationPause(bool pause)
     {

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: afbc4d9931053794eab87e2b9c9890bf
+guid: 14af5af192dac9b499ab35f8722d0683
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7530550171286937053
-    second: Layer 21_0
+      213: -3851483468833245431
+    second: 19Feathers_0
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -101,22 +101,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Layer 21_0
+      name: 19Feathers_0
       rect:
         serializedVersion: 2
-        x: 46
-        y: 1
-        width: 80
-        height: 54
+        x: 972
+        y: 646
+        width: 365
+        height: 191
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3226f2d848c1e7790800000000000000
-      internalID: -7530550171286937053
+      spriteID: 907b7ede038cc8ac0800000000000000
+      internalID: -3851483468833245431
       vertices: []
       indices: 
       edges: []

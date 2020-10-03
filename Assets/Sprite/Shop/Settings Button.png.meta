@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: afbc4d9931053794eab87e2b9c9890bf
+guid: 1a4b7fff950bb524aa04e5887e1e5c8b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7530550171286937053
-    second: Layer 21_0
+      213: -7024422136413330523
+    second: Settings Button_0
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -101,13 +101,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Layer 21_0
+      name: Settings Button_0
       rect:
         serializedVersion: 2
-        x: 46
-        y: 1
-        width: 80
-        height: 54
+        x: 1993
+        y: 878
+        width: 183
+        height: 170
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3226f2d848c1e7790800000000000000
-      internalID: -7530550171286937053
+      spriteID: 5a361bea84d348e90800000000000000
+      internalID: -7024422136413330523
       vertices: []
       indices: 
       edges: []

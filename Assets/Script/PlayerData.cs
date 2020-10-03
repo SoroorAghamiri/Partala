@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerData
 {
     public int feather = 7;
-
+    public bool noAd = false;
     public int episode = 0;
     public List<int> levelinEpisode = new List<int>();
     public float sfxLevel = 1.0f;

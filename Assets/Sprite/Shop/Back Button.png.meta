@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: afbc4d9931053794eab87e2b9c9890bf
+guid: 1e4454f7559e2844faa9ed2b7b2bdab3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7530550171286937053
-    second: Layer 21_0
+      213: -9042028117199634284
+    second: Back Button_0
+  - first:
+      213: -6738241475738720160
+    second: Back Button_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -101,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Layer 21_0
+      name: Back Button_0
       rect:
         serializedVersion: 2
-        x: 46
-        y: 1
-        width: 80
-        height: 54
+        x: 855
+        y: 392
+        width: 187
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3226f2d848c1e7790800000000000000
-      internalID: -7530550171286937053
+      spriteID: 490c8398553448280800000000000000
+      internalID: -9042028117199634284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Back Button_1
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 863
+        width: 185
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0682acb1415fc72a0800000000000000
+      internalID: -6738241475738720160
       vertices: []
       indices: 
       edges: []
