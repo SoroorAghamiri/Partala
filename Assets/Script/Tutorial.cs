@@ -97,7 +97,7 @@ public class Tutorial : MonoBehaviour
                 correctObjectsLights[j].SetActive(false);
             }
             showGuide = false;
-            if (levelIndex == 3.ToString())
+            if (levelIndex == "3")
             {
                 DataManager.Instance.SetTutorial(false);
 
@@ -123,11 +123,11 @@ public class Tutorial : MonoBehaviour
                         if (i == 0)
                         {
                             glowObjects(i);
-                            rotationButton();
                             showGuidText(i, true);
                         }
                         else if (i == 1)
                         {
+                            rotationButton();
                             showGuidText(i, true);
                         }
                         else
@@ -248,7 +248,7 @@ public class Tutorial : MonoBehaviour
 
     void rotationButton()
     {
-        if (i == 0)
+        if (i == 1)
             rotateLight.SetActive(true);
     }
 

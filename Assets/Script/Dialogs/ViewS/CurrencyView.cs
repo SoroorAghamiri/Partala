@@ -27,6 +27,7 @@ public class CurrencyView : DialogBase
 
     private GameObject[] correctObjects;
     private int level;
+    private int episode;
     [SerializeField] private List<string> infoIsShown;
 
     void Start()
@@ -67,9 +68,10 @@ public class CurrencyView : DialogBase
     {
         string temp = SceneManager.GetActiveScene().name;
         level = System.Convert.ToInt32(temp.Substring(temp.Length - 1));
+        episode = System.Convert.ToInt32(temp.Substring(temp.Length - 3, 1));
         // print(level);
-        featherDiscount1 = firstHintDiscountInEpisodes[level - 1];
-        featherDiscount2 = secondHintDiscountInEpisodes[level - 1];
+        featherDiscount1 = firstHintDiscountInEpisodes[episode - 1];
+        featherDiscount2 = secondHintDiscountInEpisodes[episode - 1];
         disc1.text = featherDiscount1.ToString();
         disc2.text = featherDiscount2.ToString();
         firstHint = false;
@@ -121,6 +123,7 @@ public class CurrencyView : DialogBase
                 DeactivateWrongComponents();
                 firstHint = true;
                 DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() - featherDiscount1);
+                DataManager.Instance.Save();
                 numberOfFeathers.text = DataManager.Instance.GetFeather().ToString();
                 ViewManager.instance.closeView(this);
             }
@@ -137,6 +140,7 @@ public class CurrencyView : DialogBase
                 CreateNewObjectForHandlingHintAfterViewCloses();
                 hintShown = true;
                 DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() - featherDiscount2);
+                DataManager.Instance.Save();
                 numberOfFeathers.text = DataManager.Instance.GetFeather().ToString();
                 ViewManager.instance.closeView(this);
             }
@@ -156,6 +160,11 @@ public class CurrencyView : DialogBase
         {
             wrongComponents[i].SetActive(false);
         }
+    }
+
+    public void OnShopClicked()
+    {
+        SceneManager.LoadScene(SceneNames.Shop);
     }
 
 }
