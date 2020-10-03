@@ -137,6 +137,7 @@ public class GameManger : MonoBehaviour
         {
             if (winFlagChangedByWinChecker == true)
             {
+                AdManager.Instance.AdShow();
                 myEggsScript.SetLastEgg();
                 if (wintoggler)
                 {
