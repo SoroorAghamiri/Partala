@@ -154,13 +154,13 @@ public class GameManger : MonoBehaviour
                             break;
                         }
                     }
-                    // foreach (int ii in witchLevels)
-                    // {
-                    //     if (levelNumberInEpisode == ii)
-                    //     {
-                    //         showWitchCard();
-                    //     }
-                    // }
+                    foreach (int ii in witchLevels)
+                    {
+                        if (levelNumberInEpisode == ii)
+                        {
+                            showWitchCard(false);
+                        }
+                    }
                     StartCoroutine(DeleteMainComponentObjectsAfterWin());
                     StartCoroutine(Wait());
                     wintoggler = false;
@@ -367,7 +367,7 @@ public class GameManger : MonoBehaviour
         return dialog;
     }
 
-    private WitchCard showWitchCard()
+    private WitchCard showWitchCard(bool empty)
     {
         WitchCard prefab = Resources.Load<WitchCard>("Cards/WitchCard");
         WitchCard dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
@@ -379,8 +379,7 @@ public class GameManger : MonoBehaviour
         GameObject cOfCOfCC = childOfCC.transform.Find("Canvas").gameObject;
 
         dialog.transform.SetParent(cOfCOfCC.GetComponent<RectTransform>());
-
-
+        dialog.showEmptyCard = empty;
 
         ViewManager.instance.openView(dialog);
         return dialog;

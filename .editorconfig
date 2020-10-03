@@ -2,3 +2,9 @@
 
 # IDE0055: Fix formatting
 dotnet_diagnostic.IDE0055.severity = suggestion
+
+[merge]
+	tool = unityyamlmerge
+[mergetool "unityyamlmerge"]
+	trustExitCode = false
+	cmd = 'G:\\Unity||2019.3.4f1\\Editor\\Data\\Tools\\UnityYamlMerge.exe' merge -p "$BASE" "$REMOTE" "$LOCAL" "$MERGED"
