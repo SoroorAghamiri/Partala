@@ -9,7 +9,7 @@ public class TouchManager : MonoBehaviour
     public GameObject activeGameObject;
     private int movingFingerID;
 
-    public bool rotate;
+    private bool rotate;
     private Collider2D rightPanelCollider;
     private Vector2 movement;
     private float offsetAngle;

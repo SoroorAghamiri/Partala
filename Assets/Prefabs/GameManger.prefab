@@ -1341,6 +1341,7 @@ MonoBehaviour:
   Musix: {fileID: -6589063527817309063, guid: 780baf28a9972db4a8cda9c6e151b472, type: 2}
   Win: 0
   Colliderpoint: []
+  Check: 
   NextLevelname: 
   buttons:
   - {fileID: 9023492895973428820}
@@ -1956,11 +1957,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UI PA
-      objectReference: {fileID: 0}
-    - target: {fileID: 2744551466301864151, guid: 73f7f3637d83d1846acc63cb61f2a5cc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2795463210852373766, guid: 73f7f3637d83d1846acc63cb61f2a5cc,
         type: 3}
@@ -2773,12 +2769,12 @@ PrefabInstance:
     - target: {fileID: 1981032405706842502, guid: b1ba1d84b2f80894788a0aa88aab3ff3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 2.2000732
+      value: 2.2000122
       objectReference: {fileID: 0}
     - target: {fileID: 1981032405706842502, guid: b1ba1d84b2f80894788a0aa88aab3ff3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.3999634
+      value: 2.399994
       objectReference: {fileID: 0}
     - target: {fileID: 1981032405706842502, guid: b1ba1d84b2f80894788a0aa88aab3ff3,
         type: 3}
