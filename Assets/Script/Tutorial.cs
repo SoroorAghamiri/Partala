@@ -62,9 +62,6 @@ public class Tutorial : MonoBehaviour
             stepIsDone.Add(false);
         }
 
-        // correctObjects = GameObject.FindGameObjectsWithTag("MainComponent");
-        // if (levelIndex == "1" || levelIndex == "2")
-        //     correctObjectsLights = GameObject.FindGameObjectsWithTag("MainComponentLight");
         if (levelIndex == "3")
             cityLights = GameObject.FindGameObjectsWithTag("CityLight");
 
@@ -86,7 +83,7 @@ public class Tutorial : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+
 
 
     void Update()
@@ -117,34 +114,39 @@ public class Tutorial : MonoBehaviour
                 switch (levelIndex)
                 {
                     case "1":
-                        print("1 Here");
+
                         showGuidText(i, true);
                         glowObjects(i);
                         showFixedObject();
                         break;
                     case "2":
-                        print("2 Here");
-                        glowObjects(i);
                         if (i == 0)
                         {
+                            glowObjects(i);
                             rotationButton();
-                            showGuidText(0, true);
-
+                            showGuidText(i, true);
+                        }
+                        else if (i == 1)
+                        {
+                            showGuidText(i, true);
+                        }
+                        else
+                        {
+                            glowObjects(i);
                         }
                         break;
                     case "3":
-                        print("3 Here");
+
                         showCityLights();
                         break;
                 }
 
-
-                if (Object.ReferenceEquals(touchManager.activeGameObject, correctObjects[i]))//correctObjects[i - 2].GetComponent<TouchRotate>().touched)
+                print("i" + i);
+                if (Object.ReferenceEquals(touchManager.activeGameObject, correctObjects[i]))
                 {
-
                     if (correctObjectsLights[i].active)
                         correctObjectsLights[i].GetComponent<Animator>().enabled = false;
-                    if (levelIndex == "2" && i == 0)
+                    if (levelIndex == "2" && i == 1)
                     {
                         if (touchManager.rotate == true)
                         {
@@ -163,43 +165,36 @@ public class Tutorial : MonoBehaviour
                     if (Input.touchCount == 0)
                     {
 
-                        if (levelIndex == "2" && i == 0 && tutorialPanels[0].active)
-                        {
-                            showGuidText(0, false);
-                            showGuidText(1, true);
-                        }
-
                         switch (levelIndex)
                         {
                             case "1":
                                 showGuidText(i, false);
                                 stepIsDone[i] = true;
-                                // if (correctObjectsLights[i].active)
-                                //     correctObjectsLights[i].GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>().falloffIntensity = 0.51f;
                                 if (fixedObjectLight.Count > 0 && fixedObjectLight[0].active)
                                     fixedObjectLight[0].SetActive(false);
                                 i++;
                                 break;
                             case "2":
-                                if (touchManager.rotate == false && rotationDone == true)
+                                if (touchManager.rotate == false && rotationDone == true && i == 1)
                                 {
+                                    print("ended correct0");
                                     showGuidText(1, false);
                                     stepIsDone[i] = true;
-                                    // if (correctObjectsLights[i].active)
-                                    //     correctObjectsLights[i].GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>().falloffIntensity = 0.51f;
                                     if (fixedObjectLight.Count > 0 && fixedObjectLight[0].active)
                                         fixedObjectLight[0].SetActive(false);
                                     i++;
                                 }
-
+                                else if (i != 1)
+                                {
+                                    if (tutorialPanels[0].active)
+                                        showGuidText(0, false);
+                                    stepIsDone[i] = true;
+                                    if (fixedObjectLight.Count > 0 && fixedObjectLight[0].active)
+                                        fixedObjectLight[0].SetActive(false);
+                                    i++;
+                                }
                                 break;
                         }
-                        // stepIsDone[i] = true;
-                        // // if (correctObjectsLights[i].active)
-                        // //     correctObjectsLights[i].GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>().falloffIntensity = 0.51f;
-                        // if (fixedObjectLight.Count > 0 && fixedObjectLight[0].active)
-                        //     fixedObjectLight[0].SetActive(false);
-                        // i++;
                     }
                 }
             }

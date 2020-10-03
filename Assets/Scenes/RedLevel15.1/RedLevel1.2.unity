@@ -2806,12 +2806,15 @@ MonoBehaviour:
   fixedObjects: []
   tutorialPanels:
   - {fileID: 1479102149}
+  - {fileID: 1288876181}
   fixedObjectLight: []
   correctObjects:
+  - {fileID: 857713506}
   - {fileID: 857713506}
   - {fileID: 519725406}
   - {fileID: 2047724020}
   correctObjectsLights:
+  - {fileID: 1961033508}
   - {fileID: 1961033508}
   - {fileID: 481929062}
   - {fileID: 755680496}
@@ -2819,7 +2822,7 @@ MonoBehaviour:
   rotateLight: {fileID: 374949736}
   globalLight: {fileID: 402797184}
   touchManager: {fileID: 904654680}
-  stepCount: 3
+  stepCount: 4
 --- !u!4 &1485503505
 Transform:
   m_ObjectHideFlags: 0

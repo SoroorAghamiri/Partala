@@ -50,6 +50,7 @@ public class CurrencyView : DialogBase
 
     private void Update()
     {
+        numberOfFeathers.text = DataManager.Instance.GetFeather().ToString();
 
         if (!DataManager.Instance.GetFirstInfo())
         {
@@ -66,7 +67,7 @@ public class CurrencyView : DialogBase
     {
         string temp = SceneManager.GetActiveScene().name;
         level = System.Convert.ToInt32(temp.Substring(temp.Length - 1));
-        print(level);
+        // print(level);
         featherDiscount1 = firstHintDiscountInEpisodes[level - 1];
         featherDiscount2 = secondHintDiscountInEpisodes[level - 1];
         disc1.text = featherDiscount1.ToString();
@@ -74,7 +75,7 @@ public class CurrencyView : DialogBase
         firstHint = false;
         hintShown = false;
         wrongComponents = GameObject.FindGameObjectsWithTag("WrongComponent");
-        numberOfFeathers.text = DataManager.Instance.GetFeather().ToString();
+
         speedForScale = 10.0f;
     }
 
