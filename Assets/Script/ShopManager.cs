@@ -45,8 +45,8 @@ public class ShopManager : MonoBehaviour
                     amountOfFeathersTobeAdded = 100;
                     break;
             }
-            Debug.Log("Consume Is Calling");
-            StoreHandler.instance.ConsumePurchase(purchase, productIndex, OnConsumptionFailed, OnConsumption);
+            DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() + amountOfFeathersTobeAdded);
+            ShowMessage(amountOfFeathersTobeAdded.ToString() + " پر به اکانت شما اضافه شد.");
         }
         else //A Non-Consumable Currency Was Bought
         {
@@ -62,7 +62,7 @@ public class ShopManager : MonoBehaviour
 
     private void OnPurchaseFailed(int errorCode, string message)
     {
-        Debug.Log("Purchased Failed");
+        Debug.Log("Purchase Failed");
         switch (errorCode)
         {
             case 2:
@@ -105,7 +105,7 @@ public class ShopManager : MonoBehaviour
 
     private void OnConsumptionFailed(int errorCode, string message)
     {
-        Debug.Log("On Consumption failled");
+        Debug.Log("On Consumption fail");
         switch (errorCode)
         {
             case 2:
@@ -145,12 +145,26 @@ public class ShopManager : MonoBehaviour
     private void OnConsumption(Purchase purchase, int productIndex) 
     {
         Debug.Log("On Consumption");
-        DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() + amountOfFeathersTobeAdded);
-        //Show Message
-        // amountofFeathersAdded To Your Account
-        ShowMessage(amountOfFeathersTobeAdded.ToString() + " پر به اکانت شما اضافه شد.");
+
     }
-    
+    private void OnInventoryHadProduct(Purchase purchase, int productIndex)
+
+    {
+        //StoreHandler.instance.ConsumePurchase(purchase, productIndex, OnConsumptionFailed, OnConsumption);
+
+
+    }
+
+
+
+    private void OnInventoryCheckFailed(int errorCode, string message)
+
+    {
+
+
+
+    }
+
     private void ShowMessage(string message)
     {
         messageBox.SetActive(true);

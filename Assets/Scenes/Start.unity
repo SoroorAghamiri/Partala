@@ -1501,7 +1501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e46c43a7c16f944910ede0436ad5ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debug: 0
+  debug: 1
   buildIndexOfLevelSelectors: 
 --- !u!4 &1420250055
 Transform:
@@ -1650,12 +1650,27 @@ PrefabInstance:
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: validatePurchases
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: editorDummyResponse
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: clientId
+      value: "phyx2gT6DzrDmld0rpLSCh6D9nUclZ00QNGqUenh\t"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: clientSecret
+      value: sFiiLBfYUe7EHWphr9ZsTt46B1Am2hG3dfT76ChJmNJpF4V8VnIacIEOULXa
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: refreshToken
+      value: ppiDJPim1nQCK3rIj5D3qlJANPAd93
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70c636dee37d2ac40b082aed5f11d6be, type: 3}

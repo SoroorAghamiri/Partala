@@ -13,4 +13,5 @@ public class PlayerData
     public bool tutorial = true;
     public bool firstInfoIsShown = false;
     public bool enableSecondHint = true;
+    public bool initialized = false;
 }

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using GameAnalyticsSDK.Setup;
-
 public class DataManager : MonoBehaviour
 {
     public static DataManager Instance;
@@ -24,8 +22,18 @@ public class DataManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (debug)
+            StartCoroutine(eEvent());
     }
-
+    IEnumerator eEvent()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(20.0f);
+            Debug.Log("AmountofFeathers :" + playerData.feather);
+            
+        }
+    }
 
 
     public void Save()
@@ -37,7 +45,10 @@ public class DataManager : MonoBehaviour
 
     public void Load()
     {
+        if (playerData.initialized)
+            return;
         playerData = new PlayerData();
+        playerData.initialized = true;
         string json = ReadFromFile(file);
         JsonUtility.FromJsonOverwrite(json, playerData);
     }
