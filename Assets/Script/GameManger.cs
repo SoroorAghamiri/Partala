@@ -146,22 +146,22 @@ public class GameManger : MonoBehaviour
                         DataManager.Instance.SetLevel(DataManager.Instance.GetLevel(episodeNumber) + 1, episodeNumber);
                     }
                     //Calling Cards
-                    print("level number" + levelNumberInEpisode);
-                    foreach (int ii in simorghLevels)
-                    {
-                        if (levelNumberInEpisode == ii)
-                        {
-                            showSimorghCard();
-                            break;
-                        }
-                    }
-                    foreach (int ii in witchLevels)
-                    {
-                        if (levelNumberInEpisode == ii)
-                        {
-                            showWitchCard(false);
-                        }
-                    }
+                    // print("level number" + levelNumberInEpisode);
+                    // foreach (int ii in simorghLevels)
+                    // {
+                    //     if (levelNumberInEpisode == ii)
+                    //     {
+                    //         showSimorghCard();
+                    //         break;
+                    //     }
+                    // }
+                    // foreach (int ii in witchLevels)
+                    // {
+                    //     if (levelNumberInEpisode == ii)
+                    //     {
+                    //         showWitchCard(false);
+                    //     }
+                    // }
                     StartCoroutine(DeleteMainComponentObjectsAfterWin());
                     StartCoroutine(Wait());
                     wintoggler = false;
