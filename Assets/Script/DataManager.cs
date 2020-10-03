@@ -22,19 +22,8 @@ public class DataManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (debug)
-            StartCoroutine(eEvent());
+        
     }
-    IEnumerator eEvent()
-    {
-        while(true)
-        {
-            yield return new WaitForSeconds(20.0f);
-            Debug.Log("AmountofFeathers :" + playerData.feather);
-            
-        }
-    }
-
 
     public void Save()
     {

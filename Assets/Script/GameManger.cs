@@ -137,10 +137,11 @@ public class GameManger : MonoBehaviour
         {
             if (winFlagChangedByWinChecker == true)
             {
-                AdManager.Instance.AdShow();
+                
                 myEggsScript.SetLastEgg();
                 if (wintoggler)
                 {
+                    AdManager.Instance.AdShow();
                     if (DataManager.Instance.GetLevel(episodeNumber) == levelNumberInEpisode)
                     {
                         DataManager.Instance.SetLevel(DataManager.Instance.GetLevel(episodeNumber) + 1, episodeNumber);

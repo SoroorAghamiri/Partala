@@ -31,6 +31,7 @@ public class AdManager : MonoBehaviour
     private void Start()
     {
         betweenAdCounter = 0;
+        Debug.Log("betweenAdCounter:" + betweenAdCounter);
         Tapsell.SetRewardListener(
       (TapsellAdFinishedResult result) =>
       {
@@ -146,7 +147,8 @@ public class AdManager : MonoBehaviour
             return;
         }
         betweenAdCounter++;
-        switch (betweenAdCounter - betweenLevelsAd)
+        Debug.Log("betweenAdCounter:" + betweenAdCounter);
+        switch ( betweenLevelsAd - betweenAdCounter )
         {
             case 1:
                 RequestInterstialAd();
