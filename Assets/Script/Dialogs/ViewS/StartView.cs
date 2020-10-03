@@ -39,4 +39,8 @@ public class StartView : MonoBehaviour
         //SceneManager.LoadScene(SceneNames.EpisodeSelect);
 
     }
+    public void openShop()
+    {
+        mylevelLoader.LoadLevel(SceneNames.Shop);
+    }
 }

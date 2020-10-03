@@ -28,7 +28,6 @@ public class DataManager : MonoBehaviour
 
 
 
-
     public void Save()
     {
         string json = JsonUtility.ToJson(playerData);
@@ -160,6 +159,7 @@ public class DataManager : MonoBehaviour
     {
         return playerData.noAd;
     }
+
     //Saves On pausing for mobile Obviously
     private void OnApplicationPause(bool pause)
     {

@@ -1526,6 +1526,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6809688159599258898}
     m_Modifications:
+    - target: {fileID: 887550872562296730, guid: 73f7f3637d83d1846acc63cb61f2a5cc,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 385734c1e7001d14b8a5659a2c1664a1,
+        type: 3}
     - target: {fileID: 1259346132792822163, guid: 73f7f3637d83d1846acc63cb61f2a5cc,
         type: 3}
       propertyPath: masterAM
@@ -2449,6 +2455,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7546829529790566280, guid: 73f7f3637d83d1846acc63cb61f2a5cc,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 385734c1e7001d14b8a5659a2c1664a1,
+        type: 3}
     - target: {fileID: 7644131315425718743, guid: 73f7f3637d83d1846acc63cb61f2a5cc,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -2604,6 +2616,12 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8897395030854787629, guid: 73f7f3637d83d1846acc63cb61f2a5cc,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 385734c1e7001d14b8a5659a2c1664a1,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73f7f3637d83d1846acc63cb61f2a5cc, type: 3}
 --- !u!224 &3309987705162634590 stripped

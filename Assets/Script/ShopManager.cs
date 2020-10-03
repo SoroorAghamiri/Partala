@@ -24,6 +24,7 @@ public class ShopManager : MonoBehaviour
 
     private void OnPurchasedSuccessfully(Purchase purchase, int productIndex)
     {
+        Debug.Log("Purchased Successfully");
         if (StoreHandler.instance.products[productIndex].type == Product.ProductType.Consumable) //A type of Currency is Bought
         {
             switch (productIndex) //Hard coding amount of feathers to consume is Bad Thing ***Change Later***
@@ -44,7 +45,8 @@ public class ShopManager : MonoBehaviour
                     amountOfFeathersTobeAdded = 100;
                     break;
             }
-            StoreHandler.instance.ConsumePurchase(purchase, productIndex, OnConsumptionFailed, OnConsumedSuccesfully);
+            Debug.Log("Consume Is Calling");
+            StoreHandler.instance.ConsumePurchase(purchase, productIndex, OnConsumptionFailed, OnConsumption);
         }
         else //A Non-Consumable Currency Was Bought
         {
@@ -60,6 +62,7 @@ public class ShopManager : MonoBehaviour
 
     private void OnPurchaseFailed(int errorCode, string message)
     {
+        Debug.Log("Purchased Failed");
         switch (errorCode)
         {
             case 2:
@@ -102,6 +105,7 @@ public class ShopManager : MonoBehaviour
 
     private void OnConsumptionFailed(int errorCode, string message)
     {
+        Debug.Log("On Consumption failled");
         switch (errorCode)
         {
             case 2:
@@ -138,13 +142,15 @@ public class ShopManager : MonoBehaviour
                 break;
         }
     }
-    private void OnConsumedSuccesfully(Purchase purchase, int productindex)
+    private void OnConsumption(Purchase purchase, int productIndex) 
     {
+        Debug.Log("On Consumption");
         DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() + amountOfFeathersTobeAdded);
         //Show Message
         // amountofFeathersAdded To Your Account
-        ShowMessage(amountOfFeathersTobeAdded.ToString() + "به اکانت شما اضافه شد.");
+        ShowMessage(amountOfFeathersTobeAdded.ToString() + " پر به اکانت شما اضافه شد.");
     }
+    
     private void ShowMessage(string message)
     {
         messageBox.SetActive(true);
