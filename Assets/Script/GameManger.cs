@@ -141,7 +141,6 @@ public class GameManger : MonoBehaviour
                 myEggsScript.SetLastEgg();
                 if (wintoggler)
                 {
-                    AdManager.Instance.AdShow();
                     if (DataManager.Instance.GetLevel(episodeNumber) == levelNumberInEpisode)
                     {
                         DataManager.Instance.SetLevel(DataManager.Instance.GetLevel(episodeNumber) + 1, episodeNumber);
@@ -164,7 +163,7 @@ public class GameManger : MonoBehaviour
                     //     }
                     // }
                     StartCoroutine(DeleteMainComponentObjectsAfterWin());
-                    StartCoroutine(Wait());
+                    StartCoroutine(ShowFinalOBjectAndCallAd());
                     wintoggler = false;
                 }
 
@@ -184,7 +183,7 @@ public class GameManger : MonoBehaviour
         }
     }
 
-    IEnumerator Wait()
+    IEnumerator ShowFinalOBjectAndCallAd()
     {
 
         Win = true;
@@ -195,6 +194,7 @@ public class GameManger : MonoBehaviour
         finalObjectManager.AddComponent<FinalObjectManager>();
         finalObjectManager.GetComponent<FinalObjectManager>().ShowFinalObjectAfterWin();
         yield return new WaitForSeconds(this.gameObject.GetComponent<AudioSource>().clip.length);
+        AdManager.Instance.AdShow();
         // if (!Array.Exists(simorghLevels, element => element == levelNumberInEpisode) || !Array.Exists(witchLevels, element => element == levelNumberInEpisode))
         next_level();
     }

@@ -148,13 +148,14 @@ public class AdManager : MonoBehaviour
         }
         betweenAdCounter++;
         Debug.Log("betweenAdCounter:" + betweenAdCounter);
-        switch ( betweenLevelsAd - betweenAdCounter )
+        switch ( betweenLevelsAd - betweenAdCounter     )
         {
             case 1:
                 RequestInterstialAd();
                 break;
             case 0:
                 TapsellShowOptions showOptions = new TapsellShowOptions();
+                showOptions.backDisabled = true;
                 Tapsell.ShowAd(tapsellAdInterstial, showOptions);
                 betweenAdCounter = 0;
                 break;
