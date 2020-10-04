@@ -1575,7 +1575,7 @@ PrefabInstance:
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.size
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
@@ -1590,47 +1590,47 @@ PrefabInstance:
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[0].productId
-      value: onefeather
+      value: fivefeather
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[0].price
-      value: 12000
+      value: 55000
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[1].productId
-      value: nineteenfeathers
+      value: ninefeather
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[1].price
-      value: 208000
+      value: 99000
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[2].productId
-      value: thirtythreefeathers
+      value: fifteenfeathers
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[2].price
-      value: 296000
+      value: 169000
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[3].productId
-      value: eightyfivefeathers
+      value: twentyfeathers
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[3].price
-      value: 850000
+      value: 225000
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[4].productId
-      value: hundredfeathers
+      value: noadversion
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}

@@ -15,6 +15,7 @@ public class AdManager : MonoBehaviour
     [SerializeField] private int betweenLevelsAd;
     private int betweenAdCounter;
 
+    private bool resultOfAdreturned;
     private void Awake()
     {
 
@@ -40,7 +41,9 @@ public class AdManager : MonoBehaviour
             "zoneId:" + result.zoneId + ", " +
             "completed:" + result.completed + ", " +
             "rewarded:" + result.rewarded);
+          resultOfAdreturned = result.rewarded;
       }
+
     );
     }
     public void RequestRewardAd()
@@ -82,7 +85,6 @@ public class AdManager : MonoBehaviour
               // onClose
               Debug.Log("close");
           }
-
         );
     }
     public void ShowRewardAd()
@@ -155,10 +157,13 @@ public class AdManager : MonoBehaviour
                 break;
             case 0:
                 TapsellShowOptions showOptions = new TapsellShowOptions();
-                showOptions.backDisabled = true;
                 Tapsell.ShowAd(tapsellAdInterstial, showOptions);
                 betweenAdCounter = 0;
                 break;
         }
+    }
+    public bool GetResultOfAd()
+    {
+        return resultOfAdreturned;
     }
 }

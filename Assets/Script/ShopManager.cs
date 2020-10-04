@@ -174,4 +174,26 @@ public class ShopManager : MonoBehaviour
     {
         mylevelLoader.LoadLevel(SceneNames.Start);
     }
+
+    public void BuyFeatherWithAD()
+    {
+        StartCoroutine(AdCaller());
+
+    }
+    IEnumerator AdCaller()
+    {
+        AdManager.Instance.RequestRewardAd();
+        yield return new WaitForSeconds(2.0f);
+        AdManager.Instance.ShowRewardAd();
+        yield return new WaitForSeconds(1.0f);
+        if (AdManager.Instance.GetResultOfAd() == true)
+        {
+            ShowMessage("یک پر به حساب شما اضافه گردید.");
+            DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() + 1);
+        }
+        else
+        {
+            ShowMessage("شما تبلیغ را کامل مشاهده نکردید یا خطایی رخ داده است. دوباره امتحان کنید.");
+        }
+    }
 }

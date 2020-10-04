@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 19a60f967d790864bb32b22178c31db0
+guid: 06efaf3e2d9b4af468ca69d29cc6827d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 70273573663246688
-    second: 1Feather_0
+      213: -6098720371726425856
+    second: 20Feathers_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -102,12 +102,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 1Feather_0
+      name: 20Feathers_0
       rect:
         serializedVersion: 2
-        x: 561
-        y: 645
-        width: 364
+        x: 549
+        y: 352
+        width: 365
         height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -116,8 +116,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0698b436179a9f000800000000000000
-      internalID: 70273573663246688
+      spriteID: 001eec2622efc5ba0800000000000000
+      internalID: -6098720371726425856
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0bf2a31f0e222254eb16cbee4bd43b09
+    spriteID: f0fc8b4c6ac77624189d958760ba726e
     internalID: 0
     vertices: []
     indices: 
