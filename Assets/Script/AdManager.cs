@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TapsellSDK;
-using UnityEditor.Experimental.GraphView;
 
 public class AdManager : MonoBehaviour
 {
