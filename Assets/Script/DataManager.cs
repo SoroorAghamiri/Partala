@@ -9,7 +9,7 @@ public class DataManager : MonoBehaviour
     public bool debug = false;
     public List<int> buildIndexOfLevelSelectors = new List<int>();
     private string file = "player.txt";
-
+    public int lastSceneIndex = 0;
     private void Awake()
     {
 

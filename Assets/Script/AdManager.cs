@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TapsellSDK;
+using UnityEditor.Experimental.GraphView;
+
 public class AdManager : MonoBehaviour
 {
     public static AdManager Instance;
@@ -41,7 +43,10 @@ public class AdManager : MonoBehaviour
             "zoneId:" + result.zoneId + ", " +
             "completed:" + result.completed + ", " +
             "rewarded:" + result.rewarded);
-          resultOfAdreturned = result.rewarded;
+          if (result.rewarded && result.completed)
+              resultOfAdreturned = true;
+          else
+              resultOfAdreturned = false;
       }
 
     );

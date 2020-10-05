@@ -6,5 +6,4 @@
     public const string EpisodeSelect = "EpisodeSelect";
     public const string Setting = "Setting";
     public const string Shop = "Shop";
-
 }

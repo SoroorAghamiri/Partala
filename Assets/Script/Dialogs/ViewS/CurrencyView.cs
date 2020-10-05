@@ -30,6 +30,9 @@ public class CurrencyView : DialogBase
     private int episode;
     [SerializeField] private List<string> infoIsShown;
 
+    private LevelLoader mylevelLoader;
+
+
     void Start()
     {
 
@@ -77,7 +80,7 @@ public class CurrencyView : DialogBase
         firstHint = false;
         hintShown = false;
         wrongComponents = GameObject.FindGameObjectsWithTag("WrongComponent");
-
+        mylevelLoader = FindObjectOfType<LevelLoader>();
         speedForScale = 10.0f;
     }
 
@@ -164,7 +167,8 @@ public class CurrencyView : DialogBase
 
     public void OnShopClicked()
     {
-        SceneManager.LoadScene(SceneNames.Shop);
+        DataManager.Instance.lastSceneIndex = SceneManager.GetActiveScene().buildIndex; //remove later
+        mylevelLoader.LoadLevel(SceneNames.Shop);
     }
 
 }

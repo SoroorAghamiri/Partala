@@ -170,9 +170,20 @@ public class ShopManager : MonoBehaviour
         messageBox.SetActive(true);
         textMessage.text = message;
     }
-    public void GoBackToStart()
+    public void OnBackClicked()
     {
-        mylevelLoader.LoadLevel(SceneNames.Start);
+        if(DataManager.Instance.lastSceneIndex==0)
+        {
+            mylevelLoader.LoadLevel(SceneNames.Start);
+        }
+        else
+        {
+
+            int e = DataManager.Instance.lastSceneIndex;
+            DataManager.Instance.lastSceneIndex = 0;
+            mylevelLoader.LoadLevel(e);
+        }
+        
     }
 
     public void BuyFeatherWithAD()
