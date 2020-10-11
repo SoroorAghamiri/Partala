@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -573,6 +573,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267488380907849989, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.9000244
       objectReference: {fileID: 0}
     - target: {fileID: 4294485173651981921, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
@@ -1246,7 +1251,7 @@ MonoBehaviour:
   - 1.46
   - 1.03
   - 0.49
-  allowanceForObjects: 0.27
+  allowanceForObjects: 0.35
   allowanceForLockers: 0.1
 --- !u!1 &1363468231
 GameObject:
@@ -1366,6 +1371,7 @@ MonoBehaviour:
   - {fileID: 649433026}
   - {fileID: 22091050}
   activeGameObject: {fileID: 0}
+  rotate: 0
   speedMove: 15
   speedRot: 15
 --- !u!4 &1546541123
