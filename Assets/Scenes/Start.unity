@@ -1378,7 +1378,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -213, y: 130.46}
+  m_AnchoredPosition: {x: -213, y: 130.46002}
   m_SizeDelta: {x: 114.320435, y: 104.55228}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1204429796
@@ -1503,6 +1503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debug: 1
   buildIndexOfLevelSelectors: 
+  lastSceneIndex: 0
 --- !u!4 &1420250055
 Transform:
   m_ObjectHideFlags: 0
@@ -1784,7 +1785,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.08666667, y: 0.12028396}
   m_AnchorMax: {x: 0.21300001, y: 0.3077161}
-  m_AnchoredPosition: {x: 0.76000977, y: 0.2000122}
+  m_AnchoredPosition: {x: 0.76000977, y: 0.20007324}
   m_SizeDelta: {x: 1.239563, y: 3.4077759}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1713855107
