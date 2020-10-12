@@ -5,12 +5,11 @@ using UnityEngine;
 public class EggsScript : MonoBehaviour
 {
     public int count;
-    private GameObject[] correctObjects;
     private GameObject eggs;
-    private int fullCountOfCorrectObjects;
+    [SerializeField] private int winnableCount;
     private int firstEgg;
     private int secondEgg;
-   private CollisionChecker myCollider;
+    private CollisionChecker myCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -18,24 +17,22 @@ public class EggsScript : MonoBehaviour
         
         myCollider =GameObject.Find("Panel2").GetComponent<CollisionChecker>();
         eggs = GameObject.Find("Eggs");
-        correctObjects= GameObject.FindGameObjectsWithTag("MainComponent");
-        fullCountOfCorrectObjects= correctObjects.Length;
-        if(fullCountOfCorrectObjects==2)
+        switch(winnableCount)
         {
-            firstEgg=1;
-            secondEgg=2;
+            case 2:
+                firstEgg = 1;
+                secondEgg = 2;
+                break;
+            case 3:
+                firstEgg = 1;
+                secondEgg = 3;
+                break;
+            case 4:
+                firstEgg = 2;
+                secondEgg = 4;
+                break;
+
         }
-        else if(fullCountOfCorrectObjects == 3)
-        {
-            firstEgg=1;
-            secondEgg=3;
-        }
-        else if(fullCountOfCorrectObjects==4)
-        {
-            firstEgg=2;
-            secondEgg=4;
-        }
-      
     }
 
     // Update is called once per frame

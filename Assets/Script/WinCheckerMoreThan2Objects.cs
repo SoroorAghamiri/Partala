@@ -11,11 +11,9 @@ public class WinCheckerMoreThan2Objects : MonoBehaviour
     public bool flagWin;
    
     [SerializeField] bool setup = false;
-    private GameObject[] colliderPoints;
+    [SerializeField] GameObject[] colliderPoints;
     private List<GameObject> listOfCPs;
     private GameManger gameManger;
-    private GameObject[] lockerPoints;
-    [SerializeField] private List<GameObject> listofLockerPoints; //Remove Serialize for debugging
 
 
     private List<string> distances;
@@ -30,7 +28,6 @@ public class WinCheckerMoreThan2Objects : MonoBehaviour
         gameManger = GameObject.FindObjectOfType<GameManger>();
         flagWin = false;
         listOfCPs = new List<GameObject>();
-        listofLockerPoints = new List<GameObject>();
         distances = new List<string>();
         if (setup)
         {
@@ -41,15 +38,9 @@ public class WinCheckerMoreThan2Objects : MonoBehaviour
         else
         {
             PuttingCPsIntoList();
-            PuttingLockerPointsIntoList();
         }
     }
 
-    private void PuttingLockerPointsIntoList()
-    {
-        lockerPoints = GameObject.FindGameObjectsWithTag("Locker");
-        listofLockerPoints = lockerPoints.OrderBy(go => go.name).ToList();
-    }
 
     private void WriteDistanceTovalues()
     {
@@ -93,7 +84,6 @@ public class WinCheckerMoreThan2Objects : MonoBehaviour
 
     private void PuttingCPsIntoList()
     {
-        colliderPoints = GameObject.FindGameObjectsWithTag("ColliderPoint");
         listOfCPs = colliderPoints.OrderBy(go => go.name).ToList();
     }
 
@@ -140,16 +130,7 @@ public class WinCheckerMoreThan2Objects : MonoBehaviour
                 if (!win) { return false; }
             }
         }
-        ///Check for Lockers
-        for (int i = 0; i < listofLockerPoints.Count(); i += 2)
-        {
-            var dist = DistanceBetween2points(listofLockerPoints[i].transform.position, listofLockerPoints[i + 1].transform.position);
-            Debug.Log(dist);
-            if (dist > allowanceForLockers)
-            {
-                return false;
-            }
-        }
+
         return win;
     }
 
