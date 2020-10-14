@@ -54,7 +54,7 @@ public class Tutorial : MonoBehaviour
         levelIndex = SceneManager.GetActiveScene().name;
         levelIndex = levelIndex.Substring(levelIndex.Length - 1);
 
-        Debug.Log("Level index = " + levelIndex);
+        // Debug.Log("Level index = " + levelIndex);
 
         stepIsDone = new List<bool>(stepCount);
         for (int j = 0; j < stepIsDone.Capacity; j++)
@@ -141,7 +141,6 @@ public class Tutorial : MonoBehaviour
                         break;
                 }
 
-                print("i" + i);
                 if (Object.ReferenceEquals(touchManager.activeGameObject, correctObjects[i]))
                 {
                     if (correctObjectsLights[i].active)
@@ -177,7 +176,7 @@ public class Tutorial : MonoBehaviour
                             case "2":
                                 if (touchManager.rotate == false && rotationDone == true && i == 1)
                                 {
-                                    print("ended correct0");
+                                    // print("ended correct0");
                                     showGuidText(1, false);
                                     stepIsDone[i] = true;
                                     if (fixedObjectLight.Count > 0 && fixedObjectLight[0].active)
