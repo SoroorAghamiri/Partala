@@ -5,64 +5,64 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Start.unity
     guid: e5de72073eeb7bd40953ed71c9219f7a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Setting.unity
     guid: b67837f5b2025514ab692b196ba3be0e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Shop.unity
     guid: 3de7d203733331c428dfbba8c47ece98
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/EpisodeSelect.unity
     guid: 024916aa9ae278d45b73c8e4c5fbe6b6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelSelect1.unity
     guid: 32c11faaa9a73bc4a96e00c3e1200673
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Episode1.15/RedLevel1.1.unity
     guid: b01ee08d00eba26419e950b0d53f6446
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Episode1.15/RedLevel1.2.unity
     guid: 857ea57247bd0714594a18df5e7cc967
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Episode1.15/RedLevel1.3.unity
     guid: 941d419c95f7e0d4a8839a2f7babaf62
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Episode1.15/RedLevel1.4.unity
     guid: a81a688b96e7c2940969cbd207201847
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Episode1.15/RedLevel1.5.unity
     guid: 5806e9eecabadf14ab89a308db26653b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Episode1.15/RedLevel1.6.unity
     guid: 9094f3b01251142439692f8e838d1382
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Episode1.15/RedLevel1.7.unity
     guid: 39878a1dbc3a55b47b4529c005a2e5f9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Episode1.15/RedLevel1.8_too many.unity
     guid: 9adafd1fb2d0d0746809578c5d77750e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Episode1.15/RedLevel1.9.unity
     guid: 4f6f605dd4e769a4aa06f31b670cd3b4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Episode1.15/RedLevel1.10.unity
     guid: 16c702715d9e05d4d9d45aa6506519d6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Episode1.15/RedLevel1.11.unity
     guid: 3978ea7bd12b54043a50b46e5179e228
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Episode1.15/RedLevel1.12.unity
     guid: a771c6a0a04c66a428139cd8bebf0cb8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Episode1.15/RedLevel1.13.unity
     guid: 7eb97d8cc4087ab43b5d3ee1724803ca
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Episode1.15/RedLevel1.14.unity
     guid: bc91d9dabbc32174281033f7b9d8be6b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Episode1.15/RedLevel1.15_too many.unity
     guid: 47dc9373c7d93654395b5fe1de26e20c
   - enabled: 0
@@ -113,4 +113,34 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Episode2.15Obsolete/RedLevel2.15.unity
     guid: 025d61c3220bbf84e89b94bda897da59
+  - enabled: 0
+    path: Assets/Scenes/Episode2.10/Level1.unity
+    guid: e6e5ba7dcace4a24e92c789081f29f2d
+  - enabled: 0
+    path: Assets/Scenes/Episode2.10/Level2.unity
+    guid: a34ddbd18f8cf2a489ef1bd22a66a07c
+  - enabled: 0
+    path: Assets/Scenes/Episode2.10/Level3.unity
+    guid: ca24408f27eb2d840a577a529936f318
+  - enabled: 0
+    path: Assets/Scenes/Episode2.10/Level4.unity
+    guid: 51db77769cba05541a4d400be5404761
+  - enabled: 0
+    path: Assets/Scenes/Episode2.10/Level5.unity
+    guid: 819cfb067e8868446a46530bb2048bd5
+  - enabled: 0
+    path: Assets/Scenes/Episode2.10/Level6.unity
+    guid: 0e8253cebf66d694bb21990bf5394feb
+  - enabled: 0
+    path: Assets/Scenes/Episode2.10/Level7.unity
+    guid: 52b72c3f4e6f72547ae25bfdd1be011c
+  - enabled: 0
+    path: Assets/Scenes/Episode2.10/Level8.unity
+    guid: cee666606ab989046880a64d01168d08
+  - enabled: 0
+    path: Assets/Scenes/Episode2.10/Level9.unity
+    guid: 17231b2c07a9d0a46b9ab398ba620572
+  - enabled: 0
+    path: Assets/Scenes/Episode2.10/Level10.unity
+    guid: 80c77b500188fc942929f0915f3a445a
   m_configObjects: {}
