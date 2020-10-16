@@ -224,7 +224,7 @@ Transform:
   m_LocalScale: {x: 0.5145334, y: 0.5145334, z: 0.5145334}
   m_Children: []
   m_Father: {fileID: 904654679}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &123974112
 MonoBehaviour:
@@ -717,8 +717,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.0996, y: 2.0996, z: 2.0996}
-  m_Children:
-  - {fileID: 1024828489}
+  m_Children: []
   m_Father: {fileID: 519725409}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -894,7 +893,7 @@ Transform:
   - {fileID: 903738743}
   - {fileID: 481929063}
   m_Father: {fileID: 904654679}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519725410
 MonoBehaviour:
@@ -1855,8 +1854,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1546137538}
+  m_Children: []
   m_Father: {fileID: 2047724023}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2030,7 +2028,7 @@ Transform:
   - {fileID: 631891283}
   - {fileID: 1961033509}
   m_Father: {fileID: 904654679}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -76.494}
 --- !u!114 &857713510
 MonoBehaviour:
@@ -2248,6 +2246,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1262405031}
+  - {fileID: 1546137538}
+  - {fileID: 1024828489}
   - {fileID: 519725409}
   - {fileID: 123974111}
   - {fileID: 980286145}
@@ -2383,7 +2384,7 @@ Transform:
   m_LocalScale: {x: 0.68878, y: 0.68878, z: 0.68878}
   m_Children: []
   m_Father: {fileID: 904654679}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &980286146
 MonoBehaviour:
@@ -2489,12 +2490,12 @@ GameObject:
   - component: {fileID: 1024828489}
   - component: {fileID: 1024828490}
   m_Layer: 0
-  m_Name: Sprite Light 2D
+  m_Name: BroomDottedLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1024828489
 Transform:
   m_ObjectHideFlags: 0
@@ -2502,12 +2503,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024828488}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.11, y: 0.82, z: 0}
-  m_LocalScale: {x: 0.09110174, y: 0.09110174, z: 0.09110174}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.4816632, y: -0.4141422, z: 0}
+  m_LocalScale: {x: 0.09841852, y: 0.09841852, z: 0.09841852}
   m_Children: []
-  m_Father: {fileID: 481929063}
-  m_RootOrder: 0
+  m_Father: {fileID: 904654679}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1024828490
 MonoBehaviour:
@@ -2562,12 +2563,12 @@ GameObject:
   - component: {fileID: 1262405031}
   - component: {fileID: 1262405032}
   m_Layer: 0
-  m_Name: Sprite Light 2D
+  m_Name: SpoonDottedLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1262405031
 Transform:
   m_ObjectHideFlags: 0
@@ -2575,11 +2576,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262405030}
-  m_LocalRotation: {x: -0, y: -0, z: 0.6202792, w: 0.7843811}
-  m_LocalPosition: {x: 2.2, y: 5.88, z: 0}
-  m_LocalScale: {x: 0.20253418, y: 0.20253418, z: 0.20253418}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0015624464, w: 0.9999988}
+  m_LocalPosition: {x: 2.3327801, y: -2.2991629, z: 0}
+  m_LocalScale: {x: 0.17430787, y: 0.17430787, z: 0.17430787}
   m_Children: []
-  m_Father: {fileID: 1961033509}
+  m_Father: {fileID: 904654679}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 76.673004}
 --- !u!114 &1262405032
@@ -2996,6 +2997,11 @@ MonoBehaviour:
   - {fileID: 1961033508}
   - {fileID: 481929062}
   - {fileID: 755680496}
+  correctObjectsShades:
+  - {fileID: 1262405030}
+  - {fileID: 1262405030}
+  - {fileID: 1024828488}
+  - {fileID: 1546137537}
   uiButtons: {fileID: 555553222}
   rotateLight: {fileID: 374949736}
   globalLight: {fileID: 402797184}
@@ -3120,7 +3126,7 @@ Transform:
   m_LocalScale: {x: 0.8606343, y: 0.8606343, z: 0.8606343}
   m_Children: []
   m_Father: {fileID: 904654679}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -76.494}
 --- !u!114 &1489403636
 MonoBehaviour:
@@ -3302,12 +3308,12 @@ GameObject:
   - component: {fileID: 1546137538}
   - component: {fileID: 1546137539}
   m_Layer: 0
-  m_Name: Sprite Light 2D
+  m_Name: MaskDottedLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1546137538
 Transform:
   m_ObjectHideFlags: 0
@@ -3316,11 +3322,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546137537}
   m_LocalRotation: {x: -0, y: -0, z: 0.055549733, w: 0.998456}
-  m_LocalPosition: {x: 10.93, y: -1.71, z: 0}
-  m_LocalScale: {x: 0.17931883, y: 0.17931883, z: 0.17931883}
+  m_LocalPosition: {x: 1.6683655, y: 0.88218606, z: 0}
+  m_LocalScale: {x: 0.12351124, y: 0.12351124, z: 0.123511225}
   m_Children: []
-  m_Father: {fileID: 755680497}
-  m_RootOrder: 0
+  m_Father: {fileID: 904654679}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.3690004}
 --- !u!114 &1546137539
 MonoBehaviour:
@@ -3596,8 +3602,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1262405031}
+  m_Children: []
   m_Father: {fileID: 857713509}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3777,7 +3782,7 @@ Transform:
   - {fileID: 1626414353}
   - {fileID: 755680497}
   m_Father: {fileID: 904654679}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2047724024
 MonoBehaviour:

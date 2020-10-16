@@ -46,7 +46,7 @@ public class TouchManager : MonoBehaviour
                 if (collider2DObjects[i] == Physics2D.OverlapPoint(touchPosition))
                 {
                     activeGameObject = objects[i];
-                    print("Active object in touch manager:" + activeGameObject.name);
+                    // print("Active object in touch manager:" + activeGameObject.name);
                     movingFingerID = touch.fingerId;
                 }
             }

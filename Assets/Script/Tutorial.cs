@@ -17,6 +17,8 @@ public class Tutorial : MonoBehaviour
     public GameObject[] correctObjects;
 
     public GameObject[] correctObjectsLights;
+    public GameObject[] correctObjectsShades;
+
     [Space(20)]
 
     public Button uiButtons;
@@ -204,7 +206,7 @@ public class Tutorial : MonoBehaviour
     void glowObjects(int indx)
     {
         correctObjectsLights[indx].SetActive(true);
-
+        correctObjectsShades[indx].SetActive(true);
     }
 
     void showGuidText(int indx, bool active)
