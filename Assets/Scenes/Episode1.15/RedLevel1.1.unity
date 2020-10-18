@@ -776,7 +776,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363488996}
   m_LocalRotation: {x: -0, y: -0, z: -0.23110282, w: 0.97292936}
-  m_LocalPosition: {x: 3.7, y: 0.64, z: 0}
+  m_LocalPosition: {x: 3.72, y: 0.18, z: 0}
   m_LocalScale: {x: 0.63130003, y: 0.63130003, z: 0.6313}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1111,7 +1111,7 @@ PrefabInstance:
     - target: {fileID: 3267488380907849989, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -13.200012
+      value: -13.200027
       objectReference: {fileID: 0}
     - target: {fileID: 3267488380907849989, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
@@ -2971,6 +2971,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinChecker
       objectReference: {fileID: 0}
+    - target: {fileID: 5101966357536151847, guid: 710d726d661841f4991ea4c0d84f87a0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5101966357536151846, guid: 710d726d661841f4991ea4c0d84f87a0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 710d726d661841f4991ea4c0d84f87a0, type: 3}
@@ -3031,7 +3036,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296320052}
   m_LocalRotation: {x: -0, y: -0, z: -0.23110282, w: 0.97292936}
-  m_LocalPosition: {x: 3.6514552, y: 0.857082, z: 0}
+  m_LocalPosition: {x: 3.6514552, y: 0.39, z: 0}
   m_LocalScale: {x: 0.10780098, y: 0.10780098, z: 0.10780098}
   m_Children: []
   m_Father: {fileID: 1152968573}

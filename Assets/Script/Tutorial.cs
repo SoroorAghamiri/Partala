@@ -33,6 +33,7 @@ public class Tutorial : MonoBehaviour
     private bool showGuide = true;
     private bool nextIsClicked = false;
     private bool rotationDone = false;
+    private GameManger gameManager;
     private int i = 0;
 
 
@@ -51,6 +52,8 @@ public class Tutorial : MonoBehaviour
         // if (DataManager.Instance.GetTutorial() == false)
         //     DataManager.Instance.SetTutorial(true);
         // //*Up to here
+
+        gameManager = GameObject.FindObjectOfType<GameManger>();
         uiButtons.interactable = false;
 
         levelIndex = SceneManager.GetActiveScene().name;
@@ -94,6 +97,7 @@ public class Tutorial : MonoBehaviour
         {
             uiButtons.interactable = true;
             globalLight.intensity = 1f;
+            gameManager.SetWin();
             for (int j = 0; j < correctObjectsLights.Length; j++)
             {
                 correctObjectsLights[j].SetActive(false);

@@ -137,7 +137,7 @@ public class GameManger : MonoBehaviour
         {
             if (winFlagChangedByWinChecker == true)
             {
-                
+
                 myEggsScript.SetLastEgg();
                 if (wintoggler)
                 {
@@ -290,15 +290,7 @@ public class GameManger : MonoBehaviour
         }
 
     }
-    // private void OnSound()
-    // {
-    //     SliderController.Instans.MakeSfxSliderValueZero();
 
-    // }
-    // private void OnMusic()
-    // {
-    //     SliderController.Instans.MakeMusicSliderValueZero();
-    // }
     public void WrongObjectDetected()
     {
         wrongObjects = true;
@@ -307,21 +299,7 @@ public class GameManger : MonoBehaviour
     {
         wrongObjects = false;
     }
-    // public void SetSFXLevel(float volume)
-    // {
-    //     DataManager.Instance.SetSFXLevel(volume);
-    //     sfx.audioMixer.SetFloat("sfxvol", DataManager.Instance.GetSFXLevel());
-    // }
-    // public void SetMusicLevel(float volume)
-    // {
-    //     DataManager.Instance.SetMusicLevel(volume);
-    //     Musix.audioMixer.SetFloat("musicvol", DataManager.Instance.GetMusicLevel());
-    // }
 
-    // public void ShowNumberOfFeathers()
-    // {
-    //     featherText.text = Fa.faConvertLine(DataManager.Instance.GetFeather().ToString());
-    // }
 
     public void LevelFactor()//this Function added feather after every episode end  
     {
