@@ -1208,11 +1208,12 @@ MonoBehaviour:
   correctObjects: []
   correctObjectsLights: []
   correctObjectsShades: []
-  uiButtons: {fileID: 0}
+  uiButtons: {fileID: 555553220}
   rotateLight: {fileID: 0}
-  globalLight: {fileID: 0}
+  globalLight: {fileID: 54899751}
   touchManager: {fileID: 0}
-  stepCount: 0
+  stepCount: 1
+  WinChecker: {fileID: 1290885364}
 --- !u!1 &541197678
 GameObject:
   m_ObjectHideFlags: 0
@@ -2561,6 +2562,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fbcd06c94ede12449b181aec69479c5, type: 3}
+--- !u!114 &555553220 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7497697846247053486, guid: 1fbcd06c94ede12449b181aec69479c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 555553219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555553223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &555553222 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 965877926786622359, guid: 1fbcd06c94ede12449b181aec69479c5,
