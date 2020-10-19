@@ -67,9 +67,10 @@ public class DialogManager : MonoBehaviour
         blurImg = Resources.Load<Image>("Views/BLUR");
         Image prefab = Instantiate(blurImg, Vector3.zero, Camera.main.transform.rotation);
 
-        prefab.gameObject.transform.SetParent(getCanvasParent());
-        print("Parent must be set");
+        prefab.gameObject.transform.SetParent(getCanvasParent(), false);
+
         prefab.gameObject.transform.localPosition = Vector3.zero;
+        prefab.rectTransform.anchoredPosition = Vector3.zero;
 
     }
     public ExitView showExitView()

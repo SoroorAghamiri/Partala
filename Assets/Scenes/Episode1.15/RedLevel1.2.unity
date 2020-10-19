@@ -3350,6 +3350,7 @@ MonoBehaviour:
   globalLight: {fileID: 402797184}
   touchManager: {fileID: 904654680}
   stepCount: 4
+  WinChecker: {fileID: 1290885364}
 --- !u!4 &1485503505
 Transform:
   m_ObjectHideFlags: 0

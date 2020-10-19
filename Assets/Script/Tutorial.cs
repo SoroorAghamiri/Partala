@@ -26,6 +26,7 @@ public class Tutorial : MonoBehaviour
     public UnityEngine.Experimental.Rendering.Universal.Light2D globalLight;
     public TouchManager touchManager;
     public int stepCount;
+    public WinCheckerMoreThan2Objects WinChecker;
 
     // public FocusSwitcher focus;
     #region privateVariables
@@ -54,6 +55,7 @@ public class Tutorial : MonoBehaviour
         // //*Up to here
 
         gameManager = GameObject.FindObjectOfType<GameManger>();
+        // WinChecker = GameObject.FindObjectOfType<WinCheckerMoreThan2Objects>();
         uiButtons.interactable = false;
 
         levelIndex = SceneManager.GetActiveScene().name;
@@ -81,7 +83,13 @@ public class Tutorial : MonoBehaviour
         }
 
         if (DataManager.Instance.GetTutorial() == false)
+        {
             showGuide = false;
+            if (!WinChecker.gameObject.active)
+            {
+                WinChecker.gameObject.SetActive(true);
+            }
+        }
 
 
 
@@ -97,10 +105,22 @@ public class Tutorial : MonoBehaviour
         {
             uiButtons.interactable = true;
             globalLight.intensity = 1f;
-            gameManager.SetWin();
-            for (int j = 0; j < correctObjectsLights.Length; j++)
+
+            if (correctObjectsShades.Length > 0)
             {
-                correctObjectsLights[j].SetActive(false);
+                for (int j = 0; j < correctObjectsShades.Length; j++)
+                {
+                    correctObjectsShades[j].SetActive(false);
+                }
+            }
+            if (levelIndex != "3")
+                gameManager.SetWin();
+            if (correctObjectsLights.Length > 0)
+            {
+                for (int j = 0; j < correctObjectsLights.Length; j++)
+                {
+                    correctObjectsLights[j].SetActive(false);
+                }
             }
             showGuide = false;
             if (levelIndex == "3")
@@ -204,7 +224,12 @@ public class Tutorial : MonoBehaviour
                 }
             }
         }
+        else if (!showGuide)
+        {
+            uiButtons.interactable = true;
+            globalLight.intensity = 1f;
 
+        }
     }
 
     void glowObjects(int indx)
