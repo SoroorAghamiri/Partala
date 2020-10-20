@@ -15,6 +15,8 @@ public class AdManager : MonoBehaviour
 
     [SerializeField] private int betweenLevelsAd;
     private int betweenAdCounter;
+    private bool interstialAdAvailable = false;
+    private bool rewardAdAvailable = false;
 
     private bool resultOfAdreturned;
     private void Awake()
@@ -54,46 +56,63 @@ public class AdManager : MonoBehaviour
     {
 
         Tapsell.RequestAd(RewardAdKey, true,
-          (TapsellAd result) => {
+          (TapsellAd result) =>
+          {
               // onAdAvailable
               Debug.Log("on Ad Available");
               tapsellAdReward = result;
+              rewardAdAvailable = true;
           },
 
-          (string zoneId) => {
+          (string zoneId) =>
+          {
               // onNoAdAvailable
               Debug.Log("no Ad Available");
+              rewardAdAvailable = false;
           },
 
-          (TapsellError error) => {
+          (TapsellError error) =>
+          {
               // onError
               Debug.Log(error.message);
           },
 
-          (string zoneId) => {
+          (string zoneId) =>
+          {
               // onNoNetwork
               Debug.Log("no Network");
           },
 
-          (TapsellAd result) => {
+          (TapsellAd result) =>
+          {
               // onExpiring
               Debug.Log("expiring");
           },
 
-          (TapsellAd result) => {
+          (TapsellAd result) =>
+          {
               // onOpen
               Debug.Log("open");
           },
 
-          (TapsellAd result) => {
+          (TapsellAd result) =>
+          {
               // onClose
               Debug.Log("close");
           }
         );
     }
-    public void ShowRewardAd()
+    public bool ShowRewardAd()
     {
-        Tapsell.ShowAd(tapsellAdReward, new TapsellShowOptions());
+        if(rewardAdAvailable==true)
+        {
+            Tapsell.ShowAd(tapsellAdReward, new TapsellShowOptions());
+            rewardAdAvailable = false;
+            return true;
+        }
+        rewardAdAvailable = false;
+        return false;
+        
     }
 
     public void RequestInterstialAd()
@@ -105,12 +124,14 @@ public class AdManager : MonoBehaviour
               // onAdAvailable
               Debug.Log("on Ad Available");
               tapsellAdInterstial = result;
+              interstialAdAvailable = true;
           },
 
           (string zoneId) =>
           {
               // onNoAdAvailable
               Debug.Log("no Ad Available");
+              interstialAdAvailable = false;
           },
 
           (TapsellError error) =>
@@ -154,15 +175,19 @@ public class AdManager : MonoBehaviour
         }
         betweenAdCounter++;
         Debug.Log("betweenAdCounter:" + betweenAdCounter);
-        switch ( betweenLevelsAd - betweenAdCounter     )
+        switch (betweenLevelsAd - betweenAdCounter)
         {
             case 1:
                 RequestInterstialAd();
                 break;
             case 0:
-                TapsellShowOptions showOptions = new TapsellShowOptions();
-                Tapsell.ShowAd(tapsellAdInterstial, showOptions);
+                if (interstialAdAvailable == true)
+                {
+                    TapsellShowOptions showOptions = new TapsellShowOptions();
+                    Tapsell.ShowAd(tapsellAdInterstial, showOptions);
+                }
                 betweenAdCounter = 0;
+                interstialAdAvailable = false;
                 break;
         }
     }
