@@ -47,7 +47,9 @@ public class DialogBase : ViewObject
         dialogObject.SetActive(true);
         // blurImage.gameObject.SetActive(true);
         dialogObject.transform.localScale = Vector3.zero * 0.8f;
-        iTween.ScaleTo(dialogObject, Vector3.one, 1.5f);
+        iTween.ScaleTo(dialogObject, iTween.Hash("x", 1, "y", 1, "z", 1, "time", 2f, "ignoretimescale", true));
+
+        Time.timeScale = 0;
     }
 
     public override void closeView()
@@ -57,6 +59,7 @@ public class DialogBase : ViewObject
             closeAction();
         }
         iTween.ScaleTo(dialogObject, Vector3.zero, 0.5f);
+        Time.timeScale = 1;
         Destroy(this.gameObject);
         // StartCoroutine(ExecuteAfterTime(0.5f));
     }
