@@ -47,7 +47,7 @@ public class DialogBase : ViewObject
         dialogObject.SetActive(true);
         // blurImage.gameObject.SetActive(true);
         dialogObject.transform.localScale = Vector3.zero * 0.8f;
-        iTween.ScaleTo(dialogObject, iTween.Hash("x", 1, "y", 1, "z", 1, "time", 2f, "ignoretimescale", true));
+        iTween.ScaleTo(dialogObject, iTween.Hash("x", 1, "y", 1, "z", 1, "time", 1.25f, "ignoretimescale", true));
 
         Time.timeScale = 0;
     }
