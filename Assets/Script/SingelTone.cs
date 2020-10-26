@@ -20,7 +20,7 @@ public class SingelTone : MonoBehaviour
     private bool _sceneIsChanged;
     private void Awake()
     {
-        if (instance != null )
+        if (instance != null && instance != this)
         {
             Destroy(this.gameObject);
             return;
@@ -28,71 +28,81 @@ public class SingelTone : MonoBehaviour
         else
         {
             instance = this;
-          
+
         }
         DontDestroyOnLoad(this.gameObject);
-            
-        #if UNITY_EDITOR
-        audioMixer =(AudioMixer) AssetDatabase.LoadAssetAtPath("Assets/MainMixer.mixer",typeof(AudioMixer)); //load Mixer From Asset Folder
-        #endif
-        gameObject.GetComponent<AudioSource>().outputAudioMixerGroup =audioMixer.FindMatchingGroups("Music")[0]; //Get Audio Mixer Group From Audio Mixer; 
-       
-        Debug.Log(SceneManager.GetActiveScene().buildIndex);
-      
 
-       
-        
+#if UNITY_EDITOR
+            audioMixer =(AudioMixer) AssetDatabase.LoadAssetAtPath("Assets/MainMixer.mixer",typeof(AudioMixer)); //load Mixer From Asset Folder
+#endif
+        gameObject.GetComponent<AudioSource>().outputAudioMixerGroup = audioMixer.FindMatchingGroups("Music")[0]; //Get Audio Mixer Group From Audio Mixer; 
+
+        Debug.Log("SingleTone Awake Function" + SceneManager.GetActiveScene().buildIndex);
+
+
+
+
+    }
+
+
+    public static SingelTone Instance
+    {
+        get
+        {
+            return instance;
+        }
     }
 
     private void Start()
     {
-         PlayMusic();
+        PlayMusic();
         _mScene = SceneManager.GetActiveScene();
+        Debug.Log("SingleTone Start Function");
     }
 
-    private void Update()
+
+    void Update()
     {
         _mScene = SceneManager.GetActiveScene();
-     
         if (_mScene.buildIndex != _nScene.buildIndex)
         {
             _sceneIsChanged = true;
         }
         _nScene = SceneManager.GetActiveScene();
         MusicManger();
-      
-        
-      
+
+
+
     }
-    
+
     public void StopMusic()
     {
         gameObject.GetComponent<AudioSource>().Stop();
-      
+
     }
 
     public void PlayMusic()
     {
         gameObject.GetComponent<AudioSource>().Play();
-      
+
     }
     public void MusicManger()
     {
         if (_sceneIsChanged)
         {
-            if (SceneManager.GetActiveScene().buildIndex <= 2)
+            if (SceneManager.GetActiveScene().buildIndex <= 3)
             {
                 if (!this.GetComponent<AudioSource>().isPlaying)
                 {
                     PlayMusic();
                 }
 
-            
+
             }
-            else if (SceneManager.GetActiveScene().buildIndex > 2)
+            else if (SceneManager.GetActiveScene().buildIndex > 3)
             {
                 StopMusic();
-              
+
             }
 
             _sceneIsChanged = false;
