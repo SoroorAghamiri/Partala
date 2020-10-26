@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using BazaarInAppBilling;
+using UPersian.Components;
+
 public class ShopManager : MonoBehaviour
 {
     private LevelLoader mylevelLoader;
@@ -10,7 +12,7 @@ public class ShopManager : MonoBehaviour
     private int amountOfFeathersTobeAdded;
 
     [SerializeField] GameObject messageBox;
-    [SerializeField] Text textMessage;
+    [SerializeField] RtlText textMessage;
     public void BuyProduct(int index)
     {
         productIndex = index;
@@ -34,16 +36,16 @@ public class ShopManager : MonoBehaviour
                     amountOfFeathersTobeAdded = 1;
                     break;
                 case 1:
-                    amountOfFeathersTobeAdded = 19;
+                    amountOfFeathersTobeAdded = 5;
                     break;
                 case 2:
-                    amountOfFeathersTobeAdded = 33;
+                    amountOfFeathersTobeAdded = 9;
                     break;
                 case 3:
-                    amountOfFeathersTobeAdded = 85;
+                    amountOfFeathersTobeAdded = 15;
                     break;
                 case 4:
-                    amountOfFeathersTobeAdded = 100;
+                    amountOfFeathersTobeAdded = 20;
                     break;
             }
             DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() + amountOfFeathersTobeAdded);
