@@ -69,8 +69,10 @@ public class Tutorial : MonoBehaviour
             stepIsDone.Add(false);
         }
 
-        if (levelIndex == "3")
+        if (levelIndex == "3"){
             cityLights = GameObject.FindGameObjectsWithTag("CityLight");
+            uiButtons.interactable = true;
+        }
 
         for (int j = 0; j < correctObjectsLights.Length; j++)
         {
