@@ -7,12 +7,19 @@ using UPersian.Components;
 
 public class ShopManager : MonoBehaviour
 {
+    
     private LevelLoader mylevelLoader;
     private int productIndex = 0;
     private int amountOfFeathersTobeAdded;
 
     [SerializeField] GameObject messageBox;
     [SerializeField] RtlText textMessage;
+
+
+    [SerializeField] float coolDownForAd;
+    float timer;
+    [SerializeField] RtlText timerText;
+    [SerializeField] Button featherWithAdButton;
     public void BuyProduct(int index)
     {
         productIndex = index;
@@ -23,6 +30,13 @@ public class ShopManager : MonoBehaviour
     {
         mylevelLoader = FindObjectOfType<LevelLoader>();
         AdManager.Instance.RequestRewardAd();
+        timer = coolDownForAd;
+        timer -= TimeMaster.Instance.CheckDate();
+        if(timer>0)
+        {
+            timerText.gameObject.SetActive(true);
+            featherWithAdButton.interactable = false;
+        }
     }
 
     private void OnPurchasedSuccessfully(Purchase purchase, int productIndex)
@@ -191,12 +205,22 @@ public class ShopManager : MonoBehaviour
 
     public void BuyFeatherWithAD()
     {
-        if(AdManager.Instance.ShowRewardAd()==true)
+        StartCoroutine(CallingAdAndShowing());
+    }
+    IEnumerator CallingAdAndShowing()
+    {
+        if (AdManager.Instance.ShowRewardAd() == true)
         {
+            ShowMessage("درحال بارگذاری تبلیغ...");
+            yield return new WaitForSeconds(1f);
             if (AdManager.Instance.GetResultOfAd() == true)
             {
                 ShowMessage("یک پر به حساب شما اضافه گردید.");
                 DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() + 1);
+                //Implement Cooldown Here
+                ResetClock();
+                timerText.gameObject.SetActive(true);
+                featherWithAdButton.interactable = false;
             }
             else
             {
@@ -207,6 +231,42 @@ public class ShopManager : MonoBehaviour
         {
             ShowMessage("جادوگر باعث شده تبلیغی در دسترس نباشد، بعدا تلاش کنید!");
         }
-        
+    }
+    private void Update()
+    {
+        ShowTimerForAdButton();
+    }
+
+    private void ShowTimerForAdButton()
+    {
+        timer -= Time.deltaTime;
+        int tmp;
+        if (timer > 3600f)
+        {
+            tmp = (int)timer / 3600;
+            timerText.text = tmp.ToString() + " ساعت";
+        }
+        else if (timer > 60f)
+        {
+            tmp = (int)timer / 60;
+            timerText.text = tmp.ToString() + " دقیقه";
+        }
+        else
+        {
+            tmp = (int)timer;
+            timerText.text = tmp.ToString() + " ثانیه";
+        }
+        if (timer <= 0)
+        {
+            timerText.gameObject.SetActive(false);
+            featherWithAdButton.interactable = true;
+        }
+    }
+
+    void ResetClock()
+    {
+        TimeMaster.Instance.SaveDate();
+        timer = coolDownForAd;
+        timer -= TimeMaster.Instance.CheckDate();
     }
 }
