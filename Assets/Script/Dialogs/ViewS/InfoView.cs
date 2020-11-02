@@ -13,6 +13,7 @@ public class InfoView : DialogBase
 
     public List<Image> infoPs = new List<Image>();
     public Button next;
+    public Button prev;
     [HideInInspector]
     public string callingHint;
     [HideInInspector]
@@ -49,6 +50,7 @@ public class InfoView : DialogBase
 
         foreach (Image i in infoPs)
         {
+            i.gameObject.SetActive(false);
             if (i.gameObject.name == callingHint)
             {
                 i.gameObject.SetActive(true);
@@ -59,9 +61,20 @@ public class InfoView : DialogBase
 
     public void nextPage()
     {
-        callingHint = "EkbatanInfo";
-        explanation(callingHint);
-        next.gameObject.SetActive(false);
+        if (callingHint == "AlamootInfo")
+        {
+            callingHint = "EkbatanInfo";
+            explanation(callingHint);
+            next.gameObject.SetActive(false);
+            prev.gameObject.SetActive(true);
+        }
+        else if (callingHint == "EkbatanInfo")
+        {
+            callingHint = "AlamootInfo";
+            explanation(callingHint);
+            next.gameObject.SetActive(true);
+            prev.gameObject.SetActive(false);
+        }
     }
 
     public void closePanel()
@@ -81,8 +94,8 @@ public class InfoView : DialogBase
 
     void fillDictionary()
     {
-        infoText.Add("CurrencyViewAlamootInfo", "این دیگ خاصیتش اینه که جادویی ازش سر میزنه که میتونه بهت کمک کنه یکی از اشیا اضافه تو بازی رو ناپدید کنی. واسه اینکار باید " + levelDisc1 + " دونه پر طلایی سیمرغتو بهش بدی تا جادو عمل کنه.");
-        infoText.Add("CurrencyViewEkbatanInfo", "این دیگ خیلی دیگ خاص و بزرگیه، جادوهایی که ازش سر میزنه جادوهای قدرتمندی هستن و باید تو استفاده ازش محتاط باشی. اگه از جادوش استفاده کنی بهت کمک میکنه شکل نهایی که میخوای درست کنی تو بازی رو بهت نشون بده ولی واسه اینکار باید " + levelDisc2 + " پر طلایی رو بهش بدی.");
+        infoText.Add("CurrencyViewAlamootInfo", "جادویی که از این دیگ به ‌دست میاد رو میتونی برای حذف یکی از اشیا اضافه استفاده کنی تا بتونی زودتر مرحله رو تموم کنی. برای این جادو، باید  " + levelDisc1 + "پر طلایی خرج کنی!");
+        infoText.Add("CurrencyViewEkbatanInfo", "دیگ اکباتان، خاص ترین جادو رو داره و میتونی با اون شکل نهایی همون مرحله رو ببینی و بازی برات آسون تر از همیشه میشه. برای این جادو، باید " + levelDisc2 + "پر طلایی خرج کنی!");
         infoText.Add("CurrencyViewInfo", "New Info");
     }
 }
