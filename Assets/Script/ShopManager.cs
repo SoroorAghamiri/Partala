@@ -29,7 +29,11 @@ public class ShopManager : MonoBehaviour
     private void Start()
     {
         mylevelLoader = FindObjectOfType<LevelLoader>();
-        AdManager.Instance.RequestRewardAd();
+        if(AdManager.Instance.RequestRewardAd() == 5)
+        {
+            ShowMessage("دستگاه شما متصل به اینترنت نیست، بعدا تلاش کنید!");
+        }
+
         timer = coolDownForAd;
         timer -= TimeMaster.Instance.CheckDate();
         if(timer>0)

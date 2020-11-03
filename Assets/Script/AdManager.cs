@@ -52,9 +52,9 @@ public class AdManager : MonoBehaviour
 
     );
     }
-    public void RequestRewardAd()
+    public int RequestRewardAd()
     {
-
+        int tmperror=-1;
         Tapsell.RequestAd(RewardAdKey, true,
           (TapsellAd result) =>
           {
@@ -62,6 +62,7 @@ public class AdManager : MonoBehaviour
               Debug.Log("on Ad Available");
               tapsellAdReward = result;
               rewardAdAvailable = true;
+              tmperror = 0;
           },
 
           (string zoneId) =>
@@ -69,6 +70,7 @@ public class AdManager : MonoBehaviour
               // onNoAdAvailable
               Debug.Log("no Ad Available");
               rewardAdAvailable = false;
+              tmperror = 1;
           },
 
           (TapsellError error) =>
@@ -81,6 +83,7 @@ public class AdManager : MonoBehaviour
           {
               // onNoNetwork
               Debug.Log("no Network");
+              tmperror = 5;
           },
 
           (TapsellAd result) =>
@@ -101,6 +104,7 @@ public class AdManager : MonoBehaviour
               Debug.Log("close");
           }
         );
+        return tmperror;
     }
     public bool ShowRewardAd()
     {
@@ -117,7 +121,7 @@ public class AdManager : MonoBehaviour
 
     public void RequestInterstialAd()
     {
-
+        
         Tapsell.RequestAd(InterstialAdKey, true,
           (TapsellAd result) =>
           {
@@ -125,6 +129,7 @@ public class AdManager : MonoBehaviour
               Debug.Log("on Ad Available");
               tapsellAdInterstial = result;
               interstialAdAvailable = true;
+              
           },
 
           (string zoneId) =>
@@ -142,8 +147,8 @@ public class AdManager : MonoBehaviour
 
           (string zoneId) =>
           {
-              // onNoNetwork
-              Debug.Log("no Network");
+              
+              //Debug.Log("no Network");
           },
 
           (TapsellAd result) =>
@@ -165,6 +170,7 @@ public class AdManager : MonoBehaviour
           }
 
         );
+        
     }
 
     public void AdShow()
