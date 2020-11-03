@@ -8,6 +8,8 @@ public class ScrollAnimation : MonoBehaviour
 
     public RectTransform viewPort;
     [SerializeField] Button[] episodes;
+    Image[] childImages;
+
 
     void Start()
     {
@@ -33,6 +35,12 @@ public class ScrollAnimation : MonoBehaviour
                 {
                     iTween.ScaleTo(b.gameObject, new Vector3(1.2f, 1.2f, 1.2f), 0.3f);
                     b.interactable = true;
+                    childImages = b.GetComponentsInChildren<Image>();
+                    foreach (Image i in childImages)
+                    {
+                        if (i.gameObject.name == "lock")
+                            b.interactable = false;
+                    }
                 }
                 else if (distance < 137 && b.transform.localScale != Vector3.one)
                 {
