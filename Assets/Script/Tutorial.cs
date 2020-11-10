@@ -38,7 +38,7 @@ public class Tutorial : MonoBehaviour
     private ObjectFixer objectFixer;
     private GameObject hintLight;
     private int i = 0;
-
+    private CurrencyView cview;
 
     private GameObject[] cityLights;
 
@@ -58,13 +58,13 @@ public class Tutorial : MonoBehaviour
 
         gameManager = GameObject.FindObjectOfType<GameManger>();
         objectFixer = GameObject.FindObjectOfType<ObjectFixer>();
-
+        cview = GameObject.FindObjectOfType<CurrencyView>();
 
 
         levelIndex = SceneManager.GetActiveScene().name;
         levelIndex = levelIndex.Substring(levelIndex.Length - 1);
 
-
+        
 
         stepIsDone = new List<bool>(stepCount);
         for (int j = 0; j < stepIsDone.Capacity; j++)
@@ -119,6 +119,9 @@ public class Tutorial : MonoBehaviour
 
     void Update()
     {
+        if(cview == null){
+            cview = GameObject.FindObjectOfType<CurrencyView>();
+        }
         if (i == stepCount)
         {
             uiButtons.interactable = true;
@@ -192,6 +195,7 @@ public class Tutorial : MonoBehaviour
                                 break;
                             case 1:
                                 showCityLights();
+                                hintLight.SetActive(false);
                                 globalLight.intensity = 1f;
                                 break;
                         }
@@ -217,7 +221,13 @@ public class Tutorial : MonoBehaviour
                             }
                         }
                     }
-
+                    
+                }
+                if(levelIndex == "3" && i==0){
+                    if(cview.scalingD){
+                        showGuidText(i, false);
+                            i++;
+                    }
                 }
                 //when movement is over:
                 if (Input.touchCount == 0 && objectFixer.isFixed)
@@ -251,11 +261,6 @@ public class Tutorial : MonoBehaviour
                                     fixedObjectLight[0].SetActive(false);
                                 i++;
                             }
-                            break;
-                        case "3":
-                            if (i == 0)
-                                showGuidText(i, false);
-                            i++;
                             break;
                     }
                 }

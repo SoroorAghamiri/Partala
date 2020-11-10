@@ -17,6 +17,7 @@ public class CurrencyView : DialogBase
     public UPersian.Components.RtlText disc2;
     public GameObject firstType;
     public GameObject alamoot;
+    public GameObject alamootDig;
     
     [HideInInspector]public bool firstHint;
     [HideInInspector]public bool hintShown;
@@ -34,8 +35,9 @@ public class CurrencyView : DialogBase
     [SerializeField] private List<string> infoIsShown;
 
     private LevelLoader mylevelLoader;
-    Animation anim;
+    // Animation anim;
     bool scalingI = false;
+    [HideInInspector] public bool scalingD = false;
 
     void Start()
     {
@@ -51,7 +53,7 @@ public class CurrencyView : DialogBase
         }
        
                 
-                anim = alamoot.GetComponent<Animation>();
+                // anim = alamoot.GetComponent<Animation>();
                
       
         if (!DataManager.Instance.GetEnableSecondHint())
@@ -64,13 +66,16 @@ public class CurrencyView : DialogBase
     private void Update()
     {
         numberOfFeathers.text = DataManager.Instance.GetFeather().ToString();
-        if(!firstHint ){
-            Debug.Log("itween must be played now");
-            anim.enabled = true;
-            // iTween.ScaleTo(alamoot.gameObject , iTween.Hash("x",1.3f , "y",1.3f ,"z" ,1.3f , "time" , 1f , "loopType" , "loop"));
-            // scalingI = true;
+        if(!firstHint && !scalingI && firstType.active){
+            // Debug.Log("itween must be played now");
+            iTween.ScaleTo(alamoot.gameObject , iTween.Hash("x",1.3f , "y",1.3f ,"z" ,1.3f , "time" , 1f , "loopType" , "loop","ignoretimescale", true));
+            // iTween.ScaleTo(alamoot.gameObject , iTween.Hash("x",1f , "y",1f ,"z" ,1f , "time" , 1f , "loopType" , "loop","ignoretimescale", true));
+            scalingI = true;
         }
-
+        if(scalingI && infoIsShown.Contains("AlamootInfo") && !scalingD && firstType.active){
+            iTween.ScaleTo(alamootDig.gameObject , iTween.Hash("x",1.3f , "y",1.3f ,"z" ,1.3f , "time" , 1f , "loopType" , "loop","ignoretimescale", true));
+            scalingD = true;
+        }
         if (!DataManager.Instance.GetFirstInfo())
         {
 
