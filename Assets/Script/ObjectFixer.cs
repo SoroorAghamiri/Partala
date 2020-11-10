@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ObjectFixer : MonoBehaviour
 {
-
+    [HideInInspector] public bool isFixed = false;
     [SerializeField] private GameObject[] correctObj;
     [SerializeField] private GameObject[] correctPosition;
 
@@ -39,6 +39,7 @@ public class ObjectFixer : MonoBehaviour
 
         if (Input.touchCount > 0)
         {
+            isFixed = false;
             for (int i = 0; i < correctObj.Length; i++)
             {
                 if (correctObj[i].name == touchManager.activeGameObject.name)
@@ -58,6 +59,7 @@ public class ObjectFixer : MonoBehaviour
             {
                 correctObj[indx].transform.position = correctPosition[indx].transform.position;
                 indx++;
+                isFixed = true;
             }
         }
     }

@@ -15,12 +15,15 @@ public class CurrencyView : DialogBase
     public UPersian.Components.RtlText numberOfFeathers;
     public UPersian.Components.RtlText disc1;
     public UPersian.Components.RtlText disc2;
-    public bool firstHint;
-    public bool hintShown;
+    public GameObject firstType;
+    public GameObject alamoot;
+    
+    [HideInInspector]public bool firstHint;
+    [HideInInspector]public bool hintShown;
+    [Header("Hints Parameters")]
     public GameObject[] wrongComponents;
     [SerializeField] public int featherDiscount1;
     [SerializeField] public int featherDiscount2;
-    public GameObject firstType;
     //Config
     [SerializeField] private float speedForScale;
     [SerializeField] private float limit = 1;
@@ -31,30 +34,42 @@ public class CurrencyView : DialogBase
     [SerializeField] private List<string> infoIsShown;
 
     private LevelLoader mylevelLoader;
-
+    Animation anim;
+    bool scalingI = false;
 
     void Start()
     {
 
-        // //*These two lines are only for debuggind. Delete when you're gonna publish it.
-        // if (DataManager.Instance.GetFirstInfo() == true)
-        //     DataManager.Instance.SetFirstInfo(false);
-        // //*Up to here
+        //*These two lines are only for debuggind. Delete when you're gonna publish it.
+        if (DataManager.Instance.GetFirstInfo() == true)
+            DataManager.Instance.SetFirstInfo(false);
+        //*Up to here
 
         if (!DataManager.Instance.GetFirstInfo())
         {
             firstType.SetActive(true);
         }
-
+       
+                
+                anim = alamoot.GetComponent<Animation>();
+               
+      
         if (!DataManager.Instance.GetEnableSecondHint())
             GameObject.Find("Ekbatan").GetComponent<Button>().interactable = false;
         initialization();
 
     }
 
+
     private void Update()
     {
         numberOfFeathers.text = DataManager.Instance.GetFeather().ToString();
+        if(!firstHint ){
+            Debug.Log("itween must be played now");
+            anim.enabled = true;
+            // iTween.ScaleTo(alamoot.gameObject , iTween.Hash("x",1.3f , "y",1.3f ,"z" ,1.3f , "time" , 1f , "loopType" , "loop"));
+            // scalingI = true;
+        }
 
         if (!DataManager.Instance.GetFirstInfo())
         {

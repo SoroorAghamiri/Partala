@@ -29,7 +29,7 @@ public class InfoView : DialogBase
             fillDictionary();
         }
         // infoIsShown = new List<string>(infoPs.Count);
-        print("calling hint = " + callingHint);
+        // print("calling hint = " + callingHint);
         if (callingHint != "Info")
         {
             explanation(callingHint);

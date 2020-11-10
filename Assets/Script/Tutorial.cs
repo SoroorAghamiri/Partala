@@ -35,6 +35,8 @@ public class Tutorial : MonoBehaviour
     private bool nextIsClicked = false;
     private bool rotationDone = false;
     private GameManger gameManager;
+    private ObjectFixer objectFixer;
+    private GameObject hintLight;
     private int i = 0;
 
 
@@ -55,23 +57,19 @@ public class Tutorial : MonoBehaviour
         // //*Up to here
 
         gameManager = GameObject.FindObjectOfType<GameManger>();
-        // WinChecker = GameObject.FindObjectOfType<WinCheckerMoreThan2Objects>();
-        uiButtons.interactable = false;
+        objectFixer = GameObject.FindObjectOfType<ObjectFixer>();
+
+
 
         levelIndex = SceneManager.GetActiveScene().name;
         levelIndex = levelIndex.Substring(levelIndex.Length - 1);
 
-        // Debug.Log("Level index = " + levelIndex);
+
 
         stepIsDone = new List<bool>(stepCount);
         for (int j = 0; j < stepIsDone.Capacity; j++)
         {
             stepIsDone.Add(false);
-        }
-
-        if (levelIndex == "3"){
-            cityLights = GameObject.FindGameObjectsWithTag("CityLight");
-            uiButtons.interactable = true;
         }
 
         for (int j = 0; j < correctObjectsLights.Length; j++)
@@ -92,12 +90,30 @@ public class Tutorial : MonoBehaviour
                 WinChecker.gameObject.SetActive(true);
             }
         }
-
-
-
-
+        else
+            Initialization(levelIndex);
     }
 
+    void Initialization(string levelToDisplay)
+    {
+        switch (levelToDisplay)
+        {
+            case "1":
+                uiButtons.interactable = false;
+                break;
+            case "2":
+                uiButtons.interactable = false;
+                break;
+            case "3":
+                cityLights = GameObject.FindGameObjectsWithTag("CityLight");
+                hintLight = uiButtons.GetComponentInChildren<UnityEngine.Experimental.Rendering.Universal.Light2D>().gameObject;
+                if (hintLight.active)
+                {
+                    hintLight.SetActive(false);
+                }
+                break;
+        }
+    }
 
 
 
@@ -115,8 +131,8 @@ public class Tutorial : MonoBehaviour
                     correctObjectsShades[j].SetActive(false);
                 }
             }
-            if (levelIndex != "3")
-                gameManager.SetWin();
+            // if (levelIndex != "3")
+            //     gameManager.SetWin();
             if (correctObjectsLights.Length > 0)
             {
                 for (int j = 0; j < correctObjectsLights.Length; j++)
@@ -148,82 +164,102 @@ public class Tutorial : MonoBehaviour
                         showFixedObject();
                         break;
                     case "2":
-                        if (i == 0)
+                        switch (i)
                         {
-                            glowObjects(i);
-                            showGuidText(i, true);
+                            case 0:
+                                glowObjects(i);
+                                showGuidText(i, true);
+                                break;
+                            case 1:
+                                rotationButton();
+                                showGuidText(i, true);
+                                break;
+                            case 2:
+                                glowObjects(i);
+                                break;
+                                case 3:
+                                glowObjects(i);
+                                break;
                         }
-                        else if (i == 1)
-                        {
-                            rotationButton();
-                            showGuidText(i, true);
-                        }
-                        else
-                        {
-                            glowObjects(i);
-                        }
+
                         break;
                     case "3":
-
-                        showCityLights();
+                        switch (i)
+                        {
+                            case 0:
+                                hintLight.SetActive(true);
+                                showGuidText(i, true);
+                                break;
+                            case 1:
+                                showCityLights();
+                                globalLight.intensity = 1f;
+                                break;
+                        }
                         break;
                 }
 
-                if (Object.ReferenceEquals(touchManager.activeGameObject, correctObjects[i]))
-                {
-                    if (correctObjectsLights[i].active)
-                        correctObjectsLights[i].GetComponent<Animator>().enabled = false;
-                    if (levelIndex == "2" && i == 1)
+                if(Input.touchCount >0){
+                    if (Object.ReferenceEquals(touchManager.activeGameObject, correctObjects[i]))
                     {
-                        if (touchManager.rotate == true)
+                        if (correctObjectsLights[i].active)
+                            correctObjectsLights[i].GetComponent<Animator>().enabled = false;
+                        if (levelIndex == "2" && i == 1)
                         {
-                            if (rotateLight != null && rotateLight.active)
+                            if (touchManager.rotate == true)
                             {
-                                rotateLight.GetComponent<Animator>().enabled = false;
-                                rotateLight.GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>().enabled = false;
+                                if (rotateLight != null && rotateLight.active)
+                                {
+                                    rotateLight.GetComponent<Animator>().enabled = false;
+                                    rotateLight.GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>().enabled = false;
 
+                                }
+                                rotationDone = true;
                             }
-                            rotationDone = true;
                         }
                     }
 
+                }
+                //when movement is over:
+                if (Input.touchCount == 0 && objectFixer.isFixed)
+                {
 
-                    //when movement is over:
-                    if (Input.touchCount == 0)
+                    switch (levelIndex)
                     {
-
-                        switch (levelIndex)
-                        {
-                            case "1":
-                                showGuidText(i, false);
+                        case "1":
+                            showGuidText(i, false);
+                            stepIsDone[i] = true;
+                            if (fixedObjectLight.Count > 0 && fixedObjectLight[0].active)
+                                fixedObjectLight[0].SetActive(false);
+                            i++;
+                            break;
+                        case "2":
+                            if (touchManager.rotate == false && rotationDone == true && i == 1)
+                            {
+                                // print("ended correct0");
+                                showGuidText(1, false);
                                 stepIsDone[i] = true;
                                 if (fixedObjectLight.Count > 0 && fixedObjectLight[0].active)
                                     fixedObjectLight[0].SetActive(false);
                                 i++;
-                                break;
-                            case "2":
-                                if (touchManager.rotate == false && rotationDone == true && i == 1)
-                                {
-                                    // print("ended correct0");
-                                    showGuidText(1, false);
-                                    stepIsDone[i] = true;
-                                    if (fixedObjectLight.Count > 0 && fixedObjectLight[0].active)
-                                        fixedObjectLight[0].SetActive(false);
-                                    i++;
-                                }
-                                else if (i != 1)
-                                {
-                                    if (tutorialPanels[0].active)
-                                        showGuidText(0, false);
-                                    stepIsDone[i] = true;
-                                    if (fixedObjectLight.Count > 0 && fixedObjectLight[0].active)
-                                        fixedObjectLight[0].SetActive(false);
-                                    i++;
-                                }
-                                break;
-                        }
+                            }
+                            else if (i != 1)
+                            {
+                                if (tutorialPanels[0].active)
+                                    showGuidText(0, false);
+                                stepIsDone[i] = true;
+                                if (fixedObjectLight.Count > 0 && fixedObjectLight[0].active)
+                                    fixedObjectLight[0].SetActive(false);
+                                i++;
+                            }
+                            break;
+                        case "3":
+                            if (i == 0)
+                                showGuidText(i, false);
+                            i++;
+                            break;
                     }
                 }
+                    
             }
         }
         else if (!showGuide)
