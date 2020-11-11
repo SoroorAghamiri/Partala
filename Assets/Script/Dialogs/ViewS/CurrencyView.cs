@@ -42,10 +42,10 @@ public class CurrencyView : DialogBase
     void Start()
     {
 
-        //*These two lines are only for debuggind. Delete when you're gonna publish it.
-        if (DataManager.Instance.GetFirstInfo() == true)
-            DataManager.Instance.SetFirstInfo(false);
-        //*Up to here
+        // //*These two lines are only for debuggind. Delete when you're gonna publish it.
+        // if (DataManager.Instance.GetFirstInfo() == true)
+        //     DataManager.Instance.SetFirstInfo(false);
+        // //*Up to here
 
         if (!DataManager.Instance.GetFirstInfo())
         {
@@ -66,16 +66,18 @@ public class CurrencyView : DialogBase
     private void Update()
     {
         numberOfFeathers.text = DataManager.Instance.GetFeather().ToString();
-        if(!firstHint && !scalingI && firstType.active){
-            // Debug.Log("itween must be played now");
-            iTween.ScaleTo(alamoot.gameObject , iTween.Hash("x",1.3f , "y",1.3f ,"z" ,1.3f , "time" , 1f , "loopType" , "loop","ignoretimescale", true));
-            // iTween.ScaleTo(alamoot.gameObject , iTween.Hash("x",1f , "y",1f ,"z" ,1f , "time" , 1f , "loopType" , "loop","ignoretimescale", true));
-            scalingI = true;
-        }
-        if(scalingI && infoIsShown.Contains("AlamootInfo") && !scalingD && firstType.active){
-            iTween.ScaleTo(alamootDig.gameObject , iTween.Hash("x",1.3f , "y",1.3f ,"z" ,1.3f , "time" , 1f , "loopType" , "loop","ignoretimescale", true));
-            scalingD = true;
-        }
+        // if(!DataManager.Instance.GetTutorial()){
+            if(!firstHint && !scalingI && firstType.active){
+                // Debug.Log("itween must be played now");
+                iTween.ScaleTo(alamoot.gameObject , iTween.Hash("x",1.3f , "y",1.3f ,"z" ,1.3f , "time" , 0.5f , "loopType" , "loop","ignoretimescale", true));
+                // iTween.ScaleTo(alamoot.gameObject , iTween.Hash("x",1f , "y",1f ,"z" ,1f , "time" , 1f , "loopType" , "loop","ignoretimescale", true));
+                scalingI = true;
+            }
+            if(scalingI && infoIsShown.Contains("AlamootInfo") && !scalingD && firstType.active){
+                iTween.ScaleTo(alamootDig.gameObject , iTween.Hash("x",1.3f , "y",1.3f ,"z" ,1.3f , "time" , 0.5f , "loopType" , "loop","ignoretimescale", true));
+                scalingD = true;
+            }
+        // }
         if (!DataManager.Instance.GetFirstInfo())
         {
 

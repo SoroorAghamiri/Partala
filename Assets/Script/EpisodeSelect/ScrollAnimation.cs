@@ -7,9 +7,13 @@ public class ScrollAnimation : MonoBehaviour
 {
 
     public RectTransform viewPort;
-    [SerializeField] Button[] episodes;
+    public GameObject dots;
+    public Color targetColor;
+     Button[] episodes;
     Image[] childImages;
-
+    [SerializeField] UPersian.Components.RtlText childTexts;
+    Image[] childDots;
+    Color originalColor;
 
     void Start()
     {
@@ -21,32 +25,47 @@ public class ScrollAnimation : MonoBehaviour
                 b.interactable = false;
             }
         }
+        childDots = dots.GetComponentsInChildren<Image>();
+        originalColor = childDots[0].color;
     }
 
     private void Update()
     {
         if (episodes.Length > 0)
         {
-            foreach (Button b in episodes)
+            for(int i = 0 ; i < episodes.Length ; i++)
             {
-
-                float distance = Vector2.Distance(b.transform.position, viewPort.anchoredPosition);
+                
+                    
+                float distance = Vector2.Distance(episodes[i].transform.position, viewPort.anchoredPosition);
                 if (distance > 137 && distance < 139)
                 {
-                    iTween.ScaleTo(b.gameObject, new Vector3(1.2f, 1.2f, 1.2f), 0.3f);
-                    b.interactable = true;
-                    childImages = b.GetComponentsInChildren<Image>();
-                    foreach (Image i in childImages)
+                    iTween.ScaleTo(episodes[i].gameObject, new Vector3(1.2f, 1.2f, 1.2f), 0.3f);
+                    
+                    childDots[i].color = targetColor;
+                    episodes[i].interactable = true;
+                    
+                    childTexts = episodes[i].GetComponentInChildren<UPersian.Components.RtlText>();
+                    childTexts.color = new Color(1 , 1 , 1 , 1);
+
+                    childImages = episodes[i].GetComponentsInChildren<Image>();
+                    foreach (Image im in childImages)
                     {
-                        if (i.gameObject.name == "lock")
-                            b.interactable = false;
+                        if (im.gameObject.name == "lock")
+                            episodes[i].interactable = false;
                     }
                 }
-                else if (distance < 137 && b.transform.localScale != Vector3.one)
+                else if ((distance < 137 || distance > 139 )&& episodes[i].transform.localScale != Vector3.one)
                 {
-                    iTween.ScaleTo(b.gameObject, Vector3.one, 0.3f);
-                    b.interactable = false;
+                    iTween.ScaleTo(episodes[i].gameObject, Vector3.one, 0.3f);
+
+                    childTexts = episodes[i].GetComponentInChildren<UPersian.Components.RtlText>();
+                    childTexts.color = new Color(1 , 1 , 1 , 0);
+
+                    childDots[i].color = originalColor;
+                    episodes[i].interactable = false;
                 }
+              
             }
         }
     }

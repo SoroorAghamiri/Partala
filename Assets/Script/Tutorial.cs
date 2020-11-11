@@ -10,7 +10,6 @@ public class Tutorial : MonoBehaviour
 {
 
     [Header("Tutorial Components")]
-    // public List<GameObject> tutorialObjects = new List<GameObject>();
     public List<GameObject> fixedObjects = new List<GameObject>();
     public List<GameObject> tutorialPanels = new List<GameObject>();
     public List<GameObject> fixedObjectLight = new List<GameObject>();
@@ -45,6 +44,7 @@ public class Tutorial : MonoBehaviour
     #endregion
 
     string levelIndex;
+    bool touched = false;
 
 
 
@@ -195,7 +195,7 @@ public class Tutorial : MonoBehaviour
                                 break;
                             case 1:
                                 showCityLights();
-                                hintLight.SetActive(false);
+                                
                                 globalLight.intensity = 1f;
                                 break;
                         }
@@ -221,16 +221,12 @@ public class Tutorial : MonoBehaviour
                             }
                         }
                     }
-                    
+                  touched = true;  
                 }
-                if(levelIndex == "3" && i==0){
-                    if(cview.scalingD){
-                        showGuidText(i, false);
-                            i++;
-                    }
-                }
+                
+                
                 //when movement is over:
-                if (Input.touchCount == 0 && objectFixer.isFixed)
+                if (Input.touchCount == 0 && objectFixer.isFixed && touched)
                 {
 
                     switch (levelIndex)
@@ -263,8 +259,16 @@ public class Tutorial : MonoBehaviour
                             }
                             break;
                     }
+                    touched = false;
                 }
-                    
+                
+                if(levelIndex == "3" && i==0){
+                    if(cview.scalingD){
+                        showGuidText(i, false);
+                        hintLight.SetActive(false);
+                            i++;
+                    }
+                }
             }
         }
         else if (!showGuide)
