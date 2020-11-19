@@ -30,7 +30,8 @@ public class EpisodeManager : MonoBehaviour
     {
 
         this.GetComponent<AudioSource>().Play();
-        mylevelLoader.LoadLevel(episode);
+        PersistentSceneManager.instance.LoadScene(episode);
+       // mylevelLoader.LoadLevel(episode);
     }
 
     public void SoundActive()

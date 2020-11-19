@@ -35,7 +35,8 @@ public class StartView : MonoBehaviour
 
     public void onStartClicked()
     {
-        mylevelLoader.LoadLevel(SceneNames.EpisodeSelect);
+        PersistentSceneManager.instance.LoadScene(SceneNames.EpisodeSelect);
+        //mylevelLoader.LoadLevel(SceneNames.EpisodeSelect);
         //SceneManager.LoadScene(SceneNames.EpisodeSelect);
 
     }
