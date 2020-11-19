@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PersistentSceneManager : MonoBehaviour
 {
     public static PersistentSceneManager instance;
-
+    public Camera cam;
     public GameObject loadingScreen;
     public dynamic activeScene = 0;
 
@@ -34,6 +34,7 @@ public class PersistentSceneManager : MonoBehaviour
 
     public void LoadScene(dynamic myDynamic)
     {
+        cam.gameObject.SetActive(true);
         loadingScreen.gameObject.SetActive(true);
 
         scenesLoading.Add(SceneManager.UnloadSceneAsync(activeScene));
@@ -53,6 +54,8 @@ public class PersistentSceneManager : MonoBehaviour
                 yield return null;
             }
         }
+        cam.gameObject.SetActive(false);
+        yield return new WaitForSeconds(2f);
         loadingScreen.gameObject.SetActive(false);
 
     }
