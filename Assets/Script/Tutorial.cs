@@ -125,6 +125,8 @@ public class Tutorial : MonoBehaviour
         if (i == stepCount)
         {
             uiButtons.interactable = true;
+            if(hintLight.active)
+                hintLight.SetActive(false);
             globalLight.intensity = 1f;
 
             if (correctObjectsShades.Length > 0)
@@ -134,8 +136,7 @@ public class Tutorial : MonoBehaviour
                     correctObjectsShades[j].SetActive(false);
                 }
             }
-            // if (levelIndex != "3")
-            //     gameManager.SetWin();
+            
             if (correctObjectsLights.Length > 0)
             {
                 for (int j = 0; j < correctObjectsLights.Length; j++)

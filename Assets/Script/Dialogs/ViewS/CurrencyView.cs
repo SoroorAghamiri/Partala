@@ -66,7 +66,7 @@ public class CurrencyView : DialogBase
     private void Update()
     {
         numberOfFeathers.text = DataManager.Instance.GetFeather().ToString();
-        // if(!DataManager.Instance.GetTutorial()){
+        if(!DataManager.Instance.GetTutorial()){
             if(!firstHint && !scalingI && firstType.active){
                 // Debug.Log("itween must be played now");
                 iTween.ScaleTo(alamoot.gameObject , iTween.Hash("x",1.3f , "y",1.3f ,"z" ,1.3f , "time" , 0.5f , "loopType" , "loop","ignoretimescale", true));
@@ -77,7 +77,7 @@ public class CurrencyView : DialogBase
                 iTween.ScaleTo(alamootDig.gameObject , iTween.Hash("x",1.3f , "y",1.3f ,"z" ,1.3f , "time" , 0.5f , "loopType" , "loop","ignoretimescale", true));
                 scalingD = true;
             }
-        // }
+        }
         if (!DataManager.Instance.GetFirstInfo())
         {
 
