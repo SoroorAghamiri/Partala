@@ -8,11 +8,21 @@ public class EpisodeManager : MonoBehaviour
 {
     private LevelLoader mylevelLoader;
     [SerializeField] Button[] episodeButtons;
-
+    private dynamic buildIndexofCurrent;
 
     // Start is called before the first frame update
     void Start()
     {
+        buildIndexofCurrent = PersistentSceneManager.instance.activeScene;
+        if (buildIndexofCurrent is string)
+        {
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(buildIndexofCurrent));
+        }
+        else
+        {
+            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(buildIndexofCurrent));
+        }
+
         if (DataManager.Instance.GetEpisode() == 0)
         {
             DataManager.Instance.SetEpisode(1);

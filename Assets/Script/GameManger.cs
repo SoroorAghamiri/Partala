@@ -56,6 +56,9 @@ public class GameManger : MonoBehaviour
     private int[] witchLevels = { 4, 7, 13 };
     ///Too much shit happening at the same time
     /// </summary>
+    /// 
+
+    private dynamic buildIndexofCurrent;
     public void SingleTOne()
     {
         if (Instans == null)
@@ -80,6 +83,15 @@ public class GameManger : MonoBehaviour
 
     void Start()
     {
+        buildIndexofCurrent = PersistentSceneManager.instance.activeScene;
+        if (buildIndexofCurrent is string)
+        {
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(buildIndexofCurrent));
+        }
+        else
+        {
+            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(buildIndexofCurrent));
+        }
         // ShowNumberOfFeathers();
         LevelFactor();
         SettingInitialValues();

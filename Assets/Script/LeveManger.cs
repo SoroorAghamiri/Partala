@@ -12,13 +12,32 @@ public class LeveManger : MonoBehaviour
     private int currentEpisode;
     [SerializeField] private Button[] levelButtons;
 
-
+    private dynamic buildIndexofCurrent;
 
     private AudioSource audioSource;
 
     // Start is called before the first frame update
+    private void OnLevelWasLoaded()
+    {
+        
+
+    }
     private void Start()
     {
+        buildIndexofCurrent = PersistentSceneManager.instance.activeScene;
+        if (buildIndexofCurrent is string)
+        {
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(buildIndexofCurrent));
+        }
+        else
+        {
+            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(buildIndexofCurrent));
+        }
+        
+        if(buildIndexofCurrent is string)
+        {
+            buildIndexofCurrent = SceneManager.GetSceneByName(buildIndexofCurrent).buildIndex;
+        }
         mylevelLoader = FindObjectOfType<LevelLoader>();
         FindCurrentEpisode();
         audioSource = this.GetComponent<AudioSource>();
@@ -30,21 +49,20 @@ public class LeveManger : MonoBehaviour
         }
         UnlockLevelsTillPlayerProgesss();
 
-
     }
 
     private void FindCurrentEpisode()
     {
-        if (DataManager.Instance.buildIndexOfLevelSelectors.Contains(SceneManager.GetActiveScene().buildIndex) == false)
+        if (DataManager.Instance.buildIndexOfLevelSelectors.Contains(buildIndexofCurrent) == false)
         {
-            DataManager.Instance.buildIndexOfLevelSelectors.Add(SceneManager.GetActiveScene().buildIndex);
+            DataManager.Instance.buildIndexOfLevelSelectors.Add(buildIndexofCurrent);
             currentEpisode = DataManager.Instance.buildIndexOfLevelSelectors.Count;
         }
         else
         {
             for (int i = 0; i < DataManager.Instance.buildIndexOfLevelSelectors.Count; i++)
             {
-                if (DataManager.Instance.buildIndexOfLevelSelectors[i] == SceneManager.GetActiveScene().buildIndex)
+                if (DataManager.Instance.buildIndexOfLevelSelectors[i] == buildIndexofCurrent)
                 {
                     currentEpisode = i + 1;
                     break;
@@ -66,7 +84,8 @@ public class LeveManger : MonoBehaviour
     public void LevelOnClick(int level)
     {
         audioSource.Play();
-        mylevelLoader.LoadLevel(level + SceneManager.GetActiveScene().buildIndex);
+        PersistentSceneManager.instance.LoadScene(level + buildIndexofCurrent);
+        //mylevelLoader.LoadLevel(level + SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Onback(string episode)
