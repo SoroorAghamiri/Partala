@@ -27,11 +27,11 @@ public class Tutorial : MonoBehaviour
     public int stepCount;
     public WinCheckerMoreThan2Objects WinChecker;
 
-    // public FocusSwitcher focus;
+
     #region privateVariables
     private List<bool> stepIsDone;
     private bool showGuide = true;
-    private bool nextIsClicked = false;
+    // private bool nextIsClicked = false;
     private bool rotationDone = false;
     private GameManger gameManager;
     private ObjectFixer objectFixer;
@@ -124,6 +124,8 @@ public class Tutorial : MonoBehaviour
         }
         if (i == stepCount)
         {
+            GameObject plight = this.GetComponentInChildren<UnityEngine.Experimental.Rendering.Universal.Light2D>().gameObject;
+            plight.gameObject.SetActive(false);
             uiButtons.interactable = true;
             if(hintLight.active)
                 hintLight.SetActive(false);
