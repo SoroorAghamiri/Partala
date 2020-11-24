@@ -15,7 +15,6 @@ public class SettingScene : MonoBehaviour
     public Slider sfxCheck;
     public Slider musicCheck;
 
-    private LevelLoader mylevelLoader;
     void Start()
     {
         float firstMusicValue = DataManager.Instance.GetMusicLevel();
@@ -26,7 +25,6 @@ public class SettingScene : MonoBehaviour
 
         musicCheck.value = Mathf.Pow(10, (firstMusicValue / 20));
         sfxCheck.value = Mathf.Pow(10, (firstSfxValue / 20));
-        mylevelLoader = FindObjectOfType<LevelLoader>();
     }
 
     void Update()
@@ -38,7 +36,8 @@ public class SettingScene : MonoBehaviour
     }
     public void onHomeClicked()
     {
-        mylevelLoader.LoadLevel(SceneNames.Start);
+        PersistentSceneManager.instance.LoadScene(SceneNames.Start, true);
+        //mylevelLoader.LoadLevel(SceneNames.Start);
     }
 
     public void onDefaultSettingClicked()

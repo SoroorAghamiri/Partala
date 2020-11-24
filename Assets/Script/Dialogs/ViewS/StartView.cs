@@ -5,11 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class StartView : MonoBehaviour
 {
-    private LevelLoader mylevelLoader;
-    private void Start()
-    {
-        mylevelLoader = FindObjectOfType<LevelLoader>();
-    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -29,19 +24,20 @@ public class StartView : MonoBehaviour
 
     public void openSettingScene()
     {
-        mylevelLoader.LoadLevel(SceneNames.Setting);
-        //SceneManager.LoadScene(SceneNames.Setting);
+        PersistentSceneManager.instance.LoadScene(SceneNames.Setting,true);
+        //mylevelLoader.LoadLevel(SceneNames.Setting);
+        
     }
 
     public void onStartClicked()
     {
-        PersistentSceneManager.instance.LoadScene(SceneNames.EpisodeSelect);
+        PersistentSceneManager.instance.LoadScene(SceneNames.EpisodeSelect,true);
         //mylevelLoader.LoadLevel(SceneNames.EpisodeSelect);
-        //SceneManager.LoadScene(SceneNames.EpisodeSelect);
 
     }
     public void openShop()
     {
-        mylevelLoader.LoadLevel(SceneNames.Shop);
+        PersistentSceneManager.instance.LoadScene(SceneNames.Shop, true);
+        //mylevelLoader.LoadLevel(SceneNames.Shop);
     }
 }

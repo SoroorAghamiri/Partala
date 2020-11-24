@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class EpisodeManager : MonoBehaviour
 {
-    private LevelLoader mylevelLoader;
     [SerializeField] Button[] episodeButtons;
     private dynamic buildIndexofCurrent;
 
@@ -27,7 +26,6 @@ public class EpisodeManager : MonoBehaviour
         {
             DataManager.Instance.SetEpisode(1);
         }
-        mylevelLoader = FindObjectOfType<LevelLoader>();
 
     }
 
@@ -40,7 +38,7 @@ public class EpisodeManager : MonoBehaviour
     {
 
         this.GetComponent<AudioSource>().Play();
-        PersistentSceneManager.instance.LoadScene(episode);
+        PersistentSceneManager.instance.LoadScene(episode,true);
        // mylevelLoader.LoadLevel(episode);
     }
 
