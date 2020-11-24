@@ -3162,6 +3162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd497877e97c0cf4a881379552547d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelIndex: 1
   fixedObjects: []
   tutorialPanels:
   - {fileID: 805213028}
@@ -3183,6 +3184,9 @@ MonoBehaviour:
   touchManager: {fileID: 1152968572}
   stepCount: 2
   WinChecker: {fileID: 1290885364}
+  pointlight: {fileID: 2094582709}
+  hintLight: {fileID: 0}
+  cview: {fileID: 0}
 --- !u!4 &1547722252
 Transform:
   m_ObjectHideFlags: 0
