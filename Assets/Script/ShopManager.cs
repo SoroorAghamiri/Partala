@@ -8,7 +8,6 @@ using UPersian.Components;
 public class ShopManager : MonoBehaviour
 {
     
-    private LevelLoader mylevelLoader;
     private int productIndex = 0;
     private int amountOfFeathersTobeAdded;
 
@@ -28,7 +27,6 @@ public class ShopManager : MonoBehaviour
 
     private void Start()
     {
-        mylevelLoader = FindObjectOfType<LevelLoader>();
         if(AdManager.Instance.RequestRewardAd() == 5)
         {
             ShowMessage("دستگاه شما متصل به اینترنت نیست، بعدا تلاش کنید!");
@@ -195,14 +193,16 @@ public class ShopManager : MonoBehaviour
     {
         if(DataManager.Instance.lastSceneIndex==0)
         {
-            mylevelLoader.LoadLevel(SceneNames.Start);
+            PersistentSceneManager.instance.LoadScene(SceneNames.Start, true);
+            //mylevelLoader.LoadLevel(SceneNames.Start);
         }
         else
         {
 
             int e = DataManager.Instance.lastSceneIndex;
             DataManager.Instance.lastSceneIndex = 0;
-            mylevelLoader.LoadLevel(e);
+            PersistentSceneManager.instance.LoadScene(e, false);
+            //mylevelLoader.LoadLevel(e);
         }
         
     }

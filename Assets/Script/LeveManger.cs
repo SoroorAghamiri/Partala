@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 public class LeveManger : MonoBehaviour
 {
-    private LevelLoader mylevelLoader;
     private int currentEpisode;
     [SerializeField] private Button[] levelButtons;
 
@@ -38,7 +37,6 @@ public class LeveManger : MonoBehaviour
         {
             buildIndexofCurrent = SceneManager.GetSceneByName(buildIndexofCurrent).buildIndex;
         }
-        mylevelLoader = FindObjectOfType<LevelLoader>();
         FindCurrentEpisode();
         audioSource = this.GetComponent<AudioSource>();
 
@@ -84,13 +82,14 @@ public class LeveManger : MonoBehaviour
     public void LevelOnClick(int level)
     {
         audioSource.Play();
-        PersistentSceneManager.instance.LoadScene(level + buildIndexofCurrent);
+        PersistentSceneManager.instance.LoadScene(level + buildIndexofCurrent,false);
         //mylevelLoader.LoadLevel(level + SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Onback(string episode)
     {
-        mylevelLoader.LoadLevel(episode);
+        PersistentSceneManager.instance.LoadScene(episode, false);
+        //mylevelLoader.LoadLevel(episode);
     }
 
     public void SoundActive()

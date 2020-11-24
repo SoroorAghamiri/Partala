@@ -6,10 +6,22 @@ using UnityEngine.SceneManagement;
 public class PersistentSceneManager : MonoBehaviour
 {
     public static PersistentSceneManager instance;
-    public Camera cam;
-    public GameObject loadingScreen;
+    [Header("Fade Properties")]
+    public Camera camFade;
+    public GameObject fadeScreen;
+    public Animator fadeScreenAnimator;
+    [Header("FX properties")]
+    public Camera camFX;
+    public GameObject FXScreen;
+    public Animator FXfadeAnimator;
+
     public dynamic activeScene = 0;
-    public Animator fade;
+    
+
+
+    private Camera activeCam;
+    private GameObject activeScreen;
+    private Animator activeAnimator;
     List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
 
     private void Awake()
@@ -17,14 +29,14 @@ public class PersistentSceneManager : MonoBehaviour
         instance = this;
 
         SceneManager.LoadSceneAsync(SceneNames.Start, LoadSceneMode.Additive);
-        
+
         activeScene = 1;
         SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(activeScene));
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -33,19 +45,35 @@ public class PersistentSceneManager : MonoBehaviour
     }
 
 
-    public void LoadScene(dynamic myDynamic)
+    public void LoadScene(dynamic myDynamic, bool FX)
     {
+        if (FX)
+        {
+            activeCam = camFX;
+            activeScreen = FXScreen;
+            activeAnimator = FXfadeAnimator;
+        }
+        else
+        {
+            activeCam = camFade;
+            activeScreen = fadeScreen;
+            activeAnimator = fadeScreenAnimator;
+        }
         SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(0)); //Change Active scene to PersistentSceneManager
         StartCoroutine(StartFade(myDynamic));
     }
 
     public IEnumerator StartFade(dynamic myDynamic)
     {
+        activeScreen.gameObject.SetActive(true);
 
-        cam.gameObject.SetActive(true);
-        loadingScreen.gameObject.SetActive(true);
-        fade.ResetTrigger("Start");
+
+
+        activeAnimator.ResetTrigger("Start");
+
         yield return new WaitForSeconds(0.53f);
+        activeCam.gameObject.SetActive(true);
+
         scenesLoading.Add(SceneManager.UnloadSceneAsync(activeScene));
         scenesLoading.Add(SceneManager.LoadSceneAsync(myDynamic, LoadSceneMode.Additive));
 
@@ -55,28 +83,18 @@ public class PersistentSceneManager : MonoBehaviour
     }
     public IEnumerator GetSceneLoadProgress()
     {
- 
-        for ( int i=0;i<scenesLoading.Count;i++)
+
+        for (int i = 0; i < scenesLoading.Count; i++)
         {
             while (!scenesLoading[i].isDone)
             {
                 yield return null;
             }
         }
-        cam.gameObject.SetActive(false);
-        yield return new WaitForSeconds(1f);
-        fade.SetTrigger("End");
+        activeCam.gameObject.SetActive(false);
+        activeAnimator.SetTrigger("End");
         yield return new WaitForSeconds(0.53f);
-        loadingScreen.gameObject.SetActive(false);
 
-
-        if (activeScene is string)
-        {
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName(activeScene));
-        }
-        else
-        {
-            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(activeScene));
-        }
+        activeScreen.gameObject.SetActive(false);
     }
 }

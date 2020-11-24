@@ -51,7 +51,7 @@ public class GameManger : MonoBehaviour
     private int levelNumberInEpisode;
     private GameObject[] mainComponents;
 
-    private LevelLoader mylevelLoader;
+    //private LevelLoader mylevelLoader;
     private int[] simorghLevels = { 5, 8, 12 };
     private int[] witchLevels = { 4, 7, 13 };
     ///Too much shit happening at the same time
@@ -123,7 +123,6 @@ public class GameManger : MonoBehaviour
         winFlagChangedByWinChecker = false;////
         wintoggler = true;
         Colliderpoint = GameObject.FindGameObjectsWithTag("ColliderPoint");
-        mylevelLoader = FindObjectOfType<LevelLoader>();
     }
 
     //I believe this method is not required. We alreadyn have a code to handle settingPanel.
@@ -277,8 +276,8 @@ public class GameManger : MonoBehaviour
 
     public void GoBackToLevelSelect()
     {
-        //SceneManager.LoadScene(LevelSelect);
-        mylevelLoader.LoadLevel(LevelSelect);
+        PersistentSceneManager.instance.LoadScene(LevelSelect, true);
+        //mylevelLoader.LoadLevel(LevelSelect);
     }
 
 
@@ -294,11 +293,14 @@ public class GameManger : MonoBehaviour
     {
         if (NextLevelname.Length == 0)
         {
-            mylevelLoader.LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
+            PersistentSceneManager.instance.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, false);
+           // mylevelLoader.LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        else
+        else////Implement Datamanager for saving player progress in episodes
         {
-            mylevelLoader.LoadLevel(NextLevelname);
+            PersistentSceneManager.instance.LoadScene(NextLevelname, true);
+            //
+            //mylevelLoader.LoadLevel(NextLevelname);
         }
 
     }
