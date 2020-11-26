@@ -294,13 +294,14 @@ public class GameManger : MonoBehaviour
         if (NextLevelname.Length == 0)
         {
             PersistentSceneManager.instance.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, false);
-           // mylevelLoader.LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        else////Implement Datamanager for saving player progress in episodes
+        else
         {
+            if(episodeNumber==DataManager.Instance.GetEpisode())
+            {
+                DataManager.Instance.SetEpisode(DataManager.Instance.GetEpisode() + 1);
+            }
             PersistentSceneManager.instance.LoadScene(NextLevelname, true);
-            //
-            //mylevelLoader.LoadLevel(NextLevelname);
         }
 
     }
