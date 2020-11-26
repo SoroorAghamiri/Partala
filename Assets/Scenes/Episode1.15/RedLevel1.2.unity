@@ -3336,7 +3336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelIndex: 2
-  fixedObjects: []
+  stepCount: 4
   tutorialPanels:
   - {fileID: 1479102149}
   - {fileID: 1288876181}
@@ -3359,12 +3359,11 @@ MonoBehaviour:
   uiButtons: {fileID: 555553222}
   rotateLight: {fileID: 374949736}
   globalLight: {fileID: 402797184}
-  touchManager: {fileID: 904654680}
-  stepCount: 4
-  WinChecker: {fileID: 1290885364}
-  pointlight: {fileID: 1806164037}
+  rightLight: {fileID: 1806164039}
   hintLight: {fileID: 0}
-  cview: {fileID: 0}
+  gameManager: {fileID: 0}
+  objectFixer: {fileID: 0}
+  touchManager: {fileID: 904654680}
 --- !u!4 &1485503505
 Transform:
   m_ObjectHideFlags: 0
@@ -3378,7 +3377,6 @@ Transform:
   m_Children:
   - {fileID: 1479102151}
   - {fileID: 1288876182}
-  - {fileID: 1806164038}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4148,7 +4146,7 @@ GameObject:
   - component: {fileID: 1806164038}
   - component: {fileID: 1806164039}
   m_Layer: 0
-  m_Name: Point Light 2D (1)
+  m_Name: RightLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4162,11 +4160,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1806164037}
   m_LocalRotation: {x: -0, y: -0, z: 0.031455882, w: 0.99950516}
-  m_LocalPosition: {x: -1.5986075, y: 1.4847962, z: 0.14160156}
+  m_LocalPosition: {x: 4.01, y: 0.39, z: 0}
   m_LocalScale: {x: 0.87440246, y: 0.87440246, z: 0.87440246}
   m_Children: []
-  m_Father: {fileID: 1485503505}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.6750002}
 --- !u!114 &1806164039
 MonoBehaviour:
