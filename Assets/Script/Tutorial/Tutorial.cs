@@ -184,6 +184,7 @@ public class Tutorial : MonoBehaviour
                                 showGuidText(i, true);
                                 break;
                             case 1:
+                                rightLight.intensity = 0f;
                                 rotationButton();
                                 showGuidText(i, true);
                                 break;
