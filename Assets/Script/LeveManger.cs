@@ -16,11 +16,6 @@ public class LeveManger : MonoBehaviour
     private AudioSource audioSource;
 
     // Start is called before the first frame update
-    private void OnLevelWasLoaded()
-    {
-        
-
-    }
     private void Start()
     {
         buildIndexofCurrent = PersistentSceneManager.instance.activeScene;

@@ -261,8 +261,8 @@ public class GameManger : MonoBehaviour
     {
         PanelDeactivation();
         buttons[2].GetComponent<AudioSource>().Play();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        PersistentSceneManager.instance.LoadScene(buildIndexofCurrent, false);
     }
 
 
@@ -271,7 +271,7 @@ public class GameManger : MonoBehaviour
         PanelDeactivation();
         buttons[2].gameObject.GetComponent<AudioSource>().Play();
         Invoke("OnHome", buttons[2].gameObject.GetComponent<AudioSource>().clip.length);
-        SceneManager.LoadScene(1);
+        PersistentSceneManager.instance.LoadScene(1, true);
     }
 
     public void GoBackToLevelSelect()
