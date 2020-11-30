@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6092711947732190854}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &391239419
 ParticleSystem:
@@ -4784,7 +4784,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6092711947732190854}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &1768198721
 ParticleSystem:
@@ -11005,6 +11005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 297127dc8e987c744a4c1f79a6fe820d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFixed: 0
   correctObj: []
   correctPosition: []
   touchManager: {fileID: 0}

@@ -109,7 +109,7 @@ public class ViewManager : MonoBehaviour
         {
             GameObject parent = GameObject.Find("GameManger");
             GameObject childOfCC = parent.transform.Find("UI PA").gameObject;
-            GameObject cOfCOfCC = childOfCC.transform.Find("PauseCanvas").gameObject;
+            GameObject cOfCOfCC = childOfCC.transform.Find("Canvas").gameObject;
             GameObject blurclone = cOfCOfCC.transform.Find("BLUR(Clone)").gameObject;
             return blurclone;
         }

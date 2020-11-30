@@ -16,8 +16,8 @@ public class CurrencyView : DialogBase
     public UPersian.Components.RtlText disc1;
     public UPersian.Components.RtlText disc2;
     public GameObject firstType;
-    public GameObject alamoot;
-    public GameObject alamootDig;
+    public GameObject ekbatan;
+    public GameObject ekbatanDig;
     
     [HideInInspector]public bool firstHint;
     [HideInInspector]public bool hintShown;
@@ -68,15 +68,12 @@ public class CurrencyView : DialogBase
         numberOfFeathers.text = DataManager.Instance.GetFeather().ToString();
         if(DataManager.Instance.GetTutorial()){
             if(!firstHint && !scalingI && firstType.active){
-                // Debug.Log("itween must be played now");
-                iTween.ScaleTo(alamoot.gameObject , iTween.Hash("x",1.3f , "y",1.3f ,"z" ,1.3f , "time" , 0.5f , "loopType" , "loop","ignoretimescale", true));
-                // iTween.ScaleTo(alamoot.gameObject , iTween.Hash("x",1f , "y",1f ,"z" ,1f , "time" , 1f , "loopType" , "loop","ignoretimescale", true));
+                iTween.ScaleTo(ekbatan.gameObject , iTween.Hash("x",1.3f , "y",1.3f ,"z" ,1.3f , "time" , 0.5f , "loopType" , "loop","ignoretimescale", true));
                 scalingI = true;
             }
-            if(scalingI && infoIsShown.Contains("AlamootInfo") && !scalingD && firstType.active){
-                iTween.ScaleTo(alamootDig.gameObject , iTween.Hash("x",1.3f , "y",1.3f ,"z" ,1.3f , "time" , 0.5f , "loopType" , "loop","ignoretimescale", true));
+            if(scalingI && infoIsShown.Contains("EkbatanInfo") && !scalingD && firstType.active){
+                iTween.ScaleTo(ekbatanDig.gameObject , iTween.Hash("x",1.3f , "y",1.3f ,"z" ,1.3f , "time" , 0.5f , "loopType" , "loop","ignoretimescale", true));
                 scalingD = true;
-                // Debug.Log("currency scalingD:" + scalingD);
             }
         }
         if (!DataManager.Instance.GetFirstInfo())
@@ -118,6 +115,22 @@ public class CurrencyView : DialogBase
         showInfo(name);
         if (name != "Info")
             GameObject.Find(name).SetActive(false);
+    }
+
+    public void callShowShop(){
+        showShop();
+         Destroy(this.gameObject);
+    }
+
+    public ShopView showShop(){
+        ShopView prefab = Resources.Load<ShopView>("Views/ShopPanel");
+        ShopView dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
+        dialog.transform.SetParent(this.GetComponent<RectTransform>());
+        dialog.transform.localPosition = Vector3.zero;
+        dialog.transform.localScale = Vector3.one;
+
+        ViewManager.instance.openView(dialog);
+        return dialog;
     }
 
     public InfoView showInfo(string callingHint)
@@ -189,6 +202,7 @@ public class CurrencyView : DialogBase
         }
     }
 
+    //TODO: Delete this method after the completion of shop panel
     public void OnShopClicked()
     {
         DataManager.Instance.lastSceneIndex = SceneManager.GetActiveScene().buildIndex; //remove later

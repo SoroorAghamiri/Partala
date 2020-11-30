@@ -1438,7 +1438,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2267220495063475120}
-        m_MethodName: OnShopClicked
+        m_MethodName: callShowShop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1554,8 +1554,8 @@ MonoBehaviour:
   disc1: {fileID: 3733890051551292283}
   disc2: {fileID: 8291028810564040464}
   firstType: {fileID: 1493932130572496834}
-  alamoot: {fileID: 9128536581756949181}
-  alamootDig: {fileID: 7240416137741562192}
+  ekbatan: {fileID: 6212944457630398269}
+  ekbatanDig: {fileID: 2063409256326336970}
   firstHint: 0
   hintShown: 0
   wrongComponents: []
@@ -1564,6 +1564,7 @@ MonoBehaviour:
   speedForScale: 0
   limit: 1
   infoIsShown: []
+  scalingD: 0
 --- !u!212 &5021837798524857315
 SpriteRenderer:
   m_ObjectHideFlags: 0

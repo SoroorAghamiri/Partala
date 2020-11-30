@@ -59,21 +59,10 @@ public class Tutorial : MonoBehaviour
         //     DataManager.Instance.SetTutorial(true);
         // //*Up to here
 
-        
-
-        // dynamic _active = PersistentSceneManager.instance.activeScene;//SceneManager.GetActiveScene().name;
-        // Type unknown = _active.GetType();
-        // Debug.Log("unknown is " + unknown);
-        // levelIndex = _active.ToString();//levelIndex.Substring(levelIndex.Length - 1);
-        // Debug.Log("level index " + levelIndex);
-
-        
-        
-        
-
         if (DataManager.Instance.GetTutorial() == false)
         {
             showGuide = false;
+            closeTutorialParams();
         }
         else{
             InititlaizeVariables();
@@ -81,6 +70,22 @@ public class Tutorial : MonoBehaviour
         }
     }
 
+    void closeTutorialParams(){
+        foreach (GameObject go in correctObjectsLights)
+        {
+            if(go.active){
+                go.SetActive(false);
+            }
+        }
+        if(hintLight != null && hintLight.active){
+            hintLight.SetActive(false);
+        }
+        if(rotateLight != null && rotateLight.active){
+            rotateLight.SetActive(false);
+        }
+        rightLight.intensity = 0f;
+        globalLight.intensity = 1f;
+    }
     void InititlaizeVariables(){
         gameManager = GameObject.FindObjectOfType<GameManger>();
         objectFixer = GameObject.FindObjectOfType<ObjectFixer>();
@@ -291,12 +296,12 @@ public class Tutorial : MonoBehaviour
                 
             }
         }
-        else if (!showGuide)
-        {
-            uiButtons.interactable = true;
-            globalLight.intensity = 1f;
+        // else if (!showGuide)
+        // {
+        //     uiButtons.interactable = true;
+        //     globalLight.intensity = 1f;
 
-        }
+        // }
     }
 
     void glowObjects(int indx)
