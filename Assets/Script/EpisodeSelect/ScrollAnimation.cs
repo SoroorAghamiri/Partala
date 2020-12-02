@@ -9,6 +9,7 @@ public class ScrollAnimation : MonoBehaviour
     public RectTransform viewPort;
     public GameObject dots;
     public Color targetColor;
+    public string sceneName;
      Button[] episodes;
     Image[] childImages;
     [SerializeField] UPersian.Components.RtlText childTexts;
@@ -25,7 +26,8 @@ public class ScrollAnimation : MonoBehaviour
                 b.interactable = false;
             }
         }
-        childDots = dots.GetComponentsInChildren<Image>();
+        if(sceneName == SceneNames.EpisodeSelect)
+            childDots = dots.GetComponentsInChildren<Image>();
         originalColor = childDots[0].color;
     }
 
@@ -42,11 +44,13 @@ public class ScrollAnimation : MonoBehaviour
                 {
                     iTween.ScaleTo(episodes[i].gameObject, new Vector3(1.2f, 1.2f, 1.2f), 0.3f);
                     
-                    childDots[i].color = targetColor;
+                    if(childDots[i] != null)
+                        childDots[i].color = targetColor;
                     episodes[i].interactable = true;
                     
                     childTexts = episodes[i].GetComponentInChildren<UPersian.Components.RtlText>();
-                    childTexts.color = new Color(1 , 1 , 1 , 1);
+                    if(childTexts != null)
+                        childTexts.color = new Color(1 , 1 , 1 , 1);
 
                     childImages = episodes[i].GetComponentsInChildren<Image>();
                     foreach (Image im in childImages)
@@ -60,9 +64,11 @@ public class ScrollAnimation : MonoBehaviour
                     iTween.ScaleTo(episodes[i].gameObject, Vector3.one, 0.3f);
 
                     childTexts = episodes[i].GetComponentInChildren<UPersian.Components.RtlText>();
-                    childTexts.color = new Color(1 , 1 , 1 , 0);
+                    if(childTexts != null)
+                        childTexts.color = new Color(1 , 1 , 1 , 0);
 
-                    childDots[i].color = originalColor;
+                    if(childDots[i] != null)
+                        childDots[i].color = originalColor;
                     episodes[i].interactable = false;
                 }
               
