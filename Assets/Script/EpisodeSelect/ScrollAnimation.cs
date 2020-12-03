@@ -12,9 +12,10 @@ public class ScrollAnimation : MonoBehaviour
     public string sceneName;
      Button[] episodes;
     Image[] childImages;
-    [SerializeField] UPersian.Components.RtlText childTexts;
+    UPersian.Components.RtlText childTexts;
     Image[] childDots;
     Color originalColor;
+    bool enableDots = false;
 
     void Start()
     {
@@ -26,9 +27,11 @@ public class ScrollAnimation : MonoBehaviour
                 b.interactable = false;
             }
         }
-        if(sceneName == SceneNames.EpisodeSelect)
+        if(sceneName == SceneNames.EpisodeSelect){
             childDots = dots.GetComponentsInChildren<Image>();
-        originalColor = childDots[0].color;
+            originalColor = childDots[0].color;
+            enableDots = true;
+        }
     }
 
     private void Update()
@@ -44,7 +47,7 @@ public class ScrollAnimation : MonoBehaviour
                 {
                     iTween.ScaleTo(episodes[i].gameObject, new Vector3(1.2f, 1.2f, 1.2f), 0.3f);
                     
-                    if(childDots[i] != null)
+                    if(enableDots)
                         childDots[i].color = targetColor;
                     episodes[i].interactable = true;
                     
@@ -67,7 +70,7 @@ public class ScrollAnimation : MonoBehaviour
                     if(childTexts != null)
                         childTexts.color = new Color(1 , 1 , 1 , 0);
 
-                    if(childDots[i] != null)
+                    if(enableDots)
                         childDots[i].color = originalColor;
                     episodes[i].interactable = false;
                 }
