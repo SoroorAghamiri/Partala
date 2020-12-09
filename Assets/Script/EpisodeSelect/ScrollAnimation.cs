@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,13 +13,16 @@ public class ScrollAnimation : MonoBehaviour
     public string sceneName;
      Button[] episodes;
     Image[] childImages;
+    [SerializeField] List<Image> puzzles;
     UPersian.Components.RtlText childTexts;
     Image[] childDots;
     Color originalColor;
     bool enableDots = false;
+    LeveManger levelMan;
 
     void Start()
     {
+        levelMan = GameObject.FindObjectOfType<LeveManger>();
         episodes = this.GetComponentsInChildren<Button>();
         if (episodes.Length > 0)
         {
@@ -27,13 +31,34 @@ public class ScrollAnimation : MonoBehaviour
                 b.interactable = false;
             }
         }
-        if(sceneName == SceneNames.EpisodeSelect){
+        if(String.Equals(sceneName , SceneNames.EpisodeSelect)){
             childDots = dots.GetComponentsInChildren<Image>();
             originalColor = childDots[0].color;
             enableDots = true;
+        }else if(String.Equals(sceneName , SceneNames.LevelSelect1)){
+            
+            foreach (Button b in episodes)
+            {
+                Image[] temp = b.GetComponentsInChildren<Image>();
+                foreach (Image im in temp)
+                {
+                    if(im.name == "Puzzle"){
+                        puzzles.Add(im);
+                    }
+                }
+            }
+
+            ShowDonePuzzles();
         }
     }
 
+    void ShowDonePuzzles(){
+        var levelUnlock = DataManager.Instance.GetLevel(levelMan.currentEpisode);
+        for (int i = 0; i < levelUnlock; i++) 
+        {
+            puzzles[i].color = Color.white;
+        }
+    }
     private void Update()
     {
         if (episodes.Length > 0)
@@ -47,9 +72,10 @@ public class ScrollAnimation : MonoBehaviour
                 {
                     iTween.ScaleTo(episodes[i].gameObject, new Vector3(1.2f, 1.2f, 1.2f), 0.3f);
                     
-                    if(enableDots)
+                    if(enableDots){
                         childDots[i].color = targetColor;
                     episodes[i].interactable = true;
+                    }
                     
                     childTexts = episodes[i].GetComponentInChildren<UPersian.Components.RtlText>();
                     if(childTexts != null)
@@ -70,9 +96,10 @@ public class ScrollAnimation : MonoBehaviour
                     if(childTexts != null)
                         childTexts.color = new Color(1 , 1 , 1 , 0);
 
-                    if(enableDots)
+                    if(enableDots){
                         childDots[i].color = originalColor;
                     episodes[i].interactable = false;
+                    }
                 }
               
             }

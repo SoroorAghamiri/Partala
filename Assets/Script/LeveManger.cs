@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class LeveManger : MonoBehaviour
 {
-    private int currentEpisode;
+    [HideInInspector] public int currentEpisode;
     [SerializeField] private Button[] levelButtons;
 
     private dynamic buildIndexofCurrent;
