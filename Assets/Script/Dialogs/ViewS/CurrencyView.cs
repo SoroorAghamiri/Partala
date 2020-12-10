@@ -51,10 +51,7 @@ public class CurrencyView : DialogBase
         {
             firstType.SetActive(true);
         }
-       
-                
-                // anim = alamoot.GetComponent<Animation>();
-               
+           
       
         if (!DataManager.Instance.GetEnableSecondHint())
             GameObject.Find("Ekbatan").GetComponent<Button>().interactable = false;

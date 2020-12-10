@@ -214,7 +214,7 @@ public class Tutorial : MonoBehaviour
                         break;
                 }
 
-                if(levelIndex == "3" && i==0 && cview.scalingD){
+                if(levelIndex == "3" && i==0 && cview != null && cview.scalingD){
                     
                         showGuidText(i, false);
                         hintLight.SetActive(false);

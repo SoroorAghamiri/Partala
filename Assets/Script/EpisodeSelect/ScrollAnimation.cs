@@ -13,16 +13,16 @@ public class ScrollAnimation : MonoBehaviour
     public string sceneName;
      Button[] episodes;
     Image[] childImages;
-    [SerializeField] List<Image> puzzles;
+    
     UPersian.Components.RtlText childTexts;
     Image[] childDots;
     Color originalColor;
     bool enableDots = false;
-    LeveManger levelMan;
+    // LeveManger levelMan;
 
     void Start()
     {
-        levelMan = GameObject.FindObjectOfType<LeveManger>();
+        // levelMan = GameObject.FindObjectOfType<LeveManger>();
         episodes = this.GetComponentsInChildren<Button>();
         if (episodes.Length > 0)
         {
@@ -35,30 +35,31 @@ public class ScrollAnimation : MonoBehaviour
             childDots = dots.GetComponentsInChildren<Image>();
             originalColor = childDots[0].color;
             enableDots = true;
-        }else if(String.Equals(sceneName , SceneNames.LevelSelect1)){
+        }
+        // else if(String.Equals(sceneName , SceneNames.LevelSelect1)){
             
-            foreach (Button b in episodes)
-            {
-                Image[] temp = b.GetComponentsInChildren<Image>();
-                foreach (Image im in temp)
-                {
-                    if(im.name == "Puzzle"){
-                        puzzles.Add(im);
-                    }
-                }
-            }
+        //     foreach (Button b in episodes)
+        //     {
+        //         Image[] temp = b.GetComponentsInChildren<Image>();
+        //         foreach (Image im in temp)
+        //         {
+        //             if(im.name == "Puzzle"){
+        //                 puzzles.Add(im);
+        //             }
+        //         }
+        //     }
 
-            ShowDonePuzzles();
-        }
+        //     ShowDonePuzzles();
+        // }
     }
 
-    void ShowDonePuzzles(){
-        var levelUnlock = DataManager.Instance.GetLevel(levelMan.currentEpisode);
-        for (int i = 0; i < levelUnlock; i++) 
-        {
-            puzzles[i].color = Color.white;
-        }
-    }
+    // void ShowDonePuzzles(){
+    //     var levelUnlock = DataManager.Instance.GetLevel(levelMan.currentEpisode);
+    //     for (int i = 0; i < levelUnlock; i++) 
+    //     {
+    //         puzzles[i].color = Color.white;
+    //     }
+    // }
     private void Update()
     {
         if (episodes.Length > 0)

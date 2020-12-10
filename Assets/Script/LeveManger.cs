@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,6 +12,7 @@ public class LeveManger : MonoBehaviour
 {
     [HideInInspector] public int currentEpisode;
     [SerializeField] private Button[] levelButtons;
+    [SerializeField] List<Image> puzzles;
 
     private dynamic buildIndexofCurrent;
 
@@ -40,6 +43,16 @@ public class LeveManger : MonoBehaviour
             levelButtons[i].interactable = false;
 
         }
+        for(int i = 0; i < levelButtons.Length; i++)
+            {
+                Image[] temp = levelButtons[i].GetComponentsInChildren<Image>();
+                foreach (Image im in temp)
+                {
+                    if(im.name == "Puzzle"){
+                        puzzles.Add(im);
+                    }
+                }
+            }
         UnlockLevelsTillPlayerProgesss();
 
     }
@@ -70,6 +83,12 @@ public class LeveManger : MonoBehaviour
         for (int i = 0; i < levelUnlock; i++) 
         {
             levelButtons[i].interactable = true;
+    
+        }
+        // Debug.Log("levelunlock " + levelUnlock);
+        for(int i = 0 ; i < levelUnlock-1;i++){
+                // if(i < levelUnlock - 1 && i < 6)//Remove the condition after logical and
+            puzzles[i].color = Color.white;
         }
     }
 

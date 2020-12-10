@@ -56,6 +56,7 @@ public class SettingScene : MonoBehaviour
         DataManager.Instance.SetLevel(1, 1);
         DataManager.Instance.SetFeather(7);
         DataManager.Instance.SetTutorial(true);
+        DataManager.Instance.SetFirstInfo(false);
         DataManager.Instance.Save();
     }
     public void onSoundChange(float newValue)
