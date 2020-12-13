@@ -2618,7 +2618,6 @@ MonoBehaviour:
   - {fileID: 755896993}
   - {fileID: 1618747916}
   - {fileID: 823548598}
-  - {fileID: 292057317}
   activeGameObject: {fileID: 0}
   rotate: 0
   speedMove: 15

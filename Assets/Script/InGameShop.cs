@@ -5,9 +5,8 @@ using UnityEngine.UI;
 using BazaarInAppBilling;
 using UPersian.Components;
 
-public class ShopManager : MonoBehaviour
+public class InGameShop : MonoBehaviour
 {
-    
     private int productIndex = 0;
     private int amountOfFeathersTobeAdded;
 
@@ -24,23 +23,22 @@ public class ShopManager : MonoBehaviour
         productIndex = index;
         StoreHandler.instance.Purchase(productIndex, OnPurchaseFailed, OnPurchasedSuccessfully);
     }
-
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        if(AdManager.Instance.RequestRewardAd() == 5)
+        if (AdManager.Instance.RequestRewardAd() == 5)
         {
-            ShowMessage("دستگاه شما متصل به اینترنت نیست، بعدا تلاش کنید!");
+            ShowMessage("دستگاه شما به اینترنت وصل نیست، برای تبلیغ دوباره تلاش کنید!");
         }
 
         timer = coolDownForAd;
         timer -= TimeMaster.Instance.CheckDate();
-        if(timer>0)
+        if (timer > 0)
         {
             timerText.gameObject.SetActive(true);
             featherWithAdButton.interactable = false;
         }
     }
-
     private void OnPurchasedSuccessfully(Purchase purchase, int productIndex)
     {
         Debug.Log("Purchased Successfully");
@@ -76,9 +74,6 @@ public class ShopManager : MonoBehaviour
         }
 
     }
-
-
-
     private void OnPurchaseFailed(int errorCode, string message)
     {
         Debug.Log("Purchase Failed");
@@ -121,92 +116,11 @@ public class ShopManager : MonoBehaviour
 
 
     }
-
-    private void OnConsumptionFailed(int errorCode, string message)
-    {
-        Debug.Log("On Consumption fail");
-        switch (errorCode)
-        {
-            case 2:
-                //Show Message
-                //The user doesn't have cafebazaar installed;
-                ShowMessage("شما کافه بازار را روی گوشی خود نصب نکردید.");
-                break;
-            case 5:
-                //Show Message
-                //The User Cancelled The Purchase;
-                ShowMessage("شما خرید خود را لغو کردید.");
-                break;
-            case 6:
-                //Check Inventory and Consume Product
-                break;
-            case 7:
-                //Show Message
-                //User did not Enter his account in cafebazaar
-                ShowMessage("شما وارد اکانت خود در کافه بازار نشدید.");
-                break;
-            case 8:
-                //The Item Is not in the Inventory
-                break;
-            case 9:
-                //Validating purchase stuff?????? Should I do it or not
-                break;
-            case 10:
-                //This purchase was not validated and the price will be returned
-                break;
-            case 14:
-                //Show Message
-                //Redo The Call Whatever It was the service has been initialized Successfully and redo stuff
-                ShowMessage("جادوگر ارتباط با کافه بازار را مختل کرده بود، مشکل حل شده است و دوباره امتحان کنید!");
-                break;
-        }
-    }
-    private void OnConsumption(Purchase purchase, int productIndex) 
-    {
-        Debug.Log("On Consumption");
-
-    }
-    private void OnInventoryHadProduct(Purchase purchase, int productIndex)
-
-    {
-        //StoreHandler.instance.ConsumePurchase(purchase, productIndex, OnConsumptionFailed, OnConsumption);
-
-
-    }
-
-
-
-    private void OnInventoryCheckFailed(int errorCode, string message)
-
-    {
-
-
-
-    }
-
     private void ShowMessage(string message)
     {
         messageBox.SetActive(true);
         textMessage.text = message;
     }
-    public void OnBackClicked()
-    {
-        if(DataManager.Instance.lastSceneIndex==0)
-        {
-            PersistentSceneManager.instance.LoadScene(SceneNames.Start, true);
-            //mylevelLoader.LoadLevel(SceneNames.Start);
-        }
-        else
-        {
-
-            int e = DataManager.Instance.lastSceneIndex;
-            DataManager.Instance.lastSceneIndex = 0;
-            PersistentSceneManager.instance.LoadScene(e, false);
-            //mylevelLoader.LoadLevel(e);
-        }
-        
-    }
-
     public void BuyFeatherWithAD()
     {
         StartCoroutine(CallingAdAndShowing());
