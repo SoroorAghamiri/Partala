@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class PersistentSceneManager : MonoBehaviour
 {
     public static PersistentSceneManager instance;
@@ -16,9 +17,7 @@ public class PersistentSceneManager : MonoBehaviour
     public Animator FXfadeAnimator;
 
     public dynamic activeScene = 0;
-    
-
-
+    public GameObject blinks;
     private Camera activeCam;
     private GameObject activeScreen;
     private Animator activeAnimator;
@@ -27,11 +26,10 @@ public class PersistentSceneManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-
         SceneManager.LoadSceneAsync(SceneNames.Start, LoadSceneMode.Additive);
 
         activeScene = 1;
-        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(activeScene));
+       // SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(activeScene));
     }
     // Start is called before the first frame update
     void Start()
@@ -70,7 +68,7 @@ public class PersistentSceneManager : MonoBehaviour
 
 
         activeAnimator.ResetTrigger("Start");
-
+        blinks.SetActive(true);
         yield return new WaitForSeconds(0.53f);
         activeCam.gameObject.SetActive(true);
 
@@ -92,6 +90,7 @@ public class PersistentSceneManager : MonoBehaviour
             }
         }
         activeCam.gameObject.SetActive(false);
+        blinks.SetActive(false);
         activeAnimator.SetTrigger("End");
         yield return new WaitForSeconds(0.53f);
 
