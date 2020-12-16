@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using BazaarInAppBilling;
 using UPersian.Components;
+using GameAnalyticsSDK;
 
 public class InGameShop : MonoBehaviour
 {
@@ -62,11 +63,15 @@ public class InGameShop : MonoBehaviour
                     amountOfFeathersTobeAdded = 20;
                     break;
             }
+            GameAnalytics.NewBusinessEvent("rial", int.Parse(StoreHandler.instance.products[productIndex].price), "feathers", StoreHandler.instance.products[productIndex].productId, "InGameShop");
+            GameAnalytics.NewResourceEvent(GAResourceFlowType.Source, "feather", amountOfFeathersTobeAdded, "purchase", "feather");
             DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() + amountOfFeathersTobeAdded);
             ShowMessage(amountOfFeathersTobeAdded.ToString() + " پر به اکانت شما اضافه شد.");
         }
         else //A Non-Consumable Currency Was Bought
         {
+            
+            GameAnalytics.NewBusinessEvent("rial", int.Parse(StoreHandler.instance.products[productIndex].price), "NoAd", StoreHandler.instance.products[productIndex].productId, "InGameShop");
             //Activate No Ads
             DataManager.Instance.SetNoAdActive();
             //Show Message That No Ads Has Been Activated
@@ -135,6 +140,7 @@ public class InGameShop : MonoBehaviour
             {
                 ShowMessage("یک پر به حساب شما اضافه گردید.");
                 DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() + 1);
+                GameAnalytics.NewResourceEvent(GAResourceFlowType.Source, "feather", 1, "adreward", "feather");
                 ResetClock();
                 timerText.gameObject.SetActive(true);
                 featherWithAdButton.interactable = false;
