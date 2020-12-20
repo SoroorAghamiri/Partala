@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-
+using GameAnalyticsSDK;
 
 public class CurrencyView : DialogBase
 {
@@ -160,6 +160,7 @@ public class CurrencyView : DialogBase
         {
             if (DataManager.Instance.GetFeather() - featherDiscount1 >= 0)
             {
+                GameAnalytics.NewResourceEvent(GAResourceFlowType.Sink, "feather", featherDiscount1, "Hint1", "feather");
                 DeactivateWrongComponents();
                 firstHint = true;
                 DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() - featherDiscount1);
@@ -177,6 +178,7 @@ public class CurrencyView : DialogBase
         {
             if (DataManager.Instance.GetFeather() - featherDiscount2 >= 0)
             {
+                GameAnalytics.NewResourceEvent(GAResourceFlowType.Sink, "feather", featherDiscount2, "Hint2", "feather");
                 CreateNewObjectForHandlingHintAfterViewCloses();
                 hintShown = true;
                 DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() - featherDiscount2);
