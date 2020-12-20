@@ -4,8 +4,17 @@ using UnityEngine.UI;
 
 public class ShopView : DialogBase
 {
-
+    private GameObject uiBs;
+    private void OnEnable() {
+        GameObject gmGO = GameObject.Find("GameManger");
+        GameObject uiPA = gmGO.transform.Find("UI PA").gameObject;
+        uiBs = uiPA.transform.Find("UI").gameObject;
+        if(uiBs!= null)
+            uiBs.SetActive(false);
+    }
     public void closeShop(){
+        if(!uiBs.active)
+            uiBs.SetActive(true);
         ViewManager.instance.closeView(this);
     }
 
