@@ -13,6 +13,7 @@ using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
 using UnityEngine.UIElements;
 using System;
+using GameAnalyticsSDK;
 
 
 #region SoroorComments
@@ -97,6 +98,7 @@ public class GameManger : MonoBehaviour
         SettingInitialValues();
         AddingListenersToButtons();
         FindCorrectEpisodeNumberAndLevel();
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Episode " + episodeNumber.ToString(), "Level " + levelNumberInEpisode.ToString());
     }
 
     private void FindCorrectEpisodeNumberAndLevel()
@@ -152,6 +154,7 @@ public class GameManger : MonoBehaviour
                 myEggsScript.SetLastEgg();
                 if (wintoggler)
                 {
+                    GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete,"Episode " + episodeNumber.ToString(),"Level " + levelNumberInEpisode.ToString());
                     if (DataManager.Instance.GetLevel(episodeNumber) == levelNumberInEpisode)
                     {
                         DataManager.Instance.SetLevel(DataManager.Instance.GetLevel(episodeNumber) + 1, episodeNumber);
@@ -300,6 +303,7 @@ public class GameManger : MonoBehaviour
             if (episodeNumber == DataManager.Instance.GetEpisode())
             {
                 DataManager.Instance.SetEpisode(DataManager.Instance.GetEpisode() + 1);
+                GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Episode " + episodeNumber.ToString());
             }
             PersistentSceneManager.instance.LoadScene(NextLevelname, true);
         }

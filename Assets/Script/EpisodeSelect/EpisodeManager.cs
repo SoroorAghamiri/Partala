@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using GameAnalyticsSDK;
 public class EpisodeManager : MonoBehaviour
 {
     [SerializeField] Button[] episodeButtons;
@@ -23,10 +23,12 @@ public class EpisodeManager : MonoBehaviour
         if (DataManager.Instance.GetEpisode() == 0)
         {
             DataManager.Instance.SetEpisode(1);
+
         }
         for (int i = 0; i < episodeButtons.Length; i++)//All Buttons except The First One
         {
             episodeButtons[i].interactable = false;
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Episode 1");
         }
         UnlockTillPlayerProgress();
     }
