@@ -37,6 +37,7 @@ public class CurrencyView : DialogBase
     private LevelLoader mylevelLoader;
     // Animation anim;
     bool scalingI = false;
+    bool tutorialIsOver = true;
     [HideInInspector] public bool scalingD = false;
 
     void Start()
@@ -51,7 +52,10 @@ public class CurrencyView : DialogBase
         {
             firstType.SetActive(true);
         }
-           
+
+        if(DataManager.Instance.GetTutorial()){
+            tutorialIsOver = false;
+        }
       
         if (!DataManager.Instance.GetEnableSecondHint())
             GameObject.Find("Ekbatan").GetComponent<Button>().interactable = false;
@@ -63,7 +67,8 @@ public class CurrencyView : DialogBase
     private void Update()
     {
         numberOfFeathers.text = DataManager.Instance.GetFeather().ToString();
-        if(DataManager.Instance.GetTutorial()){
+
+        if(!tutorialIsOver){
             if(!firstHint && !scalingI && firstType.active){
                 iTween.ScaleTo(ekbatan.gameObject , iTween.Hash("x",1.3f , "y",1.3f ,"z" ,1.3f , "time" , 0.5f , "loopType" , "loop","ignoretimescale", true));
                 scalingI = true;
@@ -71,8 +76,10 @@ public class CurrencyView : DialogBase
             if(scalingI && infoIsShown.Contains("EkbatanInfo") && !scalingD && firstType.active){
                 iTween.ScaleTo(ekbatanDig.gameObject , iTween.Hash("x",1.3f , "y",1.3f ,"z" ,1.3f , "time" , 0.5f , "loopType" , "loop","ignoretimescale", true));
                 scalingD = true;
+                tutorialIsOver = true;
             }
         }
+        
         if (!DataManager.Instance.GetFirstInfo())
         {
 
