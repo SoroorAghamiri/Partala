@@ -13,7 +13,6 @@ public class SettingView : DialogBase
     public Slider sfxCheck;
     public Slider musicCheck;
 
-    private LevelLoader mylevelLoader;
 
 
 
@@ -28,7 +27,6 @@ public class SettingView : DialogBase
         musicCheck.value = Mathf.Pow(10, (firstMusicValue / 20));
         sfxCheck.value = Mathf.Pow(10, (firstSfxValue / 20));
 
-        mylevelLoader = FindObjectOfType<LevelLoader>();
     }
 
 
@@ -45,8 +43,10 @@ public class SettingView : DialogBase
 
     public void reloadScene()
     {
+        
         ViewManager.instance.closeLastView();
-        mylevelLoader.LoadLevel(SceneManager.GetActiveScene().name);
+        PersistentSceneManager.instance.LoadScene(SceneManager.GetActiveScene().name, false);
+        //mylevelLoader.LoadLevel(SceneManager.GetActiveScene().name);
     }
 
 
@@ -70,7 +70,8 @@ public class SettingView : DialogBase
 
     public void onHomeClicked()
     {
-        SceneManager.LoadScene(SceneNames.Start);
+        PersistentSceneManager.instance.LoadScene(SceneNames.Start, true);
+       // SceneManager.LoadScene(SceneNames.Start);
     }
 
 }
