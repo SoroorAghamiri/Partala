@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -26,13 +24,20 @@ public class EpisodeManager : MonoBehaviour
         {
             DataManager.Instance.SetEpisode(1);
         }
-        for(int i=0;i<episodeButtons.Length;i++)
+        for (int i = 0; i < episodeButtons.Length; i++)//All Buttons except The First One
         {
             episodeButtons[i].interactable = false;
         }
-        for(int i=0;i<DataManager.Instance.GetEpisode();i++)
+        UnlockTillPlayerProgress();
+    }
+
+    private void UnlockTillPlayerProgress()
+    {
+        for (int i = 0; i < DataManager.Instance.GetEpisode() - 1; i++)//Needs Refactoring Calling Objects with their index
         {
+            episodeButtons[i].transform.GetChild(1).gameObject.SetActive(false);
             episodeButtons[i].interactable = true;
+            episodeButtons[i].transform.GetChild(0).GetComponent<Image>().color = Color.white;
         }
     }
 
@@ -45,8 +50,8 @@ public class EpisodeManager : MonoBehaviour
     {
 
         this.GetComponent<AudioSource>().Play();
-        PersistentSceneManager.instance.LoadScene(episode,true);
-       // mylevelLoader.LoadLevel(episode);
+        PersistentSceneManager.instance.LoadScene(episode, true);
+        // mylevelLoader.LoadLevel(episode);
     }
 
     public void SoundActive()

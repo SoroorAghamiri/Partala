@@ -297,7 +297,7 @@ public class GameManger : MonoBehaviour
         }
         else
         {
-            if(episodeNumber==DataManager.Instance.GetEpisode())
+            if (episodeNumber == DataManager.Instance.GetEpisode())
             {
                 DataManager.Instance.SetEpisode(DataManager.Instance.GetEpisode() + 1);
             }
