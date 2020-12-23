@@ -22,7 +22,7 @@ public class DataManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+
     }
 
     public void Save()
@@ -153,13 +153,31 @@ public class DataManager : MonoBehaviour
     }
     public void SetNoAdActive()
     {
-        playerData.noAd = true;
+        playerData.noAdForGame = true;
     }
     public bool GetnoAdflag()
     {
-        return playerData.noAd;
+        return playerData.noAdForGame;
     }
-
+    public void SetNewFlagForEpisodeNoAd()
+    {
+        playerData.noAdForEachEpisode.Add(false);
+    }
+    public void SetNoAdForGivenEpisode(int indexOfEpisode)
+    {
+        playerData.noAdForEachEpisode[indexOfEpisode] = true;
+    }
+    public bool  GetNoAdForGivenEpisode(int indexOfEpisode)//works with episode index (episode number -1)
+    {
+        return playerData.noAdForEachEpisode[indexOfEpisode];
+    }
+    public bool IfListofEpisodeFlagsAreNotInitialized()
+    {
+        if (playerData.noAdForEachEpisode.Count == 0)
+            return true;
+        else
+            return false;
+    }
     //Saves On pausing for mobile Obviously
     private void OnApplicationPause(bool pause)
     {

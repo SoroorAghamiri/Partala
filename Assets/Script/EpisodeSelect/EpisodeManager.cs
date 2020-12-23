@@ -23,7 +23,11 @@ public class EpisodeManager : MonoBehaviour
         if (DataManager.Instance.GetEpisode() == 0)
         {
             DataManager.Instance.SetEpisode(1);
-
+            DataManager.Instance.SetNewFlagForEpisodeNoAd();
+        }
+        if(DataManager.Instance.IfListofEpisodeFlagsAreNotInitialized())
+        {
+            DataManager.Instance.SetNewFlagForEpisodeNoAd();
         }
         for (int i = 0; i < episodeButtons.Length; i++)//All Buttons except The First One
         {

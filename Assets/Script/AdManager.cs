@@ -173,9 +173,13 @@ public class AdManager : MonoBehaviour
         
     }
 
-    public void AdShow()
+    public void AdShow(int episodeIndex)
     {
         if (DataManager.Instance.GetnoAdflag())
+        {
+            return;
+        }
+        if(DataManager.Instance.GetNoAdForGivenEpisode(episodeIndex))
         {
             return;
         }

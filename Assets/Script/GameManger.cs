@@ -103,7 +103,6 @@ public class GameManger : MonoBehaviour
 
     private void FindCorrectEpisodeNumberAndLevel()
     {
-
         var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         for (int i = 0; i < DataManager.Instance.buildIndexOfLevelSelectors.Count; i++)
         {
@@ -114,7 +113,6 @@ public class GameManger : MonoBehaviour
                 break;
             }
         }
-
     }
 
     private void SettingInitialValues()
@@ -154,10 +152,11 @@ public class GameManger : MonoBehaviour
                 myEggsScript.SetLastEgg();
                 if (wintoggler)
                 {
-                    GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete,"Episode " + episodeNumber.ToString(),"Level " + levelNumberInEpisode.ToString());
+                    GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Episode " + episodeNumber.ToString(), "Level " + levelNumberInEpisode.ToString());
                     if (DataManager.Instance.GetLevel(episodeNumber) == levelNumberInEpisode)
                     {
                         DataManager.Instance.SetLevel(DataManager.Instance.GetLevel(episodeNumber) + 1, episodeNumber);
+
                     }
                     //Calling Cards
                     // print("level number" + levelNumberInEpisode);
@@ -208,7 +207,7 @@ public class GameManger : MonoBehaviour
         finalObjectManager.AddComponent<FinalObjectManager>();
         finalObjectManager.GetComponent<FinalObjectManager>().ShowFinalObjectAfterWin();
         yield return new WaitForSeconds(this.gameObject.GetComponent<AudioSource>().clip.length);
-        AdManager.Instance.AdShow();
+        AdManager.Instance.AdShow(episodeNumber - 1);
         // if (!Array.Exists(simorghLevels, element => element == levelNumberInEpisode) || !Array.Exists(witchLevels, element => element == levelNumberInEpisode))
         next_level();
     }
@@ -303,6 +302,7 @@ public class GameManger : MonoBehaviour
             if (episodeNumber == DataManager.Instance.GetEpisode())
             {
                 DataManager.Instance.SetEpisode(DataManager.Instance.GetEpisode() + 1);
+                DataManager.Instance.SetNewFlagForEpisodeNoAd();
                 GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Episode " + episodeNumber.ToString());
             }
             PersistentSceneManager.instance.LoadScene(NextLevelname, true);
