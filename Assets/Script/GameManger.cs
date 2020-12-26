@@ -52,6 +52,8 @@ public class GameManger : MonoBehaviour
     private int levelNumberInEpisode;
     private GameObject[] mainComponents;
 
+    private float timer = 0f;
+
     //private LevelLoader mylevelLoader;
     private int[] simorghLevels = { 5, 8, 12 };
     private int[] witchLevels = { 4, 7, 13 };
@@ -99,6 +101,7 @@ public class GameManger : MonoBehaviour
         AddingListenersToButtons();
         FindCorrectEpisodeNumberAndLevel();
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Episode " + episodeNumber.ToString(), "Level " + levelNumberInEpisode.ToString());
+
     }
 
     private void FindCorrectEpisodeNumberAndLevel()
@@ -138,9 +141,17 @@ public class GameManger : MonoBehaviour
 
     void Update()
     {
+        CountTime();
         win();
+        
 
     }
+
+    private void CountTime()
+    {
+        timer += Time.deltaTime;
+    }
+
     //win condition 
     private void win()
     {
@@ -156,6 +167,7 @@ public class GameManger : MonoBehaviour
                     if (DataManager.Instance.GetLevel(episodeNumber) == levelNumberInEpisode)
                     {
                         DataManager.Instance.SetLevel(DataManager.Instance.GetLevel(episodeNumber) + 1, episodeNumber);
+                        GameAnalytics.NewDesignEvent("Episode " + episodeNumber.ToString() + ":Level " + levelNumberInEpisode.ToString(), timer);
 
                     }
                     //Calling Cards
@@ -207,7 +219,7 @@ public class GameManger : MonoBehaviour
         finalObjectManager.AddComponent<FinalObjectManager>();
         finalObjectManager.GetComponent<FinalObjectManager>().ShowFinalObjectAfterWin();
         yield return new WaitForSeconds(this.gameObject.GetComponent<AudioSource>().clip.length);
-        AdManager.Instance.AdShow(episodeNumber - 1);
+        AdManager.Instance.AdS  how(episodeNumber - 1);
         // if (!Array.Exists(simorghLevels, element => element == levelNumberInEpisode) || !Array.Exists(witchLevels, element => element == levelNumberInEpisode))
         next_level();
     }
