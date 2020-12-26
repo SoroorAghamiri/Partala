@@ -39,7 +39,7 @@ public class EpisodeManager : MonoBehaviour
 
     private void UnlockTillPlayerProgress()
     {
-        for (int i = 0; i < DataManager.Instance.GetEpisode() - 1; i++)//Needs Refactoring Calling Objects with their index
+        for (int i = 0; i < DataManager.Instance.GetEpisode(); i++)//Needs Refactoring Calling Objects with their index
         {
             episodeButtons[i].transform.GetChild(1).gameObject.SetActive(false);
             episodeButtons[i].interactable = true;

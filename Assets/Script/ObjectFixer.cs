@@ -6,6 +6,7 @@ using UnityEngine;
 public class ObjectFixer : MonoBehaviour
 {
     [HideInInspector] public bool isFixed = false;
+    [HideInInspector] public GameObject fixedObj = null;
     [SerializeField] private GameObject[] correctObj;
     [SerializeField] private GameObject[] correctPosition;
 
@@ -58,6 +59,7 @@ public class ObjectFixer : MonoBehaviour
             if (offset < 1.5f && indx < correctObj.Length)
             {
                 correctObj[indx].transform.position = correctPosition[indx].transform.position;
+                fixedObj = correctObj[indx];
                 indx++;
                 isFixed = true;
             }

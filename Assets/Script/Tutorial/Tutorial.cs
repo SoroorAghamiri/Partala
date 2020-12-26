@@ -154,17 +154,11 @@ public class Tutorial : MonoBehaviour
                     }
                 }
                 
-                // if (correctObjectsLights.Length > 0)
-                // {
-                //     for (int j = 0; j < correctObjectsLights.Length; j++)
-                //     {
-                //         correctObjectsLights[j].SetActive(false);
-                //     }
-                // }
+            
                 
                 if (levelIndex == "3")
                 {
-                    // Debug.Log("Tutorial turned false");
+                    
                     DataManager.Instance.SetTutorial(false);
 
                     DataManager.Instance.Save();
@@ -236,7 +230,11 @@ public class Tutorial : MonoBehaviour
                                     rotateLight.GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>().enabled = false;
 
                                 }
-                                rotationDone = true;
+                                float angle = correctObjects[i].transform.rotation.eulerAngles.z;
+                                if(angle <1 && angle >-1 ){
+                                    rotationDone = true;
+                                }
+                                
                             }
                         }
                         movingDist = Vector2.Distance(correctObjects[i].transform.position , correctObjectsShades[i].transform.position);
@@ -253,10 +251,10 @@ public class Tutorial : MonoBehaviour
                 //when movement is over:
                 if (Input.touchCount == 0 && objectFixer.isFixed && touched)
                 {
-
                     switch (levelIndex)
                     {
                         case "1":
+                        if(UnityEngine.Object.ReferenceEquals(objectFixer.fixedObj, correctObjects[i])){
                             showGuidText(i, false);
                             stepIsDone[i] = true;
                             if (fixedObjectLight.Count > 0 && fixedObjectLight[0].active)
@@ -264,6 +262,7 @@ public class Tutorial : MonoBehaviour
                             if(correctObjectsLights[i].active)
                                 correctObjectsLights[i].SetActive(false);
                             i++;
+                        }
                             break;
                         case "2":
                             if (touchManager.rotate == false && rotationDone == true && i == 1)
@@ -276,7 +275,7 @@ public class Tutorial : MonoBehaviour
                                     correctObjectsLights[i].SetActive(false);
                                 i++;
                             }
-                            else if (i != 1)
+                            else if (i != 1 && UnityEngine.Object.ReferenceEquals(objectFixer.fixedObj, correctObjects[i]))
                             {
                                 if (tutorialPanels[0].active)
                                     showGuidText(0, false);
@@ -296,12 +295,7 @@ public class Tutorial : MonoBehaviour
                 
             }
         }
-        // else if (!showGuide)
-        // {
-        //     uiButtons.interactable = true;
-        //     globalLight.intensity = 1f;
 
-        // }
     }
 
     void glowObjects(int indx)
