@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 public class LeveManger : MonoBehaviour
 {
-    [HideInInspector] public int currentEpisode;
+    [SerializeField] public int currentEpisode;
     [SerializeField] private Button[] levelButtons;
     // [SerializeField] List<Image> puzzles;
 
@@ -30,12 +30,12 @@ public class LeveManger : MonoBehaviour
         {
             SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(buildIndexofCurrent));
         }
-        
-        if(buildIndexofCurrent is string)
+
+        if (buildIndexofCurrent is string)
         {
             buildIndexofCurrent = SceneManager.GetSceneByName(buildIndexofCurrent).buildIndex;
         }
-        FindCurrentEpisode();
+        SetupListOfBuildIndex();
         audioSource = this.GetComponent<AudioSource>();
 
         for (int i = 0; i < levelButtons.Length; i++)
@@ -58,22 +58,21 @@ public class LeveManger : MonoBehaviour
 
     }
 
-    private void FindCurrentEpisode()
+    private void SetupListOfBuildIndex()
     {
-        if (DataManager.Instance.buildIndexOfLevelSelectors.Contains(buildIndexofCurrent) == false)
+        if (DataManager.Instance.ReturnSizeOfBuildIndexList() == 0)//If The List Is Completely Empty
         {
-            DataManager.Instance.buildIndexOfLevelSelectors.Add(buildIndexofCurrent);
-            currentEpisode = DataManager.Instance.buildIndexOfLevelSelectors.Count;
+            DataManager.Instance.AddbuildIndexToListOfBuildIndex(0);
+        }
+        if (DataManager.Instance.ReturnSizeOfBuildIndexList() == currentEpisode)//Meaning This is The First Time Entering This LevelSelector
+        {
+            DataManager.Instance.AddbuildIndexToListOfBuildIndex(buildIndexofCurrent);
         }
         else
         {
-            for (int i = 0; i < DataManager.Instance.buildIndexOfLevelSelectors.Count; i++)
+            if (DataManager.Instance.ReturnBuildIndexByEpisodeNumber(currentEpisode) != buildIndexofCurrent)
             {
-                if (DataManager.Instance.buildIndexOfLevelSelectors[i] == buildIndexofCurrent)
-                {
-                    currentEpisode = i + 1;
-                    break;
-                }
+                DataManager.Instance.SetBuildIndexByEpisodeNumber(currentEpisode, buildIndexofCurrent);
             }
         }
     }

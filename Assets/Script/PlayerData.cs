@@ -6,7 +6,7 @@ public class PlayerData
 {
     public int feather = 7;
     public bool noAdForGame = false;
-    public List<bool> noAdForEachEpisode = new List<bool>(); 
+    public List<bool> noAdForEachEpisode = new List<bool>();
     public int episode = 0;
     public List<int> levelinEpisode = new List<int>();
     public float sfxLevel = 1.0f;
@@ -15,4 +15,5 @@ public class PlayerData
     public bool firstInfoIsShown = false;
     public bool enableSecondHint = true;
     public bool initialized = false;
+    public List<int> buildIndexOfLevelSelectors = new List<int>();
 }

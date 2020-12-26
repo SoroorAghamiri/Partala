@@ -7,7 +7,6 @@ public class DataManager : MonoBehaviour
     public static DataManager Instance;
     private PlayerData playerData = new PlayerData();
     public bool debug = false;
-    public List<int> buildIndexOfLevelSelectors = new List<int>();
     private string file = "player.txt";
     public int lastSceneIndex = 0;
     private void Awake()
@@ -22,7 +21,7 @@ public class DataManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+        Load();
     }
 
     public void Save()
@@ -167,7 +166,7 @@ public class DataManager : MonoBehaviour
     {
         playerData.noAdForEachEpisode[indexOfEpisode] = true;
     }
-    public bool  GetNoAdForGivenEpisode(int indexOfEpisode)//works with episode index (episode number -1)
+    public bool GetNoAdForGivenEpisode(int indexOfEpisode)//works with episode index (episode number -1)
     {
         return playerData.noAdForEachEpisode[indexOfEpisode];
     }
@@ -177,6 +176,24 @@ public class DataManager : MonoBehaviour
             return true;
         else
             return false;
+    }
+    public int ReturnSizeOfBuildIndexList()
+    {
+        return playerData.buildIndexOfLevelSelectors.Count;
+    }
+    public void AddbuildIndexToListOfBuildIndex(int buildIndex)
+    {
+        playerData.buildIndexOfLevelSelectors.Add(buildIndex);
+        return;
+    }
+    public int ReturnBuildIndexByEpisodeNumber(int episodeNumber)
+    {
+        return playerData.buildIndexOfLevelSelectors[episodeNumber];
+    }
+    public void SetBuildIndexByEpisodeNumber(int episodeNumber, int buildIndex)
+    {
+        playerData.buildIndexOfLevelSelectors[episodeNumber] = buildIndex;
+        return;
     }
     //Saves On pausing for mobile Obviously
     private void OnApplicationPause(bool pause)

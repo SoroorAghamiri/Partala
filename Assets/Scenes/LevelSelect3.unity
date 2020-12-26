@@ -701,6 +701,11 @@ PrefabInstance:
       propertyPath: level_button.Array.data[14]
       value: 
       objectReference: {fileID: 318846572}
+    - target: {fileID: 7400171776460495113, guid: ea127a06c379fac49bba809883528d1f,
+        type: 3}
+      propertyPath: currentEpisode
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7400171776460495118, guid: ea127a06c379fac49bba809883528d1f,
         type: 3}
       propertyPath: m_LocalPosition.x
