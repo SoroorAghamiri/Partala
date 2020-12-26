@@ -70,7 +70,9 @@ public class SettingView : DialogBase
 
     public void onHomeClicked()
     {
+        ViewManager.instance.closeLastView();
         PersistentSceneManager.instance.LoadScene(SceneNames.Start, true);
+        
        // SceneManager.LoadScene(SceneNames.Start);
     }
 
