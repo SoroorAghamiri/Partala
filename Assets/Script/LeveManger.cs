@@ -96,7 +96,7 @@ public class LeveManger : MonoBehaviour
 
     public void LevelOnClick(int level)
     {
-        audioSource.Play();
+      //  audioSource.Play();
         PersistentSceneManager.instance.LoadScene(level + buildIndexofCurrent,false);
         //mylevelLoader.LoadLevel(level + SceneManager.GetActiveScene().buildIndex);
     }

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8346790152452597587}
   - component: {fileID: 8346790152452597589}
-  - component: {fileID: 8346790152452597586}
   - component: {fileID: 8346790152452597588}
   m_Layer: 0
   m_Name: ColliderPoint
@@ -49,21 +48,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.14042795
---- !u!114 &8346790152452597586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8346790152452597584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5acb52b311a90944cae59b08a30eb817, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameObj: {fileID: 0}
-  Coll: 0
-  GM: {fileID: 0}
 --- !u!50 &8346790152452597588
 Rigidbody2D:
   serializedVersion: 4

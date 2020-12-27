@@ -113,8 +113,6 @@ public class GameManger : MonoBehaviour
             {
                 levelNumberInEpisode = currentSceneIndex - DataManager.Instance.ReturnBuildIndexByEpisodeNumber(i);
                 episodeNumber = i;
-                Debug.Log("EpisodeNumber: " + episodeNumber.ToString());
-                Debug.Log("LevelNumber: " + levelNumberInEpisode.ToString());
                 break;
             }
         }
