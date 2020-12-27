@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   name: Fogholade
-  numOfFeathers: 65
+  numOfFeathers: 59
+  giftFeathers: 6
   noAdsFor1Episode: 0
   noAds: 1
   price: 29.9
