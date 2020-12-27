@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   name: KarRahBendaz
-  numOfFeathers: 14
+  numOfFeathers: 12
+  giftFeathers: 2
   noAdsFor1Episode: 1
   noAds: 0
   price: 4.999

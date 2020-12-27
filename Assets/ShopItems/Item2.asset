@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   name: Shegeftane
-  numOfFeathers: 30
+  numOfFeathers: 26
+  giftFeathers: 4
   noAdsFor1Episode: 0
   noAds: 1
   price: 14.7
