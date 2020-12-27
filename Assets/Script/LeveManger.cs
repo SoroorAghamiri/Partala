@@ -80,6 +80,7 @@ public class LeveManger : MonoBehaviour
     public void UnlockLevelsTillPlayerProgesss()
     {
         var levelUnlock = DataManager.Instance.GetLevel(currentEpisode);
+
         for (int i = 0; i < levelUnlock; i++) 
         {
             levelButtons[i].interactable = true;

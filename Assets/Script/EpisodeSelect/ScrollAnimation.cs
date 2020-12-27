@@ -24,17 +24,18 @@ public class ScrollAnimation : MonoBehaviour
     {
         // levelMan = GameObject.FindObjectOfType<LeveManger>();
         episodes = this.GetComponentsInChildren<Button>();
-        if (episodes.Length > 0)
-        {
-            foreach (Button b in episodes)
-            {
-                b.interactable = false;
-            }
-        }
+        
         if(String.Equals(sceneName , SceneNames.EpisodeSelect)){
             childDots = dots.GetComponentsInChildren<Image>();
             originalColor = childDots[0].color;
             enableDots = true;
+            if (episodes.Length > 0)
+            {
+                foreach (Button b in episodes)
+                {
+                    b.interactable = false;
+                }
+            }
         }
         // else if(String.Equals(sceneName , SceneNames.LevelSelect1)){
             
