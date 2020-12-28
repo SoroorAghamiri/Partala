@@ -1,0 +1,34 @@
+ManifestFileVersion: 0
+CRC: 2795297397
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3792b00a0a02f13ecc02cbfe4a79edd5
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ad6e2fcf8e4a85ec564929600a15b934
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 50
+  Script: {instanceID: 0}
+- Class: 58
+  Script: {instanceID: 0}
+- Class: 60
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Prefabs/AssetBundlePrefabs/Episode2.Level16.prefab
+Dependencies: []
