@@ -108,4 +108,24 @@ public class DialogManager : MonoBehaviour
         return dialog;
     }
 
+    public EndofEpisodeView showEoE(){
+        showBlur();
+        EndofEpisodeView prefab = Resources.Load<EndofEpisodeView>("Views/EndofEpisode");
+        EndofEpisodeView dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
+        initDialog(dialog.gameObject);
+
+        ViewManager.instance.openView(dialog);
+        return dialog;
+    }
+
+    public ReplayView showReplayView(){
+        showBlur();
+        ReplayView prefab = Resources.Load<ReplayView>("Views/ReplayPanel");
+        ReplayView dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
+        initDialog(dialog.gameObject);
+
+        ViewManager.instance.openView(dialog);
+        return dialog;
+    }
+
 }

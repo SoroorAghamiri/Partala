@@ -58,6 +58,7 @@ public class SettingScene : MonoBehaviour
         DataManager.Instance.SetTutorial(true);
         DataManager.Instance.SetFirstInfo(false);
         DataManager.Instance.Save();
+        DialogManager.instance.showReplayView();
     }
     public void onSoundChange(float newValue)
     {
