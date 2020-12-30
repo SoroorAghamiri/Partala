@@ -2007,7 +2007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flagWin: 0
-  setup: 1
+  setup: 0
   colliderPoints:
   - {fileID: 1864814077}
   - {fileID: 1637890186}
