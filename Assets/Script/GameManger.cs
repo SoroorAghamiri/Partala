@@ -317,9 +317,7 @@ public class GameManger : MonoBehaviour
                 DataManager.Instance.SetEpisode(DataManager.Instance.GetEpisode() + 1);
                 DataManager.Instance.SetNewFlagForEpisodeNoAd();
                 GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Episode " + episodeNumber.ToString());
-                Debug.Log("Before saving");
                 DataManager.Instance.Save();
-                Debug.Log("saving is done, eoe must be shown now");
                 DialogManager.instance.showEoE();
 
             }
