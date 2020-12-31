@@ -11006,6 +11006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFixed: 0
+  fixedObj: {fileID: 0}
   correctObj: []
   correctPosition: []
   touchManager: {fileID: 0}
@@ -11104,6 +11105,11 @@ PrefabInstance:
     - target: {fileID: 1569836907355485319, guid: 73f7f3637d83d1846acc63cb61f2a5cc,
         type: 3}
       propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671249626868464396, guid: 73f7f3637d83d1846acc63cb61f2a5cc,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1897424774654197712, guid: 73f7f3637d83d1846acc63cb61f2a5cc,
@@ -11699,7 +11705,7 @@ PrefabInstance:
     - target: {fileID: 4486802357217768676, guid: 73f7f3637d83d1846acc63cb61f2a5cc,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -43.309998
+      value: -43.309937
       objectReference: {fileID: 0}
     - target: {fileID: 4486802357217768676, guid: 73f7f3637d83d1846acc63cb61f2a5cc,
         type: 3}
@@ -12189,6 +12195,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8297540851629146997, guid: 73f7f3637d83d1846acc63cb61f2a5cc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8330180200716886030, guid: 73f7f3637d83d1846acc63cb61f2a5cc,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -12241,6 +12252,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 952193eabc0910c469f7666d27102eba,
         type: 3}
+    - target: {fileID: 9113677622788861658, guid: 73f7f3637d83d1846acc63cb61f2a5cc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73f7f3637d83d1846acc63cb61f2a5cc, type: 3}
 --- !u!224 &3309987705162634590 stripped
@@ -12410,7 +12426,7 @@ PrefabInstance:
     - target: {fileID: 1981032405706842502, guid: b1ba1d84b2f80894788a0aa88aab3ff3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 2.2000732
+      value: 2.2001953
       objectReference: {fileID: 0}
     - target: {fileID: 1981032405706842502, guid: b1ba1d84b2f80894788a0aa88aab3ff3,
         type: 3}

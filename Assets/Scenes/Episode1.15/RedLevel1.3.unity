@@ -1048,7 +1048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelIndex: 3
-  stepCount: 2
+  stepCount: 1
   tutorialPanels:
   - {fileID: 228019006}
   fixedObjectLight: []
@@ -1192,7 +1192,7 @@ PrefabInstance:
     - target: {fileID: 3769540342729598183, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 43.837616
+      value: 43.837646
       objectReference: {fileID: 0}
     - target: {fileID: 3769540342729598183, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
