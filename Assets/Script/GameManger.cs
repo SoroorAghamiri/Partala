@@ -168,6 +168,7 @@ public class GameManger : MonoBehaviour
                     {
                         DataManager.Instance.SetLevel(DataManager.Instance.GetLevel(episodeNumber) + 1, episodeNumber);
                         GameAnalytics.NewDesignEvent("Episode " + episodeNumber.ToString() + ":Level " + levelNumberInEpisode.ToString(), timer);
+                        DataManager.Instance.Save();
 
                     }
                     //Calling Cards
