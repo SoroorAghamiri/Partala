@@ -52,12 +52,6 @@ public class SettingScene : MonoBehaviour
 
     public void onReplayClicked()
     {
-        DataManager.Instance.SetEpisode(1);
-        DataManager.Instance.SetLevel(1, 1);
-        DataManager.Instance.SetFeather(7);
-        DataManager.Instance.SetTutorial(true);
-        DataManager.Instance.SetFirstInfo(false);
-        DataManager.Instance.Save();
         DialogManager.instance.showReplayView();
     }
     public void onSoundChange(float newValue)

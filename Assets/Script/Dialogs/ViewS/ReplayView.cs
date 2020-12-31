@@ -5,7 +5,17 @@ using UnityEngine.UI;
 public class ReplayView : DialogBase
 {
 
-    public void closeReplayPanel(){
+    public void onNoClicked(){
+        ViewManager.instance.closeView(this);
+    
+    }
+    public void onYesClicked(){
+         DataManager.Instance.SetEpisode(1);
+        DataManager.Instance.SetLevel(1, 1);
+        DataManager.Instance.SetFeather(7);
+        DataManager.Instance.SetTutorial(true);
+        DataManager.Instance.SetFirstInfo(false);
+        DataManager.Instance.Save();
         ViewManager.instance.closeView(this);
     }
 
