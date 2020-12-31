@@ -317,7 +317,9 @@ public class GameManger : MonoBehaviour
                 DataManager.Instance.SetEpisode(DataManager.Instance.GetEpisode() + 1);
                 DataManager.Instance.SetNewFlagForEpisodeNoAd();
                 GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Episode " + episodeNumber.ToString());
+                DataManager.Instance.Save();
                 DialogManager.instance.showEoE();
+
             }
             // PersistentSceneManager.instance.LoadScene(NextLevelname, true);
         }
