@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Episode1.15/RedLevel1.2.unity
     guid: 857ea57247bd0714594a18df5e7cc967
   - enabled: 1
-    path: Assets/Scenes/Episode1.15/RedLevel1.3.unity
+    path: Assets/Scenes/Episode1.15/RedLevel1.10.unity
     guid: 16c702715d9e05d4d9d45aa6506519d6
   - enabled: 1
     path: Assets/Scenes/Episode1.15/RedLevel1.4.unity
@@ -51,7 +51,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Episode1.15/RedLevel1.9.unity
     guid: 4f6f605dd4e769a4aa06f31b670cd3b4
   - enabled: 1
-    path: Assets/Scenes/Episode1.15/RedLevel1.10.unity
+    path: Assets/Scenes/Episode1.15/RedLevel1.3.unity
     guid: 941d419c95f7e0d4a8839a2f7babaf62
   - enabled: 1
     path: Assets/Scenes/Episode1.15/RedLevel1.11.unity
@@ -72,99 +72,96 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelSelect2.unity
     guid: 9d686c47d6d3fc84b91fd33cef42cbd3
   - enabled: 1
-    path: Assets/Scenes/Episode2.15/Level1.unity
+    path: Assets/Scenes/Episode2.15/Level2.1.unity
     guid: e6e5ba7dcace4a24e92c789081f29f2d
   - enabled: 1
-    path: Assets/Scenes/Episode2.15/Level2.unity
+    path: Assets/Scenes/Episode2.15/Level2.2.unity
     guid: a34ddbd18f8cf2a489ef1bd22a66a07c
   - enabled: 1
-    path: Assets/Scenes/Episode2.15/Level3.unity
+    path: Assets/Scenes/Episode2.15/Level2.3.unity
     guid: ca24408f27eb2d840a577a529936f318
   - enabled: 1
-    path: Assets/Scenes/Episode2.15/Level4.unity
+    path: Assets/Scenes/Episode2.15/Level2.4.unity
     guid: 51db77769cba05541a4d400be5404761
   - enabled: 1
-    path: Assets/Scenes/Episode2.15/Level5.unity
+    path: Assets/Scenes/Episode2.15/Level2.5.unity
     guid: 819cfb067e8868446a46530bb2048bd5
   - enabled: 1
-    path: Assets/Scenes/Episode2.15/Level6.unity
+    path: Assets/Scenes/Episode2.15/Level2.6.unity
     guid: 0e8253cebf66d694bb21990bf5394feb
-  - enabled: 0
-    path: Assets/Scenes/Episode2.15/Level19.unity
-    guid: 52b72c3f4e6f72547ae25bfdd1be011c
   - enabled: 1
-    path: Assets/Scenes/Episode2.15/Level8.unity
+    path: Assets/Scenes/Episode2.15/Level2.7.unity
+    guid: eac182d5366fa0b47b82830d026b1803
+  - enabled: 1
+    path: Assets/Scenes/Episode2.15/Level2.8.unity
     guid: cee666606ab989046880a64d01168d08
   - enabled: 1
-    path: Assets/Scenes/Episode2.15/Level9.unity
+    path: Assets/Scenes/Episode2.15/Level2.9.unity
     guid: 17231b2c07a9d0a46b9ab398ba620572
   - enabled: 1
-    path: Assets/Scenes/Episode2.15/Level10.unity
+    path: Assets/Scenes/Episode2.15/Level2.10.unity
     guid: 80c77b500188fc942929f0915f3a445a
   - enabled: 1
-    path: Assets/Scenes/Episode2.15/Level11.unity
+    path: Assets/Scenes/Episode2.15/Level2.11.unity
     guid: 49375d14dcc1503459281ef69936574a
   - enabled: 1
-    path: Assets/Scenes/Episode2.15/Level12.unity
+    path: Assets/Scenes/Episode2.15/Level2.12.unity
     guid: e7f84aa6293a47f46b4cca5151dddf27
-  - enabled: 0
-    path: Assets/Scenes/Episode2.15/Level15.unity
-    guid: 494518a3daf50a2458ed01e54badfff6
   - enabled: 1
-    path: Assets/Scenes/Episode2.15/Level13.unity
+    path: Assets/Scenes/Episode2.15/Level2.13.unity
     guid: 1f17d4d2f5b0e8445ad16db90b60983f
   - enabled: 1
-    path: Assets/Scenes/Episode2.15/Level14.unity
-    guid: 9f0fbb8e32f3a1e4cb5cdd369685cfb3
-  - enabled: 1
-    path: Assets/Scenes/Episode2.15/Level14.unity
+    path: Assets/Scenes/Episode2.15/Level2.14.unity
     guid: 86cec3efd2514e6498e85e34664afb84
-  - enabled: 0
-    path: Assets/Scenes/Episode3.15/Level3.1.unity
-    guid: a755268aaa11856449027b0cd87657a3
-  - enabled: 0
-    path: Assets/Scenes/Episode3.15/Level3.2.unity
-    guid: 0d34ea85e759ffa4083b651cc50ace78
-  - enabled: 0
-    path: Assets/Scenes/Episode3.15/Level3.3.unity
-    guid: 5b554406479a64d4e814f92adb49ef5d
-  - enabled: 0
-    path: Assets/Scenes/Episode3.15/Level3.4.unity
-    guid: cd779a5beb7af9444a53ddd880ed0698
-  - enabled: 0
-    path: Assets/Scenes/Episode3.15/Level3.5.unity
-    guid: 4d360025b2696f5448a054fd3a51fe2c
-  - enabled: 0
-    path: Assets/Scenes/Episode3.15/Level3.6.unity
-    guid: 47ba8e7991af95544af13098992bd23d
-  - enabled: 0
-    path: Assets/Scenes/Episode3.15/Level3.7.unity
-    guid: cebec2ae0a29e094687ab0c88e480c6c
-  - enabled: 0
-    path: Assets/Scenes/Episode3.15/Level3.8.unity
-    guid: 9d09e7431f3721f40aa912807d885d8f
-  - enabled: 0
-    path: Assets/Scenes/Episode3.15/Level3.9.unity
-    guid: 6bdd60fa616fe204f8a1eb0f6cea5a20
-  - enabled: 0
-    path: Assets/Scenes/Episode3.15/Level3.10.unity
-    guid: a4142cb1c1304944f9db7a1ab48d8352
-  - enabled: 0
-    path: Assets/Scenes/Episode3.15/Level3.11.unity
-    guid: ca3808a92c66b754da82b37ea99af3d4
-  - enabled: 0
-    path: Assets/Scenes/Episode3.15/Level3.12.unity
-    guid: 4285b46a20ad87b4a9ff9693207ae20e
-  - enabled: 0
-    path: Assets/Scenes/Episode3.15/Level3.13.unity
-    guid: af6b2d85bc9b1ef42b7d5d8a9027a7ae
-  - enabled: 0
-    path: Assets/Scenes/Episode3.15/Level3.14.unity
-    guid: 896aa3a022908e646bbbbbb5d3048325
-  - enabled: 0
-    path: Assets/Scenes/Episode3.15/Level3.15.unity
-    guid: 025d61c3220bbf84e89b94bda897da59
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Scenes/Episode2.15/Level2.15.unity
+    guid: 494518a3daf50a2458ed01e54badfff6
+  - enabled: 1
     path: Assets/Scenes/LevelSelect3.unity
     guid: b0fe1da042d5d96438e16d257a3c4f43
+  - enabled: 1
+    path: Assets/Scenes/Episode3.15/Level3.1.unity
+    guid: a755268aaa11856449027b0cd87657a3
+  - enabled: 1
+    path: Assets/Scenes/Episode3.15/Level3.2.unity
+    guid: 0d34ea85e759ffa4083b651cc50ace78
+  - enabled: 1
+    path: Assets/Scenes/Episode3.15/Level3.3.unity
+    guid: 5b554406479a64d4e814f92adb49ef5d
+  - enabled: 1
+    path: Assets/Scenes/Episode3.15/Level3.4.unity
+    guid: bc501b0a98e8bec4a8f4519d79523b79
+  - enabled: 1
+    path: Assets/Scenes/Episode3.15/Level3.5.unity
+    guid: 4d360025b2696f5448a054fd3a51fe2c
+  - enabled: 1
+    path: Assets/Scenes/Episode3.15/Level3.6.unity
+    guid: 47ba8e7991af95544af13098992bd23d
+  - enabled: 1
+    path: Assets/Scenes/Episode3.15/Level3.7.unity
+    guid: cebec2ae0a29e094687ab0c88e480c6c
+  - enabled: 1
+    path: Assets/Scenes/Episode3.15/Level3.8.unity
+    guid: 9d09e7431f3721f40aa912807d885d8f
+  - enabled: 1
+    path: Assets/Scenes/Episode3.15/Level3.9.unity
+    guid: 6bdd60fa616fe204f8a1eb0f6cea5a20
+  - enabled: 1
+    path: Assets/Scenes/Episode3.15/Level3.10.unity
+    guid: a4142cb1c1304944f9db7a1ab48d8352
+  - enabled: 1
+    path: Assets/Scenes/Episode3.15/Level3.11.unity
+    guid: ca3808a92c66b754da82b37ea99af3d4
+  - enabled: 1
+    path: Assets/Scenes/Episode3.15/Level3.12.unity
+    guid: 4285b46a20ad87b4a9ff9693207ae20e
+  - enabled: 1
+    path: Assets/Scenes/Episode3.15/Level3.13.unity
+    guid: af6b2d85bc9b1ef42b7d5d8a9027a7ae
+  - enabled: 1
+    path: Assets/Scenes/Episode3.15/Level3.14.unity
+    guid: 896aa3a022908e646bbbbbb5d3048325
+  - enabled: 1
+    path: Assets/Scenes/Episode3.15/Level3.15.unity
+    guid: 025d61c3220bbf84e89b94bda897da59
   m_configObjects: {}

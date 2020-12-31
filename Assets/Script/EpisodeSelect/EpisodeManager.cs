@@ -22,6 +22,7 @@ public class EpisodeManager : MonoBehaviour
 
         if (DataManager.Instance.GetEpisode() == 0)
         {
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Episode 1");
             DataManager.Instance.SetEpisode(1);
             DataManager.Instance.SetNewFlagForEpisodeNoAd();
         }
@@ -32,7 +33,7 @@ public class EpisodeManager : MonoBehaviour
         for (int i = 0; i < episodeButtons.Length; i++)//All Buttons except The First One
         {
             episodeButtons[i].interactable = false;
-            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Episode 1");
+            
         }
         UnlockTillPlayerProgress();
     }
