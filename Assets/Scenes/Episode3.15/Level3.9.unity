@@ -579,7 +579,7 @@ PrefabInstance:
     - target: {fileID: 4342307744802143477, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: LevelSelect2
+      value: LevelSelect3
       objectReference: {fileID: 0}
     - target: {fileID: 6001173071510737144, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
