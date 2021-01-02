@@ -1577,7 +1577,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 1
-  buildIndexOfLevelSelectors: 
   lastSceneIndex: 0
 --- !u!4 &1420250055
 Transform:
