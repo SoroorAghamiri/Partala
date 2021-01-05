@@ -2114,7 +2114,7 @@ MonoBehaviour:
   - 1.69906
   - 2.32017
   - 2.247703
-  allowanceForObjects: 0.35
+  allowanceForObjects: 1
   allowanceForLockers: 0.1
 --- !u!1001 &1302432278
 PrefabInstance:
@@ -3322,7 +3322,7 @@ GameObject:
   - component: {fileID: 2051157517}
   m_Layer: 0
   m_Name: adam-ahani
-  m_TagString: Untagged
+  m_TagString: Final
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

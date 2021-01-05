@@ -1763,7 +1763,7 @@ MonoBehaviour:
   - 4.134097
   - 3.004985
   - 4.50864
-  allowanceForObjects: 0.87
+  allowanceForObjects: 1.03
   allowanceForLockers: 0.1
 --- !u!1 &939439662 stripped
 GameObject:
