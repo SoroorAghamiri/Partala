@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
+
 public class DataManager : MonoBehaviour
 {
     public static DataManager Instance;
@@ -22,6 +24,21 @@ public class DataManager : MonoBehaviour
             Destroy(gameObject);
         }
         Load();
+        UnlockAllLevels(); ///Remove This Snippet For Release
+        Save();
+    }
+
+    private void UnlockAllLevels()
+    {
+        while(playerData.levelinEpisode.Count < 3)
+        {
+            playerData.levelinEpisode.Add(1);
+        }
+        for(int i=0;i<playerData.levelinEpisode.Count;i++)
+        {
+            playerData.levelinEpisode[i] = 15;
+        }
+        playerData.episode = 3;
     }
 
     public void Save()
