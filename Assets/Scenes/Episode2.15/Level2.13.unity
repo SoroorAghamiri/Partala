@@ -2047,7 +2047,7 @@ MonoBehaviour:
   - 1.393764
   - 1.642615
   - 2.380707
-  allowanceForObjects: 0.35
+  allowanceForObjects: 0.93
   allowanceForLockers: 0.1
 --- !u!1001 &1045666021
 PrefabInstance:
@@ -2734,7 +2734,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 394d0565c1418ee4984a05194fd7b0fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

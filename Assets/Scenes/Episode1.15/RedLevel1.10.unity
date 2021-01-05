@@ -1910,7 +1910,7 @@ PrefabInstance:
     - target: {fileID: 4774010519136804245, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -18.999996
+      value: -19
       objectReference: {fileID: 0}
     - target: {fileID: 4871607761029695119, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
@@ -1980,7 +1980,7 @@ PrefabInstance:
     - target: {fileID: 5331567324381700196, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5537447297954115086, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
@@ -2288,6 +2288,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -3974799579066595077, guid: 780baf28a9972db4a8cda9c6e151b472,
         type: 2}
+    - target: {fileID: 7395291493816204324, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7497697846247053486, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3979,7 +3984,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1491707626}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -4532,7 +4537,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777637359}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
