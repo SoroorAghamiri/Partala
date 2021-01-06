@@ -322,8 +322,6 @@ public class GameManger : MonoBehaviour
                 DataManager.Instance.SetNewFlagForEpisodeNoAd();
                 GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Episode " + episodeNumber.ToString());
                 DataManager.Instance.Save();
-                
-
             }
             DialogManager.instance.showEoE();
             // PersistentSceneManager.instance.LoadScene(NextLevelname, true);
@@ -354,12 +352,6 @@ public class GameManger : MonoBehaviour
 
         //    }
         //}
-    }
-
-
-    public void OnShop()
-    {
-        //TODO:OpenShopPanel;
     }
 
 
@@ -403,6 +395,10 @@ public class GameManger : MonoBehaviour
 
         ViewManager.instance.openView(dialog);
         return dialog;
+    }
+    public int GetEpisodeNumber()
+    {
+        return episodeNumber;
     }
 }
 

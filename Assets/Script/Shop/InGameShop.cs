@@ -22,10 +22,22 @@ public class InGameShop : MonoBehaviour
     [SerializeField] Button featherWithAdButton;
     private ShopItems focusedItem;
 
+    private GameManger myGameManager;
+
     public void BuyProduct(int index)
     {
         // productIndex = index;
         focusedItem = EventSystem.current.currentSelectedGameObject.GetComponent<ShopItems>();
+        if (focusedItem.noAdsFor1Episode && (DataManager.Instance.GetNoAdForGivenEpisode(myGameManager.GetEpisodeNumber() - 1) || DataManager.Instance.GetnoAdflag()))
+        {
+            ShowMessage("شما همین الان بسته ای دارید که تبلیفات برای یک اپیزود یا کل بازی را حذف می کند!");
+            return;
+        }
+        if(focusedItem.noAds && DataManager.Instance.GetnoAdflag())
+        {
+            ShowMessage("شما همین الان بسته ای دارید که تبلیفات برای کل بازی را حذف می کند");
+            return;
+        }
         StoreHandler.instance.Purchase(focusedItem.id, OnPurchaseFailed, OnPurchasedSuccessfully);
     }
     // Start is called before the first frame update
@@ -35,7 +47,7 @@ public class InGameShop : MonoBehaviour
         {
             ShowMessage("دستگاه شما به اینترنت وصل نیست، برای تبلیغ دوباره تلاش کنید!");
         }
-
+        myGameManager = FindObjectOfType<GameManger>();
         timer = coolDownForAd;
         timer -= TimeMaster.Instance.CheckDate();
         if (timer > 0)
@@ -46,31 +58,24 @@ public class InGameShop : MonoBehaviour
     }
     private void OnPurchasedSuccessfully(Purchase purchase, int productIndex)
     {
+        amountOfFeathersTobeAdded = focusedItem.numOfFeathers + focusedItem.giftFeathers;
         Debug.Log("Purchased Successfully");
         if (StoreHandler.instance.products[productIndex].type == Product.ProductType.Consumable) //A type of Currency is Bought
         {
-            switch (productIndex) //Hard coding amount of feathers to consume is Bad Thing ***Change Later***
-            {
-                case 0:
-                    amountOfFeathersTobeAdded = 1;
-                    break;
-                case 1:
-                    amountOfFeathersTobeAdded = 5;
-                    break;
-                case 2:
-                    amountOfFeathersTobeAdded = 9;
-                    break;
-                case 3:
-                    amountOfFeathersTobeAdded = 15;
-                    break;
-                case 4:
-                    amountOfFeathersTobeAdded = 20;
-                    break;
-            }
             GameAnalytics.NewBusinessEvent("rial", int.Parse(StoreHandler.instance.products[productIndex].price), "feathers", StoreHandler.instance.products[productIndex].productId, "InGameShop");
             GameAnalytics.NewResourceEvent(GAResourceFlowType.Source, "feather", amountOfFeathersTobeAdded, "purchase", "feather");
             DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() + amountOfFeathersTobeAdded);
-            ShowMessage(amountOfFeathersTobeAdded.ToString() + " پر به اکانت شما اضافه شد.");
+            string tmp = amountOfFeathersTobeAdded.ToString() + " پر به اکانت شما اضافه شد.";
+            if(focusedItem.noAds)
+            {
+                tmp = tmp + " و تبلیفات در کل بازی برای شما حذف شد ";
+            }
+            if(focusedItem.noAdsFor1Episode)
+            {
+                tmp = tmp + " و تبلیفات در یک اپیزود بازی برای شما حذف شد ";
+            }
+            ShowMessage(tmp);
+            
         }
         else //A Non-Consumable Currency Was Bought
         {

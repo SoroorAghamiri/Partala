@@ -1650,12 +1650,12 @@ PrefabInstance:
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.size
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[5].type
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
@@ -1665,62 +1665,62 @@ PrefabInstance:
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[0].productId
-      value: fivefeather
+      value: 14feathersNA1episode
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[0].price
-      value: 55000
+      value: 49999
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[1].productId
-      value: ninefeather
+      value: 30feathersNA
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[1].price
-      value: 99000
+      value: 147000
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[2].productId
-      value: fifteenfeathers
+      value: 65feathersNA
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[2].price
-      value: 169000
+      value: 299000
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[3].productId
-      value: twentyfeathers
+      value: 12feathers
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[3].price
-      value: 225000
+      value: 49999
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[4].productId
-      value: noadversion
+      value: 15feathers
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[4].price
-      value: 1100000
+      value: 56000
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[5].productId
-      value: noadversion
+      value: 22feathers
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
       propertyPath: products.Array.data[5].price
-      value: 99000
+      value: 97000
       objectReference: {fileID: 0}
     - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
         type: 3}
@@ -1746,6 +1746,46 @@ PrefabInstance:
         type: 3}
       propertyPath: refreshToken
       value: ppiDJPim1nQCK3rIj5D3qlJANPAd93
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: products.Array.data[6].productId
+      value: 19feathers
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: products.Array.data[6].price
+      value: 88000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: products.Array.data[7].productId
+      value: 26feathers
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: products.Array.data[7].price
+      value: 138000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: products.Array.data[8].productId
+      value: 30feathers
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: products.Array.data[8].price
+      value: 147000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: products.Array.data[9].productId
+      value: 35feathers
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253565147117086, guid: 70c636dee37d2ac40b082aed5f11d6be,
+        type: 3}
+      propertyPath: products.Array.data[9].price
+      value: 169000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70c636dee37d2ac40b082aed5f11d6be, type: 3}
@@ -1969,7 +2009,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.08666667, y: 0.12028396}
   m_AnchorMax: {x: 0.21300001, y: 0.3077161}
-  m_AnchoredPosition: {x: 763, y: 102.92999}
+  m_AnchoredPosition: {x: 763, y: 102.92998}
   m_SizeDelta: {x: 1.239563, y: 3.4077759}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1713855107

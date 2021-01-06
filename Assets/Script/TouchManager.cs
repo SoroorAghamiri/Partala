@@ -41,6 +41,15 @@ public class TouchManager : MonoBehaviour
                 break;
             }
             Vector2 touchPosition = NormalizeTouchPosition(touch.position);
+            if (activeGameObject != null && movingFingerID == -1)
+            {
+                if (rightPanelCollider == Physics2D.OverlapPoint(touchPosition))
+                {
+                    SetRotateandOffsetAngle(touchPosition);
+                    rotate = true;
+                    break;
+                }
+            }
             for (int i = 0; i < collider2DObjects.Length; i++)
             {
                 if (collider2DObjects[i] == Physics2D.OverlapPoint(touchPosition))
@@ -50,15 +59,7 @@ public class TouchManager : MonoBehaviour
                     movingFingerID = touch.fingerId;
                 }
             }
-            if (activeGameObject != null && movingFingerID == -1)
-            {
-                if (rightPanelCollider == Physics2D.OverlapPoint(touchPosition))
-                {
-                    SetRotateandOffsetAngle(touchPosition);
-                    rotate = true;
-
-                }
-            }
+            
 
         }
         if (movingFingerID != -1 && !rotateButton.RotateButtonIsPressed())
