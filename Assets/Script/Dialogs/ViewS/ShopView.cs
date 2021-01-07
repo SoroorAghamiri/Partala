@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ShopView : DialogBase
 {
-    public UPersian.Components.RtlText numberOfFeathers;
+    // public UPersian.Components.RtlText numberOfFeathers;
     private GameObject uiBs;
     private void OnEnable() {
         GameObject gmGO = GameObject.Find("GameManger");
@@ -12,7 +12,7 @@ public class ShopView : DialogBase
         uiBs = uiPA.transform.Find("UI").gameObject;
         if(uiBs!= null)
             uiBs.SetActive(false);
-         numberOfFeathers.text = DataManager.Instance.GetFeather().ToString();
+        //  numberOfFeathers.text = DataManager.Instance.GetFeather().ToString();
     }
     public void closeShop(){
         if(!uiBs.active)

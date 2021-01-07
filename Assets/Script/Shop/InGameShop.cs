@@ -201,4 +201,8 @@ public class InGameShop : MonoBehaviour
         timer = coolDownForAd;
         timer -= TimeMaster.Instance.CheckDate();
     }
+
+    public void closeMessageBox(){
+        messageBox.SetActive(false);
+    }
 }
