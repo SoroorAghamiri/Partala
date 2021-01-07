@@ -7,6 +7,8 @@ public class EpisodeManager : MonoBehaviour
     [SerializeField] Button[] episodeButtons;
     private dynamic buildIndexofCurrent;
 
+    [SerializeField] UPersian.Components.RtlText ep4;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,13 +40,20 @@ public class EpisodeManager : MonoBehaviour
         UnlockTillPlayerProgress();
     }
 
+    Color prev;
     private void UnlockTillPlayerProgress()
     {
+        prev = episodeButtons[2].transform.GetChild(0).GetComponent<Image>().color;
         for (int i = 0; i < DataManager.Instance.GetEpisode(); i++)//Needs Refactoring Calling Objects with their index
         {
             episodeButtons[i].transform.GetChild(1).gameObject.SetActive(false);
             episodeButtons[i].interactable = true;
             episodeButtons[i].transform.GetChild(0).GetComponent<Image>().color = Color.white;
+            if(i == 2){
+                episodeButtons[i].interactable = false;
+                // episodeButtons[i].transform.GetChild(0).GetComponent<Image>().color = prev;
+                ep4.text = "به زودی";
+            }
         }
     }
 
@@ -55,10 +64,9 @@ public class EpisodeManager : MonoBehaviour
     }
     public void EpisodeOnClick(string episode)
     {
-
         this.GetComponent<AudioSource>().Play();
         PersistentSceneManager.instance.LoadScene(episode, true);
-        // mylevelLoader.LoadLevel(episode);
+        // mylevelLoader.LoadLevel(episode);  
     }
 
     public void SoundActive()
