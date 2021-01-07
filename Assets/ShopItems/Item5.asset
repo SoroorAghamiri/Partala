@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16327bbb64b94a84789070e3b6488249, type: 3}
   m_Name: Item5
   m_EditorClassIdentifier: 
-  id: 5
+  id: 4
   name: x15
   numOfFeathers: 15
+  giftFeathers: 0
   noAdsFor1Episode: 0
   noAds: 0
   price: 5.7

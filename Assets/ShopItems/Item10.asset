@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16327bbb64b94a84789070e3b6488249, type: 3}
   m_Name: Item10
   m_EditorClassIdentifier: 
-  id: 10
+  id: 6
   name: x19
   numOfFeathers: 19
+  giftFeathers: 0
   noAdsFor1Episode: 0
   noAds: 0
   price: 8.8

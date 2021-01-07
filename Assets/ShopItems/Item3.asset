@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16327bbb64b94a84789070e3b6488249, type: 3}
   m_Name: Item3
   m_EditorClassIdentifier: 
-  id: 3
+  id: 2
   name: Fogholade
   numOfFeathers: 59
   giftFeathers: 6
