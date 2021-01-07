@@ -1938,7 +1938,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2308d760d47764e9532b491cecf180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects: []
+  objects:
+  - {fileID: 352407409}
+  - {fileID: 1974297322}
+  - {fileID: 591654860}
+  - {fileID: 234243825}
+  - {fileID: 428139571}
   activeGameObject: {fileID: 0}
   rotate: 0
   speedMove: 15

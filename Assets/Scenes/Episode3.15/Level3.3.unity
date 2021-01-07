@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1931,7 +1931,43 @@ MonoBehaviour:
   - 0.7854211
   - 1.642405
   - 2.011863
-  allowanceForObjects: 0.35
+  allowanceForObjects: 0.96
+  allowanceForLockers: 0.1
+--- !u!114 &1290885365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290885363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfcd41282db2b864bb37da36843c2158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flagWin: 0
+  setup: 0
+  colliderPoints:
+  - {fileID: 445396482}
+  - {fileID: 896658841}
+  - {fileID: 732042646}
+  - {fileID: 636485401}
+  - {fileID: 1044125079}
+  - {fileID: 1479319172}
+  distancesInFloat:
+  - 2.174695
+  - 0.7712972
+  - 2.386064
+  - 1.88279
+  - 2.128584
+  - 1.719091
+  - 0.5251951
+  - 1.690749
+  - 1.86532
+  - 0.7625095
+  - 1.688635
+  - 1.749026
+  allowanceForObjects: 0.96
   allowanceForLockers: 0.1
 --- !u!1 &1330080091
 GameObject:
@@ -2438,7 +2474,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: bb3b73be342e4414796379148cebba3a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

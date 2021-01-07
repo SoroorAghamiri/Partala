@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -349,7 +349,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 07b5a0d22ccd89c47981a882ba2da5cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -368,15 +368,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232341744}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.5, y: -1.94, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.49403918, w: 0.86943966}
+  m_LocalPosition: {x: -3.85, y: -2.16, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 1205978497}
   - {fileID: 699580181}
   m_Father: {fileID: 282877979}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 59.213}
 --- !u!114 &232341748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1156,7 +1156,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663415903}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.18, y: 2.32, z: 0}
+  m_LocalPosition: {x: -5.1, y: 2.3, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 2027425346}
@@ -2100,13 +2100,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1208498561}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.64, y: -2.7800002, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.49403918, w: 0.86943966}
+  m_LocalPosition: {x: -3.2, y: -2.73, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 282877979}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 59.213}
 --- !u!114 &1208498565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2275,7 +2275,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 714fe8c451ce31a4da95297931c5b84b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2294,13 +2294,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270808992}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.98, y: -2.87, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.24937369, w: 0.96840733}
+  m_LocalPosition: {x: -4.858369, y: -2.7208643, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 282877979}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 28.881}
 --- !u!114 &1270808996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2478,18 +2478,54 @@ MonoBehaviour:
   - {fileID: 2027425347}
   - {fileID: 900770405}
   distancesInFloat:
-  - 3.16
-  - 1.71
-  - 4.01
-  - 2.9
-  - 4.26
-  - 3.26
-  - 4.07
-  - 2.97
-  - 1.94
-  - 1.81
-  - 2.79
-  - 2.02
+  - 3.060664
+  - 1.947184
+  - 4.081448
+  - 2.63404
+  - 3.903467
+  - 3.179295
+  - 3.970608
+  - 2.882094
+  - 1.70814
+  - 2.065567
+  - 1.961339
+  - 1.42853
+  allowanceForObjects: 0.35
+  allowanceForLockers: 0.1
+--- !u!114 &1290885365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290885363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfcd41282db2b864bb37da36843c2158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flagWin: 0
+  setup: 0
+  colliderPoints:
+  - {fileID: 1085129156}
+  - {fileID: 1838135574}
+  - {fileID: 1205978498}
+  - {fileID: 699580182}
+  - {fileID: 2027425347}
+  - {fileID: 900770405}
+  distancesInFloat:
+  - 3.352759
+  - 3.005571
+  - 3.199429
+  - 1.971014
+  - 3.578507
+  - 2.525439
+  - 4.595997
+  - 3.516417
+  - 2.147237
+  - 1.676961
+  - 3.402727
+  - 2.573936
   allowanceForObjects: 0.35
   allowanceForLockers: 0.1
 --- !u!1 &1311515347
@@ -3257,7 +3293,7 @@ GameObject:
   - component: {fileID: 2042274301}
   m_Layer: 0
   m_Name: headphone0
-  m_TagString: Untagged
+  m_TagString: Final
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3482,15 +3518,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085250957}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.4086094, y: -2.1529408, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.24937369, w: 0.96840733}
+  m_LocalPosition: {x: -5.57, y: -2.27, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 1085129155}
   - {fileID: 1838135573}
   m_Father: {fileID: 282877979}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 28.881}
 --- !u!114 &2085250961
 MonoBehaviour:
   m_ObjectHideFlags: 0
