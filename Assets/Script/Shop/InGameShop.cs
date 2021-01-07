@@ -64,7 +64,10 @@ public class InGameShop : MonoBehaviour
         {
             GameAnalytics.NewBusinessEvent("rial", int.Parse(StoreHandler.instance.products[productIndex].price), "feathers", StoreHandler.instance.products[productIndex].productId, "InGameShop");
             GameAnalytics.NewResourceEvent(GAResourceFlowType.Source, "feather", amountOfFeathersTobeAdded, "purchase", "feather");
+
             DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() + amountOfFeathersTobeAdded);
+            DataManager.Instance.Save();
+
             string tmp = amountOfFeathersTobeAdded.ToString() + " پر به اکانت شما اضافه شد.";
             if(focusedItem.noAds)
             {
@@ -75,6 +78,7 @@ public class InGameShop : MonoBehaviour
                 tmp = tmp + " و تبلیفات در یک اپیزود بازی برای شما حذف شد ";
             }
             ShowMessage(tmp);
+
             
         }
         else //A Non-Consumable Currency Was Bought
