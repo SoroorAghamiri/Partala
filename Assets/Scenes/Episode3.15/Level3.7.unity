@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2198,7 +2198,43 @@ MonoBehaviour:
   - 3.91
   - 1.8
   - 2.08
-  allowanceForObjects: 0.35
+  allowanceForObjects: 1.2
+  allowanceForLockers: 0.1
+--- !u!114 &1290885365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290885363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfcd41282db2b864bb37da36843c2158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flagWin: 0
+  setup: 0
+  colliderPoints:
+  - {fileID: 1751254877}
+  - {fileID: 1406557831}
+  - {fileID: 1852295401}
+  - {fileID: 538531617}
+  - {fileID: 999564114}
+  - {fileID: 68927912}
+  distancesInFloat:
+  - 1.00556
+  - 3.341421
+  - 1.263517
+  - 2.09983
+  - 1.317478
+  - 1.574544
+  - 1.493403
+  - 2.14877
+  - 0.3303923
+  - 0.8877459
+  - 2.650433
+  - 3.281301
+  allowanceForObjects: 1.14
   allowanceForLockers: 0.1
 --- !u!1 &1321219409
 GameObject:

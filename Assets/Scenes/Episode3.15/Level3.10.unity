@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1729,11 +1729,11 @@ MonoBehaviour:
   - {fileID: 1823561509}
   - {fileID: 1856582257}
   distancesInFloat:
-  - 1.63
-  - 1.52
-  - 0.72
-  - 0.59
-  allowanceForObjects: 0.35
+  - 2.228888
+  - 2.071945
+  - 1.039189
+  - 0.8877192
+  allowanceForObjects: 0.79
   allowanceForLockers: 0.1
 --- !u!1001 &1436396310
 PrefabInstance:
