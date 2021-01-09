@@ -20,14 +20,16 @@ public class InGameShop : MonoBehaviour
     float timer;
     [SerializeField] RtlText timerText;
     [SerializeField] Button featherWithAdButton;
+
     private ShopItems focusedItem;
+    [SerializeField] ShopItems[] shopItems;
 
     private GameManger myGameManager;
 
     public void BuyProduct(int index)
     {
         // productIndex = index;
-        focusedItem = EventSystem.current.currentSelectedGameObject.GetComponent<ShopItems>();
+        focusedItem = shopItems[index]; 
         if (focusedItem.noAdsFor1Episode && (DataManager.Instance.GetNoAdForGivenEpisode(myGameManager.GetEpisodeNumber() - 1) || DataManager.Instance.GetnoAdflag()))
         {
             ShowMessage("شما همین الان بسته ای دارید که تبلیفات برای یک اپیزود یا کل بازی را حذف می کند!");
@@ -170,7 +172,7 @@ public class InGameShop : MonoBehaviour
     }
     private void Update()
     {
-        ShowTimerForAdButton();
+       // ShowTimerForAdButton();
     }
 
     private void ShowTimerForAdButton()

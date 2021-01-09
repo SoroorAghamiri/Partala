@@ -540,7 +540,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -623,6 +623,17 @@ MonoBehaviour:
   coolDownForAd: 0
   timerText: {fileID: 0}
   featherWithAdButton: {fileID: 0}
+  shopItems:
+  - {fileID: 11400000, guid: 6834fae920f19ef4e92d0367d84b32a2, type: 2}
+  - {fileID: 11400000, guid: 31962d8636d8c574c9d3ec04d783ba1c, type: 2}
+  - {fileID: 11400000, guid: e4507935218475a45b988ebd79d5cf4a, type: 2}
+  - {fileID: 11400000, guid: b8f42be0b6f75644a8ff343b695c2547, type: 2}
+  - {fileID: 11400000, guid: 3e8fd8c67a9f4de4c861b82a27910642, type: 2}
+  - {fileID: 11400000, guid: 5e4b5696d11db4a4bb8672489c181140, type: 2}
+  - {fileID: 11400000, guid: 62632112e5e16d34191e8fba00033538, type: 2}
+  - {fileID: 11400000, guid: bdbcdf2213d856c49a599376481fce75, type: 2}
+  - {fileID: 11400000, guid: 0008369b99c531044803b24724f862e7, type: 2}
+  - {fileID: 11400000, guid: e0a3871c3ae8c4848ab4f8c09aaac451, type: 2}
 --- !u!1 &2098717228394966543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,7 +1132,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1550,7 +1561,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1850,7 +1861,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2488,7 +2499,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2645,7 +2656,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 9
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3688,7 +3699,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4309,7 +4320,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 8
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4544,7 +4555,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
