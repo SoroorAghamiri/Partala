@@ -128,4 +128,14 @@ public class DialogManager : MonoBehaviour
         return dialog;
     }
 
+     public ShopView showShop(){
+        ShopView prefab = Resources.Load<ShopView>("Views/ShopPanel");
+        ShopView dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
+        // dialog.transform.SetParent(this.GetComponent<RectTransform>());
+        initDialog(dialog.gameObject);
+
+        ViewManager.instance.openView(dialog);
+        return dialog;
+    }
+
 }

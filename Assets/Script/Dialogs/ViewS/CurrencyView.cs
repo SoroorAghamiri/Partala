@@ -122,23 +122,12 @@ public class CurrencyView : DialogBase
     }
 
     public void callShowShop(){
-        showShop();
-        //  Destroy(this.gameObject);
-    }
-
-    public ShopView showShop(){
-        ShopView prefab = Resources.Load<ShopView>("Views/ShopPanel");
-        ShopView dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
-        // dialog.transform.SetParent(this.GetComponent<RectTransform>());
-        RectTransform parent = this.transform.parent.gameObject.GetComponent<RectTransform>();
-        dialog.transform.SetParent(parent);
-        dialog.transform.localPosition = Vector3.zero;
-        dialog.transform.localScale = Vector3.one;
-
-        ViewManager.instance.openView(dialog);
+        // showShop();
+        DialogManager.instance.showShop();
          Destroy(this.gameObject);
-        return dialog;
     }
+
+   
 
     public InfoView showInfo(string callingHint)
     {
