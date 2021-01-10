@@ -38,7 +38,7 @@ public class DialogManager : MonoBehaviour
 
                 cc = GameObject.Find("GameManger");
                 GameObject childOfCC = cc.transform.Find("UI PA").gameObject;
-                GameObject cOfCOfCC = childOfCC.transform.Find("PauseCanvas").gameObject;
+                GameObject cOfCOfCC = childOfCC.transform.Find("Canvas").gameObject;
 
                 canvasParent = cOfCOfCC.GetComponent<RectTransform>();
             }
@@ -49,12 +49,12 @@ public class DialogManager : MonoBehaviour
 
     private void initDialog(GameObject dialog)
     {
-        dialog.transform.SetParent(getCanvasParent());
+        dialog.transform.SetParent(getCanvasParent() , true); //If anything was messed up, remove false value
         dialog.transform.localPosition = Vector3.zero;
         dialog.transform.localScale = Vector3.one;
 
         RectTransform rectTransform = dialog.GetComponent<RectTransform>();
-
+      
 
         Resources.UnloadUnusedAssets();
     }
