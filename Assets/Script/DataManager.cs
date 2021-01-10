@@ -25,6 +25,7 @@ public class DataManager : MonoBehaviour
         }
         Load();
         SetBuildIndexesOfLevelSelectors();//Setting build indexes of Level Selectors, Just Change it Later
+        UnlockAllLevels();
         Save();
     }
 
