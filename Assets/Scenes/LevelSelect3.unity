@@ -628,6 +628,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7400171776460495113, guid: ea127a06c379fac49bba809883528d1f,
         type: 3}
+      propertyPath: levelButtons.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7400171776460495113, guid: ea127a06c379fac49bba809883528d1f,
+        type: 3}
       propertyPath: level_button.Array.data[0]
       value: 
       objectReference: {fileID: 1491713963}
@@ -706,6 +711,81 @@ PrefabInstance:
       propertyPath: currentEpisode
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7400171776460495113, guid: ea127a06c379fac49bba809883528d1f,
+        type: 3}
+      propertyPath: levelButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 1581579120}
+    - target: {fileID: 7400171776460495113, guid: ea127a06c379fac49bba809883528d1f,
+        type: 3}
+      propertyPath: levelButtons.Array.data[1]
+      value: 
+      objectReference: {fileID: 2017045111}
+    - target: {fileID: 7400171776460495113, guid: ea127a06c379fac49bba809883528d1f,
+        type: 3}
+      propertyPath: levelButtons.Array.data[2]
+      value: 
+      objectReference: {fileID: 1083366752}
+    - target: {fileID: 7400171776460495113, guid: ea127a06c379fac49bba809883528d1f,
+        type: 3}
+      propertyPath: levelButtons.Array.data[3]
+      value: 
+      objectReference: {fileID: 1232574587}
+    - target: {fileID: 7400171776460495113, guid: ea127a06c379fac49bba809883528d1f,
+        type: 3}
+      propertyPath: levelButtons.Array.data[4]
+      value: 
+      objectReference: {fileID: 203207804}
+    - target: {fileID: 7400171776460495113, guid: ea127a06c379fac49bba809883528d1f,
+        type: 3}
+      propertyPath: levelButtons.Array.data[5]
+      value: 
+      objectReference: {fileID: 1905413917}
+    - target: {fileID: 7400171776460495113, guid: ea127a06c379fac49bba809883528d1f,
+        type: 3}
+      propertyPath: levelButtons.Array.data[6]
+      value: 
+      objectReference: {fileID: 403752745}
+    - target: {fileID: 7400171776460495113, guid: ea127a06c379fac49bba809883528d1f,
+        type: 3}
+      propertyPath: levelButtons.Array.data[7]
+      value: 
+      objectReference: {fileID: 1081613728}
+    - target: {fileID: 7400171776460495113, guid: ea127a06c379fac49bba809883528d1f,
+        type: 3}
+      propertyPath: levelButtons.Array.data[8]
+      value: 
+      objectReference: {fileID: 1130306006}
+    - target: {fileID: 7400171776460495113, guid: ea127a06c379fac49bba809883528d1f,
+        type: 3}
+      propertyPath: levelButtons.Array.data[9]
+      value: 
+      objectReference: {fileID: 1570013164}
+    - target: {fileID: 7400171776460495113, guid: ea127a06c379fac49bba809883528d1f,
+        type: 3}
+      propertyPath: levelButtons.Array.data[10]
+      value: 
+      objectReference: {fileID: 1991286790}
+    - target: {fileID: 7400171776460495113, guid: ea127a06c379fac49bba809883528d1f,
+        type: 3}
+      propertyPath: levelButtons.Array.data[11]
+      value: 
+      objectReference: {fileID: 287347883}
+    - target: {fileID: 7400171776460495113, guid: ea127a06c379fac49bba809883528d1f,
+        type: 3}
+      propertyPath: levelButtons.Array.data[12]
+      value: 
+      objectReference: {fileID: 704422403}
+    - target: {fileID: 7400171776460495113, guid: ea127a06c379fac49bba809883528d1f,
+        type: 3}
+      propertyPath: levelButtons.Array.data[13]
+      value: 
+      objectReference: {fileID: 59136478}
+    - target: {fileID: 7400171776460495113, guid: ea127a06c379fac49bba809883528d1f,
+        type: 3}
+      propertyPath: levelButtons.Array.data[14]
+      value: 
+      objectReference: {fileID: 330675565}
     - target: {fileID: 7400171776460495118, guid: ea127a06c379fac49bba809883528d1f,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -24,8 +24,17 @@ public class DataManager : MonoBehaviour
             Destroy(gameObject);
         }
         Load();
-        UnlockAllLevels(); ///Remove This Snippet For Release
+        SetBuildIndexesOfLevelSelectors();//Setting build indexes of Level Selectors, Just Change it Later
         Save();
+    }
+
+    private void SetBuildIndexesOfLevelSelectors()
+    {
+        playerData.buildIndexOfLevelSelectors.Clear();
+        playerData.buildIndexOfLevelSelectors.Add(0);//just add this for not using the 0 index
+        playerData.buildIndexOfLevelSelectors.Add(5);
+        playerData.buildIndexOfLevelSelectors.Add(21);
+        playerData.buildIndexOfLevelSelectors.Add(37);
     }
 
     private void UnlockAllLevels()
