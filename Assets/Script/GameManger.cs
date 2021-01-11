@@ -79,7 +79,7 @@ public class GameManger : MonoBehaviour
         // sfx.audioMixer.SetFloat("sfxvol", DataManager.Instance.GetSFXLevel());
         // Musix.audioMixer.SetFloat("musicvol", DataManager.Instance.GetMusicLevel());
 
-        SingleTOne();//WHY?
+        //SingleTOne();//WHY?
 
 
     }
@@ -107,15 +107,23 @@ public class GameManger : MonoBehaviour
     private void FindCorrectEpisodeNumberAndLevel()
     {
         var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        for(int i=1;i<DataManager.Instance.ReturnSizeOfBuildIndexList();i++)
+        var lastEpisodeNumber = DataManager.Instance.ReturnSizeOfBuildIndexList();
+        for(int i=1;i<DataManager.Instance.ReturnSizeOfBuildIndexList()-1;i++)
         {
-            if(DataManager.Instance.ReturnBuildIndexByEpisodeNumber(i) < currentSceneIndex)
+            if(DataManager.Instance.ReturnBuildIndexByEpisodeNumber(i) < currentSceneIndex && currentSceneIndex < DataManager.Instance.ReturnBuildIndexByEpisodeNumber(i+1))
             {
                 levelNumberInEpisode = currentSceneIndex - DataManager.Instance.ReturnBuildIndexByEpisodeNumber(i);
                 episodeNumber = i;
-                break;
+                Debug.Log("episodeNumber ;" + episodeNumber);
+                Debug.Log("levelNumber :" + levelNumberInEpisode);
+                return;
             }
         }
+        episodeNumber= DataManager.Instance.ReturnSizeOfBuildIndexList() -1;
+        levelNumberInEpisode = currentSceneIndex - DataManager.Instance.ReturnBuildIndexByEpisodeNumber(episodeNumber);
+        Debug.Log("EndOfBuildIndexes");
+        Debug.Log("episodeNumber ;" + episodeNumber);
+        Debug.Log("levelNumber :" + levelNumberInEpisode);
     }
 
     private void SettingInitialValues()

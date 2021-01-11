@@ -12,6 +12,7 @@ public class TouchManager : MonoBehaviour
     public bool rotate;
     private Collider2D rightPanelCollider;
     private Vector2 movement;
+    private bool offsetAngleIsSet;
     private float offsetAngle;
     private RotateButtonInGame rotateButton;
 
@@ -36,6 +37,13 @@ public class TouchManager : MonoBehaviour
     {
         foreach (Touch touch in Input.touches)
         {
+            if(rotateButton.RotateButtonIsPressed() && activeGameObject!= null)
+            {
+                rotate = true;
+                RotateAndLookAtTheTouch();
+                
+                break;
+            }
             if (movingFingerID != -1 || rotate)
             {
                 break;
@@ -115,11 +123,19 @@ public class TouchManager : MonoBehaviour
             ////        return;
             ////    }
             ////}
+            ///
+
             if (rightPanelCollider == Physics2D.OverlapPoint(touchPosition))
             {
+                if(offsetAngleIsSet==false)
+                {
+                    SetRotateandOffsetAngle(touchPosition);
+                    offsetAngleIsSet = true;
+                }
                 touchIsRotating = true;
                 Vector2 currentPosition = activeGameObject.transform.position;
                 Vector2 moveTowards = Camera.main.ScreenToWorldPoint(touch.position);
+                
                 movement = moveTowards - currentPosition;
                 movement.Normalize();
                 float targetAngle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
@@ -127,11 +143,15 @@ public class TouchManager : MonoBehaviour
                 if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
                 {
                     rotate = false;
+                    offsetAngleIsSet = false;
                 }
             }
         }
         if (!touchIsRotating)
+        {
             rotate = false;
+
+        }
     }
     private void SetRotateandOffsetAngle(Vector2 touchPosition)
     {
