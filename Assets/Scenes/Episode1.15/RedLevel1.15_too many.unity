@@ -1853,6 +1853,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7781616100319793547, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 8454164094180516586, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2294,10 +2299,6 @@ MonoBehaviour:
   objects:
   - {fileID: 911888043}
   - {fileID: 427467921}
-  - {fileID: 2010387601}
-  - {fileID: 1894542747}
-  - {fileID: 364190981}
-  - {fileID: 1865044189}
   - {fileID: 2024651605}
   - {fileID: 58626404}
   - {fileID: 1852515004}
