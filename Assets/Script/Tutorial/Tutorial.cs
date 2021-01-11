@@ -231,7 +231,7 @@ public class Tutorial : MonoBehaviour
 
                                 }
                                 float angle = correctObjects[i].transform.rotation.eulerAngles.z;
-                                if(angle <1 && angle >-1 ){
+                                if(angle <5 && angle >-5 ){
                                     rotationDone = true;
                                 }
                                 
