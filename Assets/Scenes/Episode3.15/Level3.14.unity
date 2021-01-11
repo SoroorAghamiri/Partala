@@ -3035,7 +3035,7 @@ GameObject:
   - component: {fileID: 2045652189}
   m_Layer: 0
   m_Name: Ship3
-  m_TagString: Untagged
+  m_TagString: WrongComponent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

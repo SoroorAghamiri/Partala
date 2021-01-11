@@ -1044,13 +1044,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671458590}
-  m_LocalRotation: {x: -0, y: -0, z: 0.58387274, w: 0.8118452}
-  m_LocalPosition: {x: 3.45, y: 1.12, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.8917468, w: 0.45253482}
+  m_LocalPosition: {x: 3.2005372, y: 0.6094248, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 920912631}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 71.44701}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 126.187004}
 --- !u!61 &671458592
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1896,13 +1896,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 952409422}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 3.47, y: -0.51, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.95303315, w: 0.30286595}
+  m_LocalPosition: {x: 4.54305, y: -0.3152157, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 920912631}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 144.74}
 --- !u!50 &952409424
 Rigidbody2D:
   serializedVersion: 4
@@ -2654,7 +2654,7 @@ MonoBehaviour:
   - 0.84
   - 2.62
   - 1.86
-  allowanceForObjects: 0.35
+  allowanceForObjects: 0.99
   allowanceForLockers: 0.1
 --- !u!1001 &1320898866
 PrefabInstance:
@@ -2971,13 +2971,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589751201}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.92, y: 1.15, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.45973766, w: 0.8880548}
+  m_LocalPosition: {x: 3.4473634, y: 1.0105184, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 920912631}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 54.74}
 --- !u!50 &1589751203
 Rigidbody2D:
   serializedVersion: 4
