@@ -66,7 +66,14 @@ public class InGameShop : MonoBehaviour
         {
             GameAnalytics.NewBusinessEvent("rial", int.Parse(StoreHandler.instance.products[productIndex].price), "feathers", StoreHandler.instance.products[productIndex].productId, "InGameShop");
             GameAnalytics.NewResourceEvent(GAResourceFlowType.Source, "feather", amountOfFeathersTobeAdded, "purchase", "feather");
-
+            if(focusedItem.noAdsFor1Episode)
+            {
+                DataManager.Instance.SetNoAdForGivenEpisode(myGameManager.GetEpisodeNumber() - 1);
+            }
+            if(focusedItem.noAds)
+            {
+                DataManager.Instance.SetNoAdActive();
+            }
             DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() + amountOfFeathersTobeAdded);
             DataManager.Instance.Save();
 

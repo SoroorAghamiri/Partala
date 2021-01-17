@@ -234,6 +234,10 @@ public class Tutorial : MonoBehaviour
                                 if(angle <5 && angle >-5 ){
                                     rotationDone = true;
                                 }
+                                if(angle >350 && angle <360)
+                                {
+                                    rotationDone = true;
+                                }
                                 
                             }
                         }
