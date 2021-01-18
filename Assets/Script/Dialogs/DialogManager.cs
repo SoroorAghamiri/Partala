@@ -49,7 +49,7 @@ public class DialogManager : MonoBehaviour
 
     private void initDialog(GameObject dialog)
     {
-        dialog.transform.SetParent(getCanvasParent() , true); //If anything was messed up, remove false value
+        dialog.transform.SetParent(getCanvasParent().transform , false); //If anything was messed up, remove false value
         dialog.transform.localPosition = Vector3.zero;
         dialog.transform.localScale = Vector3.one;
 
