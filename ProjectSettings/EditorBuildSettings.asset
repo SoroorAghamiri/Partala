@@ -164,4 +164,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Episode3.15/Level3.14.unity
     guid: 896aa3a022908e646bbbbbb5d3048325
+  - enabled: 1
+    path: Assets/Scenes/Episode2.15/AssetBundleTest.unity
+    guid: 0e3e7269ca69f1d49b96528346222c8a
   m_configObjects: {}
