@@ -40,4 +40,8 @@ public class StartView : MonoBehaviour
         PersistentSceneManager.instance.LoadScene(SceneNames.Shop, true);
         //mylevelLoader.LoadLevel(SceneNames.Shop);
     }
+    public void OpenTestLevel(int buildIndex)
+    {
+        PersistentSceneManager.instance.LoadScene(buildIndex, false);
+    }
 }

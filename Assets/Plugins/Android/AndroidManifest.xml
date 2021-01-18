@@ -7,7 +7,8 @@
 
   <!-- Bazaar IAB Permission -->
   <uses-permission android:name="com.farsitel.bazaar.permission.PAY_THROUGH_BAZAAR" />
-
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.INTERNET" />
   <supports-screens
       android:smallScreens="true"
       android:normalScreens="true"

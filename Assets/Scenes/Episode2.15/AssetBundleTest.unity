@@ -372,6 +372,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df872841e7d3874e8ae5033bedf79be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &335091336 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 629122680515721621, guid: aad1ccdd846dc464ba10403fcd885a50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1083012725}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &863846154
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,6 +571,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinChecker
       objectReference: {fileID: 0}
+    - target: {fileID: 5101966357536151847, guid: 710d726d661841f4991ea4c0d84f87a0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5101966357536151846, guid: 710d726d661841f4991ea4c0d84f87a0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 710d726d661841f4991ea4c0d84f87a0, type: 3}
@@ -624,6 +635,80 @@ MonoBehaviour:
   - 2.840285
   allowanceForObjects: 0.35
   allowanceForLockers: 0.1
+--- !u!1001 &1083012725
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1716642514}
+    m_Modifications:
+    - target: {fileID: 629122680515721621, guid: aad1ccdd846dc464ba10403fcd885a50,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 629122680515721621, guid: aad1ccdd846dc464ba10403fcd885a50,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 629122680515721621, guid: aad1ccdd846dc464ba10403fcd885a50,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.5175781
+      objectReference: {fileID: 0}
+    - target: {fileID: 629122680515721621, guid: aad1ccdd846dc464ba10403fcd885a50,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629122680515721621, guid: aad1ccdd846dc464ba10403fcd885a50,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629122680515721621, guid: aad1ccdd846dc464ba10403fcd885a50,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629122680515721621, guid: aad1ccdd846dc464ba10403fcd885a50,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 629122680515721621, guid: aad1ccdd846dc464ba10403fcd885a50,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629122680515721621, guid: aad1ccdd846dc464ba10403fcd885a50,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629122680515721621, guid: aad1ccdd846dc464ba10403fcd885a50,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629122680515721621, guid: aad1ccdd846dc464ba10403fcd885a50,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432149315164974054, guid: aad1ccdd846dc464ba10403fcd885a50,
+        type: 3}
+      propertyPath: m_Name
+      value: Episode2.Level16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432149315164974054, guid: aad1ccdd846dc464ba10403fcd885a50,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aad1ccdd846dc464ba10403fcd885a50, type: 3}
 --- !u!1 &1477208760
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,7 +853,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed00606b4e33a474a9cfe29d80429ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assetBundle: {fileID: 0}
+  BundleURL: https://file.io/bjXHyyovnr5v
+  AssetName: episode2level16
+  version: 0
 --- !u!4 &1716642514
 Transform:
   m_ObjectHideFlags: 0
@@ -777,9 +864,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716642512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.04, y: 0.25, z: -1.5175781}
+  m_LocalPosition: {x: -1.67, y: 1.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 335091336}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
