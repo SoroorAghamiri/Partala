@@ -24,11 +24,14 @@ public class ShopView : DialogBase
     {
         if (ViewManager.instance.getLastView() != null)
         {
-
+            if(!uiBs.active)
+                uiBs.SetActive(true);
             ViewManager.instance.closeLastView();
         }
         else
         {
+            if(!uiBs.active)
+                uiBs.SetActive(true);
             ViewManager.instance.closeView(this);
         }
     }
