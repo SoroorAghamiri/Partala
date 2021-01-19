@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class AssetBundleLoader : MonoBehaviour
 {
     public string BundleURL;
     public string AssetName;
-    public int version;
+    public string hashCode;
+    public uint crc;
 
     // Start is called before the first frame update
     //private void Awake()
@@ -22,35 +24,56 @@ public class AssetBundleLoader : MonoBehaviour
     //        Instantiate(prefab);
     //    }
     //}
-    private void Start()
-    {
-        StartCoroutine(DownloadAndCache());
-    }
-    IEnumerator DownloadAndCache()
-    {
-        // Wait for the Caching system to be ready
-        while (!Caching.ready)
-            yield return null;
+    //private void Start()
+    //{
+    //    StartCoroutine(DownloadAndCache());
+    //}
+    //IEnumerator DownloadAndCache()
+    //{
+    //    //CachedAssetBundle cachedAssetBundle = new CachedAssetBundle();
+    //    //Hash128 hash = Hash128
 
-        // Load the AssetBundle file from Cache if it exists with the same version or download and store it in the cache
-        
-        using (WWW www = WWW.LoadFromCacheOrDownload(BundleURL, version))
-        {
-            yield return www;
-            if (www.error != null)
-            {
-                Debug.Log("WWW download had an error:" + www.error);
-            }
+    //    //cachedAssetBundle.hash = hashCode;
+    //    //cachedAssetBundle.name = AssetName;
+    //    //// Wait for the Caching system to be ready
+    //    //while (!Caching.ready)
+    //    //    yield return null;
+
+    //    //// Load the AssetBundle file from Cache if it exists with the same version or download and store it in the cache
+    //    //using (UnityWebRequest uwr = UnityWebRequestAssetBundle.GetAssetBundle(BundleURL, cachedAssetBundle, crc))
+    //    //{
+    //    //    yield return uwr.SendWebRequest();
+
+    //    //    if (uwr.isNetworkError || uwr.isHttpError)
+    //    //    {
+    //    //        Debug.Log(uwr.error);
+    //    //    }
+    //    //    else
+    //    //    {
+    //    //        // Get downloaded asset bundle
+    //    //        AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(uwr);
+    //    //        var prefab = bundle.LoadAsset<GameObject>("Episode2.Level16");
+    //    //        Instantiate(prefab, transform);
+    //    //        //Implement Calling Other Scripts
+    //    //    }
+    //    }
+    //    //using (WWW www = WWW.LoadFromCacheOrDownload(BundleURL, version))
+    //    //{
+    //    //    yield return www;
+    //    //    if (www.error != null)
+    //    //    {
+    //    //        Debug.Log("WWW download had an error:" + www.error);
+    //    //    }
                 
-            AssetBundle bundle = www.assetBundle;
-            //if (AssetName == "")
-            //    Instantiate(bundle.mainAsset);
-            //else
-            var prefab = bundle.LoadAsset<GameObject>("Episode2.Level16");
-                Instantiate(prefab,transform);
-            // Unload the AssetBundles compressed contents to conserve memory
-            bundle.Unload(false);
+    //    //    AssetBundle bundle = www.assetBundle;
+    //    //    //if (AssetName == "")
+    //    //    //    Instantiate(bundle.mainAsset);
+    //    //    //else
+    //    //    var prefab = bundle.LoadAsset<GameObject>("Episode2.Level16");
+    //    //        Instantiate(prefab,transform);
+    //    //    // Unload the AssetBundles compressed contents to conserve memory
+    //    //    bundle.Unload(false);
 
-        } // memory is freed from the web stream (www.Dispose() gets called implicitly)
-    }
+    //    //} // memory is freed from the web stream (www.Dispose() gets called implicitly)
+    //}
 }
