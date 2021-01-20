@@ -24,39 +24,40 @@ public class AssetBundleLoader : MonoBehaviour
     //        Instantiate(prefab);
     //    }
     //}
-    //private void Start()
-    //{
-    //    StartCoroutine(DownloadAndCache());
-    //}
-    //IEnumerator DownloadAndCache()
-    //{
-    //    //CachedAssetBundle cachedAssetBundle = new CachedAssetBundle();
-    //    //Hash128 hash = Hash128
+    private void Start()
+    {
+        StartCoroutine(DownloadAndCache());
+    }
+    IEnumerator DownloadAndCache()
+    {
+        CachedAssetBundle cachedAssetBundle = new CachedAssetBundle();
+        Hash128 hash = Hash128.Parse(hashCode);
 
-    //    //cachedAssetBundle.hash = hashCode;
-    //    //cachedAssetBundle.name = AssetName;
-    //    //// Wait for the Caching system to be ready
-    //    //while (!Caching.ready)
-    //    //    yield return null;
+        cachedAssetBundle.hash = hash;
+        cachedAssetBundle.name = AssetName;
+        // Wait for the Caching system to be ready
+        while (!Caching.ready)
+            yield return null;
 
-    //    //// Load the AssetBundle file from Cache if it exists with the same version or download and store it in the cache
-    //    //using (UnityWebRequest uwr = UnityWebRequestAssetBundle.GetAssetBundle(BundleURL, cachedAssetBundle, crc))
-    //    //{
-    //    //    yield return uwr.SendWebRequest();
+        // Load the AssetBundle file from Cache if it exists with the same version or download and store it in the cache
+        using (UnityWebRequest uwr = UnityWebRequestAssetBundle.GetAssetBundle(BundleURL, cachedAssetBundle, crc))
+        {
+            yield return uwr.SendWebRequest();
 
-    //    //    if (uwr.isNetworkError || uwr.isHttpError)
-    //    //    {
-    //    //        Debug.Log(uwr.error);
-    //    //    }
-    //    //    else
-    //    //    {
-    //    //        // Get downloaded asset bundle
-    //    //        AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(uwr);
-    //    //        var prefab = bundle.LoadAsset<GameObject>("Episode2.Level16");
-    //    //        Instantiate(prefab, transform);
-    //    //        //Implement Calling Other Scripts
-    //    //    }
-    //    }
+            if (uwr.isNetworkError || uwr.isHttpError)
+            {
+                Debug.Log(uwr.error);
+            }
+            else
+            {
+                // Get downloaded asset bundle
+                AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(uwr);
+                var prefab = bundle.LoadAsset<GameObject>("Episode2.Level16");
+                Instantiate(prefab, transform);
+                //Implement Calling Other Scripts
+            }
+        }
+    }
     //    //using (WWW www = WWW.LoadFromCacheOrDownload(BundleURL, version))
     //    //{
     //    //    yield return www;
@@ -64,7 +65,7 @@ public class AssetBundleLoader : MonoBehaviour
     //    //    {
     //    //        Debug.Log("WWW download had an error:" + www.error);
     //    //    }
-                
+
     //    //    AssetBundle bundle = www.assetBundle;
     //    //    //if (AssetName == "")
     //    //    //    Instantiate(bundle.mainAsset);
