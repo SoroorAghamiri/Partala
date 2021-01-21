@@ -17,7 +17,7 @@ public class DialogBase : ViewObject
     // public Image blurImage;
     //public GameObject DialogContents;
     public bool canClose = true;
-
+    public GameObject uiBs =null;
 
     public void Start()
     {
@@ -29,7 +29,9 @@ public class DialogBase : ViewObject
             });
         }
 
-
+        GameObject gmGO = GameObject.Find("GameManger");
+        GameObject uiPA = gmGO.transform.Find("UI PA").gameObject;
+        uiBs = uiPA.transform.Find("UI").gameObject;
 
     }
     public virtual void prepare()
@@ -60,6 +62,9 @@ public class DialogBase : ViewObject
         }
         iTween.ScaleTo(dialogObject, Vector3.zero, 0.5f);
         Time.timeScale = 1;
+        if(!uiBs.active){
+            uiBs.SetActive(true);
+        }
         Destroy(this.gameObject);
         // StartCoroutine(ExecuteAfterTime(0.5f));
     }
