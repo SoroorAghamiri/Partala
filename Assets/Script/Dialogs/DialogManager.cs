@@ -133,8 +133,9 @@ public class DialogManager : MonoBehaviour
         ShopView dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
         // dialog.transform.SetParent(this.GetComponent<RectTransform>());
         initDialog(dialog.gameObject);
-
+     
         ViewManager.instance.openView(dialog);
+        
         return dialog;
     }
 

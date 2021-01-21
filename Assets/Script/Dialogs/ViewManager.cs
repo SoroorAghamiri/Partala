@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class ViewManager : MonoBehaviour
 {
+    public GameObject uiBs =null;
+
     private static ViewManager _instance;
     public static ViewManager instance
     {
@@ -28,6 +30,12 @@ public class ViewManager : MonoBehaviour
     void Awake()
     {
         this.viewStackManagement = new viewStackManagement();
+        if(uiBs == null){
+        GameObject gmGO = GameObject.Find("GameManger");
+        GameObject uiPA = gmGO.transform.Find("UI PA").gameObject;
+        uiBs = uiPA.transform.Find("UI").gameObject;
+        Debug.Log("Found uiBs");
+        }
     }
 
     public void registerView(ViewObject view)
@@ -42,6 +50,10 @@ public class ViewManager : MonoBehaviour
         if (getLastView() != view)
         {
             viewStackManagement.pushToStack(view);
+            if(view.gameObject.name == "ShopPanel(Clone)" ){
+                if(uiBs != null)
+                    uiBs.SetActive(false);
+            }
 
             view.openView();
 
@@ -67,6 +79,9 @@ public class ViewManager : MonoBehaviour
             {
                 Destroy(getBlur());
             }
+            if(!uiBs.active){
+            uiBs.SetActive(true);
+        }
             ViewObject oldView = viewStackManagement.popFromStack();
             ViewObject view = viewStackManagement.getLastView();
 
@@ -92,6 +107,9 @@ public class ViewManager : MonoBehaviour
             {
                 Destroy(getBlur());
             }
+            if(!uiBs.active){
+            uiBs.SetActive(true);
+        }
             view.closeView();
             viewStackManagement.removeView(view);
         }
