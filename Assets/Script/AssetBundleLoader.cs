@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -9,6 +10,10 @@ public class AssetBundleLoader : MonoBehaviour
     public string AssetName;
     public string hashCode;
     public uint crc;
+
+    private GameManger myGameManger;
+    private WinCheckerMoreThan2Objects winchecker;
+    private TouchManager touchManager;
 
     // Start is called before the first frame update
     //private void Awake()
@@ -26,6 +31,9 @@ public class AssetBundleLoader : MonoBehaviour
     //}
     private void Start()
     {
+        myGameManger = FindObjectOfType<GameManger>();
+        winchecker = FindObjectOfType<WinCheckerMoreThan2Objects>();
+        touchManager = FindObjectOfType<TouchManager>();
         StartCoroutine(DownloadAndCache());
     }
     IEnumerator DownloadAndCache()
@@ -53,28 +61,24 @@ public class AssetBundleLoader : MonoBehaviour
                 // Get downloaded asset bundle
                 AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(uwr);
                 var prefab = bundle.LoadAsset<GameObject>("Episode2.Level16");
-                Instantiate(prefab, transform);
+
+                Instantiate(prefab, transform.position, Quaternion.identity, transform);
+
+                CallScripts();
                 //Implement Calling Other Scripts
             }
         }
     }
-    //    //using (WWW www = WWW.LoadFromCacheOrDownload(BundleURL, version))
-    //    //{
-    //    //    yield return www;
-    //    //    if (www.error != null)
-    //    //    {
-    //    //        Debug.Log("WWW download had an error:" + www.error);
-    //    //    }
 
-    //    //    AssetBundle bundle = www.assetBundle;
-    //    //    //if (AssetName == "")
-    //    //    //    Instantiate(bundle.mainAsset);
-    //    //    //else
-    //    //    var prefab = bundle.LoadAsset<GameObject>("Episode2.Level16");
-    //    //        Instantiate(prefab,transform);
-    //    //    // Unload the AssetBundles compressed contents to conserve memory
-    //    //    bundle.Unload(false);
+    private void CallScripts()
+    {
+        myGameManger.GetComponent<GameManger>().enabled = true;
+        
+        touchManager.GetComponent<TouchManager>().ABActive = true;
+        touchManager.GetComponent<TouchManager>().enabled = true;
 
-    //    //} // memory is freed from the web stream (www.Dispose() gets called implicitly)
-    //}
+        winchecker.GetComponent<WinCheckerMoreThan2Objects>().ABActive = true;
+        winchecker.GetComponent<WinCheckerMoreThan2Objects>().enabled = true;
+    }
+
 }

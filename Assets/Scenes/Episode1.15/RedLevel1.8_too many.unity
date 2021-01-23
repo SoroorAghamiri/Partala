@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 54376252}
   m_Layer: 0
   m_Name: Balloon4
-  m_TagString: Untagged
+  m_TagString: WrongComponent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -710,6 +710,7 @@ MonoBehaviour:
   rotate: 0
   speedMove: 15
   speedRot: 15
+  ABActive: 0
 --- !u!4 &450896243
 Transform:
   m_ObjectHideFlags: 0
@@ -1501,6 +1502,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107877409739082358, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7209126867977774930, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
@@ -3341,6 +3347,7 @@ MonoBehaviour:
   - 0.48
   allowanceForObjects: 0.5
   allowanceForLockers: 0.1
+  ABActive: 0
 --- !u!1 &1295496607
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class TouchManager : MonoBehaviour
 {
@@ -18,9 +19,18 @@ public class TouchManager : MonoBehaviour
 
     [SerializeField] private float speedMove = 15f;
     [SerializeField] private float speedRot = 15f;
+
+
+    public bool ABActive = false;
     // Start is called before the first frame update
     void Start()
     {
+        if(ABActive)
+        {
+            var mainComponents = GameObject.FindGameObjectsWithTag("MainComponent");
+            var wrongComponenets = GameObject.FindGameObjectsWithTag("WrongComponent");
+            objects = mainComponents.Concat(wrongComponenets).ToArray();
+        }
         collider2DObjects = new Collider2D[objects.Length];
         for (int i = 0; i < objects.Length; i++)
         {

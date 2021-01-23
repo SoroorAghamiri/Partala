@@ -145,7 +145,7 @@ public class DataManager : MonoBehaviour
         return playerData.episode;
     }
 
-    public int GetLevel(int episode)
+    public int GetLevel(int episode) //Works With Episode Itself Should Think of A Standard Way of Doing This
     {
         return playerData.levelinEpisode[episode - 1];
     }

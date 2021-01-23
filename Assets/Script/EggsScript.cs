@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class EggsScript : MonoBehaviour
 {
-    public int count;
+    private int count;
     private GameObject eggs;
     [SerializeField] private int winnableCount;
     private int firstEgg;
     private int secondEgg;
     private CollisionChecker myCollider;
 
+    private bool bothEggsAreActive; 
+
     // Start is called before the first frame update
     void Start()
     {
-        
-        myCollider =GameObject.Find("Panel2").GetComponent<CollisionChecker>();
+        bothEggsAreActive = false;
+        myCollider = GameObject.Find("Panel2").GetComponent<CollisionChecker>();
         eggs = GameObject.Find("Eggs");
-        switch(winnableCount)
+        switch (winnableCount)
         {
             case 2:
                 firstEgg = 1;
@@ -48,27 +50,37 @@ public class EggsScript : MonoBehaviour
 
     private void SettingFirst2Eggs()
     {
-        count =myCollider.FetchCorrectObjects();
-        if(count<firstEgg) 
+        count = myCollider.FetchCorrectObjects();
+        if (count < firstEgg)
         {
-             eggs.transform.GetChild(0).gameObject.SetActive(false);
-             eggs.transform.GetChild(1).gameObject.SetActive(false); 
+            bothEggsAreActive = false;
+            eggs.transform.GetChild(0).gameObject.SetActive(false);
+            eggs.transform.GetChild(1).gameObject.SetActive(false);
         }
-        else if (count>=firstEgg && count<secondEgg)
+        else if (count >= firstEgg && count < secondEgg)
         {
+            bothEggsAreActive = false;
 
             eggs.transform.GetChild(0).gameObject.SetActive(true);
-            
-             eggs.transform.GetChild(1).gameObject.SetActive(false);
-             
+
+            eggs.transform.GetChild(1).gameObject.SetActive(false);
+
         }
-        else if(count>=secondEgg)
+        else if (count >= secondEgg)
         {
-            
-           
+
+
             eggs.transform.GetChild(0).gameObject.SetActive(true);
-          
+
             eggs.transform.GetChild(1).gameObject.SetActive(true);
+
+            bothEggsAreActive = true;
         }
+    }
+
+
+    public bool CheckBothEggsAreActive()
+    {
+        return bothEggsAreActive;
     }
 }

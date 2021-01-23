@@ -22,9 +22,15 @@ public class WinCheckerMoreThan2Objects : MonoBehaviour
     [SerializeField] float allowanceForLockers = 0.1f;
     private int index = -1;
     private GameObject[] mainComponents;
+
+    public bool ABActive = false;
     // Start is called before the first frame update
     void Start()
     {
+        if(ABActive)
+        {
+            colliderPoints = GameObject.FindGameObjectsWithTag("ColliderPoint");
+        }
         gameManger = GameObject.FindObjectOfType<GameManger>();
         flagWin = false;
         listOfCPs = new List<GameObject>();

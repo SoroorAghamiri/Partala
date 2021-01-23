@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -217,6 +217,11 @@ PrefabInstance:
         type: 3}
       propertyPath: episodeNumber
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871607761029695119, guid: 1fbcd06c94ede12449b181aec69479c5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5069681111725796370, guid: 1fbcd06c94ede12449b181aec69479c5,
         type: 3}
@@ -367,7 +372,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 2171674}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2df872841e7d3874e8ae5033bedf79be, type: 3}
   m_Name: 
@@ -574,7 +579,7 @@ PrefabInstance:
     - target: {fileID: 5101966357536151847, guid: 710d726d661841f4991ea4c0d84f87a0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5101966357536151846, guid: 710d726d661841f4991ea4c0d84f87a0, type: 3}
@@ -592,7 +597,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886849195}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfcd41282db2b864bb37da36843c2158, type: 3}
   m_Name: 
@@ -635,6 +640,7 @@ MonoBehaviour:
   - 2.840285
   allowanceForObjects: 0.35
   allowanceForLockers: 0.1
+  ABActive: 0
 --- !u!1001 &1083012725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -853,7 +859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed00606b4e33a474a9cfe29d80429ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BundleURL: https://file.io/Bum8RSVZGOT8
+  BundleURL: https://file.io/2QyURgAUgOzN
   AssetName: episode2level16
   hashCode: 81a74b266d3cc714f3df7c8a265f7a57
   crc: 4123466794
@@ -865,7 +871,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716642512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.67, y: 1.99, z: 0}
+  m_LocalPosition: {x: -1.35, y: 2.21, z: -148.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 335091336}
@@ -896,7 +902,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969542824}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd2308d760d47764e9532b491cecf180, type: 3}
   m_Name: 
@@ -916,6 +922,7 @@ MonoBehaviour:
   rotate: 0
   speedMove: 15
   speedRot: 15
+  ABActive: 0
 --- !u!4 &1969542826
 Transform:
   m_ObjectHideFlags: 0
@@ -996,6 +1003,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4151001155239046347, guid: e8f2461528ab8d645a167012883ed700,
+        type: 3}
+      propertyPath: winnableCount
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8f2461528ab8d645a167012883ed700, type: 3}

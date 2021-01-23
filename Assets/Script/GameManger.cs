@@ -98,7 +98,6 @@ public class GameManger : MonoBehaviour
         // ShowNumberOfFeathers();
         LevelFactor();
         SettingInitialValues();
-        AddingListenersToButtons();
         FindCorrectEpisodeNumberAndLevel();
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Episode " + episodeNumber.ToString(), "Level " + levelNumberInEpisode.ToString());
 
@@ -114,16 +113,12 @@ public class GameManger : MonoBehaviour
             {
                 levelNumberInEpisode = currentSceneIndex - DataManager.Instance.ReturnBuildIndexByEpisodeNumber(i);
                 episodeNumber = i;
-                Debug.Log("episodeNumber ;" + episodeNumber);
-                Debug.Log("levelNumber :" + levelNumberInEpisode);
                 return;
             }
         }
         episodeNumber= DataManager.Instance.ReturnSizeOfBuildIndexList() -1;
         levelNumberInEpisode = currentSceneIndex - DataManager.Instance.ReturnBuildIndexByEpisodeNumber(episodeNumber);
-        Debug.Log("EndOfBuildIndexes");
-        Debug.Log("episodeNumber ;" + episodeNumber);
-        Debug.Log("levelNumber :" + levelNumberInEpisode);
+
     }
 
     private void SettingInitialValues()
@@ -134,17 +129,6 @@ public class GameManger : MonoBehaviour
         winFlagChangedByWinChecker = false;////
         wintoggler = true;
         Colliderpoint = GameObject.FindGameObjectsWithTag("ColliderPoint");
-    }
-
-    //I believe this method is not required. We alreadyn have a code to handle settingPanel.
-    private void AddingListenersToButtons()
-    {
-        // buttons[0].onClick.AddListener(Onpause);/////Fatal
-        //buttons[1].onClick.AddListener(OnPlay);
-        //buttons[2].onClick.AddListener(OnHome);
-        //buttons[3].onClick.AddListener(OnRestart);
-        // buttons[4].onClick.AddListener(OnMusic);
-        // buttons[5].onClick.AddListener(OnSound);
     }
 
     void Update()
@@ -165,13 +149,15 @@ public class GameManger : MonoBehaviour
     {
         if (!wrongObjects)
         {
-            if (winFlagChangedByWinChecker == true)
+            if (winFlagChangedByWinChecker == true && myEggsScript.CheckBothEggsAreActive())
             {
 
                 myEggsScript.SetLastEgg();
                 if (wintoggler)
                 {
                     GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Episode " + episodeNumber.ToString(), "Level " + levelNumberInEpisode.ToString());
+
+
                     if (DataManager.Instance.GetLevel(episodeNumber) == levelNumberInEpisode)
                     {
                         DataManager.Instance.SetLevel(DataManager.Instance.GetLevel(episodeNumber) + 1, episodeNumber);
@@ -231,75 +217,31 @@ public class GameManger : MonoBehaviour
 
 
         if(NextLevelname.Length == 0)
+        {
+            Debug.Log(episodeNumber);
             AdManager.Instance.AdShow(episodeNumber - 1);
+        }
+            
 
         // if (!Array.Exists(simorghLevels, element => element == levelNumberInEpisode) || !Array.Exists(witchLevels, element => element == levelNumberInEpisode))
         next_level();
     }
-    private void Onpause()
-    {
-        if (toggel_puase == false && panelIsActive == false)
-        {
-            PanelActivation();
-            Puase_panel.gameObject.SetActive(true);
-            toggel_puase = true;
-            Debug.Log(toggel_puase);
-            buttons[0].GetComponent<AudioSource>().Play();
-
-
-        }
-        else if (toggel_puase == true && panelIsActive == true)
-        {
-            PanelDeactivation();
-            Puase_panel.gameObject.SetActive(false);
-            toggel_puase = false;
-            buttons[0].GetComponent<AudioSource>().Play();
-        }
-
-
-
-
-    }
-
-    private void PanelDeactivation()
-    {
-        panelIsActive = false;
-        Time.timeScale = 1;/////Fatal
-    }
-
-    private void PanelActivation()
-    {
-        panelIsActive = true;
-        Time.timeScale = 0;/////Fatal
-    }
+    
 
     private void OnPlay()
     {
         if (panelIsActive == true)
         {
             Puase_panel.gameObject.SetActive(false);
-            PanelDeactivation();
+
             toggel_puase = false;
             buttons[0].GetComponent<AudioSource>().Play();
         }
 
     }
-    private void OnRestart()
-    {
-        PanelDeactivation();
-        buttons[2].GetComponent<AudioSource>().Play();
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        PersistentSceneManager.instance.LoadScene(buildIndexofCurrent, false);
-    }
 
 
-    public void OnHome()
-    {
-        PanelDeactivation();
-        buttons[2].gameObject.GetComponent<AudioSource>().Play();
-        Invoke("OnHome", buttons[2].gameObject.GetComponent<AudioSource>().clip.length);
-        PersistentSceneManager.instance.LoadScene(1, true);
-    }
+
 
     public void GoBackToLevelSelect()
     {
