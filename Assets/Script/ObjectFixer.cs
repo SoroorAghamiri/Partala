@@ -27,7 +27,7 @@ public class ObjectFixer : MonoBehaviour
 
         touchManager = (TouchManager)FindObjectOfType(typeof(TouchManager));
 
-        SortArrays(correctObj, correctPosition);
+        correctPosition = SortArrays(correctObj, correctPosition);
 
         GetTheTransforms(correctObj, correctObjTrs);
         GetTheTransforms(correctPosition, correctPosTrs);
@@ -66,7 +66,7 @@ public class ObjectFixer : MonoBehaviour
         }
     }
 
-    void SortArrays(GameObject[] a, GameObject[] b)
+    public GameObject[] SortArrays(GameObject[] a, GameObject[] b)
     {
         int i = 0;
         int j = 0;
@@ -87,6 +87,8 @@ public class ObjectFixer : MonoBehaviour
         }
         for (j = 0; j < a.Length; j++)
             b[j] = temp[j];
+
+        return b;
     }
 
     void GetTheTransforms(GameObject[] obj, Transform[] trns)
