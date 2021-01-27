@@ -11,6 +11,8 @@ public class DataManager : MonoBehaviour
     public bool debug = false;
     private string file = "player.txt";
     public int lastSceneIndex = 0;
+
+    private AssetBundle currentAssetBundle;
     private void Awake()
     {
 
@@ -229,5 +231,15 @@ public class DataManager : MonoBehaviour
             Save();
     }
 
+
+    public void SetAssetBundle(AssetBundle assetBundle)
+    {
+        currentAssetBundle = assetBundle;
+    }
+
+    public AssetBundle GetAssetBundle()
+    {
+        return currentAssetBundle;
+    }
 }
 
