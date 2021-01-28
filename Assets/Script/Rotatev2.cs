@@ -29,21 +29,17 @@ public class Rotatev2 : MonoBehaviour
         correctPos = objfixer.SortArrays(correctObj , correctPos);
 
         correctAngle = FindRotateable(correctObj , correctPos);
-        // Debug.Log("correct Angle = " + correctAngle);
     }
 
 
     private void OnTriggerEnter2D(Collider2D other) {
-        // Debug.Log("1.Other's name: "+ other.gameObject.name);
         if(GameObject.ReferenceEquals(other.gameObject , rotateable)){
-            // Debug.Log("Succeed");
-            RotateRotateable();
+            StartCoroutine(ReceiveObj(rotateable));
             StartCoroutine(ThrowOut(rotateable));
         }else if(other.gameObject.tag != "ColliderPoint")
         {
             selected = other.gameObject;
-            // Debug.Log("Failed");
-            // Debug.Log("On Object " + other.gameObject.name);
+            StartCoroutine(ReceiveObj(selected));
             StartCoroutine(ThrowOut(selected));
         }
     }
@@ -52,9 +48,8 @@ public class Rotatev2 : MonoBehaviour
     private float FindRotateable(GameObject[] toCheck , GameObject[] reference){
         for(int i = 0 ; i < toCheck.Length ;i++){
             float end = reference[i].transform.localEulerAngles.z;
-
             float ch = toCheck[i].transform.localEulerAngles.z;
-            // Debug.Log("reference angle: "+ end + " tocheck angle: " + ch);
+         
             if(end != ch){
                 rotateable = toCheck[i];
                 return end;
@@ -63,9 +58,15 @@ public class Rotatev2 : MonoBehaviour
         return 0;
     }
 
-    //Change to private when collision detected
-    public void RotateRotateable(){
-        rotateable.transform.rotation = Quaternion.Euler(new Vector3(0 , 0 , correctAngle));
+ 
+    
+
+    private IEnumerator ReceiveObj(GameObject receivable){
+        iTween.ScaleTo(receivable , Vector3.zero, 0.8f);
+        yield return new WaitForSeconds(1);
+        if(GameObject.ReferenceEquals(receivable , rotateable)){
+            rotateable.transform.rotation = Quaternion.Euler(new Vector3(0 , 0 , correctAngle));
+        }
     }
 
     private IEnumerator ThrowOut(GameObject throwable){
@@ -73,9 +74,11 @@ public class Rotatev2 : MonoBehaviour
         //Play Animation
         float xtobe = Random.Range(minRandX , maxRandX);
         float ytobe = Random.Range(minRandY , maxRandY);
-        // Debug.Log("random x:" + xtobe + " random y: "+ytobe);
+      
+        iTween.ScaleTo(throwable , Vector3.one, 0.2f);
         Vector3 dest = new Vector3(xtobe , ytobe , 0);
         // throwable.transform.Translate(dest * Time.deltaTime , Space.World);
+        //Can later be replaced by iTween.MoveTo
         throwable.transform.localPosition = dest;
     }
 }
