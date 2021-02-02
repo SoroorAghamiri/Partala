@@ -17,6 +17,6 @@ public class TestLevelLoader : MonoBehaviour
     }
     public void LoadLevel(int buildIndex)
     {
-
+        PersistentSceneManager.instance.LoadScene(buildIndex, false);
     }
 }
