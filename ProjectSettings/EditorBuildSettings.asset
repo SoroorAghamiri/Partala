@@ -167,4 +167,37 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Episode2.15/AssetBundleTest.unity
     guid: 0e3e7269ca69f1d49b96528346222c8a
+  - enabled: 1
+    path: Assets/Scenes/LevelSelect4.unity
+    guid: 3f6fba8bec7426a4d808e634f2651074
+  - enabled: 1
+    path: Assets/Scenes/Episode4/Level1.unity
+    guid: 33b8aec40a56c79459c0326403c86d5f
+  - enabled: 1
+    path: Assets/Scenes/Episode4/Level2.unity
+    guid: a9fb4d51a3e8afd418ec2c95ec41bda1
+  - enabled: 1
+    path: Assets/Scenes/Episode4/Level3.unity
+    guid: b8752d6734329a5499cb0064fb911830
+  - enabled: 1
+    path: Assets/Scenes/Episode4/Level4.unity
+    guid: 50db881a374e3584fb9b6c2f851efb25
+  - enabled: 1
+    path: Assets/Scenes/Episode4/Level5.unity
+    guid: 10fcb46881662924a8e9be0a862d26a5
+  - enabled: 1
+    path: Assets/Scenes/Episode4/Level6.unity
+    guid: 71e1d73680129fb4991e31ab212b9900
+  - enabled: 1
+    path: Assets/Scenes/Episode4/Level7.unity
+    guid: 545d59560ffb54b4397f427b60268238
+  - enabled: 1
+    path: Assets/Scenes/Episode4/Level8.unity
+    guid: 6692ad3429c35a448bb08248b7ef4240
+  - enabled: 1
+    path: Assets/Scenes/Episode4/Level9.unity
+    guid: ed5e77d25f463b74aac337db087de373
+  - enabled: 1
+    path: Assets/Scenes/Episode4/Level10.unity
+    guid: a689c679683b20b43a70405fb1c648b7
   m_configObjects: {}
