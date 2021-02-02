@@ -33,6 +33,10 @@ public class EggsScript : MonoBehaviour
                 firstEgg = 2;
                 secondEgg = 4;
                 break;
+            case 5:
+                firstEgg = 2;
+                secondEgg = 5;
+                break;
 
         }
     }
