@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class TouchManager : MonoBehaviour
 {
@@ -16,10 +17,12 @@ public class TouchManager : MonoBehaviour
     private bool offsetAngleIsSet;
     private float offsetAngle;
     private RotateButtonInGame rotateButton;
+    private Vector3 offsetPosition;
 
     [SerializeField] private float speedMove = 15f;
     [SerializeField] private float speedRot = 15f;
 
+    
 
     public bool ABActive = false;
     // Start is called before the first frame update
@@ -34,6 +37,11 @@ public class TouchManager : MonoBehaviour
         collider2DObjects = new Collider2D[objects.Length];
         for (int i = 0; i < objects.Length; i++)
         {
+            if(objects[i].GetComponent<Collider2D>()==null)
+            {
+                collider2DObjects[i] = null;
+                continue;
+            }
             collider2DObjects[i] = objects[i].GetComponent<Collider2D>();
         }
         movingFingerID = -1;
@@ -70,11 +78,15 @@ public class TouchManager : MonoBehaviour
             }
             for (int i = 0; i < collider2DObjects.Length; i++)
             {
+                if(collider2DObjects[i]==null){ continue; }
+
                 if (collider2DObjects[i] == Physics2D.OverlapPoint(touchPosition))
                 {
+
                     activeGameObject = objects[i];
                     // print("Active object in touch manager:" + activeGameObject.name);
                     movingFingerID = touch.fingerId;
+                    SetOffsetPosition(movingFingerID);
                 }
             }
             
@@ -91,6 +103,15 @@ public class TouchManager : MonoBehaviour
             rotate = false;
             movingFingerID = -1;
         }
+    }
+
+    private void SetOffsetPosition(int movingFingerID)
+    {
+        Touch touch = Input.GetTouch(movingFingerID);
+        Vector3 newPos = new Vector3(Camera.main.ScreenToWorldPoint(Input.GetTouch(movingFingerID).position).x,
+                                    Camera.main.ScreenToWorldPoint(Input.GetTouch(movingFingerID).position).y,
+                                    activeGameObject.transform.position.z);
+        offsetPosition = newPos - activeGameObject.transform.position;
     }
 
     private Vector2 NormalizeTouchPosition(Vector2 touchPositionUnnormal)
@@ -110,10 +131,11 @@ public class TouchManager : MonoBehaviour
         Vector3 newPos = new Vector3(Camera.main.ScreenToWorldPoint(Input.GetTouch(indexofTouch).position).x,
                                     Camera.main.ScreenToWorldPoint(Input.GetTouch(indexofTouch).position).y,
                                     activeGameObject.transform.position.z);
-        activeGameObject.transform.position = Vector3.Lerp(activeGameObject.transform.position, newPos, speedMove * Time.deltaTime);
+
+        activeGameObject.transform.position = Vector3.Lerp(activeGameObject.transform.position, newPos-offsetPosition, speedMove * Time.deltaTime);
         if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
         {
-            activeGameObject.transform.position = Vector3.Lerp(activeGameObject.transform.position, newPos, speedMove * Time.deltaTime);
+            activeGameObject.transform.position = Vector3.Lerp(activeGameObject.transform.position, newPos-offsetPosition, speedMove * Time.deltaTime);
             movingFingerID = -1;
         }
     }
