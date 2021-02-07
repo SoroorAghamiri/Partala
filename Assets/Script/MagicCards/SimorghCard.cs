@@ -55,9 +55,9 @@ public class SimorghCard : DialogBase
     }
     public void addPoints()
     {
-        DataManager.Instance.SetFeather(DataManager.Instance.GetFeather() + 1);
+        DataManager.Instance.SetGoldenCard(DataManager.Instance.GetGoldenCard() + 1);
         DataManager.Instance.Save();
         //Play the animation or anything else that must happen while showing the dialog. Add the code here
-        GameManger.Instans.next_level();
+        GameManger.Instans.next_level();//I guess this line has to change
     }
 }

@@ -55,7 +55,7 @@ public class GameManger : MonoBehaviour
     private float timer = 0f;
 
     //private LevelLoader mylevelLoader;
-    private int[] simorghLevels = { 5, 8, 12 };
+    private int[] simorghLevels = { 7 , 15 };
     private int[] witchLevels = { 4, 7, 13 };
     ///Too much shit happening at the same time
     /// </summary>
@@ -167,14 +167,14 @@ public class GameManger : MonoBehaviour
                     }
                     //Calling Cards
                     // print("level number" + levelNumberInEpisode);
-                    // foreach (int ii in simorghLevels)
-                    // {
-                    //     if (levelNumberInEpisode == ii)
-                    //     {
-                    //         showSimorghCard();
-                    //         break;
-                    //     }
-                    // }
+                    foreach (int ii in simorghLevels)
+                    {
+                        if (levelNumberInEpisode == ii)
+                        {
+                            showSimorghCard();
+                            break;
+                        }
+                    }
                     // foreach (int ii in witchLevels)
                     // {
                     //     if (levelNumberInEpisode == ii)
@@ -321,7 +321,7 @@ public class GameManger : MonoBehaviour
         GameObject childOfCC = cc.transform.Find("UI PA").gameObject;
         GameObject cOfCOfCC = childOfCC.transform.Find("Canvas").gameObject;
 
-        dialog.transform.SetParent(cOfCOfCC.GetComponent<RectTransform>());
+        dialog.transform.SetParent(cOfCOfCC.GetComponent<RectTransform>() , false);
 
 
 

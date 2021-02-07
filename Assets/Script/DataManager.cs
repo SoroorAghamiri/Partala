@@ -241,5 +241,15 @@ public class DataManager : MonoBehaviour
     {
         return currentAssetBundle;
     }
+
+     public void SetGoldenCard(int gCard)
+    {
+        playerData.goldenCard = gCard;
+    }
+
+    public int GetGoldenCard()
+    {
+        return playerData.goldenCard;
+    }
 }
 

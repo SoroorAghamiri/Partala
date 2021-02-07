@@ -5103,10 +5103,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.07, y: 0.13141666}
-  m_AnchorMax: {x: 0.90125006, y: 0.83100003}
-  m_AnchoredPosition: {x: 2.2000122, y: 2.399994}
-  m_SizeDelta: {x: 0.40081787, y: 3.9962463}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1596.4009, y: 758.9962}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6140946393561359075
 CanvasRenderer:
@@ -5161,6 +5161,10 @@ MonoBehaviour:
   dialogObject: {fileID: 6825498298693910543}
   closeButtons: []
   canClose: 1
+  y: 0
+  back: {fileID: 0}
+  timer: 0
+  showEmptyCard: 0
 --- !u!1 &7797900935163386892
 GameObject:
   m_ObjectHideFlags: 0
