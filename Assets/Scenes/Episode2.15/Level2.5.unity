@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1049,7 +1049,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 546256286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.509, y: 0.962, z: 143.91165}
+  m_LocalPosition: {x: -5.498, y: 0.956, z: 143.91165}
   m_LocalScale: {x: 0.62343, y: 0.62343, z: 0.62343}
   m_Children:
   - {fileID: 922090909}
@@ -1101,6 +1101,7 @@ MonoBehaviour:
   rotate: 0
   speedMove: 15
   speedRot: 15
+  ABActive: 0
 --- !u!4 &574917904
 Transform:
   m_ObjectHideFlags: 0
@@ -1498,7 +1499,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858218775}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -2.235, y: -1.35, z: 143.91165}
+  m_LocalPosition: {x: -2.24, y: -1.405, z: 143.91165}
   m_LocalScale: {x: 0.62343, y: 0.62343, z: 0.62343}
   m_Children:
   - {fileID: 192868808}
@@ -1759,6 +1760,44 @@ MonoBehaviour:
   - 3.460756
   allowanceForObjects: 0.59
   allowanceForLockers: 0.1
+  ABActive: 0
+--- !u!114 &886849197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886849195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfcd41282db2b864bb37da36843c2158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flagWin: 0
+  setup: 0
+  colliderPoints:
+  - {fileID: 192868809}
+  - {fileID: 787573428}
+  - {fileID: 922090910}
+  - {fileID: 1074360484}
+  - {fileID: 874155085}
+  - {fileID: 96570185}
+  distancesInFloat:
+  - 2.85157
+  - 1.682957
+  - 2.27403
+  - 0.7261986
+  - 1.908764
+  - 2.432557
+  - 1.249841
+  - 1.504887
+  - 3.139357
+  - 2.530912
+  - 1.195601
+  - 0.9162315
+  allowanceForObjects: 0.98
+  allowanceForLockers: 0.1
+  ABActive: 0
 --- !u!1 &895425550
 GameObject:
   m_ObjectHideFlags: 0
@@ -2836,7 +2875,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744022411}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.63, y: -4.61, z: 143.91165}
+  m_LocalPosition: {x: -4.66, y: -4.56, z: 143.91165}
   m_LocalScale: {x: 0.45885697, y: 0.45885697, z: 0.45885697}
   m_Children:
   - {fileID: 874155084}
