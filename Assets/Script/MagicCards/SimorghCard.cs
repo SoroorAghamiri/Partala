@@ -57,7 +57,9 @@ public class SimorghCard : DialogBase
     {
         DataManager.Instance.SetGoldenCard(DataManager.Instance.GetGoldenCard() + 1);
         DataManager.Instance.Save();
-        //Play the animation or anything else that must happen while showing the dialog. Add the code here
-        GameManger.Instans.next_level();//I guess this line has to change
+        Debug.Log("Point added");
+        //TODO: For CardTutorial move to puzzle scene, else move to next level
+        PersistentSceneManager.instance.LoadScene(SceneNames.JigsawPuzzle, false);
+
     }
 }
