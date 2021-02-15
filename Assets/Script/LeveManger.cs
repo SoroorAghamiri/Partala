@@ -35,7 +35,6 @@ public class LeveManger : MonoBehaviour
         {
             buildIndexofCurrent = SceneManager.GetSceneByName(buildIndexofCurrent).buildIndex;
         }
-        SetupListOfBuildIndex();
         audioSource = this.GetComponent<AudioSource>();
 
         for (int i = 0; i < levelButtons.Length; i++)
@@ -55,33 +54,16 @@ public class LeveManger : MonoBehaviour
         //         }
         //     }
         UnlockLevelsTillPlayerProgesss();
-
+        DataManager.Instance.SetCurrentEpisodeIndex(buildIndexofCurrent);
+        DataManager.Instance.SetCurrentEpisode(currentEpisode);
     }
 
-    private void SetupListOfBuildIndex()
-    {
-        if (DataManager.Instance.ReturnSizeOfBuildIndexList() == 0)//If The List Is Completely Empty
-        {
-            DataManager.Instance.AddbuildIndexToListOfBuildIndex(0);
-        }
-        if (DataManager.Instance.ReturnSizeOfBuildIndexList() == currentEpisode)//Meaning This is The First Time Entering This LevelSelector
-        {
-            DataManager.Instance.AddbuildIndexToListOfBuildIndex(buildIndexofCurrent);
-        }
-        else
-        {
-            if (DataManager.Instance.ReturnBuildIndexByEpisodeNumber(currentEpisode) != buildIndexofCurrent)
-            {
-                DataManager.Instance.SetBuildIndexByEpisodeNumber(currentEpisode, buildIndexofCurrent);
-            }
-        }
-    }
-
+    
     public void UnlockLevelsTillPlayerProgesss()
     {
         var levelUnlock = DataManager.Instance.GetLevel(currentEpisode);
 
-        for (int i = 0; i < levelUnlock; i++) 
+        for (int i = 0; i < levelUnlock && i<levelButtons.Length; i++) 
         {
             levelButtons[i].interactable = true;
     

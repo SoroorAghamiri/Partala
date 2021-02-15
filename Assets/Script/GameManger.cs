@@ -106,18 +106,9 @@ public class GameManger : MonoBehaviour
     private void FindCorrectEpisodeNumberAndLevel()
     {
         var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        var lastEpisodeNumber = DataManager.Instance.ReturnSizeOfBuildIndexList();
-        for(int i=1;i<DataManager.Instance.ReturnSizeOfBuildIndexList()-1;i++)
-        {
-            if(DataManager.Instance.ReturnBuildIndexByEpisodeNumber(i) < currentSceneIndex && currentSceneIndex < DataManager.Instance.ReturnBuildIndexByEpisodeNumber(i+1))
-            {
-                levelNumberInEpisode = currentSceneIndex - DataManager.Instance.ReturnBuildIndexByEpisodeNumber(i);
-                episodeNumber = i;
-                return;
-            }
-        }
-        episodeNumber= DataManager.Instance.ReturnSizeOfBuildIndexList() -1;
-        levelNumberInEpisode = currentSceneIndex - DataManager.Instance.ReturnBuildIndexByEpisodeNumber(episodeNumber);
+        var currentEpisodeIndex = DataManager.Instance.GetCurrentEpisodeIndex();
+        episodeNumber = DataManager.Instance.GetCurrentEpisode();
+        levelNumberInEpisode = currentSceneIndex - currentEpisodeIndex;
 
     }
 

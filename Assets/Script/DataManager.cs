@@ -12,6 +12,9 @@ public class DataManager : MonoBehaviour
     private string file = "player.txt";
     public int lastSceneIndex = 0;
 
+    private int buildIndexOfCurrentEpisode;
+    private int currentEpisode;
+
     private AssetBundle currentAssetBundle;
     private void Awake()
     {
@@ -26,18 +29,14 @@ public class DataManager : MonoBehaviour
             Destroy(gameObject);
         }
         Load();
-        SetBuildIndexesOfLevelSelectors();//Setting build indexes of Level Selectors, Just Change it Later
+
       //  UnlockAllLevels();
         Save();
     }
 
     private void SetBuildIndexesOfLevelSelectors()
     {
-        playerData.buildIndexOfLevelSelectors.Clear();
-        playerData.buildIndexOfLevelSelectors.Add(0);//just add this for not using the 0 index
-        playerData.buildIndexOfLevelSelectors.Add(5);
-        playerData.buildIndexOfLevelSelectors.Add(21);
-        playerData.buildIndexOfLevelSelectors.Add(37);
+
     }
 
     private void UnlockAllLevels()
@@ -206,23 +205,21 @@ public class DataManager : MonoBehaviour
         else
             return false;
     }
-    public int ReturnSizeOfBuildIndexList()
+    public void SetCurrentEpisodeIndex(int episodeBuildIndex)
     {
-        return playerData.buildIndexOfLevelSelectors.Count;
+        buildIndexOfCurrentEpisode = episodeBuildIndex;
     }
-    public void AddbuildIndexToListOfBuildIndex(int buildIndex)
+    public int GetCurrentEpisodeIndex()
     {
-        playerData.buildIndexOfLevelSelectors.Add(buildIndex);
-        return;
+        return buildIndexOfCurrentEpisode;
     }
-    public int ReturnBuildIndexByEpisodeNumber(int episodeNumber)
+    public void SetCurrentEpisode(int episodeNumber)
     {
-        return playerData.buildIndexOfLevelSelectors[episodeNumber];
+        currentEpisode = episodeNumber;
     }
-    public void SetBuildIndexByEpisodeNumber(int episodeNumber, int buildIndex)
+    public int GetCurrentEpisode()
     {
-        playerData.buildIndexOfLevelSelectors[episodeNumber] = buildIndex;
-        return;
+        return currentEpisode;
     }
     //Saves On pausing for mobile Obviously
     private void OnApplicationPause(bool pause)
