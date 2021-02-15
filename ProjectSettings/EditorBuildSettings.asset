@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Episode1.15/RedLevel1.2.unity
     guid: 857ea57247bd0714594a18df5e7cc967
   - enabled: 1
-    path: Assets/Scenes/Episode1.15/RedLevel1.3.unity
+    path: Assets/Scenes/Episode1.15/RedLevel1.10.unity
     guid: 941d419c95f7e0d4a8839a2f7babaf62
   - enabled: 1
     path: Assets/Scenes/Episode1.15/RedLevel1.4.unity
@@ -51,7 +51,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Episode1.15/RedLevel1.9.unity
     guid: 4f6f605dd4e769a4aa06f31b670cd3b4
   - enabled: 1
-    path: Assets/Scenes/Episode1.15/RedLevel1.10.unity
+    path: Assets/Scenes/Episode1.15/RedLevel1.3.unity
     guid: 16c702715d9e05d4d9d45aa6506519d6
   - enabled: 1
     path: Assets/Scenes/Episode1.15/RedLevel1.11.unity
