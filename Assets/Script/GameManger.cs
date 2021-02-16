@@ -156,16 +156,9 @@ public class GameManger : MonoBehaviour
                         DataManager.Instance.Save();
 
                     }
-                    //Calling Cards
-                    // print("level number" + levelNumberInEpisode);
-                    foreach (int ii in simorghLevels)
-                    {
-                        if (levelNumberInEpisode == ii)
-                        {
-                            showSimorghCard();
-                            break;
-                        }
-                    }
+              
+
+                    
                     // foreach (int ii in witchLevels)
                     // {
                     //     if (levelNumberInEpisode == ii)
@@ -213,7 +206,14 @@ public class GameManger : MonoBehaviour
             AdManager.Instance.AdShow(episodeNumber - 1);
         }
             
-
+        foreach (int ii in simorghLevels)
+        {
+            if (levelNumberInEpisode == ii)
+            {
+                showSimorghCard();
+                break;
+            }
+        }
         // if (!Array.Exists(simorghLevels, element => element == levelNumberInEpisode) || !Array.Exists(witchLevels, element => element == levelNumberInEpisode))
         next_level();
     }
@@ -257,6 +257,7 @@ public class GameManger : MonoBehaviour
         }
         else
         {
+            
             if (episodeNumber == DataManager.Instance.GetEpisode()) 
             {
                 DataManager.Instance.SetEpisode(DataManager.Instance.GetEpisode() + 1);

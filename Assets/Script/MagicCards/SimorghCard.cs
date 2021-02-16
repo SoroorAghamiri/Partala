@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
@@ -12,9 +13,17 @@ public class SimorghCard : DialogBase
     public GameObject back;
     private bool backIsActive = false;
     [SerializeField] private int timer = 0;
-    private float x, z;
+    // private float x, z;
+    [SerializeField]private Button collectB;
+    private GameManger gm;
+
     private void Start()
     {
+        collectB = GameObject.Find("CollectButton").GetComponent<Button>();
+        collectB.interactable = false;
+
+        // gm = GameObject.FindObjectOfType<GameManger>();
+
         StartCoroutine(CalculateFlip());
     }
 
@@ -34,23 +43,22 @@ public class SimorghCard : DialogBase
 
     private IEnumerator CalculateFlip()
     {
-        int i = 0;
         for (int j = 0; j < 2; j++)
         {
-            for (i = 0; i < 180; i++)
+            for (int i = 0; i < 180; i++)
             {
-                yield return new WaitForSeconds(0.01f);
-                transform.Rotate(new Vector3(x, y, z));
+                yield return new WaitForSecondsRealtime(0.005f);
+                transform.Rotate(new Vector3(0, y, 0));
                 timer++;
 
-                if (timer == 90 || timer == -90)//timer == 90 || timer == -90
+                if (timer == 90 || timer == -90)
                 {
                     Flip();
                 }
             }
-            i = 0;
             timer = 0;
         }
+        collectB.interactable = true;
         timer = 0;
     }
     public void addPoints()
@@ -58,8 +66,9 @@ public class SimorghCard : DialogBase
         DataManager.Instance.SetGoldenCard(DataManager.Instance.GetGoldenCard() + 1);
         DataManager.Instance.Save();
         Debug.Log("Point added");
-        //TODO: For CardTutorial move to puzzle scene, else move to next level
-        PersistentSceneManager.instance.LoadScene(SceneNames.JigsawPuzzle, false);
-
+        //If tutorial is not shown, move to puzzle scene
+        // PersistentSceneManager.instance.LoadScene(SceneNames.JigsawPuzzle, false);
+        //If the tutorial is shown, move to next level
+        ViewManager.instance.closeView(this);
     }
 }

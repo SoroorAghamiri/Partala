@@ -17,4 +17,5 @@ public class PlayerData
     public bool initialized = false;
     public List<int> buildIndexOfLevelSelectors = new List<int>();
     public int goldenCard = 0;
+    public bool firstGCard = false;
 }

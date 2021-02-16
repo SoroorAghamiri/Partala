@@ -248,5 +248,14 @@ public class DataManager : MonoBehaviour
     {
         return playerData.goldenCard;
     }
+    public void SetFirstGoldenCard(bool isShown)
+    {
+        playerData.firstGCard = isShown;
+    }
+
+    public bool GetFirstGoldenCard()
+    {
+        return playerData.firstGCard;
+    }
 }
 
