@@ -210,14 +210,17 @@ public class GameManger : MonoBehaviour
         {
             if (levelNumberInEpisode == ii)
             {
-                showSimorghCard();
+                DialogManager.instance.showSimorghCard();
                 break;
+            }else
+            {
+                next_level();
             }
         }
         // if (!Array.Exists(simorghLevels, element => element == levelNumberInEpisode) || !Array.Exists(witchLevels, element => element == levelNumberInEpisode))
-        next_level();
     }
     
+
 
     private void OnPlay()
     {
@@ -271,6 +274,12 @@ public class GameManger : MonoBehaviour
 
     }
 
+    public void puzzleScene(){
+        DataManager.Instance.SetFirstGoldenCard(true);
+        DataManager.Instance.Save();
+         PersistentSceneManager.instance.LoadScene(SceneNames.JigsawPuzzle, false);
+    }
+
     public void WrongObjectDetected()
     {
         wrongObjects = true;
@@ -302,24 +311,7 @@ public class GameManger : MonoBehaviour
         winFlagChangedByWinChecker = true;
     }
 
-    private SimorghCard showSimorghCard()
-    {
-        SimorghCard prefab = Resources.Load<SimorghCard>("Cards/SimorghCard");
-        SimorghCard dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
-
-
-
-        GameObject cc = GameObject.Find("GameManger");
-        GameObject childOfCC = cc.transform.Find("UI PA").gameObject;
-        GameObject cOfCOfCC = childOfCC.transform.Find("Canvas").gameObject;
-
-        dialog.transform.SetParent(cOfCOfCC.GetComponent<RectTransform>() , false);
-
-
-
-        ViewManager.instance.openView(dialog);
-        return dialog;
-    }
+    
 
     private WitchCard showWitchCard(bool empty)
     {

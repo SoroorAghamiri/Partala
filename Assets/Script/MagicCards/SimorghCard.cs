@@ -16,13 +16,14 @@ public class SimorghCard : DialogBase
     // private float x, z;
     [SerializeField]private Button collectB;
     private GameManger gm;
+   
 
     private void Start()
     {
         collectB = GameObject.Find("CollectButton").GetComponent<Button>();
         collectB.interactable = false;
 
-        // gm = GameObject.FindObjectOfType<GameManger>();
+        gm = GameObject.FindObjectOfType<GameManger>();
 
         StartCoroutine(CalculateFlip());
     }
@@ -45,30 +46,33 @@ public class SimorghCard : DialogBase
     {
         for (int j = 0; j < 2; j++)
         {
-            for (int i = 0; i < 180; i++)
+            for (timer = 0; timer < 36; timer++)
             {
-                yield return new WaitForSecondsRealtime(0.005f);
+                yield return new WaitForSecondsRealtime(0.001f);
                 transform.Rotate(new Vector3(0, y, 0));
-                timer++;
 
-                if (timer == 90 || timer == -90)
+                if (timer == 18)
                 {
                     Flip();
                 }
             }
-            timer = 0;
+            
         }
         collectB.interactable = true;
-        timer = 0;
     }
     public void addPoints()
     {
         DataManager.Instance.SetGoldenCard(DataManager.Instance.GetGoldenCard() + 1);
         DataManager.Instance.Save();
-        Debug.Log("Point added");
-        //If tutorial is not shown, move to puzzle scene
-        // PersistentSceneManager.instance.LoadScene(SceneNames.JigsawPuzzle, false);
-        //If the tutorial is shown, move to next level
+ 
+        if(!DataManager.Instance.GetFirstGoldenCard()){
+            gm.puzzleScene();
+        }else
+        {
+            gm.next_level();  
+        }
+        
         ViewManager.instance.closeView(this);
+        
     }
 }

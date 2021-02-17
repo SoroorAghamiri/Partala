@@ -139,4 +139,15 @@ public class DialogManager : MonoBehaviour
         return dialog;
     }
 
+    public SimorghCard showSimorghCard()
+    {
+        showBlur();
+        SimorghCard prefab = Resources.Load<SimorghCard>("Cards/SimorghCard");
+        SimorghCard dialog = Instantiate(prefab, Vector3.zero, Camera.main.transform.rotation);
+        initDialog(dialog.gameObject);
+     
+        ViewManager.instance.openView(dialog);
+        return dialog;
+    }
+
 }
